@@ -1,0 +1,27 @@
+# Build outputs
+.next
+out
+build
+.turbo
+
+# Dependencies
+node_modules
+
+# Locks & metadata
+package-lock.json
+yarn.lock
+pnpm-lock.yaml
+
+# Env & platform
+.vercel
+.husky
+.DS_Store
+
+# TS incremental build info
+*.tsbuildinfo
+
+# Generated types
+.next/types
+
+# Logs
+*.log
