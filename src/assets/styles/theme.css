@@ -1,0 +1,61 @@
+@import "tailwindcss";
+
+:root {
+  --ludus-green-dark: #1d3728;
+  --ludus-green-main: #548443;
+  --ludus-green-lime: #71e256;
+  --ludus-yellow-gold: #e8b739;
+  --ludus-orange: #f07d2c;
+
+  --green-50: #f6f9f4;
+  --green-100: #e9f3e5;
+  --green-200: #d3e6cc;
+  --green-300: #b0d1a4;
+  --green-400: #85b474;
+  --green-500: #639651;
+  --green-600: #548443;
+  --green-700: #3f6134;
+  --green-800: #364e2d;
+  --green-900: #2c4126;
+  --green-950: #152211;
+  --green-foreground: #ffffff;
+
+  --lime-50: #eefde8;
+  --lime-100: #d8facd;
+  --lime-200: #b4f5a1;
+  --lime-300: #85ec6a;
+  --lime-400: #71e255;
+  --lime-500: #3cc41e;
+  --lime-600: #2a9c14;
+  --lime-700: #227714;
+  --lime-800: #215e16;
+  --lime-900: #1e5017;
+  --lime-950: #0a2c07;
+  --lime-foreground: var(--ludus-green-dark);
+
+  --yellow-50: #fcf9ea;
+  --yellow-100: #f9f1c8;
+  --yellow-200: #f4e094;
+  --yellow-300: #edc957;
+  --yellow-400: #e8b739;
+  --yellow-500: #d69a1c;
+  --yellow-600: #b97715;
+  --yellow-700: #945614;
+  --yellow-800: #7b4418;
+  --yellow-900: #69391a;
+  --yellow-950: #3d1d0b;
+  --yellow-foreground: var(--ludus-green-dark);
+
+  --red-50: #fdf3f3;
+  --red-100: #fbe5e5;
+  --red-200: #f8d0d0;
+  --red-300: #f3aeae;
+  --red-400: #ea7f7f;
+  --red-500: #d94343;
+  --red-600: #c93939;
+  --red-700: #a82d2d;
+  --red-800: #8c2828;
+  --red-900: #752727;
+  --red-950: #3f1010;
+  --red-foreground: #ffffff;
+}

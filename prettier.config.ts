@@ -1,10 +1,10 @@
-import { type Config } from "prettier"
+import { type Config } from "prettier";
 
 const config: Config = {
   printWidth: 120,
   tabWidth: 2,
   useTabs: false,
-  semi: false,
+  semi: true,
   singleQuote: false,
   trailingComma: "all",
   jsxSingleQuote: false,
@@ -14,6 +14,6 @@ const config: Config = {
   proseWrap: "preserve",
   htmlWhitespaceSensitivity: "css",
   plugins: ["prettier-plugin-tailwindcss"],
-}
+};
 
-export default config
+export default config;
