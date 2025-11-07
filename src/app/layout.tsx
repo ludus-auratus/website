@@ -1,6 +1,8 @@
 import type { Metadata } from "next";
 
-import "@/assets/styles/theme.css";
+import { fontBorn2bSporty, fontPixelify, fontPoppins } from "@/lib/fonts";
+import { cn } from "@/lib/utils/shadcn";
+
 import "@/assets/styles/globals.css";
 
 export const metadata: Metadata = {
@@ -13,9 +15,10 @@ export default function RootLayout({
 }: Readonly<{
   children: React.ReactNode;
 }>) {
+  const fonts = cn(fontPoppins.variable, fontPixelify.variable, fontBorn2bSporty.variable);
   return (
     <html lang="pt-BR">
-      <body className="font-ludus-pixelify-sans">{children}</body>
+      <body className={fonts}>{children}</body>
     </html>
   );
 }
