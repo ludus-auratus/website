@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+
 import "@/assets/styles/theme.css";
 import "@/assets/styles/globals.css";
 
