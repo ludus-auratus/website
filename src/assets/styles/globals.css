@@ -124,7 +124,7 @@
   --color-ludus-green-600: var(--green-600);
   --color-ludus-green-700: var(--green-700);
   --color-ludus-green-800: var(--green-800);
-  --color-ludus-green-900: var(--green-950);
+  --color-ludus-green-950: var(--green-950);
   --color-ludus-green-foreground: var(--green-foreground);
   /* #endregion */
 
@@ -138,7 +138,7 @@
   --color-ludus-lime-600: var(--lime-600);
   --color-ludus-lime-700: var(--lime-700);
   --color-ludus-lime-800: var(--lime-800);
-  --color-ludus-lime-900: var(--lime-950);
+  --color-ludus-lime-950: var(--lime-950);
   --color-ludus-lime-foreground: var(--lime-foreground);
   /* #endregion */
 
@@ -152,7 +152,7 @@
   --color-ludus-yellow-600: var(--yellow-600);
   --color-ludus-yellow-700: var(--yellow-700);
   --color-ludus-yellow-800: var(--yellow-800);
-  --color-ludus-yellow-900: var(--yellow-950);
+  --color-ludus-yellow-950: var(--yellow-950);
   --color-ludus-yellow-foreground: var(--yellow-foreground);
   /* #endregion */
 
@@ -163,10 +163,10 @@
   --color-ludus-red-300: var(--red-300);
   --color-ludus-red-400: var(--red-400);
   --color-ludus-red-500: var(--red-500);
-  --color-ludus-red-500: var(--red-600);
-  --color-ludus-red-500: var(--red-700);
-  --color-ludus-red-500: var(--red-800);
-  --color-ludus-red-500: var(--red-950);
+  --color-ludus-red-600: var(--red-600);
+  --color-ludus-red-700: var(--red-700);
+  --color-ludus-red-800: var(--red-800);
+  --color-ludus-red-950: var(--red-950);
   --color-ludus-red-foreground: var(--red-foreground);
   /* #endregion */
 
