@@ -71,8 +71,8 @@
   --popover: oklch(1 0 0);
   --popover-foreground: oklch(0.145 0 0);
 
-  --primary: oklch(0.205 0 0);
-  --primary-foreground: oklch(0.985 0 0);
+  --primary: var(--green-500);
+  --primary-foreground: var(--green-foreground);
 
   --secondary: oklch(0.97 0 0);
   --secondary-foreground: oklch(0.205 0 0);
@@ -121,10 +121,10 @@
   --color-ludus-green-300: var(--green-300);
   --color-ludus-green-400: var(--green-400);
   --color-ludus-green-500: var(--green-500);
-  --color-ludus-green-500: var(--green-600);
-  --color-ludus-green-500: var(--green-700);
-  --color-ludus-green-500: var(--green-800);
-  --color-ludus-green-500: var(--green-950);
+  --color-ludus-green-600: var(--green-600);
+  --color-ludus-green-700: var(--green-700);
+  --color-ludus-green-800: var(--green-800);
+  --color-ludus-green-900: var(--green-950);
   --color-ludus-green-foreground: var(--green-foreground);
   /* #endregion */
 
@@ -135,10 +135,10 @@
   --color-ludus-lime-300: var(--lime-300);
   --color-ludus-lime-400: var(--lime-400);
   --color-ludus-lime-500: var(--lime-500);
-  --color-ludus-lime-500: var(--lime-600);
-  --color-ludus-lime-500: var(--lime-700);
-  --color-ludus-lime-500: var(--lime-800);
-  --color-ludus-lime-500: var(--lime-950);
+  --color-ludus-lime-600: var(--lime-600);
+  --color-ludus-lime-700: var(--lime-700);
+  --color-ludus-lime-800: var(--lime-800);
+  --color-ludus-lime-900: var(--lime-950);
   --color-ludus-lime-foreground: var(--lime-foreground);
   /* #endregion */
 
@@ -149,10 +149,10 @@
   --color-ludus-yellow-300: var(--yellow-300);
   --color-ludus-yellow-400: var(--yellow-400);
   --color-ludus-yellow-500: var(--yellow-500);
-  --color-ludus-yellow-500: var(--yellow-600);
-  --color-ludus-yellow-500: var(--yellow-700);
-  --color-ludus-yellow-500: var(--yellow-800);
-  --color-ludus-yellow-500: var(--yellow-950);
+  --color-ludus-yellow-600: var(--yellow-600);
+  --color-ludus-yellow-700: var(--yellow-700);
+  --color-ludus-yellow-800: var(--yellow-800);
+  --color-ludus-yellow-900: var(--yellow-950);
   --color-ludus-yellow-foreground: var(--yellow-foreground);
   /* #endregion */
 

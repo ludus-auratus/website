@@ -1,0 +1,20 @@
+import Image from "next/image";
+import Link from "next/link";
+import { useTranslations } from "next-intl";
+
+import { Button } from "@/components/ui/button";
+
+export default function WorkInProgress() {
+  const t = useTranslations("Wip");
+
+  return (
+    <div className="flex size-full flex-col items-center justify-center text-white">
+      <Image src="/ludus/icon.png" alt="" width={160} height={160} unoptimized />
+      <h3 className="font-ludus-pixelify-sans text-center text-4xl">{t("title")}</h3>
+      <p className="font-ludus-poppins">{t("paragraph")}</p>
+      <Link href={"/"} className="font-ludus-pixelify-sans mt-4">
+        <Button className="cursor-pointer">{t("back_to_home")}</Button>
+      </Link>
+    </div>
+  );
+}
