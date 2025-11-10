@@ -13,6 +13,11 @@ export const metadata: Metadata = {
   description: "Iniciando o projeto",
 };
 
+const localeToLang: Record<string, string> = {
+  en: "en",
+  pt: "pt-BR",
+};
+
 export default async function RootLayout({
   children,
   params,
@@ -26,9 +31,11 @@ export default async function RootLayout({
   }
 
   const fonts = cn(fontPoppins.variable, fontPixelify.variable, fontBorn2bSporty.variable);
+  const lang = localeToLang[locale] || locale;
+
   return (
-    <html lang="pt-BR">
-      <body className={cn(fonts, "from-ludus-green-700 to-ludus-green-900 h-screen bg-gradient-to-b")}>
+    <html lang={lang}>
+      <body className={cn(fonts, "dark flex h-screen flex-col")}>
         <NextIntlClientProvider>{children}</NextIntlClientProvider>
       </body>
     </html>

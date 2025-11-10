@@ -9,12 +9,16 @@ export default function WorkInProgress() {
 
   return (
     <div className="flex size-full flex-col items-center justify-center text-white">
-      <Image src="/ludus/icon.png" alt="" width={160} height={160} unoptimized />
+      <Image src="/images/ludus/icon.png" alt="" width={160} height={160} unoptimized />
+
       <h3 className="font-ludus-pixelify-sans text-center text-4xl">{t("title")}</h3>
       <p className="font-ludus-poppins">{t("paragraph")}</p>
-      <Link href={"/"} className="font-ludus-pixelify-sans mt-4">
-        <Button className="cursor-pointer">{t("back_to_home")}</Button>
-      </Link>
+
+      <Button asChild>
+        <Link href={"/"} className="font-ludus-pixelify-sans mt-4">
+          {t("back_to_home")}
+        </Link>
+      </Button>
     </div>
   );
 }
