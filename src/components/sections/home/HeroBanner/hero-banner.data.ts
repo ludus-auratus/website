@@ -1,0 +1,32 @@
+export const banners = [
+  {
+    id: 1,
+    title: "Mombo Combo Legacy",
+    studio: "Orube Game Studio",
+    rating: 4.7,
+    description:
+      "Mombo Combo Legacy é um jogo de ação e plataforma que combina combos rápidos, desafios intensos e um visual retrô moderno, acompanhando Mombo em uma jornada para restaurar o equilíbrio de seu mundo.",
+    image: "/images/games/mombobo-combo-legacy.png",
+    tags: ["platformer", "action", "metroidvania", "precision-platformer", "pixel-art", "indie"],
+  },
+  {
+    id: 2,
+    title: "Guardiões da Floresta Escondida",
+    studio: "Raízes Digitais Studios",
+    rating: 4.9,
+    description:
+      "Uma épica jornada de aventura e mistério pelas lendas e folclore brasileiro. Restaure o equilíbrio da natureza e enfrente a Sombra Devoradora.",
+    image: "/images/games/guardioes-da-floresta-escondida.png",
+    tags: ["Aventura", "RPG", "Folclore Brasileiro", "Fantasia", "Mistério"],
+  },
+  {
+    id: 3,
+    title: "Legado de Chuteiras",
+    studio: "Várzea Softworks",
+    rating: 4.7,
+    description:
+      "Assuma como técnico do Clube Atlético Fênix de Ouro Preto, um time histórico em decadência na Série C. Lute contra dívidas, gerencie um vestiário quebrado e jogue as partidas para reescrever o legado do clube.",
+    image: "/images/games/legado-de-chuteiras.png",
+    tags: ["Futebol", "Simulador", "Gestão", "Esportes", "Drama", "Estratégia"],
+  },
+];

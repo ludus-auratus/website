@@ -1,3 +1,9 @@
+import { HeroBanner } from "@/components/sections/home/HeroBanner";
+
 export default function Home() {
-  return <div className="text-foreground font-ludus-pixelify-sans text-4xl">Hello world!</div>;
+  return (
+    <>
+      <HeroBanner />
+    </>
+  );
 }
