@@ -28,7 +28,7 @@ export default async function RootLayout({
   const fonts = cn(fontPoppins.variable, fontPixelify.variable, fontBorn2bSporty.variable);
   return (
     <html lang="pt-BR">
-      <body className={cn(fonts, "from-ludus-green-700 to-ludus-green-900 h-screen bg-gradient-to-b")}>
+      <body className={cn(fonts, "from-ludus-green-700 to-ludus-green-900 h-screen bg-gradient-to-b p-0")}>
         <NextIntlClientProvider>{children}</NextIntlClientProvider>
       </body>
     </html>
