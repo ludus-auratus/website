@@ -16,7 +16,7 @@ export function NavbarAuthButtons({ variant = "desktop" }: NavbarAuthButtonsProp
       </Button>
 
       <Button asChild className={isMobile ? "w-full" : ""}>
-        <Link href="/registro">Registre-se</Link>
+        <Link href="/register">Registre-se</Link>
       </Button>
     </div>
   );

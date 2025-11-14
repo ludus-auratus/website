@@ -1,3 +1,5 @@
+"use client";
+
 import { LuLayoutDashboard, LuLogOut, LuSettings, LuUser } from "react-icons/lu";
 import Link from "next/link";
 
@@ -37,26 +39,26 @@ export function NavbarUserAction({ setIsLoggedIn }: NavbarUserActionProps) {
           <div className="flex items-center gap-2 p-2">
             <div className="flex flex-col space-y-1 leading-none">
               <p className="font-ludus-pixelify-sans font-medium">João Silva</p>
-              <p className="text-muted-foreground truncate font-sans text-sm">joao.silva@email.com</p>
+              <p className="text-muted-foreground truncate text-sm">joao.silva@email.com</p>
             </div>
           </div>
 
           <DropdownMenuSeparator />
 
           <DropdownMenuItem asChild>
-            <Link href="/perfil" className="flex cursor-pointer items-center font-sans">
+            <Link href="/perfil" className="flex cursor-pointer items-center">
               <LuUser className="hover:text-primary-foreground mr-2 h-4 w-4" aria-hidden="true" /> Meu Perfil
             </Link>
           </DropdownMenuItem>
 
           <DropdownMenuItem asChild>
-            <Link href="/dashboard" className="flex cursor-pointer items-center font-sans">
+            <Link href="/dashboard" className="flex cursor-pointer items-center">
               <LuLayoutDashboard className="hover:text-primary-foreground mr-2 h-4 w-4" aria-hidden="true" /> Portal Dev
             </Link>
           </DropdownMenuItem>
 
           <DropdownMenuItem asChild>
-            <Link href="/configuracoes" className="flex cursor-pointer items-center font-sans">
+            <Link href="/configuracoes" className="flex cursor-pointer items-center">
               <LuSettings className="hover:text-primary-foreground mr-2 h-4 w-4" aria-hidden="true" /> Configurações
             </Link>
           </DropdownMenuItem>
@@ -65,7 +67,7 @@ export function NavbarUserAction({ setIsLoggedIn }: NavbarUserActionProps) {
 
           <DropdownMenuItem
             onClick={() => setIsLoggedIn(false)}
-            className="text-destructive active:bg-destructive/20 active:text-destructive focus:bg-destructive/10 focus:text-destructive flex cursor-pointer items-center font-sans"
+            className="text-destructive active:bg-destructive/20 active:text-destructive focus:bg-destructive/10 focus:text-destructive flex cursor-pointer items-center"
           >
             <LuLogOut className="text-destructive mr-2 h-4 w-4" aria-hidden="true" /> Sair
           </DropdownMenuItem>

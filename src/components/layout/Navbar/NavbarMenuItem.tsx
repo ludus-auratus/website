@@ -9,10 +9,9 @@ const navbarMenuItemVariants = cva(
   {
     variants: {
       variant: {
-        desktop:
-          "active:text-primary active:bg-primary/10 hover:text-primary focus-visible:ring-ring/85 focus-visible:ring-offset-background px-3 py-2 focus-visible:ring-offset-1",
+        desktop: "active:text-primary active:bg-primary/10 hover:text-primary focus-visible:ring-ring/85 px-3 py-2 ",
         mobile:
-          "hover:bg-primary/10 active:text-primary active:bg-primary/10 hover:text-primary focus-visible:ring-primary focus-visible:ring-offset-background p-2 focus-visible:ring-offset-2",
+          "hover:bg-primary/10 active:text-primary active:bg-primary/10 hover:text-primary focus-visible:ring-primary  p-2 ",
       },
     },
     defaultVariants: {
