@@ -11,7 +11,7 @@ import {
   SectionTitle,
   SectionTitleText,
 } from "@/components/layout/Section";
-import { HeroBanner } from "@/components/sections/home/HeroBanner";
+import { HeroBanner } from "@/components/pages/home/HeroBanner";
 
 export default function Home() {
   const games = [

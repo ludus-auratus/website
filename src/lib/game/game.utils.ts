@@ -11,7 +11,7 @@ export type GameClassification = (typeof GameClassifications)[keyof typeof GameC
 
 function classify(value: number, name: string, description: string, alt: string = "") {
   const key = `c${value}`;
-  const src = `/img/classification/${key}.png`;
+  const src = `/images/classification/${key}.png`;
 
   return {
     src,

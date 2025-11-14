@@ -12,8 +12,8 @@
 
   --moss-50: #e8f1ec;
   --moss-100: #d1e3d8;
-  --moss-300: #82aa92;
   --moss-200: #a9c7b5;
+  --moss-300: #82aa92;
   --moss-400: #5b8d6f;
   --moss-500: #3a6a4e;
   --moss-600: #2e553f;
@@ -198,15 +198,6 @@
   --color-ludus-red-500: var(--red-950);
   --color-ludus-red-foreground: var(--red-foreground);
   /* #endregion */
-
-  --text-xs: 10px;
-  --text-sm: 10px;
-  --text-md: 12px;
-  --text-lg: 14px;
-  --text-xl: 16px;
-  --text-2xl: 18px;
-  --text-3xl: 20px;
-  --text-4xl: 22px;
 
   /* #region ShadcnUI */
   --color-sidebar-ring: var(--sidebar-ring);
