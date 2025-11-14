@@ -61,39 +61,39 @@ export function Navbar() {
             </NavbarMenuItem>
           ))}
 
-          <div className="border-border space-y-2 border-t pt-4">
-            {isLoggedIn ? (
-              <>
-                <NavbarMenuItem variant="mobile" href="/perfil" onClick={() => setIsMobileMenuOpen(false)}>
-                  <LuUser className="hover:text-primary-foreground mr-2 h-4 w-4" aria-hidden="true" />
-                  Meu Perfil
-                </NavbarMenuItem>
+          <div className="border-border border-t" />
 
-                <NavbarMenuItem variant="mobile" href="/dashboard" onClick={() => setIsMobileMenuOpen(false)}>
-                  <LuLayoutDashboard className="hover:text-primary-foreground mr-2 h-4 w-4" aria-hidden="true" />
-                  Portal Dev
-                </NavbarMenuItem>
+          {isLoggedIn ? (
+            <>
+              <NavbarMenuItem variant="mobile" href="/perfil" onClick={() => setIsMobileMenuOpen(false)}>
+                <LuUser className="hover:text-primary-foreground mr-2 h-4 w-4" aria-hidden="true" />
+                Meu Perfil
+              </NavbarMenuItem>
 
-                <NavbarMenuItem variant="mobile" href="/configuracoes" onClick={() => setIsMobileMenuOpen(false)}>
-                  <LuSettings className="hover:text-primary-foreground mr-2 h-4 w-4" aria-hidden="true" />
-                  Configurações
-                </NavbarMenuItem>
+              <NavbarMenuItem variant="mobile" href="/dashboard" onClick={() => setIsMobileMenuOpen(false)}>
+                <LuLayoutDashboard className="hover:text-primary-foreground mr-2 h-4 w-4" aria-hidden="true" />
+                Portal Dev
+              </NavbarMenuItem>
 
-                <Button
-                  variant={"destructive"}
-                  className="flex w-full items-center"
-                  onClick={() => {
-                    setIsLoggedIn(false);
-                    setIsMobileMenuOpen(false);
-                  }}
-                >
-                  <LuLogOut className="hover:text-primary-foreground mr-2 h-4 w-4" aria-hidden="true" /> Sair
-                </Button>
-              </>
-            ) : (
-              <NavbarAuthButtons variant="mobile" />
-            )}
-          </div>
+              <NavbarMenuItem variant="mobile" href="/configuracoes" onClick={() => setIsMobileMenuOpen(false)}>
+                <LuSettings className="hover:text-primary-foreground mr-2 h-4 w-4" aria-hidden="true" />
+                Configurações
+              </NavbarMenuItem>
+
+              <Button
+                variant={"destructive"}
+                className="flex w-full items-center"
+                onClick={() => {
+                  setIsLoggedIn(false);
+                  setIsMobileMenuOpen(false);
+                }}
+              >
+                <LuLogOut className="hover:text-primary-foreground mr-2 h-4 w-4" aria-hidden="true" /> Sair
+              </Button>
+            </>
+          ) : (
+            <NavbarAuthButtons variant="mobile" />
+          )}
         </NavbarMenu>
       )}
     </NavbarRoot>

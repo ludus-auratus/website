@@ -1,6 +1,7 @@
 import { LuSparkle, LuStar } from "react-icons/lu";
 
 import { GameCard } from "@/components/game/GameCard";
+import { Footer } from "@/components/layout/Footer";
 import {
   SectionContent,
   SectionDescription,
@@ -34,6 +35,30 @@ export default function Home() {
     },
     {
       id: 4,
+      title: "Hellbrella",
+      image: "hellbrella.jpg",
+      price: 20.5,
+    },
+    {
+      id: 5,
+      title: "Hellbrella",
+      image: "hellbrella.jpg",
+      price: 20.5,
+    },
+    {
+      id: 6,
+      title: "Hellbrella",
+      image: "hellbrella.jpg",
+      price: 20.5,
+    },
+    {
+      id: 7,
+      title: "Hellbrella",
+      image: "hellbrella.jpg",
+      price: 20.5,
+    },
+    {
+      id: 8,
       title: "Hellbrella",
       image: "hellbrella.jpg",
       price: 20.5,
@@ -79,6 +104,8 @@ export default function Home() {
           ))}
         </SectionContent>
       </Section>
+
+      <Footer />
     </>
   );
 }
