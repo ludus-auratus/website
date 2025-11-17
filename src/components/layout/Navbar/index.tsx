@@ -1,7 +1,7 @@
 "use client";
 
 import { useState } from "react";
-import { LuLayoutDashboard, LuLogOut, LuSettings, LuUser } from "react-icons/lu";
+import { Code2, Gamepad2, Home, LayoutDashboard, LogOut, Mail, Settings, User } from "lucide-react";
 
 import { Button } from "@/components/ui/button";
 
@@ -9,6 +9,7 @@ import { NavbarActions } from "./NavbarActions";
 import { NavbarAuthButtons } from "./NavbarAuthButtons";
 import { NavbarBrand } from "./NavbarBrand";
 import { NavbarCartAction } from "./NavbarCartAction";
+import { NavabarIcon } from "./NavbarIcon";
 import { NavbarMenu } from "./NavbarMenu";
 import { NavbarMenuButtonAction } from "./NavbarMenuButtonAction";
 import { NavbarMenuItem } from "./NavbarMenuItem";
@@ -20,10 +21,10 @@ export function Navbar() {
   const [isLoggedIn, setIsLoggedIn] = useState(true);
 
   const navigationLinks = [
-    { label: "Início", path: "/" },
-    { label: "Catálogo", path: "/catalogo" },
-    { label: "Desenvolvedores", path: "/desenvolvedores" },
-    { label: "Contato", path: "/contact" },
+    { label: "Início", path: "/", icon: Home },
+    { label: "Catálogo", path: "/catalog", icon: Gamepad2 },
+    { label: "Desenvolvedores", path: "/developers", icon: Code2 },
+    { label: "Contato", path: "/contact", icon: Mail },
   ];
 
   return (
@@ -34,6 +35,8 @@ export function Navbar() {
         <NavbarMenu variant="desktop">
           {navigationLinks.map((link) => (
             <NavbarMenuItem variant="desktop" key={link.path} href={link.path}>
+              <NavabarIcon icon={link.icon} />
+
               {link.label}
             </NavbarMenuItem>
           ))}
@@ -57,6 +60,8 @@ export function Navbar() {
               key={link.path}
               href={link.path}
             >
+              <NavabarIcon className="mr-2" icon={link.icon} />
+
               {link.label}
             </NavbarMenuItem>
           ))}
@@ -66,17 +71,17 @@ export function Navbar() {
           {isLoggedIn ? (
             <>
               <NavbarMenuItem variant="mobile" href="/perfil" onClick={() => setIsMobileMenuOpen(false)}>
-                <LuUser className="hover:text-primary-foreground mr-2 h-4 w-4" aria-hidden="true" />
+                <NavabarIcon className="mr-2" icon={User} />
                 Meu Perfil
               </NavbarMenuItem>
 
               <NavbarMenuItem variant="mobile" href="/dashboard" onClick={() => setIsMobileMenuOpen(false)}>
-                <LuLayoutDashboard className="hover:text-primary-foreground mr-2 h-4 w-4" aria-hidden="true" />
+                <NavabarIcon className="mr-2" icon={LayoutDashboard} />
                 Portal Dev
               </NavbarMenuItem>
 
               <NavbarMenuItem variant="mobile" href="/configuracoes" onClick={() => setIsMobileMenuOpen(false)}>
-                <LuSettings className="hover:text-primary-foreground mr-2 h-4 w-4" aria-hidden="true" />
+                <NavabarIcon className="mr-2" icon={Settings} />
                 Configurações
               </NavbarMenuItem>
 
@@ -88,7 +93,7 @@ export function Navbar() {
                   setIsMobileMenuOpen(false);
                 }}
               >
-                <LuLogOut className="hover:text-primary-foreground mr-2 h-4 w-4" aria-hidden="true" /> Sair
+                <LogOut className="hover:text-primary-foreground mr-2 h-4 w-4" aria-hidden="true" /> Sair
               </Button>
             </>
           ) : (
