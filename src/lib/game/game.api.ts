@@ -15,7 +15,9 @@ export async function getGameDataById(): Promise<Game> {
   };
 
   return {
+    id: dto.id,
     name: dto.name,
+    price: dto.price,
     classification: dto.classification,
     description: dto.description,
     tags,
@@ -32,7 +34,9 @@ export async function getGameDataById(): Promise<Game> {
 
 export async function requestGameDataById(): Promise<GameDTO> {
   return await {
+    id: 1,
     name: "Enigma do Medo",
+    price: 25,
     classification: GameClassifications.C12,
     description: gameDescription,
     tags: [

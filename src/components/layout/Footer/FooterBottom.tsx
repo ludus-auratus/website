@@ -9,7 +9,7 @@ export function FooterBottom() {
         <span>no Brasil.</span>
       </div>
 
-      <p className="text-primary text-sm">Liberdade - União - Diversidade - Utopia - Sustentabilidade</p>
+      <p className="text-primary text-center text-sm">Liberdade - União - Diversidade - Utopia - Sustentabilidade</p>
     </div>
   );
 }

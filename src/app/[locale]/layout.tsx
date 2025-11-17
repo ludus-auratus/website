@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import { notFound } from "next/navigation";
 import { hasLocale, NextIntlClientProvider } from "next-intl";
 
+import { CartProvider } from "@/context/CartContext";
 import { routing } from "@/i18n/routing";
 import { fontBorn2bSporty, fontPixelify, fontPoppins } from "@/lib/fonts";
 import { cn } from "@/lib/utils/shadcn";
@@ -36,7 +37,9 @@ export default async function RootLayout({
   return (
     <html lang={lang}>
       <body className={cn(fonts, "dark flex h-screen flex-col")}>
-        <NextIntlClientProvider>{children}</NextIntlClientProvider>
+        <CartProvider>
+          <NextIntlClientProvider>{children}</NextIntlClientProvider>
+        </CartProvider>
       </body>
     </html>
   );

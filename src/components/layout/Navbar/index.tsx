@@ -40,7 +40,7 @@ export function Navbar() {
         </NavbarMenu>
 
         <NavbarActions>
-          <NavbarCartAction cartItemsCount={5} />
+          <NavbarCartAction />
 
           {isLoggedIn ? <NavbarUserAction setIsLoggedIn={setIsLoggedIn} /> : <NavbarAuthButtons variant="desktop" />}
 
