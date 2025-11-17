@@ -1,6 +1,6 @@
 "use client";
 
-import * as React from "react";
+import { useEffect, useRef, useState } from "react";
 import Autoplay from "embla-carousel-autoplay";
 
 import {
@@ -26,13 +26,13 @@ interface HeroBannerCarouselProps {
 }
 
 export function HeroBannerCarousel({ items }: HeroBannerCarouselProps) {
-  const [api, setApi] = React.useState<CarouselApi>();
-  const [current, setCurrent] = React.useState(0);
-  const [count, setCount] = React.useState(0);
+  const [api, setApi] = useState<CarouselApi>();
+  const [current, setCurrent] = useState(0);
+  const [count, setCount] = useState(0);
 
-  const plugin = React.useRef(Autoplay({ delay: 5000, stopOnInteraction: false }));
+  const plugin = useRef(Autoplay({ delay: 5000, stopOnInteraction: false }));
 
-  React.useEffect(() => {
+  useEffect(() => {
     if (!api) return;
     setCount(api.scrollSnapList().length);
     setCurrent(api.selectedScrollSnap());
@@ -49,9 +49,9 @@ export function HeroBannerCarousel({ items }: HeroBannerCarouselProps) {
         opts={{ align: "start", loop: true }}
       >
         <CarouselContent>
-          {items.map((item) => (
-            <CarouselItem key={item.id} className="basis-full">
-              <HeroBannerSlide {...item} />
+          {items.map((item, index) => (
+            <CarouselItem key={item.id} className="basis-full" aria-hidden={current !== index}>
+              <HeroBannerSlide {...item} isActive={current === index} />
             </CarouselItem>
           ))}
         </CarouselContent>

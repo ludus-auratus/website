@@ -12,11 +12,12 @@ interface HeroBannerSlideProps {
   rating: number;
   description: string;
   image: string;
+  isActive: boolean;
 }
 
-export function HeroBannerSlide({ id, title, studio, rating, description, image }: HeroBannerSlideProps) {
+export function HeroBannerSlide({ id, title, studio, rating, description, image, isActive }: HeroBannerSlideProps) {
   return (
-    <div className="relative h-[300px] w-full sm:h-[400px] md:h-[500px]">
+    <div className="relative h-[300px] w-full sm:h-[400px] md:h-[500px]" aria-hidden={!isActive}>
       <Image src={image} alt={title} width={1280} height={500} className="h-full w-full rounded-3xl object-cover" />
 
       <div className="absolute inset-0 flex items-center justify-center rounded-3xl bg-black/50 p-6">
@@ -30,7 +31,9 @@ export function HeroBannerSlide({ id, title, studio, rating, description, image 
           {/* <p className="text-foreground hidden max-w-lg text-base leading-relaxed md:inline-flex">{description}</p> */}
 
           <Button className="max-w-24 px-4" asChild>
-            <Link href={`/jogos/${id}`}>Ver mais</Link>
+            <Link href={`/game/${id}`} tabIndex={isActive ? 0 : -1}>
+              Ver mais
+            </Link>
           </Button>
         </div>
       </div>

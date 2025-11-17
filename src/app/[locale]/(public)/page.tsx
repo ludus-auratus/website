@@ -1,5 +1,6 @@
 import { LuSparkle, LuStar } from "react-icons/lu";
 
+import games from "@/assets/data/games.json";
 import { GameCard } from "@/components/game/GameCard";
 import {
   SectionContent,
@@ -10,60 +11,10 @@ import {
   SectionTitle,
   SectionTitleText,
 } from "@/components/layout/Section";
+import GameJamSection from "@/components/pages/home/GameJamSection";
 import { HeroBanner } from "@/components/pages/home/HeroBanner";
 
 export default function Home() {
-  const games = [
-    {
-      id: 1,
-      title: "Hellbrella",
-      image: "hellbrella.jpg",
-      price: 20.5,
-    },
-    {
-      id: 2,
-      title: "Hellbrella",
-      image: "hellbrella.jpg",
-      price: 20.5,
-    },
-    {
-      id: 3,
-      title: "Hellbrella",
-      image: "hellbrella.jpg",
-      price: 20.5,
-    },
-    {
-      id: 4,
-      title: "Hellbrella",
-      image: "hellbrella.jpg",
-      price: 20.5,
-    },
-    {
-      id: 5,
-      title: "Hellbrella",
-      image: "hellbrella.jpg",
-      price: 20.5,
-    },
-    {
-      id: 6,
-      title: "Hellbrella",
-      image: "hellbrella.jpg",
-      price: 20.5,
-    },
-    {
-      id: 7,
-      title: "Hellbrella",
-      image: "hellbrella.jpg",
-      price: 20.5,
-    },
-    {
-      id: 8,
-      title: "Hellbrella",
-      image: "hellbrella.jpg",
-      price: 20.5,
-    },
-  ];
-
   return (
     <>
       <HeroBanner />
@@ -80,7 +31,7 @@ export default function Home() {
         </SectionHeader>
 
         <SectionContent className="flex flex-wrap justify-center gap-6">
-          {games.map((game) => (
+          {games.slice(0, 4).map((game) => (
             <GameCard key={game.id} id={game.id} title={game.title} image={game.image} price={game.price} />
           ))}
         </SectionContent>
@@ -89,9 +40,9 @@ export default function Home() {
       <Section>
         <SectionHeader>
           <SectionTitle>
-            <SectionIcon icon={LuSparkle} className="text-primary" />
+            <SectionIcon icon={LuSparkle} className="text-primary fill-current" />
             <SectionTitleText text="Lançamentos Recentes" />
-            <SectionIcon icon={LuSparkle} className="text-primary" />
+            <SectionIcon icon={LuSparkle} className="text-primary fill-current" />
           </SectionTitle>
 
           <SectionDescription>Descubra os jogos mais novos da plataforma Ludus</SectionDescription>
@@ -103,6 +54,8 @@ export default function Home() {
           ))}
         </SectionContent>
       </Section>
+
+      <GameJamSection />
     </>
   );
 }
