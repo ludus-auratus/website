@@ -8,5 +8,5 @@ interface SectionIconProps {
 }
 
 export function SectionIcon({ icon: Icon, className }: SectionIconProps) {
-  return <Icon className={cn("text-accent h-8 w-8 fill-current", className)} />;
+  return <Icon className={cn("text-accent h-8 w-8", className)} />;
 }

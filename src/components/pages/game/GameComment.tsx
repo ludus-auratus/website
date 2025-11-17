@@ -1,9 +1,8 @@
 import Image from "next/image";
 import { Flag, ThumbsDown, ThumbsUp } from "lucide-react";
 
+import { Button } from "@/components/ui/button";
 import { createPlaceholderImageUrl } from "@/lib/utils/image.utils";
-
-import { Button } from "../ui/button";
 
 export default function GameComment() {
   const data: {
