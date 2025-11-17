@@ -1,7 +1,6 @@
 import { LuSparkle, LuStar } from "react-icons/lu";
 
 import { GameCard } from "@/components/game/GameCard";
-import { Footer } from "@/components/layout/Footer";
 import {
   SectionContent,
   SectionDescription,
@@ -104,8 +103,6 @@ export default function Home() {
           ))}
         </SectionContent>
       </Section>
-
-      <Footer />
     </>
   );
 }

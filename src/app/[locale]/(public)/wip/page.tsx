@@ -8,8 +8,8 @@ export default function WorkInProgress() {
   const t = useTranslations("Wip");
 
   return (
-    <div className="flex size-full flex-col items-center justify-center text-white">
-      <Image src="/images/ludus/icon.png" alt="" width={160} height={160} unoptimized />
+    <div className="flex size-full flex-col items-center justify-center p-4 text-white">
+      <Image src="/images/ludus/icon.png" alt="Icone do Ludus" width={160} height={160} unoptimized />
 
       <h3 className="font-ludus-pixelify-sans text-center text-4xl">{t("title")}</h3>
       <p className="font-ludus-poppins">{t("paragraph")}</p>
