@@ -97,7 +97,6 @@ export function RegisterForm() {
             placeholder="João"
             value={formData.firstName}
             onChange={handleChange}
-            className="bg-input-background border-border focus:border-primary focus:ring-primary h-12"
             required
           />
         </div>
@@ -113,7 +112,6 @@ export function RegisterForm() {
             placeholder="Silva"
             value={formData.lastName}
             onChange={handleChange}
-            className="bg-input-background border-border focus:border-primary focus:ring-primary h-12"
             required
           />
         </div>
@@ -130,7 +128,6 @@ export function RegisterForm() {
           placeholder="gamer_brasileiro"
           value={formData.username}
           onChange={handleChange}
-          className="bg-input-background border-border focus:border-primary focus:ring-primary h-12"
           required
         />
       </div>
@@ -148,7 +145,6 @@ export function RegisterForm() {
           value={formData.email}
           onChange={handleChange}
           autoComplete="email"
-          className="bg-input-background border-border focus:border-primary focus:ring-primary h-12"
           required
         />
       </div>
@@ -163,13 +159,13 @@ export function RegisterForm() {
             value={formData.region}
             onValueChange={(value) => setFormData((prev) => ({ ...prev, region: value }))}
           >
-            <SelectTrigger size="default" className="bg-input-background border-border h-12 w-full p-6">
+            <SelectTrigger size="default" className="bg-input-background w-full">
               <SelectValue placeholder="Selecione seu estado" />
             </SelectTrigger>
 
             <SelectContent>
               {brazilianStates.map((state) => (
-                <SelectItem key={state} value={state} className="">
+                <SelectItem key={state} value={state}>
                   {state}
                 </SelectItem>
               ))}
@@ -190,7 +186,6 @@ export function RegisterForm() {
             max="2010"
             value={formData.birthYear}
             onChange={handleChange}
-            className="bg-input-background border-border focus:border-primary focus:ring-primary h-12"
           />
         </div>
       </div>
@@ -209,7 +204,7 @@ export function RegisterForm() {
               value={formData.password}
               onChange={handleChange}
               autoComplete="new-password"
-              className="bg-input-background border-border focus:border-primary focus:ring-primary h-12 pr-12"
+              className="pr-12"
               required
             />
 
@@ -243,7 +238,7 @@ export function RegisterForm() {
               value={formData.confirmPassword}
               onChange={handleChange}
               autoComplete="new-password"
-              className="bg-input-background border-border focus:border-primary focus:ring-primary h-12 pr-12"
+              className="pr-12"
               required
             />
 

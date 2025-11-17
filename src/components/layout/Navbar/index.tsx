@@ -23,7 +23,7 @@ export function Navbar() {
     { label: "Início", path: "/" },
     { label: "Catálogo", path: "/catalogo" },
     { label: "Desenvolvedores", path: "/desenvolvedores" },
-    { label: "Contato", path: "/contato" },
+    { label: "Contato", path: "/contact" },
   ];
 
   return (

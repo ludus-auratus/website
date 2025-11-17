@@ -42,7 +42,6 @@ export function LoginForm() {
           value={formData.email}
           onChange={handleChange}
           autoComplete="email"
-          className="bg-input-background border-border focus:border-primary focus:ring-primary h-12"
           required
         />
       </div>
@@ -58,7 +57,7 @@ export function LoginForm() {
             value={formData.password}
             onChange={handleChange}
             autoComplete="current-password"
-            className="bg-input-background border-border focus:border-primary focus:ring-primary h-12 pr-12"
+            className="pr-12"
             required
           />
 
@@ -87,7 +86,7 @@ export function LoginForm() {
 
       <Button
         type="submit"
-        className="bg-primary text-primary-foreground h-12 w-full rounded-xl text-lg shadow-lg transition-all duration-200 hover:shadow-xl"
+        className="h-12 w-full rounded-xl text-lg shadow-lg transition-all duration-200 hover:shadow-xl"
       >
         Entrar
       </Button>
