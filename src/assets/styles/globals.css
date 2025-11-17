@@ -62,6 +62,19 @@
   --yellow-950: #3d1d0b;
   --yellow-foreground: var(--ludus-green-dark);
 
+  --orange-50: #fef5ee;
+  --orange-100: #fde7d5;
+  --orange-200: #fbd1a8;
+  --orange-300: #f8b170;
+  --orange-400: #f38d3c;
+  --orange-500: #f07d2c;
+  --orange-600: #dc5d12;
+  --orange-700: #b7460d;
+  --orange-800: #93370e;
+  --orange-900: #792b0e;
+  --orange-950: #451606;
+  --orange-foreground: var(--ludus-green-dark);
+
   --red-50: #fdf3f3;
   --red-100: #fbe5e5;
   --red-200: #f8d0d0;
@@ -185,6 +198,20 @@
   --color-ludus-yellow-foreground: var(--yellow-foreground);
   /* #endregion */
 
+  /* #region Ludus Orange */
+  --color-ludus-orange-50: var(--orange-50);
+  --color-ludus-orange-100: var(--orange-100);
+  --color-ludus-orange-200: var(--orange-200);
+  --color-ludus-orange-300: var(--orange-300);
+  --color-ludus-orange-400: var(--orange-400);
+  --color-ludus-orange-500: var(--orange-500);
+  --color-ludus-orange-600: var(--orange-600);
+  --color-ludus-orange-700: var(--orange-700);
+  --color-ludus-orange-800: var(--orange-800);
+  --color-ludus-orange-900: var(--orange-900);
+  --color-ludus-orange-950: var(--orange-950);
+  /* #endregion */
+
   /* #region Ludus Red */
   --color-ludus-red-50: var(--red-50);
   --color-ludus-red-100: var(--red-100);
@@ -219,17 +246,21 @@
   --color-input: var(--input);
   --color-border: var(--border);
   --color-destructive: var(--destructive);
+  --color-destructive-hover: var(--destructive-hover);
 
   --color-accent-foreground: var(--accent-foreground);
+  --color-accent-hover: var(--accent-hover);
   --color-accent: var(--accent);
 
   --color-muted-foreground: var(--muted-foreground);
   --color-muted: var(--muted);
 
   --color-secondary-foreground: var(--secondary-foreground);
+  --color-secondary-hover: var(--secondary-hover);
   --color-secondary: var(--secondary);
 
   --color-primary-foreground: var(--primary-foreground);
+  --color-primary-hover: var(--primary-hover);
   --color-primary: var(--primary);
 
   --color-popover-foreground: var(--popover-foreground);
@@ -259,19 +290,23 @@
   --popover: #243a2f;
   --popover-foreground: #ffffff;
 
-  --primary: var(--lime-400);
-  --primary-foreground: var(--lime-foreground);
+  --primary: var(--green-500);
+  --primary-hover: var(--green-600);
+  --primary-foreground: #ffffff;
 
-  --secondary: #2a4034;
+  --secondary: var(--orange-500);
+  --secondary-hover: var(--orange-600);
   --secondary-foreground: #ffffff;
 
   --muted: #2a4034;
   --muted-foreground: #a8b5aa;
 
-  --accent: var(--ludus-yellow-gold);
+  --accent: var(--orange-500);
+  --accent-hover: var(--orange-600);
   --accent-foreground: var(--ludus-green-dark);
 
-  --destructive: #ff5757;
+  --destructive: var(--red-500);
+  --destructive-hover: var(--red-600);
   --destructive-foreground: #ffffff;
 
   --border: rgba(113, 226, 86, 0.2);

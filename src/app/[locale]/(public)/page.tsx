@@ -1,6 +1,5 @@
 import { LuSparkle, LuStar } from "react-icons/lu";
 
-import { GameCard } from "@/components/game/GameCard";
 import { Footer } from "@/components/layout/Footer";
 import {
   SectionContent,
@@ -11,6 +10,7 @@ import {
   SectionTitle,
   SectionTitleText,
 } from "@/components/layout/Section";
+import { GameCard } from "@/components/pages/game/GameCard";
 import { HeroBanner } from "@/components/pages/home/HeroBanner";
 
 export default function Home() {

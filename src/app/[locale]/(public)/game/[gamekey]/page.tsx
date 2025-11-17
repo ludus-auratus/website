@@ -1,7 +1,7 @@
 import Image from "next/image";
 
 import Footer from "@/components/Footer";
-import { Game } from "@/components/game";
+import { Game } from "@/components/pages/game";
 import { getGameDataById } from "@/lib/game";
 
 // type GameData = {
