@@ -14,13 +14,18 @@ export default function GameVideoPlayer(props: Props) {
   const { src, title } = props.video ?? defaultVideo;
 
   return (
-    <div className="relative overflow-clip shadow-md shadow-black/50">
-      <iframe id="player" itemType="text/html" src={src} className="aspect-video w-full rounded-md"></iframe>
-      <div className="border-ludus-green-100 absolute top-0 left-0 flex h-full w-full flex-col justify-between overflow-clip rounded-md border-1">
-        <header className="bg-black/50 px-4 py-1 backdrop-blur-sm md:py-3">
+    <div className="relative rounded-md shadow-md shadow-black/50">
+      <iframe
+        id="player"
+        itemType="text/html"
+        src={src}
+        className="border-ludus-green-700 aspect-video w-full rounded-md border-1"
+      ></iframe>
+      <div className="absolute top-0 left-0 flex h-full w-full flex-col justify-between">
+        <header className="border-ludus-green-700 rounded-t-md border-1 border-b-0 bg-black/50 px-4 py-1 backdrop-blur-sm md:py-3">
           <h4 className="font-ludus-poppins overflow-clip text-nowrap text-white md:text-xl">{title}</h4>
         </header>
-        <footer className="flex justify-between bg-black/50 px-4 py-1 text-white backdrop-blur-sm md:py-3 md:text-[2em]">
+        <footer className="border-ludus-green-700 flex justify-between rounded-b-md border-1 border-t-0 bg-black/50 px-4 py-1 text-white backdrop-blur-sm md:py-3 md:text-[2em]">
           <div className="flex gap-x-2 md:gap-x-4">
             <button>
               <i className="bi bi-play"></i>
