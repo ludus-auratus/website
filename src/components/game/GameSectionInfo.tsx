@@ -21,9 +21,9 @@ export default function GameSectionInfo(props: Props) {
       <Image
         src={banner}
         alt=""
-        width={420}
-        height={220}
-        className="mb-4 w-full rounded-md shadow-md shadow-black/25 md:h-[180px] lg:h-[220px]"
+        width={1600}
+        height={900}
+        className="mb-4 w-full rounded-md object-cover shadow-md shadow-black/25 md:h-[180px] lg:h-[220px]"
       />
       <GameSection background="mobileOnly" padding="none">
         <div className="flex flex-col gap-y-2">

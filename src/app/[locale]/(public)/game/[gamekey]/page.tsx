@@ -38,11 +38,11 @@ export default async function Page() {
         <div className="absolute z-1 w-full">
           <div className="to-ludus-moss-800 z-1 h-72 w-full bg-gradient-to-b from-black/35 from-80%">
             <Image
-              width={600}
+              width={1600}
               height={900}
               src={data.banner}
               alt=""
-              className="relative -z-1 h-full w-full object-cover object-center"
+              className="relative -z-1 h-full w-full object-cover object-top"
             />
           </div>
         </div>

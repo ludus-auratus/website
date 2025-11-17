@@ -12,7 +12,13 @@ export default function GameHeader(props: Props) {
   return (
     <header className="flex w-full gap-x-4">
       <figure className="game-icon">
-        <Image width={128} height={128} src={icon} alt="" className="size-20 rounded-lg lg:size-32" />
+        <Image
+          width={256}
+          height={256}
+          src={icon}
+          alt=""
+          className="object size-20 rounded-lg object-cover lg:size-32"
+        />
       </figure>
       <div className="font-ludus-pixelify-sans flex flex-col justify-center text-white">
         <h2 className="text-2xl lg:text-5xl">{name}</h2>

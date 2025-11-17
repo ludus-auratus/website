@@ -51,13 +51,19 @@ export async function requestGameDataById(): Promise<GameDTO> {
       { name: "Português (Brasil)", level: 3 },
       { name: "Inglês", level: 3 },
     ],
-    icon: createPlaceholderImageUrl(128, 128, "Ícone"),
-    banner: createPlaceholderImageUrl(600, 900, "Banner de Jogo"),
+    icon: "https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/1507580/header_brazilian.jpg?t=1759955245",
+    banner:
+      "https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/1507580/extras/120ffc31c8b8e810d9cbc09c2bab5117.avif?t=1759955245",
     gallery: [
       {
         type: "video",
-        src: "https://youtube.com/embed/Hjl6usm5WCo?si=cB3-BcUbRj_ObfFi",
+        src: "Hjl6usm5WCo",
         title: "Enigma do Medo - Trailer Oficial",
+      },
+      {
+        type: "image",
+        src: "https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/1507580/ss_85609218e5a521f8f0ac8ce6a37fdbc67d73034b.116x65.jpg?t=1759955245",
+        title: "Imagem de Gameplay",
       },
     ],
   };

@@ -32,9 +32,7 @@ export default function GameSectionGallery(props: Props) {
   const rightArrowDisabled = midiaIndex === gallery.length - 1;
 
   function handleScreenshotClick(index: number) {
-    return () => {
-      setMediaIndex(() => index);
-    };
+    return () => setMediaIndex(index);
   }
 
   return (
@@ -47,23 +45,29 @@ export default function GameSectionGallery(props: Props) {
       <div className="flex items-center justify-between gap-x-6">
         <button
           disabled={leftArrowDisabled}
-          className="bg-ludus-yellow-400 hover:bg-ludus-yellow-500 font-ludus-pixelify-sans hidden aspect-square w-12 rounded-md text-white transition-all hover:scale-95 md:block"
+          className="bg-ludus-yellow-400 disabled:bg-ludus-yellow-700 enabled:hover:bg-ludus-yellow-500 font-ludus-pixelify-sans hidden aspect-square w-12 rounded-md text-white transition-all enabled:hover:scale-95 md:block"
+          onClick={() => setMediaIndex((current) => current - 1)}
         >
           &lt;
         </button>
-        <div className="bg-ludus-green-900/50 flex w-full gap-x-4 overflow-x-auto rounded-sm px-4 md:justify-center">
+        <div className="bg-ludus-moss-900/50 md:justify-left flex w-full gap-x-4 overflow-x-auto rounded-sm px-4 py-2">
           {gallery.map((midia, index) => {
-            const key = `gallery-${index}`;
-            return midia.type === "image" ? (
-              <GameMiniImage key={key} image={midia as GameImage} onClick={handleScreenshotClick(index)} />
-            ) : (
-              <Image key={key} width={160} height={90} src="https://placehold.co/160x90" alt="Video" />
-            );
+            const src = midia.type === "video" ? `https://img.youtube.com/vi/${midia.src}/0.jpg` : midia.src;
+
+            const image: GameMidia = {
+              type: midia.type,
+              title: midia.title,
+              src: src,
+              alt: midia.alt,
+            };
+
+            return <GameMiniImage key={`gallery-${index}`} image={image} onClick={handleScreenshotClick(index)} />;
           })}
         </div>
         <button
           disabled={rightArrowDisabled}
           className="bg-ludus-yellow-400 hover:bg-ludus-yellow-500 font-ludus-pixelify-sans hidden aspect-square w-12 rounded-md text-white transition-all hover:scale-95 md:block"
+          onClick={() => setMediaIndex((current) => current + 1)}
         >
           &gt;
         </button>

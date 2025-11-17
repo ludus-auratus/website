@@ -18,8 +18,8 @@ export default function GameImagePlayer(props: Props) {
   const { src, alt } = props.image ?? defaultImage;
 
   return (
-    <div className="relative overflow-clip shadow-md shadow-black/50">
-      <Image src={src} width={160} height={90} alt={alt ?? ""} className="aspect-video w-full rounded-md" />
+    <div className="border-ludus-green-700 relative overflow-clip rounded-md border-1 shadow-md shadow-black/50">
+      <Image src={src} width={160} height={90} alt={alt ?? ""} className="aspect-video w-full" />
     </div>
   );
 }
