@@ -1,6 +1,7 @@
 "use client";
 
 import { useState } from "react";
+import { useTranslations } from "next-intl";
 import { cva } from "class-variance-authority";
 
 import GameTagUnit from "./GameTagUnit";
@@ -34,6 +35,7 @@ type Props = {
 export default function GameTagContainer(props: Props) {
   const { title, content } = props;
 
+  const t = useTranslations("Game.info");
   const [visible, setVisibility] = useState(false);
 
   const onVisibilityButtonClick = () => {
@@ -43,7 +45,7 @@ export default function GameTagContainer(props: Props) {
   return (
     <div className="text-white">
       <div className="font-ludus-pixelify-sans flex justify-between">
-        <h4 className="text-shadow-black/25 text-shadow-sm">{title}</h4>
+        <h4 className="text-shadow-black/25 text-shadow-sm">{t(title)}</h4>
         <button className={buttonVariants({ opened: visible })} onClick={onVisibilityButtonClick}>
           {">"}
         </button>

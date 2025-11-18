@@ -1,5 +1,6 @@
+import { Button } from "@/components/ui/button";
+
 import GameComment from "./GameComment";
-import GameSection from "./GameSection";
 
 export default function GameSectionComments() {
   return (
@@ -7,9 +8,9 @@ export default function GameSectionComments() {
       <GameComment />
       <GameComment />
       <GameComment />
-      <div className="bg-ludus-green-400 font-ludus-pixelify-sans mx-auto w-fit rounded-md px-3 py-1 text-white">
+      <Button variant="default" hoverAnimation="scale-down" className="font-ludus-pixelify-sans mx-auto w-fit">
         Ver Mais
-      </div>
+      </Button>
     </div>
   );
 }

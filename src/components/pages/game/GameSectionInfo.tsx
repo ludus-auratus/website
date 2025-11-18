@@ -28,12 +28,12 @@ export default function GameSectionInfo(props: Props) {
       <GameSection background="mobileOnly" padding="none">
         <div className="flex flex-col gap-y-2">
           <GameClassificationDisplay classification={classification} />
-          <GameSimpleInfo title="Avaliação" data="83%" />
-          <GameSimpleInfo title="Data de Lançamento" data={releaseDate.toLocaleDateString()} />
-          <GameSimpleInfo title="Desenvolvedor" data={studio} />
-          <GameSimpleInfo title="Publicador" data={publisher} />
-          <GameTagContainer title="Categorias" content={genderTags} />
-          <GameTagContainer title="Recursos" content={resourceTags} />
+          <GameSimpleInfo title="rating" data="83%" />
+          <GameSimpleInfo title="release_date" data={releaseDate.toLocaleDateString()} />
+          <GameSimpleInfo title="developer" data={studio} />
+          <GameSimpleInfo title="publisher" data={publisher} />
+          <GameTagContainer title="gender_tags" content={genderTags} />
+          <GameTagContainer title="resource_tags" content={resourceTags} />
         </div>
       </GameSection>
     </div>

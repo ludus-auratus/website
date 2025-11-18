@@ -65,6 +65,36 @@ export async function requestGameDataById(): Promise<GameDTO> {
         src: "https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/1507580/ss_85609218e5a521f8f0ac8ce6a37fdbc67d73034b.116x65.jpg?t=1759955245",
         title: "Imagem de Gameplay",
       },
+      {
+        type: "image",
+        src: "https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/1507580/ss_85609218e5a521f8f0ac8ce6a37fdbc67d73034b.116x65.jpg?t=1759955245",
+        title: "Imagem de Gameplay",
+      },
+      {
+        type: "image",
+        src: "https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/1507580/ss_85609218e5a521f8f0ac8ce6a37fdbc67d73034b.116x65.jpg?t=1759955245",
+        title: "Imagem de Gameplay",
+      },
+      {
+        type: "image",
+        src: "https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/1507580/ss_85609218e5a521f8f0ac8ce6a37fdbc67d73034b.116x65.jpg?t=1759955245",
+        title: "Imagem de Gameplay",
+      },
+      {
+        type: "image",
+        src: "https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/1507580/ss_85609218e5a521f8f0ac8ce6a37fdbc67d73034b.116x65.jpg?t=1759955245",
+        title: "Imagem de Gameplay",
+      },
+      {
+        type: "image",
+        src: "https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/1507580/ss_85609218e5a521f8f0ac8ce6a37fdbc67d73034b.116x65.jpg?t=1759955245",
+        title: "Imagem de Gameplay",
+      },
+      {
+        type: "image",
+        src: "https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/1507580/ss_85609218e5a521f8f0ac8ce6a37fdbc67d73034b.116x65.jpg?t=1759955245",
+        title: "Imagem de Gameplay",
+      },
     ],
   };
 }

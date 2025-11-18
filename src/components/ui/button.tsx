@@ -32,11 +32,15 @@ const buttonVariants = cva(
         pointer: "cursor-pointer",
         loading: "cursor-progress",
       },
+      hoverAnimation: {
+        "scale-up": "hover:scale-105",
+        "scale-down": "hover:scale-95",
+      },
     },
     defaultVariants: {
       variant: "default",
       size: "default",
-      cursor: "default",
+      cursor: "pointer",
     },
   },
 );
@@ -45,6 +49,8 @@ function Button({
   className,
   variant,
   size,
+  cursor,
+  hoverAnimation,
   asChild = false,
   ...props
 }: React.ComponentProps<"button"> &
@@ -53,7 +59,13 @@ function Button({
   }) {
   const Comp = asChild ? Slot : "button";
 
-  return <Comp data-slot="button" className={cn(buttonVariants({ variant, size, className }))} {...props} />;
+  return (
+    <Comp
+      data-slot="button"
+      className={cn(buttonVariants({ variant, size, cursor, hoverAnimation, className }))}
+      {...props}
+    />
+  );
 }
 
 export { Button, buttonVariants };

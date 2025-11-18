@@ -3,5 +3,80 @@
     "title": "Programadores em Ação",
     "paragraph": "Desculpe por isso, mas essa página ainda está em construção",
     "back_to_home": "Voltar para o Início"
+  },
+  "Game": {
+    "description_section": "Sobre Este Jogo",
+
+    "classification": {
+      "prefix": "Classificação",
+      "c0": {
+        "title": "Livre",
+        "description": "Livre para todos os públicos",
+        "alt": ""
+      },
+      "c10": {
+        "title": "10+ anos",
+        "description": "Não recomendado para menores de 10 anos",
+        "alt": ""
+      },
+      "c12": {
+        "title": "12+ anos",
+        "description": "Não recomendado para menores de 12 anos",
+        "alt": ""
+      },
+      "c14": {
+        "title": "14+ anos",
+        "description": "Não recomendado para menores de 14 anos",
+        "alt": ""
+      },
+      "c16": {
+        "title": "16+ anos",
+        "description": "Proibido para menores de 16 anos",
+        "alt": ""
+      },
+      "c18": {
+        "title": "18+ anos",
+        "description": "Proibido para menores de 18 anos",
+        "alt": ""
+      }
+    },
+
+    "info": {
+      "rating": "Avalicação",
+      "release_date": "Data de Lançamento",
+      "developer": "Desenvolvedor",
+      "publisher": "Publicadora",
+      "gender_tags": "Gêneros",
+      "resource_tags": "Recursos"
+    }
+  },
+
+  "Footer": {
+    "description": "A principal plataforma brasileira para desenvolvedores e jogadores de jogos indie. Conectando talentos, fomentando a criatividade e celebrando a vibrante cultura gamer brasileira.",
+    "copyright": "© 2025 Todos os direitos reservados a LUDUS. 100% Brasil",
+    "company_values_1": "Liberdade - União - Diversidade",
+    "company_values_2": "Utopia - Sustenabilidade",
+    "follow_us": "Siga-nos",
+
+    "ludus": {
+      "_": "Ludus",
+      "about_us": "Sobre Nós",
+      "our_mission": "Nossa Missão",
+      "team": "Equipe"
+    },
+
+    "help": {
+      "_": "Suporte",
+      "help_center": "Central de Ajuda",
+      "contact": "Contato",
+      "faq": "Perguntas Frequentes"
+    },
+
+    "legal": {
+      "_": "Legal",
+      "terms_of_use": "Termos de Uso",
+      "privacy": "Privacidade",
+      "cookies": "Cookies"
+    }
   }
 }

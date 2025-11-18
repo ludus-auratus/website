@@ -1,9 +1,9 @@
 import { cva, VariantProps } from "class-variance-authority";
 
-const variants = cva(" flex flex-col gap-y-4 overflow-clip rounded-md", {
+const variants = cva("flex flex-col gap-y-4 overflow-clip", {
   variants: {
     bordered: {
-      onlyX: "border-x-1 border-ludus-lime-500",
+      onlyX: "border-x-1 border-ludus-lime-500 rounded-md",
     },
     padding: {
       default: "p-4",

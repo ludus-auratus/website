@@ -27,8 +27,11 @@ export default function GameComment() {
 
   return (
     <div className="flex flex-col gap-y-2 text-white">
-      <div className="border-ludus-green-400 rounded-md border-1 px-2 py-1">
-        <p className="font-ludus-pixelify-sans text-sm">{data.content}</p>
+      <div className="relative">
+        <div className="border-ludus-green-400 bg-ludus-moss-700 rounded-md border-1 px-2 py-1">
+          <p className="font-ludus-pixelify-sans text-sm">{data.content}</p>
+        </div>
+        <span className="bg-ludus-green-400 absolute bottom-0 -z-1 size-2 translate-x-full translate-y-1/2 rotate-45" />
       </div>
       <div className="flex justify-between gap-x-2">
         <Image
@@ -41,26 +44,14 @@ export default function GameComment() {
         <div className="flex w-full flex-col">
           <div className="flex justify-between">
             <h5 className="font-ludus-pixelify-sans text-lg">{data.author.username}</h5>
-            <div className="flex items-center gap-x-1">
-              <Button
-                variant="default"
-                size="icon-sm"
-                //  className="bg-ludus-green-500 flex size-8 items-center justify-center rounded-md p-2 shadow-md shadow-black/25"
-              >
+            <div className="flex items-center gap-x-1.5">
+              <Button variant="default" size="icon-sm" hoverAnimation="scale-down">
                 <ThumbsUp />
               </Button>
-              <Button
-                variant="secondary"
-                size="icon-sm"
-                // className="bg-ludus-yellow-400 flex size-8 items-center justify-center rounded-md p-2 shadow-md shadow-black/25"
-              >
+              <Button variant="secondary" size="icon-sm" hoverAnimation="scale-down">
                 <ThumbsDown />
               </Button>
-              <Button
-                variant="destructive"
-                size="icon-sm"
-                // className="bg-ludus-red-500 flex size-8 items-center justify-center rounded-md p-2 shadow-md shadow-black/25"
-              >
+              <Button variant="destructive" size="icon-sm" hoverAnimation="scale-down">
                 <Flag />
               </Button>
             </div>

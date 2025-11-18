@@ -3,5 +3,80 @@
     "title": "Programmers in Action",
     "paragraph": "Sorry by that, but this page still in progress",
     "back_to_home": "Back to Home"
+  },
+  "Game": {
+    "description_section": "About This Game",
+
+    "classification": {
+      "prefix": "Age Rating",
+      "c0": {
+        "title": "For All Ages",
+        "description": "Content made for everyone",
+        "alt": ""
+      },
+      "c10": {
+        "title": "10+ years",
+        "description": "Not recommended for children under 10 years old",
+        "alt": ""
+      },
+      "c12": {
+        "title": "12+ years",
+        "description": "Not recommended for children under 12 years old",
+        "alt": ""
+      },
+      "c14": {
+        "title": "14+ years",
+        "description": "Not recommended for children under 14 years old",
+        "alt": ""
+      },
+      "c16": {
+        "title": "16+ years",
+        "description": "Not recommended for children under 16 years old",
+        "alt": ""
+      },
+      "c18": {
+        "title": "18+ years",
+        "description": "Not recommended for children under 18 years old",
+        "alt": ""
+      }
+    },
+
+    "info": {
+      "rating": "Rating",
+      "release_date": "Launching Date",
+      "developer": "Developer",
+      "publisher": "Publisher",
+      "gender_tags": "Genders",
+      "resource_tags": "Resources"
+    }
+  },
+
+  "Footer": {
+    "description": "The leading Brazilian platform for indie game developers and players. Connecting talent, fostering creativity and celebrating the vibrant Brazilian gamer culture.",
+    "copyright": "© 2025 All rights reserved to LUDUS. 100% Brazilian.",
+    "company_values_1": "Freedon - Union - Diversity",
+    "company_values_2": "Utopia - Sustenability",
+    "follow_us": "Follow us",
+
+    "ludus": {
+      "_": "Ludus",
+      "about_us": "About Us",
+      "our_mission": "Our Mission",
+      "team": "Team"
+    },
+
+    "help": {
+      "_": "Help",
+      "help_center": "Help Center",
+      "contact": "Contact",
+      "faq": "Frequently Asked Questions"
+    },
+
+    "legal": {
+      "_": "Legal",
+      "terms_of_use": "Terms of Use",
+      "privacy": "Privacy",
+      "cookies": "Cookies"
+    }
   }
 }

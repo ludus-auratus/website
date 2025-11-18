@@ -1,8 +1,8 @@
 "use client";
 
 import { useState } from "react";
-import Image from "next/image";
 
+import { Button } from "@/components/ui/button";
 import { GameImage, GameMidia, GameVideo } from "@/lib/game";
 import { createPlaceholderImageUrl } from "@/lib/utils/image.utils";
 
@@ -43,14 +43,18 @@ export default function GameSectionGallery(props: Props) {
         <GameImagePlayer image={midia as GameImage} />
       )}
       <div className="flex items-center justify-between gap-x-6">
-        <button
+        <Button
           disabled={leftArrowDisabled}
-          className="bg-ludus-yellow-400 disabled:bg-ludus-yellow-700 enabled:hover:bg-ludus-yellow-500 font-ludus-pixelify-sans hidden aspect-square w-12 rounded-md text-white transition-all enabled:hover:scale-95 md:block"
+          className="font-ludus-pixelify-sans"
+          variant="secondary"
+          size="icon-lg"
+          cursor="pointer"
+          hoverAnimation="scale-down"
           onClick={() => setMediaIndex((current) => current - 1)}
         >
-          &lt;
-        </button>
-        <div className="bg-ludus-moss-900/50 md:justify-left flex w-full gap-x-4 overflow-x-auto rounded-sm px-4 py-2">
+          {"<"}
+        </Button>
+        <div className="bg-ludus-moss-900/50 md:justify-left flex gap-x-2 overflow-x-auto rounded-sm px-4 py-2">
           {gallery.map((midia, index) => {
             const src = midia.type === "video" ? `https://img.youtube.com/vi/${midia.src}/0.jpg` : midia.src;
 
@@ -61,16 +65,27 @@ export default function GameSectionGallery(props: Props) {
               alt: midia.alt,
             };
 
-            return <GameMiniImage key={`gallery-${index}`} image={image} onClick={handleScreenshotClick(index)} />;
+            return (
+              <GameMiniImage
+                key={`gallery-${index}`}
+                image={image}
+                selected={index === midiaIndex}
+                className="inline-block shrink-0 flex-nowrap"
+                onClick={handleScreenshotClick(index)}
+              />
+            );
           })}
         </div>
-        <button
+        <Button
           disabled={rightArrowDisabled}
-          className="bg-ludus-yellow-400 hover:bg-ludus-yellow-500 font-ludus-pixelify-sans hidden aspect-square w-12 rounded-md text-white transition-all hover:scale-95 md:block"
+          className="font-ludus-pixelify-sans"
+          variant="secondary"
+          size="icon-lg"
+          hoverAnimation="scale-down"
           onClick={() => setMediaIndex((current) => current + 1)}
         >
-          &gt;
-        </button>
+          {">"}
+        </Button>
       </div>
     </GameSection>
   );
