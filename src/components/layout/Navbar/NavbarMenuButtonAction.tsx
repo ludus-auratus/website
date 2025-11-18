@@ -1,4 +1,4 @@
-import { LuMenu, LuX } from "react-icons/lu";
+import { Menu, X } from "lucide-react";
 
 import { Button } from "@/components/ui/button";
 
@@ -18,7 +18,7 @@ export function NavbarMenuButtonAction({ isOpen, setIsOpen }: NavbarMenuButtonAc
       onClick={() => setIsOpen(!isOpen)}
       className="border-none lg:hidden"
     >
-      {isOpen ? <LuX className="size-5" aria-hidden="true" /> : <LuMenu className="size-5" aria-hidden="true" />}
+      {isOpen ? <X className="size-5" aria-hidden="true" /> : <Menu className="size-5" aria-hidden="true" />}
     </Button>
   );
 }

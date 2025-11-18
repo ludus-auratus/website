@@ -1,7 +1,7 @@
 "use client";
 
-import { LuLayoutDashboard, LuLogOut, LuSettings, LuUser } from "react-icons/lu";
 import Link from "next/link";
+import { LayoutDashboard, LogOut, Settings, User } from "lucide-react";
 
 import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
 import { Button } from "@/components/ui/button";
@@ -47,19 +47,19 @@ export function NavbarUserAction({ setIsLoggedIn }: NavbarUserActionProps) {
 
           <DropdownMenuItem asChild>
             <Link href="/perfil" className="flex cursor-pointer items-center">
-              <LuUser className="hover:text-primary-foreground mr-2 h-4 w-4" aria-hidden="true" /> Meu Perfil
+              <User className="hover:text-primary-foreground mr-2 h-4 w-4" aria-hidden="true" /> Meu Perfil
             </Link>
           </DropdownMenuItem>
 
           <DropdownMenuItem asChild>
             <Link href="/dashboard" className="flex cursor-pointer items-center">
-              <LuLayoutDashboard className="hover:text-primary-foreground mr-2 h-4 w-4" aria-hidden="true" /> Portal Dev
+              <LayoutDashboard className="hover:text-primary-foreground mr-2 h-4 w-4" aria-hidden="true" /> Portal Dev
             </Link>
           </DropdownMenuItem>
 
           <DropdownMenuItem asChild>
             <Link href="/configuracoes" className="flex cursor-pointer items-center">
-              <LuSettings className="hover:text-primary-foreground mr-2 h-4 w-4" aria-hidden="true" /> Configurações
+              <Settings className="hover:text-primary-foreground mr-2 h-4 w-4" aria-hidden="true" /> Configurações
             </Link>
           </DropdownMenuItem>
 
@@ -69,7 +69,7 @@ export function NavbarUserAction({ setIsLoggedIn }: NavbarUserActionProps) {
             onClick={() => setIsLoggedIn(false)}
             className="text-destructive active:bg-destructive/20 active:text-destructive focus:bg-destructive/10 focus:text-destructive flex cursor-pointer items-center"
           >
-            <LuLogOut className="text-destructive mr-2 h-4 w-4" aria-hidden="true" /> Sair
+            <LogOut className="text-destructive mr-2 h-4 w-4" aria-hidden="true" /> Sair
           </DropdownMenuItem>
         </DropdownMenuContent>
       </DropdownMenu>

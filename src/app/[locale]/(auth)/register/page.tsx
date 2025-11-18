@@ -1,9 +1,9 @@
 "use client";
 
-import { LuArrowLeft } from "react-icons/lu";
 import Image from "next/image";
 import Link from "next/link";
 import { useRouter } from "next/navigation";
+import { ArrowLeft } from "lucide-react";
 
 import { RegisterForm } from "@/components/forms/RegisterForm";
 import { Button } from "@/components/ui/button";
@@ -22,7 +22,7 @@ export default function LoginPage() {
         }}
         className="text-muted-foreground hover:text-foreground absolute -top-12 left-0 flex items-center gap-2 hover:bg-transparent"
       >
-        <LuArrowLeft className="h-4 w-4" />
+        <ArrowLeft className="h-4 w-4" />
         <span>Voltar à página anterior</span>
       </Button>
 

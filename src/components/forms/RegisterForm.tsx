@@ -1,9 +1,9 @@
 "use client";
 
 import { useState } from "react";
-import { LuEye, LuEyeOff } from "react-icons/lu";
 import Link from "next/link";
 import { redirect } from "next/navigation";
+import { Eye, EyeOff } from "lucide-react";
 
 import { Button } from "@/components/ui/button";
 import { Checkbox } from "@/components/ui/checkbox";
@@ -217,9 +217,9 @@ export function RegisterForm() {
               onClick={() => setShowPassword((prev) => !prev)}
             >
               {showPassword ? (
-                <LuEyeOff className="text-muted-foreground h-4 w-4" />
+                <EyeOff className="text-muted-foreground h-4 w-4" />
               ) : (
-                <LuEye className="text-muted-foreground h-4 w-4" />
+                <Eye className="text-muted-foreground h-4 w-4" />
               )}
             </Button>
           </div>
@@ -251,9 +251,9 @@ export function RegisterForm() {
               onClick={() => setShowConfirmPassword((prev) => !prev)}
             >
               {showConfirmPassword ? (
-                <LuEyeOff className="text-muted-foreground h-4 w-4" />
+                <EyeOff className="text-muted-foreground h-4 w-4" />
               ) : (
-                <LuEye className="text-muted-foreground h-4 w-4" />
+                <Eye className="text-muted-foreground h-4 w-4" />
               )}
             </Button>
           </div>

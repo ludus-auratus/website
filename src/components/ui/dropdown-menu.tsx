@@ -1,7 +1,7 @@
 "use client";
 
 import * as React from "react";
-import { LuCheck, LuChevronRight, LuCircle } from "react-icons/lu";
+import { Check, ChevronRight, Circle } from "lucide-react";
 
 import { cn } from "@/lib/utils/shadcn";
 import * as DropdownMenuPrimitive from "@radix-ui/react-dropdown-menu";
@@ -83,7 +83,7 @@ function DropdownMenuCheckboxItem({
     >
       <span className="pointer-events-none absolute left-2 flex size-3.5 items-center justify-center">
         <DropdownMenuPrimitive.ItemIndicator>
-          <LuCheck className="size-4" />
+          <Check className="size-4" />
         </DropdownMenuPrimitive.ItemIndicator>
       </span>
       {children}
@@ -111,7 +111,7 @@ function DropdownMenuRadioItem({
     >
       <span className="pointer-events-none absolute left-2 flex size-3.5 items-center justify-center">
         <DropdownMenuPrimitive.ItemIndicator>
-          <LuCircle className="size-2 fill-current" />
+          <Circle className="size-2 fill-current" />
         </DropdownMenuPrimitive.ItemIndicator>
       </span>
       {children}
@@ -179,7 +179,7 @@ function DropdownMenuSubTrigger({
       {...props}
     >
       {children}
-      <LuChevronRight className="ml-auto size-4" />
+      <ChevronRight className="ml-auto size-4" />
     </DropdownMenuPrimitive.SubTrigger>
   );
 }

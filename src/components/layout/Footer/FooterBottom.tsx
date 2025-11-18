@@ -1,11 +1,11 @@
-import { LuHeart } from "react-icons/lu";
+import { Heart } from "lucide-react";
 
 export function FooterBottom() {
   return (
     <div className="flex flex-col items-center justify-between gap-4 md:flex-row">
       <div className="text-muted-foreground flex items-center gap-2 text-sm">
         <span>© 2024 Ludus. Feito com</span>
-        <LuHeart className="h-4 w-4 fill-current text-red-500" />
+        <Heart className="h-4 w-4 fill-current text-red-500" />
         <span>no Brasil.</span>
       </div>
 

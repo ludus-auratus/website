@@ -1,4 +1,4 @@
-import { LuSparkle, LuStar } from "react-icons/lu";
+import { Sparkle, Star } from "lucide-react";
 
 import games from "@/assets/data/games.json";
 import { GameCard } from "@/components/game/GameCard";
@@ -22,9 +22,9 @@ export default function Home() {
       <Section className="from-secondary/30 to-background bg-gradient-to-b">
         <SectionHeader>
           <SectionTitle>
-            <SectionIcon icon={LuStar} />
+            <SectionIcon icon={Star} />
             <SectionTitleText text="Em Destaque" />
-            <SectionIcon icon={LuStar} />
+            <SectionIcon icon={Star} />
           </SectionTitle>
 
           <SectionDescription>Jogos selecionados cuidadosamente pela equipe Ludus e pela comunidade</SectionDescription>
@@ -40,9 +40,9 @@ export default function Home() {
       <Section>
         <SectionHeader>
           <SectionTitle>
-            <SectionIcon icon={LuSparkle} className="text-primary fill-current" />
+            <SectionIcon icon={Sparkle} className="text-primary fill-current" />
             <SectionTitleText text="Lançamentos Recentes" />
-            <SectionIcon icon={LuSparkle} className="text-primary fill-current" />
+            <SectionIcon icon={Sparkle} className="text-primary fill-current" />
           </SectionTitle>
 
           <SectionDescription>Descubra os jogos mais novos da plataforma Ludus</SectionDescription>

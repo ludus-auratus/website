@@ -1,4 +1,4 @@
-import { LuClock, LuSparkles, LuTrophy, LuUsers } from "react-icons/lu";
+import { Clock, Sparkles, Trophy, Users } from "lucide-react";
 
 import {
   SectionContent,
@@ -16,22 +16,22 @@ import { GameJamFeatureCard } from "./GameJamFeatureCard";
 export default function GameJamSection() {
   const features = [
     {
-      icon: LuTrophy,
+      icon: Trophy,
       title: "Competições Criativas",
       description: "Participe de desafios temáticos com foco em cultura brasileira",
     },
     {
-      icon: LuUsers,
+      icon: Users,
       title: "Comunidade Ativa",
       description: "Conecte-se com outros desenvolvedores indies brasileiros",
     },
     {
-      icon: LuClock,
+      icon: Clock,
       title: "Eventos Regulares",
       description: "Novas game jams lançadas mensalmente com prêmios exclusivos",
     },
     {
-      icon: LuSparkles,
+      icon: Sparkles,
       title: "Visibilidade Garantida",
       description: "Jogos criados em jams recebem destaque especial na plataforma",
     },
@@ -41,9 +41,9 @@ export default function GameJamSection() {
     <Section>
       <SectionHeader>
         <SectionTitle>
-          <SectionIcon icon={LuTrophy} />
+          <SectionIcon icon={Trophy} />
           <SectionTitleText text="Game Jam" />
-          <SectionIcon icon={LuTrophy} />
+          <SectionIcon icon={Trophy} />
         </SectionTitle>
 
         <SectionDescription>

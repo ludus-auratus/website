@@ -1,8 +1,8 @@
 "use client";
 
 import * as React from "react";
-import { LuArrowLeft, LuArrowRight } from "react-icons/lu";
 import useEmblaCarousel, { type UseEmblaCarouselType } from "embla-carousel-react";
+import { ArrowLeft, ArrowRight } from "lucide-react";
 
 import { Button } from "@/components/ui/button";
 import { cn } from "@/lib/utils/shadcn";
@@ -177,7 +177,7 @@ function CarouselPrevious({
       onClick={scrollPrev}
       {...props}
     >
-      <LuArrowLeft />
+      <ArrowLeft />
       <span className="sr-only">Previous slide</span>
     </Button>
   );
@@ -207,7 +207,7 @@ function CarouselNext({
       onClick={scrollNext}
       {...props}
     >
-      <LuArrowRight />
+      <ArrowRight />
       <span className="sr-only">Next slide</span>
     </Button>
   );

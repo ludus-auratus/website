@@ -1,7 +1,7 @@
 "use client";
 
-import { LuShoppingCart } from "react-icons/lu";
 import Link from "next/link";
+import { ShoppingCart } from "lucide-react";
 
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
@@ -19,7 +19,7 @@ export function NavbarCartAction() {
       className="hover:bg-accent/10 active:bg-accent/20 hover:text-foreground relative border-none p-5"
     >
       <Link href="/cart" aria-label={`Carrinho, (${cartItemsCount} itens)`}>
-        <LuShoppingCart className="size-5" aria-hidden="true" />
+        <ShoppingCart className="size-5" aria-hidden="true" />
 
         {cartItemsCount > 0 && (
           <Badge
