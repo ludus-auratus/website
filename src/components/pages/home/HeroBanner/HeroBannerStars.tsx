@@ -1,4 +1,4 @@
-import { LuStar } from "react-icons/lu";
+import { Star } from "lucide-react";
 
 interface HeroBannerStarsProps {
   rating: number;
@@ -9,7 +9,7 @@ export function HeroBannerStars({ rating }: HeroBannerStarsProps) {
     <div className="flex items-center space-x-2">
       <div className="flex items-center">
         {[...Array(5)].map((_, i) => (
-          <LuStar
+          <Star
             key={i}
             className={`h-5 w-5 ${
               i < Math.floor(rating) ? "text-ludus-yellow-400 fill-current" : "text-muted-foreground"

@@ -5,7 +5,7 @@ import Link from "next/link";
 import { useRouter } from "next/navigation";
 import { ArrowLeft } from "lucide-react";
 
-import { LoginForm } from "@/components/forms/LoginForm";
+import { RegisterForm } from "@/components/forms/RegisterForm";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
 
@@ -13,7 +13,7 @@ export default function LoginPage() {
   const router = useRouter();
 
   return (
-    <div className="relative w-full max-w-md">
+    <div className="relative h-auto w-full max-w-2xl p-4">
       <Button
         variant="ghost"
         onClick={() => {
@@ -32,19 +32,21 @@ export default function LoginPage() {
             <Image src="/images/ludus/logo-texto.svg" width={132} height={41} alt="Logo da Ludus" priority />
           </div>
 
-          <CardTitle className="text-foreground font-ludus-pixelify-sans text-3xl">Bem-vindo de volta!</CardTitle>
+          <CardTitle className="font-ludus-pixelify-sans text-foreground text-3xl">Junte-se ao Ludus!</CardTitle>
 
-          <CardDescription className="text-muted-foreground text-lg">Entre na sua conta Ludus</CardDescription>
+          <CardDescription className="text-muted-foreground text-lg">
+            Crie sua conta e descubra os melhores jogos indies brasileiros
+          </CardDescription>
         </CardHeader>
 
         <CardContent>
-          <LoginForm />
+          <RegisterForm />
 
           <div className="pt-4 text-center">
             <p className="text-muted-foreground">
-              Não tem uma conta?{" "}
+              Já tem uma conta?{" "}
               <Button asChild variant="link" className="text-primary h-auto p-0 hover:underline">
-                <Link href="/register">Registre-se gratuitamente</Link>
+                <Link href="/login">Faça login</Link>
               </Button>
             </p>
           </div>

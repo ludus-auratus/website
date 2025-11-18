@@ -1,7 +1,9 @@
 import { GameClassification } from "./game.utils";
 
 export interface Game {
+  id: number;
   name: string;
+  price: number;
   tags: {
     genders: GameTag[];
     resources: GameTag[];
