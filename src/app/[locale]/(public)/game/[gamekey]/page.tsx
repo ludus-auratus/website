@@ -6,7 +6,7 @@ import { getGameDataById } from "@/lib/game";
 // type GameData = {
 //   key: string;
 //   name: string;
-//   info: GameInfomation;
+//   info: GameInformation;
 //   sections: {
 //     gallery: GameMidia[];
 //     description: GameDescription;
@@ -27,7 +27,7 @@ export default async function Page() {
           <main className="flex w-full flex-col gap-y-4">
             <Game.Header name={data.name} studio={data.studio} icon={data.icon} />
             <Game.Gallery gallery={data.gallery} />
-            <Game.Description descrition={data.description} />
+            <Game.Description description={data.description} />
           </main>
           <aside className="flex flex-col gap-y-4">
             <Game.Info data={data} />

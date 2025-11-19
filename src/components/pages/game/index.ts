@@ -9,7 +9,7 @@ export const Game = {
   Gallery: GameSectionGallery,
   Description: GameSectionDescription,
   //   News: GameSectionNews,
-  //   Sugestions: GameSectionSugestion,
+  //   Suggestions: GameSectionSuggestion,
   Info: GameSectionInfo,
   Comments: GameSectionComments,
 };

@@ -9,7 +9,7 @@ import { NavbarActions } from "./NavbarActions";
 import { NavbarAuthButtons } from "./NavbarAuthButtons";
 import { NavbarBrand } from "./NavbarBrand";
 import { NavbarCartAction } from "./NavbarCartAction";
-import { NavabarIcon } from "./NavbarIcon";
+import { NavbarIcon } from "./NavbarIcon";
 import { NavbarMenu } from "./NavbarMenu";
 import { NavbarMenuButtonAction } from "./NavbarMenuButtonAction";
 import { NavbarMenuItem } from "./NavbarMenuItem";
@@ -35,7 +35,7 @@ export function Navbar() {
         <NavbarMenu variant="desktop">
           {navigationLinks.map((link) => (
             <NavbarMenuItem variant="desktop" key={link.path} href={link.path}>
-              <NavabarIcon icon={link.icon} />
+              <NavbarIcon icon={link.icon} />
 
               {link.label}
             </NavbarMenuItem>
@@ -60,7 +60,7 @@ export function Navbar() {
               key={link.path}
               href={link.path}
             >
-              <NavabarIcon className="mr-2" icon={link.icon} />
+              <NavbarIcon className="mr-2" icon={link.icon} />
 
               {link.label}
             </NavbarMenuItem>
@@ -71,17 +71,17 @@ export function Navbar() {
           {isLoggedIn ? (
             <>
               <NavbarMenuItem variant="mobile" href="/perfil" onClick={() => setIsMobileMenuOpen(false)}>
-                <NavabarIcon className="mr-2" icon={User} />
+                <NavbarIcon className="mr-2" icon={User} />
                 Meu Perfil
               </NavbarMenuItem>
 
               <NavbarMenuItem variant="mobile" href="/dashboard" onClick={() => setIsMobileMenuOpen(false)}>
-                <NavabarIcon className="mr-2" icon={LayoutDashboard} />
+                <NavbarIcon className="mr-2" icon={LayoutDashboard} />
                 Portal Dev
               </NavbarMenuItem>
 
               <NavbarMenuItem variant="mobile" href="/configuracoes" onClick={() => setIsMobileMenuOpen(false)}>
-                <NavabarIcon className="mr-2" icon={Settings} />
+                <NavbarIcon className="mr-2" icon={Settings} />
                 Configurações
               </NavbarMenuItem>
 
