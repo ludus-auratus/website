@@ -1,9 +1,10 @@
 {
   "Wip": {
     "title": "Programmers in Action",
-    "paragraph": "Sorry by that, but this page still in progress",
+    "paragraph": "We're sorry, but this page still in progress",
     "back_to_home": "Back to Home"
   },
+
   "Game": {
     "description_section": "About This Game",
 
@@ -52,6 +53,37 @@
   },
 
   "Footer": {
+    "description": "The main platform for developers and players of Brazilian games. Connecting talent, fostering creativity, and celebrating the vibrant Brazilian gaming culture.",
+
+    "navigation": {
+      "about": {
+        "_": "Ludus",
+        "about_us": "About Us",
+        "mission": "Our Mission",
+        "developers": "Developers"
+      },
+      "support": {
+        "_": "Support",
+        "help_center": "Help Center",
+        "contact": "Contact",
+        "faq": "Frequently Asked Questions"
+      },
+      "legal": {
+        "_": "Legal",
+        "terms_of_use": "Terms of Use",
+        "privacy": "Privacy",
+        "cookies": "Cookies"
+      }
+    },
+
+    "Bottom": {
+      "copyright1": "© 2025 Ludus. Made with",
+      "copyright2": "in Brazil.",
+      "slogan": "Freedon - Union - Diversity - Utopia - Sustentability"
+    }
+  },
+
+  "FooterOld": {
     "description": "The leading Brazilian platform for indie game developers and players. Connecting talent, fostering creativity and celebrating the vibrant Brazilian gamer culture.",
     "copyright": "© 2025 All rights reserved to LUDUS. 100% Brazilian.",
     "company_values_1": "Freedom - Union - Diversity",

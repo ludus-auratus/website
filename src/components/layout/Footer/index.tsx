@@ -5,21 +5,23 @@ import { FooterNavigationGroup } from "./FooterNavigationGroup";
 import { FooterRoot } from "./FooterRoot";
 import { FooterSeparator } from "./FooterSeparator";
 
-const footerLinks = {
-  sobre: [
-    { name: "Sobre nós", href: "#" },
-    { name: "Nossa Missão", href: "#" },
-    { name: "Desenvolvedores", href: "#" },
+type FooterLink = { name: string; href: string };
+
+const footerLinks: Record<string, FooterLink[]> = {
+  about: [
+    { name: "about_us", href: "#" },
+    { name: "mission", href: "#" },
+    { name: "developers", href: "#" },
   ],
-  suporte: [
-    { name: "Centro de Ajuda", href: "#" },
-    { name: "Contato", href: "#" },
-    { name: "FAQ", href: "#" },
+  support: [
+    { name: "help_center", href: "#" },
+    { name: "contact", href: "#" },
+    { name: "faq", href: "#" },
   ],
   legal: [
-    { name: "Termos de Uso", href: "#" },
-    { name: "Privacidade", href: "#" },
-    { name: "Cookies", href: "#" },
+    { name: "terms_of_use", href: "#" },
+    { name: "privacy", href: "#" },
+    { name: "cookies", href: "#" },
   ],
 };
 
@@ -29,9 +31,9 @@ export function Footer() {
       <FooterContent>
         <FooterBrand />
 
-        <FooterNavigationGroup title="Sobre" links={footerLinks.sobre} />
-        <FooterNavigationGroup title="Suporte" links={footerLinks.suporte} />
-        <FooterNavigationGroup title="Legal" links={footerLinks.legal} />
+        {Object.keys(footerLinks).map((key, index) => {
+          return <FooterNavigationGroup key={`nav-group-${index}`} title={key} links={footerLinks[key]} />;
+        })}
       </FooterContent>
 
       <FooterSeparator />

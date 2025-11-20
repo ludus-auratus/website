@@ -52,6 +52,37 @@
   },
 
   "Footer": {
+    "description": "A principal plataforma para desenvolvedores e jogadores de jogos brasileiros. Conectando talentos, fomentando a criatividade e celebrando a vibrante cultura gamer brasileira.",
+
+    "navigation": {
+      "about": {
+        "_": "Ludus",
+        "about_us": "Sobre Nós",
+        "mission": "Nossa Missão",
+        "developers": "Desenvolvedores"
+      },
+      "support": {
+        "_": "Suporte",
+        "help_center": "Central de Ajuda",
+        "contact": "Contato",
+        "faq": "Perguntas Frequentes"
+      },
+      "legal": {
+        "_": "Legal",
+        "terms_of_use": "Termos de Uso",
+        "privacy": "Privacidade",
+        "cookies": "Cookies"
+      }
+    },
+
+    "Bottom": {
+      "copyright1": "© 2025 Ludus. Feito com",
+      "copyright2": "no Brasil.",
+      "slogan": "Liberdade - União - Diversidade - Utopia - Sustentabilidade"
+    }
+  },
+
+  "FooterOld": {
     "description": "A principal plataforma brasileira para desenvolvedores e jogadores de jogos indie. Conectando talentos, fomentando a criatividade e celebrando a vibrante cultura gamer brasileira.",
     "copyright": "© 2025 Todos os direitos reservados a LUDUS. 100% Brasil",
     "company_values_1": "Liberdade - União - Diversidade",
