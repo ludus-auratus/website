@@ -1,3 +1,4 @@
+import { useTranslations } from "next-intl";
 import { Clock, Sparkles, Trophy, Users } from "lucide-react";
 
 import {
@@ -14,26 +15,25 @@ import { GameJamComingSoon } from "./GameJamComingSoon";
 import { GameJamFeatureCard } from "./GameJamFeatureCard";
 
 export default function GameJamSection() {
+  const t = useTranslations("GameJamSection");
+  const tFeatures = useTranslations("GameJamSection.features");
+
   const features = [
     {
       icon: Trophy,
-      title: "Competições Criativas",
-      description: "Participe de desafios temáticos com foco em cultura brasileira",
+      titleKey: "creative_competitions",
     },
     {
       icon: Users,
-      title: "Comunidade Ativa",
-      description: "Conecte-se com outros desenvolvedores indies brasileiros",
+      titleKey: "active_community",
     },
     {
       icon: Clock,
-      title: "Eventos Regulares",
-      description: "Novas game jams lançadas mensalmente com prêmios exclusivos",
+      titleKey: "regular_events",
     },
     {
       icon: Sparkles,
-      title: "Visibilidade Garantida",
-      description: "Jogos criados em jams recebem destaque especial na plataforma",
+      titleKey: "guaranteed_visibility",
     },
   ];
 
@@ -42,16 +42,13 @@ export default function GameJamSection() {
       <SectionHeader>
         <SectionTitle>
           <SectionIcon icon={Trophy} />
-          <SectionTitleText text="Game Jam" />
+          <SectionTitleText text={t("title")} />
           <SectionIcon icon={Trophy} />
         </SectionTitle>
 
         <SectionDescription>
-          Participe de competições criativas, desenvolva jogos em tempo limitado e conecte-se com a comunidade indie
-          brasileira.
-          <span className="mt-2 block text-[var(--ludus-orange)]">
-            Esta funcionalidade está em desenvolvimento e em breve estará disponível!
-          </span>
+          {t("description")}
+          <span className="mt-2 block text-[var(--ludus-orange)]">{t("coming_soon_message")}</span>
         </SectionDescription>
       </SectionHeader>
 
@@ -61,8 +58,8 @@ export default function GameJamSection() {
             <GameJamFeatureCard
               key={index}
               icon={feature.icon}
-              title={feature.title}
-              description={feature.description}
+              title={tFeatures(`${feature.titleKey}.title`)}
+              description={tFeatures(`${feature.titleKey}.description`)}
             />
           ))}
         </div>

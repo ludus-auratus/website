@@ -3,6 +3,7 @@
 import { useState } from "react";
 import Link from "next/link";
 import { redirect } from "next/navigation";
+import { useTranslations } from "next-intl";
 import { Eye, EyeOff } from "lucide-react";
 
 import { Button } from "@/components/ui/button";
@@ -55,6 +56,7 @@ const brazilianStates = [
 ];
 
 export function RegisterForm() {
+  const t = useTranslations("Auth.forms.register");
   const [formData, setFormData] = useState<RegisterFormData>({
     firstName: "",
     lastName: "",
@@ -84,17 +86,17 @@ export function RegisterForm() {
   }
 
   return (
-    <form onSubmit={handleSubmit} className="space-y-6" aria-label="Formulário de registro">
+    <form onSubmit={handleSubmit} className="space-y-6" aria-label={t("aria_label")}>
       <div className="grid grid-cols-1 gap-4 md:grid-cols-2">
         <div className="space-y-2">
           <Label htmlFor="firstName" className="text-foreground">
-            Nome *
+            {t("first_name")} *
           </Label>
 
           <Input
             id="firstName"
             type="text"
-            placeholder="João"
+            placeholder={t("first_name_placeholder")}
             value={formData.firstName}
             onChange={handleChange}
             required
@@ -103,13 +105,13 @@ export function RegisterForm() {
 
         <div className="space-y-2">
           <Label htmlFor="lastName" className="text-foreground">
-            Sobrenome *
+            {t("last_name")} *
           </Label>
 
           <Input
             id="lastName"
             type="text"
-            placeholder="Silva"
+            placeholder={t("last_name_placeholder")}
             value={formData.lastName}
             onChange={handleChange}
             required
@@ -119,13 +121,13 @@ export function RegisterForm() {
 
       <div className="space-y-2">
         <Label htmlFor="username" className="text-foreground">
-          Nome de usuário *
+          {t("username")} *
         </Label>
 
         <Input
           id="username"
           type="text"
-          placeholder="gamer_brasileiro"
+          placeholder={t("username_placeholder")}
           value={formData.username}
           onChange={handleChange}
           required
@@ -135,13 +137,13 @@ export function RegisterForm() {
       {/* Email */}
       <div className="space-y-2">
         <Label htmlFor="email" className="text-foreground">
-          Email *
+          {t("email")} *
         </Label>
 
         <Input
           id="email"
           type="email"
-          placeholder="seu@email.com"
+          placeholder={t("email_placeholder")}
           value={formData.email}
           onChange={handleChange}
           autoComplete="email"
@@ -152,7 +154,7 @@ export function RegisterForm() {
       <div className="grid grid-cols-1 gap-4 md:grid-cols-2">
         <div className="space-y-2">
           <Label htmlFor="region" className="text-foreground">
-            Estado
+            {t("region")}
           </Label>
 
           <Select
@@ -160,7 +162,7 @@ export function RegisterForm() {
             onValueChange={(value) => setFormData((prev) => ({ ...prev, region: value }))}
           >
             <SelectTrigger size="default" className="bg-input-background w-full">
-              <SelectValue placeholder="Selecione seu estado" />
+              <SelectValue placeholder={t("region_placeholder")} />
             </SelectTrigger>
 
             <SelectContent>
@@ -175,13 +177,13 @@ export function RegisterForm() {
 
         <div className="space-y-2">
           <Label htmlFor="birthYear" className="text-foreground">
-            Ano de nascimento
+            {t("birth_year")}
           </Label>
 
           <Input
             id="birthYear"
             type="number"
-            placeholder="1990"
+            placeholder={t("birth_year_placeholder")}
             min="1950"
             max="2010"
             value={formData.birthYear}
@@ -193,14 +195,14 @@ export function RegisterForm() {
       <div className="grid grid-cols-1 gap-4 md:grid-cols-2">
         <div className="space-y-2">
           <Label htmlFor="password" className="text-foreground">
-            Senha *
+            {t("password")} *
           </Label>
 
           <div className="relative">
             <Input
               id="password"
               type={showPassword ? "text" : "password"}
-              placeholder="••••••••"
+              placeholder={t("password_placeholder")}
               value={formData.password}
               onChange={handleChange}
               autoComplete="new-password"
@@ -212,7 +214,7 @@ export function RegisterForm() {
               type="button"
               variant="ghost"
               size="icon-sm"
-              aria-label={showPassword ? "Ocultar senha" : "Mostrar senha"}
+              aria-label={showPassword ? t("hide_password") : t("show_password")}
               className="absolute top-0 right-0 h-12 px-3 hover:bg-transparent"
               onClick={() => setShowPassword((prev) => !prev)}
             >
@@ -227,14 +229,14 @@ export function RegisterForm() {
 
         <div className="space-y-2">
           <Label htmlFor="confirmPassword" className="text-foreground">
-            Confirmar senha *
+            {t("confirm_password")} *
           </Label>
 
           <div className="relative">
             <Input
               id="confirmPassword"
               type={showConfirmPassword ? "text" : "password"}
-              placeholder="••••••••"
+              placeholder={t("password_placeholder")}
               value={formData.confirmPassword}
               onChange={handleChange}
               autoComplete="new-password"
@@ -246,7 +248,7 @@ export function RegisterForm() {
               type="button"
               variant="ghost"
               size="icon-sm"
-              aria-label={showConfirmPassword ? "Ocultar senha" : "Mostrar senha"}
+              aria-label={showConfirmPassword ? t("hide_password") : t("show_password")}
               className="absolute top-0 right-0 h-12 px-3 hover:bg-transparent"
               onClick={() => setShowConfirmPassword((prev) => !prev)}
             >
@@ -271,15 +273,15 @@ export function RegisterForm() {
           />
 
           <Label htmlFor="agreeTerms" className="text-foreground block text-sm leading-relaxed">
-            Eu concordo com os{" "}
+            {t("agree_terms")}{" "}
             <Link href="/" className="text-primary hover:underline">
-              Termos de Uso
+              {t("terms_of_use")}
             </Link>{" "}
-            e{" "}
+            {t("and")}{" "}
             <Link href="/" className="text-primary hover:underline">
-              Política de Privacidade
+              {t("privacy_policy")}
             </Link>{" "}
-            do Ludus *
+            {t("of_ludus")} *
           </Label>
         </div>
       </div>
@@ -289,7 +291,7 @@ export function RegisterForm() {
         disabled={!formData.agreeTerms}
         className="h-12 w-full rounded-xl text-lg shadow-lg hover:shadow-xl"
       >
-        Criar Conta
+        {t("submit")}
       </Button>
     </form>
   );

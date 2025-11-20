@@ -23,7 +23,6 @@
 
   "Game": {
     "description_section": "Sobre Este Jogo",
-
     "classification": {
       "prefix": "Classificação",
       "c0": {
@@ -57,7 +56,6 @@
         "alt": ""
       }
     },
-
     "info": {
       "rating": "Avaliação",
       "release_date": "Data de Lançamento",
@@ -67,10 +65,8 @@
       "resource_tags": "Recursos"
     }
   },
-
   "Footer": {
     "description": "A principal plataforma para desenvolvedores e jogadores de jogos brasileiros. Conectando talentos, fomentando a criatividade e celebrando a vibrante cultura gamer brasileira.",
-
     "navigation": {
       "about": {
         "_": "Ludus",
@@ -91,40 +87,165 @@
         "cookies": "Cookies"
       }
     },
-
     "Bottom": {
-      "copyright1": "© 2025 Ludus. Feito com",
-      "copyright2": "no Brasil.",
+      "copyright": "© 2025 Ludus. Todos os direitos reservados.",
       "slogan": "Liberdade - União - Diversidade - Utopia - Sustentabilidade"
     }
   },
-
   "FooterOld": {
     "description": "A principal plataforma brasileira para desenvolvedores e jogadores de jogos indie. Conectando talentos, fomentando a criatividade e celebrando a vibrante cultura gamer brasileira.",
     "copyright": "© 2025 Todos os direitos reservados a LUDUS. 100% Brasil",
     "company_values_1": "Liberdade - União - Diversidade",
     "company_values_2": "Utopia - Sustentabilidade",
     "follow_us": "Siga-nos",
-
     "ludus": {
       "_": "Ludus",
       "about_us": "Sobre Nós",
       "our_mission": "Nossa Missão",
       "team": "Equipe"
     },
-
     "help": {
       "_": "Suporte",
       "help_center": "Central de Ajuda",
       "contact": "Contato",
       "faq": "Perguntas Frequentes"
     },
-
     "legal": {
       "_": "Legal",
       "terms_of_use": "Termos de Uso",
       "privacy": "Privacidade",
       "cookies": "Cookies"
+    }
+  },
+  "GameJamSection": {
+    "title": "Game Jam",
+    "description": "Participe de competições criativas, desenvolva jogos em tempo limitado e conecte-se com a comunidade indie brasileira.",
+    "coming_soon_message": "Esta funcionalidade está em desenvolvimento e em breve estará disponível!",
+    "coming_soon": {
+      "title": "Em Breve: Sua Primeira Game Jam!",
+      "description": "Estamos criando uma área completa para hospedar game jams. Você poderá criar jogos, votar nos seus favoritos e disputar prêmios incríveis!"
+    },
+    "features": {
+      "creative_competitions": {
+        "title": "Competições Criativas",
+        "description": "Participe de desafios temáticos com foco em cultura brasileira"
+      },
+      "active_community": {
+        "title": "Comunidade Ativa",
+        "description": "Conecte-se com outros desenvolvedores indies brasileiros"
+      },
+      "regular_events": {
+        "title": "Eventos Regulares",
+        "description": "Novas game jams lançadas mensalmente com prêmios exclusivos"
+      },
+      "guaranteed_visibility": {
+        "title": "Visibilidade Garantida",
+        "description": "Jogos criados em jams recebem destaque especial na plataforma"
+      }
+    }
+  },
+  "Home": {
+    "featured": {
+      "title": "Em Destaque",
+      "description": "Jogos selecionados cuidadosamente pela equipe Ludus e pela comunidade"
+    },
+    "recent_releases": {
+      "title": "Lançamentos Recentes",
+      "description": "Descubra os jogos mais novos da plataforma Ludus"
+    }
+  },
+  "Cart": {
+    "empty": {
+      "title": "Seu Carrinho Está Vazio",
+      "description": "Explore nosso catálogo de jogos indies brasileiros e adicione seus favoritos ao carrinho!",
+      "explore_button": "Explorar Catálogo"
+    },
+    "title": "Meu Carrinho",
+    "item": {
+      "quantity": "Quantidade:",
+      "remove_from_cart": "Remover {name} do carrinho"
+    },
+    "summary": {
+      "title": "Resumo do Pedido",
+      "subtotal": "Subtotal",
+      "total": "Total",
+      "item": "item",
+      "items": "itens",
+      "checkout_button": "Finalizar Compra",
+      "security_message": "Pagamento seguro processado através de gateway criptografado",
+      "continue_shopping": "Continuar Comprando",
+      "clear_cart": "Esvaziar Carrinho"
+    }
+  },
+  "Contact": {
+    "title": "Contato",
+    "description": "Entre em contato conosco. Estamos aqui para ajudar!",
+    "form": {
+      "aria_label": "Formulário de contato",
+      "name": "Nome",
+      "name_placeholder": "Seu nome completo",
+      "email": "Email",
+      "email_placeholder": "seu.email@exemplo.com",
+      "subject": "Assunto",
+      "subject_placeholder": "Sobre o que você gostaria de falar?",
+      "message": "Mensagem",
+      "message_placeholder": "Escreva sua mensagem aqui...",
+      "submit": "Enviar Mensagem"
+    }
+  },
+  "Auth": {
+    "back_button": "Voltar à página anterior",
+    "footer_message": "🎮 Celebrando a cultura gamer brasileira",
+    "login": {
+      "title": "Bem-vindo de volta!",
+      "description": "Entre na sua conta Ludus",
+      "no_account": "Não tem uma conta?",
+      "register_link": "Registre-se gratuitamente"
+    },
+    "register": {
+      "title": "Junte-se ao Ludus!",
+      "description": "Crie sua conta e descubra os melhores jogos indies brasileiros",
+      "has_account": "Já tem uma conta?",
+      "login_link": "Faça login"
+    },
+    "forms": {
+      "login": {
+        "aria_label": "Formulário de login",
+        "email": "E-mail",
+        "email_placeholder": "seu@email.com",
+        "password": "Senha",
+        "password_placeholder": "••••••••",
+        "show_password": "Mostrar senha",
+        "hide_password": "Ocultar senha",
+        "forgot_password": "Esqueceu a senha?",
+        "submit": "Entrar"
+      },
+      "register": {
+        "aria_label": "Formulário de registro",
+        "first_name": "Nome",
+        "first_name_placeholder": "João",
+        "last_name": "Sobrenome",
+        "last_name_placeholder": "Silva",
+        "username": "Nome de usuário",
+        "username_placeholder": "gamer_brasileiro",
+        "email": "Email",
+        "email_placeholder": "seu@email.com",
+        "region": "Estado",
+        "region_placeholder": "Selecione seu estado",
+        "birth_year": "Ano de nascimento",
+        "birth_year_placeholder": "1990",
+        "password": "Senha",
+        "password_placeholder": "••••••••",
+        "confirm_password": "Confirmar senha",
+        "show_password": "Mostrar senha",
+        "hide_password": "Ocultar senha",
+        "agree_terms": "Eu concordo com os",
+        "terms_of_use": "Termos de Uso",
+        "and": "e",
+        "privacy_policy": "Política de Privacidade",
+        "of_ludus": "do Ludus",
+        "submit": "Criar Conta"
+      }
     }
   }
 }

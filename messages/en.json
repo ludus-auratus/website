@@ -20,10 +20,8 @@
     "outline": "Outline",
     "link": "Link"
   },
-
   "Game": {
     "description_section": "About This Game",
-
     "classification": {
       "prefix": "Age Rating",
       "c0": {
@@ -57,7 +55,6 @@
         "alt": ""
       }
     },
-
     "info": {
       "rating": "Rating",
       "release_date": "Launching Date",
@@ -67,10 +64,8 @@
       "resource_tags": "Resources"
     }
   },
-
   "Footer": {
     "description": "The main platform for developers and players of Brazilian games. Connecting talent, fostering creativity, and celebrating the vibrant Brazilian gaming culture.",
-
     "navigation": {
       "about": {
         "_": "Ludus",
@@ -91,40 +86,165 @@
         "cookies": "Cookies"
       }
     },
-
     "Bottom": {
-      "copyright1": "© 2025 Ludus. Made with",
-      "copyright2": "in Brazil.",
-      "slogan": "Freedon - Union - Diversity - Utopia - Sustentability"
+      "copyright": "© 2025 Ludus. All rights reserved.",
+      "slogan": "Freedom - Union - Diversity - Utopia - Sustainability"
     }
   },
-
   "FooterOld": {
     "description": "The leading Brazilian platform for indie game developers and players. Connecting talent, fostering creativity and celebrating the vibrant Brazilian gamer culture.",
     "copyright": "© 2025 All rights reserved to LUDUS. 100% Brazilian.",
     "company_values_1": "Freedom - Union - Diversity",
     "company_values_2": "Utopia - Sustainability",
     "follow_us": "Follow us",
-
     "ludus": {
       "_": "Ludus",
       "about_us": "About Us",
       "our_mission": "Our Mission",
       "team": "Team"
     },
-
     "help": {
       "_": "Help",
       "help_center": "Help Center",
       "contact": "Contact",
       "faq": "Frequently Asked Questions"
     },
-
     "legal": {
       "_": "Legal",
       "terms_of_use": "Terms of Use",
       "privacy": "Privacy",
       "cookies": "Cookies"
+    }
+  },
+  "GameJamSection": {
+    "title": "Game Jam",
+    "description": "Participate in creative competitions, develop games within a limited time, and connect with the Brazilian indie community.",
+    "coming_soon_message": "This feature is under development and will be available soon!",
+    "coming_soon": {
+      "title": "Coming Soon: Your First Game Jam!",
+      "description": "We're creating a complete space to host game jams. You'll be able to create games, vote for your favorites, and compete for amazing prizes!"
+    },
+    "features": {
+      "creative_competitions": {
+        "title": "Creative Competitions",
+        "description": "Participate in themed challenges inspired by Brazilian culture"
+      },
+      "active_community": {
+        "title": "Active Community",
+        "description": "Connect with other Brazilian indie developers"
+      },
+      "regular_events": {
+        "title": "Regular Events",
+        "description": "New game jams launched monthly with exclusive prizes"
+      },
+      "guaranteed_visibility": {
+        "title": "Guaranteed Visibility",
+        "description": "Games created in jams receive special visibility on the platform"
+      }
+    }
+  },
+  "Home": {
+    "featured": {
+      "title": "Featured",
+      "description": "Games carefully selected by the Ludus team and the community"
+    },
+    "recent_releases": {
+      "title": "Recent Releases",
+      "description": "Discover the latest games on the Ludus platform"
+    }
+  },
+  "Cart": {
+    "empty": {
+      "title": "Your Cart is Empty",
+      "description": "Explore our catalog of Brazilian indie games and add your favorites to the cart!",
+      "explore_button": "Explore Catalog"
+    },
+    "title": "My Cart",
+    "item": {
+      "quantity": "Quantity:",
+      "remove_from_cart": "Remove {name} from the cart"
+    },
+    "summary": {
+      "title": "Order Summary",
+      "subtotal": "Subtotal",
+      "total": "Total",
+      "item": "item",
+      "items": "items",
+      "checkout_button": "Checkout",
+      "security_message": "Secure payment processed through an encrypted gateway",
+      "continue_shopping": "Continue Shopping",
+      "clear_cart": "Clear Cart"
+    }
+  },
+  "Contact": {
+    "title": "Contact",
+    "description": "Get in touch with us. We're here to help!",
+    "form": {
+      "aria_label": "Contact form",
+      "name": "Name",
+      "name_placeholder": "Your full name",
+      "email": "Email",
+      "email_placeholder": "your.email@example.com",
+      "subject": "Subject",
+      "subject_placeholder": "What would you like to talk about?",
+      "message": "Message",
+      "message_placeholder": "Write your message here...",
+      "submit": "Send Message"
+    }
+  },
+  "Auth": {
+    "back_button": "Back to the previous page",
+    "footer_message": "🎮 Celebrating Brazilian gaming culture",
+    "login": {
+      "title": "Welcome back!",
+      "description": "Sign in to your Ludus account",
+      "no_account": "Don't have an account?",
+      "register_link": "Sign up for free"
+    },
+    "register": {
+      "title": "Join Ludus!",
+      "description": "Create your account and discover the best Brazilian indie games",
+      "has_account": "Already have an account?",
+      "login_link": "Sign in"
+    },
+    "forms": {
+      "login": {
+        "aria_label": "Login form",
+        "email": "Email",
+        "email_placeholder": "your@email.com",
+        "password": "Password",
+        "password_placeholder": "••••••••",
+        "show_password": "Show password",
+        "hide_password": "Hide password",
+        "forgot_password": "Forgot your password?",
+        "submit": "Sign In"
+      },
+      "register": {
+        "aria_label": "Registration form",
+        "first_name": "First Name",
+        "first_name_placeholder": "John",
+        "last_name": "Last Name",
+        "last_name_placeholder": "Doe",
+        "username": "Username",
+        "username_placeholder": "player_one",
+        "email": "Email",
+        "email_placeholder": "your@email.com",
+        "region": "State",
+        "region_placeholder": "Select your state",
+        "birth_year": "Birth Year",
+        "birth_year_placeholder": "1990",
+        "password": "Password",
+        "password_placeholder": "••••••••",
+        "confirm_password": "Confirm Password",
+        "show_password": "Show password",
+        "hide_password": "Hide password",
+        "agree_terms": "I agree to the",
+        "terms_of_use": "Terms of Use",
+        "and": "and",
+        "privacy_policy": "Privacy Policy",
+        "of_ludus": "of Ludus",
+        "submit": "Create Account"
+      }
     }
   }
 }

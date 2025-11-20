@@ -3,6 +3,7 @@
 import Image from "next/image";
 import Link from "next/link";
 import { useRouter } from "next/navigation";
+import { useTranslations } from "next-intl";
 import { ArrowLeft } from "lucide-react";
 
 import { RegisterForm } from "@/components/forms/RegisterForm";
@@ -10,6 +11,7 @@ import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
 
 export default function LoginPage() {
+  const t = useTranslations("Auth");
   const router = useRouter();
 
   return (
@@ -23,7 +25,7 @@ export default function LoginPage() {
         className="text-muted-foreground hover:text-foreground absolute -top-12 left-0 flex items-center gap-2 hover:bg-transparent"
       >
         <ArrowLeft className="h-4 w-4" />
-        <span>Voltar à página anterior</span>
+        <span>{t("back_button")}</span>
       </Button>
 
       <Card className="border-border bg-card/95 gap-3 shadow-2xl backdrop-blur-sm">
@@ -32,11 +34,9 @@ export default function LoginPage() {
             <Image src="/images/ludus/logo-texto.svg" width={132} height={41} alt="Logo da Ludus" priority />
           </div>
 
-          <CardTitle className="font-ludus-pixelify-sans text-foreground text-3xl">Junte-se ao Ludus!</CardTitle>
+          <CardTitle className="font-ludus-pixelify-sans text-foreground text-3xl">{t("register.title")}</CardTitle>
 
-          <CardDescription className="text-muted-foreground text-lg">
-            Crie sua conta e descubra os melhores jogos indies brasileiros
-          </CardDescription>
+          <CardDescription className="text-muted-foreground text-lg">{t("register.description")}</CardDescription>
         </CardHeader>
 
         <CardContent>
@@ -44,9 +44,9 @@ export default function LoginPage() {
 
           <div className="pt-4 text-center">
             <p className="text-muted-foreground">
-              Já tem uma conta?{" "}
+              {t("register.has_account")}{" "}
               <Button asChild variant="link" className="text-primary h-auto p-0 hover:underline">
-                <Link href="/login">Faça login</Link>
+                <Link href="/login">{t("register.login_link")}</Link>
               </Button>
             </p>
           </div>
@@ -54,7 +54,7 @@ export default function LoginPage() {
       </Card>
 
       <footer className="mt-6 text-center">
-        <p className="text-muted-foreground text-sm">🎮 Celebrando a cultura gamer brasileira</p>
+        <p className="text-muted-foreground text-sm">{t("footer_message")}</p>
       </footer>
     </div>
   );

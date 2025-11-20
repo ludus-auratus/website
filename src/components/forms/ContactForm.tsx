@@ -2,6 +2,7 @@
 
 import { useState } from "react";
 import { redirect } from "next/navigation";
+import { useTranslations } from "next-intl";
 import { Mail } from "lucide-react";
 
 import { Button } from "@/components/ui/button";
@@ -17,6 +18,7 @@ interface ContactFormData {
 }
 
 export function ContactForm() {
+  const t = useTranslations("Contact.form");
   const [formData, setFormData] = useState<ContactFormData>({
     name: "",
     email: "",
@@ -40,17 +42,17 @@ export function ContactForm() {
   }
 
   return (
-    <form onSubmit={handleSubmit} className="w-full max-w-2xl space-y-6" aria-label="Formulário de contato">
+    <form onSubmit={handleSubmit} className="w-full max-w-2xl space-y-6" aria-label={t("aria_label")}>
       <div className="grid grid-cols-1 gap-4 md:grid-cols-2">
         <div className="space-y-2">
           <Label htmlFor="name" className="text-foreground">
-            Nome *
+            {t("name")} *
           </Label>
 
           <Input
             id="name"
             type="text"
-            placeholder="Seu nome completo"
+            placeholder={t("name_placeholder")}
             value={formData.name}
             onChange={handleChange}
             required
@@ -59,13 +61,13 @@ export function ContactForm() {
 
         <div className="space-y-2">
           <Label htmlFor="email" className="text-foreground">
-            Email *
+            {t("email")} *
           </Label>
 
           <Input
             id="email"
             type="email"
-            placeholder="seu.email@exemplo.com"
+            placeholder={t("email_placeholder")}
             value={formData.email}
             onChange={handleChange}
             autoComplete="email"
@@ -76,13 +78,13 @@ export function ContactForm() {
 
       <div className="space-y-2">
         <Label htmlFor="subject" className="text-foreground">
-          Assunto *
+          {t("subject")} *
         </Label>
 
         <Input
           id="subject"
           type="text"
-          placeholder="Sobre o que você gostaria de falar?"
+          placeholder={t("subject_placeholder")}
           value={formData.subject}
           onChange={handleChange}
           required
@@ -91,12 +93,12 @@ export function ContactForm() {
 
       <div className="space-y-2">
         <Label htmlFor="message" className="text-foreground">
-          Mensagem *
+          {t("message")} *
         </Label>
 
         <Textarea
           id="message"
-          placeholder="Escreva sua mensagem aqui..."
+          placeholder={t("message_placeholder")}
           rows={6}
           value={formData.message}
           onChange={handleChange}
@@ -110,7 +112,7 @@ export function ContactForm() {
         className="h-12 w-full rounded-xl text-lg shadow-lg transition-all duration-200 hover:shadow-xl"
       >
         <Mail className="mr-2 h-4 w-4" />
-        Enviar Mensagem
+        {t("submit")}
       </Button>
     </form>
   );

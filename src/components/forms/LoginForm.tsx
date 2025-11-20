@@ -2,6 +2,7 @@
 
 import { useState } from "react";
 import { redirect } from "next/navigation";
+import { useTranslations } from "next-intl";
 import { Eye, EyeOff } from "lucide-react";
 
 import { Button } from "@/components/ui/button";
@@ -14,6 +15,7 @@ interface LoginFormData {
 }
 
 export function LoginForm() {
+  const t = useTranslations("Auth.forms.login");
   const [formData, setFormData] = useState<LoginFormData>({ email: "", password: "" });
   const [showPassword, setShowPassword] = useState(false);
 
@@ -31,14 +33,14 @@ export function LoginForm() {
   }
 
   return (
-    <form onSubmit={handleSubmit} className="space-y-6" aria-label="Formulário de login">
+    <form onSubmit={handleSubmit} className="space-y-6" aria-label={t("aria_label")}>
       <div className="space-y-2">
-        <Label htmlFor="email">E-mail</Label>
+        <Label htmlFor="email">{t("email")}</Label>
 
         <Input
           id="email"
           type="email"
-          placeholder="seu@email.com"
+          placeholder={t("email_placeholder")}
           value={formData.email}
           onChange={handleChange}
           autoComplete="email"
@@ -47,13 +49,13 @@ export function LoginForm() {
       </div>
 
       <div className="space-y-2">
-        <Label htmlFor="password">Senha</Label>
+        <Label htmlFor="password">{t("password")}</Label>
 
         <div className="relative">
           <Input
             id="password"
             type={showPassword ? "text" : "password"}
-            placeholder="••••••••"
+            placeholder={t("password_placeholder")}
             value={formData.password}
             onChange={handleChange}
             autoComplete="current-password"
@@ -65,7 +67,7 @@ export function LoginForm() {
             type="button"
             variant="ghost"
             size="icon-sm"
-            aria-label={showPassword ? "Ocultar senha" : "Mostrar senha"}
+            aria-label={showPassword ? t("hide_password") : t("show_password")}
             className="absolute top-0 right-0 h-12 px-3 hover:bg-transparent"
             onClick={() => setShowPassword((prev) => !prev)}
           >
@@ -80,7 +82,7 @@ export function LoginForm() {
 
       <div className="flex items-center justify-between">
         <Button type="button" variant="link" className="text-primary h-auto p-0 text-sm">
-          Esqueceu a senha?
+          {t("forgot_password")}
         </Button>
       </div>
 
@@ -88,7 +90,7 @@ export function LoginForm() {
         type="submit"
         className="h-12 w-full rounded-xl text-lg shadow-lg transition-all duration-200 hover:shadow-xl"
       >
-        Entrar
+        {t("submit")}
       </Button>
     </form>
   );

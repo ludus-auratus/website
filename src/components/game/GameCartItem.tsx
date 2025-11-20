@@ -1,4 +1,5 @@
 import Image from "next/image";
+import { useTranslations } from "next-intl";
 import { Badge, Trash2 } from "lucide-react";
 
 import { Button } from "@/components/ui/button";
@@ -27,6 +28,7 @@ export default function GameCartItem({
   quantity,
   originalPrice,
 }: GameCartItemProps) {
+  const t = useTranslations("Cart.item");
   const { removeFromCart } = useCart();
 
   return (
@@ -53,7 +55,7 @@ export default function GameCartItem({
                 <p className="text-muted-foreground text-sm">{studio}</p>
 
                 <div className="flex items-center gap-2">
-                  <span className="text-muted-foreground text-sm">Quantidade:</span>
+                  <span className="text-muted-foreground text-sm">{t("quantity")}</span>
                   <div className="flex items-center gap-1">
                     {/* <Button disabled size="sm" variant="outline" className="h-8 w-8 p-0">
                       <Minus className="h-4 w-4" />
@@ -86,7 +88,7 @@ export default function GameCartItem({
                   variant="ghost"
                   className="text-destructive hover:text-destructive hover:bg-destructive/10"
                   onClick={() => removeFromCart(id)}
-                  aria-label={`Remover ${name} do carrinho`}
+                  aria-label={t("remove_from_cart", { name })}
                 >
                   <Trash2 className="h-8 w-8" />
                 </Button>
