@@ -36,7 +36,7 @@ export default async function RootLayout({
 
   return (
     <html lang={lang}>
-      <body className={cn(fonts, "dark flex h-screen flex-col")}>
+      <body className={cn(fonts, "dark flex h-full min-h-screen flex-col")}>
         <CartProvider>
           <NextIntlClientProvider>{children}</NextIntlClientProvider>
         </CartProvider>

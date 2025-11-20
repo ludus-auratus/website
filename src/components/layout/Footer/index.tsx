@@ -1,5 +1,3 @@
-import { useTranslations } from "next-intl";
-
 import { FooterBottom } from "./FooterBottom";
 import { FooterBrand } from "./FooterBrand";
 import { FooterContent } from "./FooterContent";

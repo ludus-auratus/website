@@ -1,50 +1,50 @@
 [
   {
     "id": 1,
-    "title": "Hellbrella",
-    "image": "hellbrella.jpg",
+    "name": "Hellbrella",
+    "icon": "/images/games/hellbrella.jpg",
     "price": 20.5
   },
   {
     "id": 2,
-    "title": "Hellbrella",
-    "image": "hellbrella.jpg",
+    "name": "Hellbrella",
+    "icon": "/images/games/hellbrella.jpg",
     "price": 20.5
   },
   {
     "id": 3,
-    "title": "Hellbrella",
-    "image": "hellbrella.jpg",
+    "name": "Hellbrella",
+    "icon": "/images/games/hellbrella.jpg",
     "price": 20.5
   },
   {
     "id": 4,
-    "title": "Hellbrella",
-    "image": "hellbrella.jpg",
+    "name": "Hellbrella",
+    "icon": "/images/games/hellbrella.jpg",
     "price": 20.5
   },
   {
     "id": 5,
-    "title": "Hellbrella",
-    "image": "hellbrella.jpg",
+    "name": "Hellbrella",
+    "icon": "/images/games/hellbrella.jpg",
     "price": 20.5
   },
   {
     "id": 6,
-    "title": "Hellbrella",
-    "image": "hellbrella.jpg",
+    "name": "Hellbrella",
+    "icon": "/images/games/hellbrella.jpg",
     "price": 20.5
   },
   {
     "id": 7,
-    "title": "Hellbrella",
-    "image": "hellbrella.jpg",
+    "name": "Hellbrella",
+    "icon": "/images/games/hellbrella.jpg",
     "price": 20.5
   },
   {
     "id": 8,
-    "title": "Hellbrella",
-    "image": "hellbrella.jpg",
+    "name": "Hellbrella",
+    "icon": "/images/games/hellbrella.jpg",
     "price": 20.5
   }
 ]
