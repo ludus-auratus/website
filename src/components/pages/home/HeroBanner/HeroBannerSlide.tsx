@@ -28,7 +28,7 @@ export function HeroBannerSlide({ id, title, studio, rating, description, image,
 
           <HeroBannerStars rating={rating} />
 
-          {/* <p className="text-foreground hidden max-w-lg text-base leading-relaxed md:inline-flex">{description}</p> */}
+          <p className="text-foreground hidden max-w-lg text-base leading-relaxed md:inline-flex">{description}</p>
 
           <Button className="max-w-24 px-4" asChild>
             <Link href={`/game/${id}`} tabIndex={isActive ? 0 : -1}>

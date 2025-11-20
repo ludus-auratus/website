@@ -5,7 +5,7 @@ export default function PublicLayout({ children }: { children: React.ReactNode }
   return (
     <>
       <Navbar />
-      <main className="h-[calc(100dvh - 4rem)] flex-1">{children}</main>
+      <main className="flex-1">{children}</main>
       <Footer />
     </>
   );

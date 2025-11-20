@@ -14,8 +14,8 @@ export function GameJamComingSoon() {
           <h3 className="font-ludus-pixelify-sans mb-4 text-2xl md:text-3xl">Em Breve: Sua Primeira Game Jam!</h3>
 
           <p className="text-muted-foreground mx-auto mb-8 max-w-xl">
-            Estamos desenvolvendo uma plataforma completa para hospedar game jams focadas em jogos indies brasileiros.
-            Você poderá criar jogos, votar nos seus favoritos e ganhar prêmios incríveis!
+            Estamos criando uma área completa para hospedar game jams. Você poderá criar jogos, votar nos seus favoritos
+            e disputar prêmios incríveis!
           </p>
         </div>
       </CardContent>

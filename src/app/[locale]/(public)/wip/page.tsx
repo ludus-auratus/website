@@ -9,7 +9,7 @@ export default function WorkInProgress() {
   const t = useTranslations("Wip");
 
   return (
-    <div className="flex size-full flex-col items-center justify-center px-4 py-8 text-white sm:px-8 md:py-12">
+    <div className="flex size-full flex-col items-center justify-center px-4 py-8 sm:px-8 md:py-12">
       <Image src={iconLudos} alt="Ícone do Ludus" width={160} height={160} unoptimized />
 
       <h3 className="font-ludus-pixelify-sans text-center text-4xl">{t("title")}</h3>

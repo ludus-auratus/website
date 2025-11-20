@@ -53,22 +53,22 @@ export default function GameJamSection() {
             Esta funcionalidade está em desenvolvimento e em breve estará disponível!
           </span>
         </SectionDescription>
-
-        <SectionContent>
-          <div className="mb-12 grid grid-cols-1 gap-6 md:grid-cols-2 lg:grid-cols-4">
-            {features.map((feature, index) => (
-              <GameJamFeatureCard
-                key={index}
-                icon={feature.icon}
-                title={feature.title}
-                description={feature.description}
-              />
-            ))}
-          </div>
-
-          <GameJamComingSoon />
-        </SectionContent>
       </SectionHeader>
+
+      <SectionContent>
+        <div className="mb-12 grid grid-cols-1 gap-6 md:grid-cols-2 lg:grid-cols-4">
+          {features.map((feature, index) => (
+            <GameJamFeatureCard
+              key={index}
+              icon={feature.icon}
+              title={feature.title}
+              description={feature.description}
+            />
+          ))}
+        </div>
+
+        <GameJamComingSoon />
+      </SectionContent>
     </Section>
   );
 }
