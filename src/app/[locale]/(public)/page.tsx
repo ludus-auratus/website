@@ -19,7 +19,7 @@ export default function Home() {
     <>
       <HeroBanner />
 
-      <Section className="from-secondary/30 to-background bg-gradient-to-b">
+      <Section className="from-muted/30 to-background bg-gradient-to-b">
         <SectionHeader>
           <SectionTitle>
             <SectionIcon icon={Star} />

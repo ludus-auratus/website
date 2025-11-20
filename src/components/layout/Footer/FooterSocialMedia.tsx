@@ -17,7 +17,7 @@ export function FooterSocialMedia() {
           <Link
             key={social.name}
             href={social.href}
-            className="bg-secondary hover:bg-primary group flex h-9 w-9 items-center justify-center rounded-lg transition-colors duration-300"
+            className="bg-muted hover:bg-primary group flex h-9 w-9 items-center justify-center rounded-lg transition-colors duration-300"
             aria-label={social.name}
             target="_blank"
           >
