@@ -1,4 +1,5 @@
 import Link from "next/link";
+import { useTranslations } from "next-intl";
 
 interface FooterNavigationLink {
   name: string;
@@ -11,9 +12,11 @@ interface FooterNavigationGroupProps {
 }
 
 export function FooterNavigationGroup({ title, links }: FooterNavigationGroupProps) {
+  const t = useTranslations(`Footer.navigation.${title}`);
+
   return (
     <div>
-      <h3 className="text-foreground font-ludus-pixelify-sans mb-4">{title}</h3>
+      <h3 className="text-foreground font-ludus-pixelify-sans mb-4">{t(`_`)}</h3>
 
       <ul className="space-y-3">
         {links.map((link) => (
@@ -22,7 +25,7 @@ export function FooterNavigationGroup({ title, links }: FooterNavigationGroupPro
               href={link.href}
               className="text-muted-foreground hover:text-primary text-sm transition-colors duration-200"
             >
-              {link.name}
+              {t(`${link.name}`)}
             </Link>
           </li>
         ))}
