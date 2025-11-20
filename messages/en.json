@@ -5,6 +5,22 @@
     "back_to_home": "Back to Home"
   },
 
+  "language": {
+    "trigger": "Language",
+
+    "en": "English",
+    "pt-BR": "Portuguese"
+  },
+
+  "Test": {
+    "default": "Default",
+    "secondary": "Secondary",
+    "destructive": "Destructive",
+    "ghost": "Ghost",
+    "outline": "Outline",
+    "link": "Link"
+  },
+
   "Game": {
     "description_section": "About This Game",
 

@@ -4,6 +4,23 @@
     "paragraph": "Desculpe por isso, mas essa página ainda está em construção",
     "back_to_home": "Voltar para o Início"
   },
+
+  "language": {
+    "trigger": "Idioma",
+
+    "en": "Inglês",
+    "pt-BR": "Português"
+  },
+
+  "Test": {
+    "default": "Padrão",
+    "secondary": "Secundário",
+    "destructive": "Destrutivo",
+    "ghost": "Fantasma",
+    "outline": "Bordado",
+    "link": "Navegação"
+  },
+
   "Game": {
     "description_section": "Sobre Este Jogo",
 
