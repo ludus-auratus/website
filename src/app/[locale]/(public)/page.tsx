@@ -1,6 +1,7 @@
 import { Sparkle, Star } from "lucide-react";
 
 import games from "@/assets/data/games.json";
+import { GameCard } from "@/components/game/GameCard";
 import {
   SectionContent,
   SectionDescription,
@@ -10,7 +11,6 @@ import {
   SectionTitle,
   SectionTitleText,
 } from "@/components/layout/Section";
-import { GameCard } from "@/components/pages/game/GameCard";
 import GameJamSection from "@/components/pages/home/GameJamSection";
 import { HeroBanner } from "@/components/pages/home/HeroBanner";
 

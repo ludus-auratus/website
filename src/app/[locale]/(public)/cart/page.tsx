@@ -3,7 +3,7 @@
 import Link from "next/link";
 import { AlertCircle, CreditCard, ShoppingCart } from "lucide-react";
 
-import GameCartItem from "@/components/pages/game/GameCartItem";
+import GameCartItem from "@/components/game/GameCartItem";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
 import { useCart } from "@/context/CartContext";
