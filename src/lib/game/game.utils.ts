@@ -26,3 +26,15 @@ function classify(value: number) {
     description,
   };
 }
+
+/**
+ * Formata um valor numérico como moeda brasileira (BRL)
+ * @param price - O preço a ser formatado
+ * @returns String formatada no padrão brasileiro (ex: "R$ 1.234,56")
+ */
+export function formatPrice(price: number): string {
+  return price.toLocaleString("pt-BR", {
+    style: "currency",
+    currency: "BRL",
+  });
+}

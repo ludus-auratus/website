@@ -32,7 +32,7 @@ export default function Home() {
 
         <SectionContent className="flex flex-wrap justify-center gap-6">
           {games.slice(0, 4).map((game) => (
-            <GameCard key={game.id} id={game.id} title={game.title} image={game.image} price={game.price} />
+            <GameCard key={game.id} id={game.id} name={game.name} icon={game.icon} price={game.price} />
           ))}
         </SectionContent>
       </Section>
@@ -50,7 +50,7 @@ export default function Home() {
 
         <SectionContent className="flex flex-wrap justify-center gap-6">
           {games.map((game) => (
-            <GameCard key={game.id} id={game.id} title={game.title} image={game.image} price={game.price} />
+            <GameCard key={game.id} id={game.id} name={game.name} icon={game.icon} price={game.price} />
           ))}
         </SectionContent>
       </Section>

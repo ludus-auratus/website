@@ -4,10 +4,11 @@ import { Badge, Trash2 } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
 import { useCart } from "@/context/CartContext";
+import { formatPrice } from "@/lib/game/game.utils";
 
 export interface GameCartItemProps {
   id: number;
-  image: string;
+  icon: string;
   name: string;
   studio: string;
   discount?: number;
@@ -18,13 +19,13 @@ export interface GameCartItemProps {
 
 export default function GameCartItem({
   id,
-  image,
+  icon,
   name,
   studio,
+  price,
   discount,
   quantity,
   originalPrice,
-  price,
 }: GameCartItemProps) {
   const { removeFromCart } = useCart();
 
@@ -37,7 +38,7 @@ export default function GameCartItem({
         <div className="xs:flex-row flex flex-col gap-4">
           <figure className="xs:w-28 relative h-28 w-full flex-shrink-0 self-center overflow-hidden rounded-xl">
             <Image
-              src={image}
+              src={icon}
               alt={name}
               width={100}
               height={100}
@@ -72,12 +73,12 @@ export default function GameCartItem({
                   {discount && originalPrice && (
                     <div className="mb-1 flex items-center gap-2">
                       <span className="text-muted-foreground text-sm line-through">
-                        R$ {(originalPrice * quantity).toFixed(2)}
+                        {formatPrice(originalPrice * quantity)}
                       </span>
                       <Badge className="bg-primary border-0 px-2 text-xs text-black">-{discount}%</Badge>
                     </div>
                   )}
-                  <p className="text-xl font-semibold">R$ {(price * quantity).toFixed(2)}</p>
+                  <p className="text-xl font-semibold">{formatPrice(price * quantity)}</p>
                 </div>
 
                 <Button

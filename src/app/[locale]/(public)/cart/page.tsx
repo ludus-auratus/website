@@ -49,7 +49,7 @@ export default function Cart() {
             <GameCartItem
               key={item.id}
               id={item.id}
-              image={item.icon}
+              icon={item.icon}
               name={item.name}
               studio={item.studio}
               quantity={item.quantity}
