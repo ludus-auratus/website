@@ -24,7 +24,7 @@ export default function Cart() {
               <ShoppingCart className="text-primary h-12 w-12" />
             </div>
 
-            <h2 className="font-ludus-pixelify-sans mb-4 text-2xl text-white md:text-3xl">Seu Carrinho Está Vazio</h2>
+            <h2 className="font-ludus-pixelify-sans mb-4 text-2xl md:text-3xl">Seu Carrinho Está Vazio</h2>
 
             <p className="text-muted-foreground mx-auto mb-8 max-w-md">
               Explore nosso catálogo de jogos indies brasileiros e adicione seus favoritos ao carrinho!
@@ -43,7 +43,7 @@ export default function Cart() {
     <div className="mx-auto max-w-7xl px-4 py-8 sm:px-8 md:py-12">
       <div className="grid grid-cols-1 gap-8 lg:grid-cols-3">
         <div className="space-y-4 lg:col-span-2">
-          <h1 className="font-ludus-pixelify-sans mb-6 text-3xl text-white md:text-4xl">Meu Carrinho</h1>
+          <h1 className="font-ludus-pixelify-sans mb-6 text-3xl md:text-4xl">Meu Carrinho</h1>
 
           {items.map((item) => (
             <GameCartItem
@@ -60,22 +60,20 @@ export default function Cart() {
 
         <div className="lg:col-span-1">
           <div className="sticky top-24 space-y-4">
-            <h2 className="font-ludus-pixelify-sans mb-4 text-2xl text-white">Resumo do Pedido</h2>
+            <h2 className="font-ludus-pixelify-sans mb-4 text-2xl">Resumo do Pedido</h2>
 
-            <Card className="bg-card/50 border-border/50 border backdrop-blur-sm">
+            <Card className="bg-card/50 border-border/50 border p-0 backdrop-blur-sm">
               <CardContent className="space-y-4 p-6">
                 <div className="border-border/50 flex items-center justify-between border-b pb-3">
                   <span className="text-muted-foreground">
                     Subtotal ({totalItems} {totalItems === 1 ? "item" : "itens"})
                   </span>
-                  <span className="text-white">R$ {subtotal.toFixed(2)}</span>
+                  <span>R$ {subtotal.toFixed(2)}</span>
                 </div>
 
                 <div className="flex items-center justify-between pt-2">
-                  <span className="font-ludus-pixelify-sans text-lg text-white">Total</span>
-                  <span className="font-ludus-pixelify-sans text-2xl text-[var(--ludus-gold)]">
-                    R$ {total.toFixed(2)}
-                  </span>
+                  <span className="font-ludus-pixelify-sans text-lg">Total</span>
+                  <span className="text-2xl">R$ {total.toFixed(2)}</span>
                 </div>
 
                 <Button size="lg" className="bg-primary hover:bg-primary/90 text-primary-foreground mt-4 w-full">
@@ -83,7 +81,7 @@ export default function Cart() {
                   Finalizar Compra
                 </Button>
 
-                <div className="bg-primary/5 mt-4 flex items-start gap-2 rounded-lg p-3">
+                <div className="bg-primary/5 mt-4 flex items-center gap-2 rounded-lg p-3">
                   <AlertCircle className="text-primary mt-0.5 h-4 w-4 flex-shrink-0" />
                   <p className="text-muted-foreground text-xs">
                     Pagamento seguro processado através de gateway criptografado
