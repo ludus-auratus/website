@@ -8,6 +8,7 @@ import GameCartItem from "@/components/game/GameCartItem";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
 import { useCart } from "@/context/CartContext";
+import { formatPrice } from "@/lib/game";
 
 export default function Cart() {
   const t = useTranslations("Cart");
@@ -68,12 +69,12 @@ export default function Cart() {
                   <span className="text-muted-foreground">
                     {t("summary.subtotal")} ({totalItems} {totalItems === 1 ? t("summary.item") : t("summary.items")})
                   </span>
-                  <span>R$ {subtotal.toFixed(2)}</span>
+                  <span>{formatPrice(subtotal)}</span>
                 </div>
 
                 <div className="flex items-center justify-between pt-2">
                   <span className="font-ludus-pixelify-sans text-lg">{t("summary.total")}</span>
-                  <span className="text-2xl">R$ {total.toFixed(2)}</span>
+                  <span className="text-2xl">{formatPrice(total)}</span>
                 </div>
 
                 <Button size="lg" className="bg-primary hover:bg-primary/90 text-primary-foreground mt-4 w-full">

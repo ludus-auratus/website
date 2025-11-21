@@ -1,5 +1,6 @@
 "use client";
 
+import { useEffect, useState } from "react";
 import Link from "next/link";
 import { LayoutDashboard, LogOut, Settings, User } from "lucide-react";
 
@@ -18,6 +19,28 @@ interface NavbarUserActionProps {
 }
 
 export function NavbarUserAction({ setIsLoggedIn }: NavbarUserActionProps) {
+  const [isMounted, setIsMounted] = useState(false);
+
+  useEffect(() => {
+    setIsMounted(true);
+  }, []);
+
+  if (!isMounted) {
+    return (
+      <div className="hidden lg:flex">
+        <Button
+          variant="ghost"
+          className="ring-primary/20 relative h-9 w-9 cursor-pointer rounded-full transition-all hover:ring-2"
+        >
+          <Avatar className="h-9 w-9">
+            <AvatarImage src="" alt="Avatar de João Silva" />
+            <AvatarFallback className="bg-primary text-primary-foreground font-ludus-pixelify-sans">JS</AvatarFallback>
+          </Avatar>
+        </Button>
+      </div>
+    );
+  }
+
   return (
     <div className="hidden lg:flex">
       <DropdownMenu>

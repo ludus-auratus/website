@@ -2,7 +2,6 @@
 
 import Image from "next/image";
 import Link from "next/link";
-import { useRouter } from "next/navigation";
 import { useTranslations } from "next-intl";
 import { ArrowLeft } from "lucide-react";
 
@@ -10,22 +9,20 @@ import { RegisterForm } from "@/components/forms/RegisterForm";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
 
-export default function LoginPage() {
+export default function Register() {
   const t = useTranslations("Auth");
-  const router = useRouter();
 
   return (
     <div className="relative h-auto w-full max-w-2xl p-4">
       <Button
+        asChild
         variant="ghost"
-        onClick={() => {
-          if (window.history.length > 1) router.back();
-          else router.push("/");
-        }}
         className="text-muted-foreground hover:text-foreground absolute -top-12 left-0 flex items-center gap-2 hover:bg-transparent"
       >
-        <ArrowLeft className="h-4 w-4" />
-        <span>{t("back_button")}</span>
+        <Link href="/">
+          <ArrowLeft className="h-4 w-4" />
+          <span>{t("back_button")}</span>
+        </Link>
       </Button>
 
       <Card className="border-border bg-card/95 gap-3 shadow-2xl backdrop-blur-sm">

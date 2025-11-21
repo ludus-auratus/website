@@ -48,7 +48,7 @@ export default function GameJamSection() {
 
         <SectionDescription>
           {t("description")}
-          <span className="mt-2 block text-[var(--ludus-orange)]">{t("coming_soon_message")}</span>
+          <span className="text-ludus-orange-500 mt-2 block">{t("coming_soon_message")}</span>
         </SectionDescription>
       </SectionHeader>
 

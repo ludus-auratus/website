@@ -194,7 +194,7 @@
     }
   },
   "Auth": {
-    "back_button": "Voltar à página anterior",
+    "back_button": "Voltar ao início",
     "footer_message": "🎮 Celebrando a cultura gamer brasileira",
     "login": {
       "title": "Bem-vindo de volta!",

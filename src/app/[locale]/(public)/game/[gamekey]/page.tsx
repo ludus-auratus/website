@@ -31,6 +31,7 @@ export default async function Page() {
           </main>
           <aside className="flex flex-col gap-y-4">
             <Game.Info data={data} />
+            <Game.CartActions game={data} />
             <Game.Comments />
           </aside>
         </div>
