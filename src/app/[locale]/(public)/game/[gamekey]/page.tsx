@@ -8,7 +8,7 @@ import { getGameDataById } from "@/lib/game";
 //   name: string;
 //   info: GameInformation;
 //   sections: {
-//     gallery: GameMidia[];
+//     gallery: GameMedia[];
 //     description: GameDescription;
 //   };
 //   categories: string[];

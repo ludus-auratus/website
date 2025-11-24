@@ -14,7 +14,7 @@ export interface Game {
   supportedLanguages: GameLanguage[];
   icon: string;
   banner: string;
-  gallery: GameMidia[];
+  gallery: GameMedia[];
   description: string;
   releaseDate: Date;
   publishingDate: Date;
@@ -29,19 +29,19 @@ export interface GameLanguage {
   level: number;
 }
 
-export type GameMidiaType = "image" | "video";
+export type GameMediaType = "image" | "video";
 
-export interface GameMidia {
-  type: GameMidiaType;
+export interface GameMedia {
+  type: GameMediaType;
   title: string;
   src: string;
   alt?: string;
 }
 
-export type GameImage = GameMidia & {
+export type GameImage = GameMedia & {
   type: "image";
 };
 
-export type GameVideo = GameMidia & {
+export type GameVideo = GameMedia & {
   type: "video";
 };

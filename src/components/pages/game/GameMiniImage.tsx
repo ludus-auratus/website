@@ -1,7 +1,7 @@
 import Image from "next/image";
 import { cva, VariantProps } from "class-variance-authority";
 
-import { GameMidia } from "@/lib/game";
+import { GameMedia } from "@/lib/game";
 import { createPlaceholderImageUrl } from "@/lib/utils/image.utils";
 import { cn } from "@/lib/utils/shadcn";
 
@@ -25,10 +25,10 @@ const variants = cva(
 
 type GameMiniImageProps = React.ButtonHTMLAttributes<HTMLButtonElement> &
   VariantProps<typeof variants> & {
-    image?: GameMidia;
+    image?: GameMedia;
   };
 
-const defaultImage: GameMidia = {
+const defaultImage: GameMedia = {
   type: "image",
   title: "Missing image",
   src: createPlaceholderImageUrl(160, 90, "Missing Image"),

@@ -14,7 +14,7 @@ export interface GameDTO {
   supportedLanguages: GameLanguageDTO[];
   icon: string;
   banner: string;
-  gallery: GameMidiaDTO[];
+  gallery: GameMediaDTO[];
   description: string;
   releaseDate: Date;
   publishingDate: Date;
@@ -30,10 +30,10 @@ export interface GameLanguageDTO {
   level: number;
 }
 
-export type GameMidiaDTOType = "image" | "video";
+export type GameMediaDTOType = "image" | "video";
 
-export interface GameMidiaDTO {
-  type: GameMidiaDTOType;
+export interface GameMediaDTO {
+  type: GameMediaDTOType;
   title: string;
   src: string;
   alt?: string;
