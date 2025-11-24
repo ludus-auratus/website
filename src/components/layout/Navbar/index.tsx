@@ -1,9 +1,11 @@
 "use client";
 
 import { useState } from "react";
-import { Code2, Gamepad2, Home, LayoutDashboard, LogOut, Mail, Settings, User } from "lucide-react";
+import { Code2, Gamepad2, Globe2Icon, Home, LayoutDashboard, LogOut, Mail, Settings, User } from "lucide-react";
 
 import { Button } from "@/components/ui/button";
+
+import LanguageSelector from "../LanguageSelector/LanguageSelector";
 
 import { NavbarActions } from "./NavbarActions";
 import { NavbarAuthButtons } from "./NavbarAuthButtons";
@@ -43,6 +45,12 @@ export function Navbar() {
         </NavbarMenu>
 
         <NavbarActions>
+          <LanguageSelector>
+            <Button variant="ghost" size="icon" className="hover:text-foreground p-2">
+              <Globe2Icon className="size-5" />
+            </Button>
+          </LanguageSelector>
+
           <NavbarCartAction />
 
           {isLoggedIn ? <NavbarUserAction setIsLoggedIn={setIsLoggedIn} /> : <NavbarAuthButtons variant="desktop" />}

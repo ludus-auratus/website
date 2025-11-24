@@ -16,7 +16,7 @@ export function NavbarCartAction() {
       asChild
       variant="ghost"
       size="icon"
-      className="hover:bg-accent/10 active:bg-accent/20 hover:text-foreground relative border-none p-5"
+      className="hover:bg-accent/10 active:bg-accent/20 hover:text-foreground relative border-none p-2"
     >
       <Link href="/cart" aria-label={`Carrinho, (${cartItemsCount} itens)`}>
         <ShoppingCart className="size-5" aria-hidden="true" />

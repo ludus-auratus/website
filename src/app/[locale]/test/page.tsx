@@ -1,4 +1,5 @@
 import { useTranslations } from "next-intl";
+import { Globe2Icon } from "lucide-react";
 
 import LanguageSelector from "@/components/layout/LanguageSelector/LanguageSelector";
 import { Button } from "@/components/ui/button";
@@ -16,7 +17,11 @@ export default function Page() {
   return (
     <div className="m-auto flex flex-col items-center">
       <div className="mb-10">
-        <LanguageSelector />
+        <LanguageSelector>
+          <Button variant="ghost" size="icon" className="hover:text-foreground p-2">
+            <Globe2Icon className="size-5" />
+          </Button>
+        </LanguageSelector>
       </div>
 
       <div className="flex gap-2">

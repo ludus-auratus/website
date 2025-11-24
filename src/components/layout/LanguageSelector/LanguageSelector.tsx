@@ -1,10 +1,9 @@
 "use client";
-import { useEffect, useState } from "react";
+import { ReactNode, useEffect, useState } from "react";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { useLocale, useTranslations } from "next-intl";
 
-import { Button } from "@/components/ui/button";
 import {
   DropdownMenu,
   DropdownMenuContent,
@@ -12,7 +11,7 @@ import {
   DropdownMenuTrigger,
 } from "@/components/ui/dropdown-menu";
 
-export default function LanguageSelector() {
+export default function LanguageSelector({ children }: { children: ReactNode }) {
   const [supportedLanguages, setSupportedLanguages] = useState(["pt-BR"] as string[]);
   const t = useTranslations("language");
   const locale = useLocale();
@@ -31,13 +30,11 @@ export default function LanguageSelector() {
 
   return (
     <DropdownMenu>
-      <DropdownMenuTrigger asChild>
-        <Button variant="outline">{t("trigger")}</Button>
-      </DropdownMenuTrigger>
+      <DropdownMenuTrigger asChild>{children}</DropdownMenuTrigger>
       <DropdownMenuContent>
         {supportedLanguages.map((lang, index) => (
           <DropdownMenuItem key={index} disabled={lang === locale} asChild>
-            <Link href={`${lang}/${pathname}`}>{t(lang)}</Link>
+            <Link href={`/${lang}/${pathname}`}>{t(lang)}</Link>
           </DropdownMenuItem>
         ))}
       </DropdownMenuContent>

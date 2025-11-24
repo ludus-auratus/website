@@ -307,8 +307,8 @@
   --muted: #2a4034;
   --muted-foreground: #a8b5aa;
 
-  --accent: var(--orange-500);
-  --accent-hover: var(--orange-600);
+  --accent: var(--yellow-500);
+  --accent-hover: var(--yellow-600);
   --accent-foreground: var(--ludus-green-dark);
 
   --destructive: var(--red-500);

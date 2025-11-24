@@ -47,7 +47,7 @@ export function NavbarUserAction({ setIsLoggedIn }: NavbarUserActionProps) {
         <DropdownMenuTrigger asChild>
           <Button
             variant="ghost"
-            className="ring-primary/20 relative h-9 w-9 cursor-pointer rounded-full transition-all hover:ring-2"
+            className="ring-primary/20 relative ml-2 h-9 w-9 cursor-pointer rounded-full transition-all hover:ring-2"
           >
             <Avatar className="h-9 w-9">
               <AvatarImage src="" alt="Avatar de João Silva" />

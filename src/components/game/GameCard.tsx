@@ -14,7 +14,7 @@ export function GameCard({ name, price, icon, id }: GameCardProps) {
   const formattedPrice = formatPrice(price);
 
   return (
-    <article className="bg-card text-card-foreground border-border hover:border-primary/60 max-w-72 min-w-64 flex-1 rounded-2xl border shadow-lg transition-all duration-300 hover:-translate-y-1 hover:shadow-xl">
+    <article className="bg-card text-card-foreground border-border hover:border-primary/60 h-fit max-w-72 min-w-64 flex-1 rounded-2xl border shadow-lg transition-all duration-300 hover:-translate-y-1 hover:shadow-xl">
       <Link
         href={`/game/${id}`}
         className="focus-visible:ring-primary block rounded-2xl outline-none focus-visible:ring-2"
