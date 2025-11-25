@@ -1,7 +1,5 @@
 import gameDescription from "@/assets/data/game_description.md";
 
-import { createPlaceholderImageUrl } from "../utils/image.utils";
-
 import { GameDTO } from "./game.dto";
 import { Game, GameTagCategories } from "./game.type";
 import { GameClassifications } from "./game.utils";

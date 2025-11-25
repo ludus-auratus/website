@@ -2,6 +2,7 @@
 
 import { useEffect, useState } from "react";
 import Link from "next/link";
+import { useTranslations } from "next-intl";
 import { LayoutDashboard, LogOut, Settings, User } from "lucide-react";
 
 import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
@@ -20,6 +21,7 @@ interface NavbarUserActionProps {
 
 export function NavbarUserAction({ setIsLoggedIn }: NavbarUserActionProps) {
   const [isMounted, setIsMounted] = useState(false);
+  const t = useTranslations("Navbar");
 
   useEffect(() => {
     setIsMounted(true);
@@ -33,7 +35,7 @@ export function NavbarUserAction({ setIsLoggedIn }: NavbarUserActionProps) {
           className="ring-primary/20 relative h-9 w-9 cursor-pointer rounded-full transition-all hover:ring-2"
         >
           <Avatar className="h-9 w-9">
-            <AvatarImage src="" alt="Avatar de João Silva" />
+            <AvatarImage src="" alt={t("avatar_alt", { name: "João Silva" })} />
             <AvatarFallback className="bg-primary text-primary-foreground font-ludus-pixelify-sans">JS</AvatarFallback>
           </Avatar>
         </Button>
@@ -50,7 +52,7 @@ export function NavbarUserAction({ setIsLoggedIn }: NavbarUserActionProps) {
             className="ring-primary/20 relative ml-2 h-9 w-9 cursor-pointer rounded-full transition-all hover:ring-2"
           >
             <Avatar className="h-9 w-9">
-              <AvatarImage src="" alt="Avatar de João Silva" />
+              <AvatarImage src="" alt={t("avatar_alt", { name: "João Silva" })} />
               <AvatarFallback className="bg-primary text-primary-foreground font-ludus-pixelify-sans">
                 JS
               </AvatarFallback>
@@ -70,19 +72,22 @@ export function NavbarUserAction({ setIsLoggedIn }: NavbarUserActionProps) {
 
           <DropdownMenuItem asChild>
             <Link href="/perfil" className="flex cursor-pointer items-center">
-              <User className="hover:text-primary-foreground mr-2 h-4 w-4" aria-hidden="true" /> Meu Perfil
+              <User className="hover:text-primary-foreground mr-2 h-4 w-4" aria-hidden="true" />{" "}
+              {t("user_menu.my_profile")}
             </Link>
           </DropdownMenuItem>
 
           <DropdownMenuItem asChild>
             <Link href="/dashboard" className="flex cursor-pointer items-center">
-              <LayoutDashboard className="hover:text-primary-foreground mr-2 h-4 w-4" aria-hidden="true" /> Portal Dev
+              <LayoutDashboard className="hover:text-primary-foreground mr-2 h-4 w-4" aria-hidden="true" />{" "}
+              {t("user_menu.dev_portal")}
             </Link>
           </DropdownMenuItem>
 
           <DropdownMenuItem asChild>
             <Link href="/configuracoes" className="flex cursor-pointer items-center">
-              <Settings className="hover:text-primary-foreground mr-2 h-4 w-4" aria-hidden="true" /> Configurações
+              <Settings className="hover:text-primary-foreground mr-2 h-4 w-4" aria-hidden="true" />{" "}
+              {t("user_menu.settings")}
             </Link>
           </DropdownMenuItem>
 
@@ -92,7 +97,7 @@ export function NavbarUserAction({ setIsLoggedIn }: NavbarUserActionProps) {
             onClick={() => setIsLoggedIn(false)}
             className="text-destructive active:bg-destructive/20 active:text-destructive focus:bg-destructive/10 focus:text-destructive flex cursor-pointer items-center"
           >
-            <LogOut className="text-destructive mr-2 h-4 w-4" aria-hidden="true" /> Sair
+            <LogOut className="text-destructive mr-2 h-4 w-4" aria-hidden="true" /> {t("user_menu.logout")}
           </DropdownMenuItem>
         </DropdownMenuContent>
       </DropdownMenu>

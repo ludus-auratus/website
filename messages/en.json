@@ -246,5 +246,45 @@
         "submit": "Create Account"
       }
     }
+  },
+  "Navbar": {
+    "navigation": {
+      "home": "Home",
+      "catalog": "Catalog",
+      "developers": "Developers",
+      "contact": "Contact"
+    },
+    "user_menu": {
+      "my_profile": "My Profile",
+      "dev_portal": "Dev Portal",
+      "settings": "Settings",
+      "logout": "Logout"
+    },
+    "auth": {
+      "login": "Sign In",
+      "register": "Sign Up"
+    },
+    "avatar_alt": "Avatar of {name}"
+  },
+  "Catalog": {
+    "header": {
+      "search_placeholder": "Search games...",
+      "clear_search": "Clear search",
+      "filters_button": "Filters",
+      "sort": {
+        "popular": "Most Popular",
+        "rating": "Top Rated",
+        "price_low": "Lowest Price",
+        "price_high": "Highest Price",
+        "name": "Name (A-Z)"
+      }
+    },
+    "sidebar": {
+      "filters_title": "Filters",
+      "clear_all": "Clear all",
+      "popular_tags": "Popular Tags",
+      "genres": "Genres",
+      "platforms": "Platforms"
+    }
   }
 }

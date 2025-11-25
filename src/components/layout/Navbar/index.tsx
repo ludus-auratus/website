@@ -1,6 +1,7 @@
 "use client";
 
 import { useState } from "react";
+import { useTranslations } from "next-intl";
 import { Code2, Gamepad2, Globe2Icon, Home, LayoutDashboard, LogOut, Mail, Settings, User } from "lucide-react";
 
 import { Button } from "@/components/ui/button";
@@ -21,12 +22,13 @@ import { NavbarUserAction } from "./NavbarUserAction";
 export function Navbar() {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
   const [isLoggedIn, setIsLoggedIn] = useState(true);
+  const t = useTranslations("Navbar");
 
   const navigationLinks = [
-    { label: "Início", path: "/", icon: Home },
-    { label: "Catálogo", path: "/catalog", icon: Gamepad2 },
-    { label: "Desenvolvedores", path: "/developers", icon: Code2 },
-    { label: "Contato", path: "/contact", icon: Mail },
+    { label: t("navigation.home"), path: "/", icon: Home },
+    { label: t("navigation.catalog"), path: "/catalog", icon: Gamepad2 },
+    { label: t("navigation.developers"), path: "/developers", icon: Code2 },
+    { label: t("navigation.contact"), path: "/contact", icon: Mail },
   ];
 
   return (
@@ -78,19 +80,19 @@ export function Navbar() {
 
           {isLoggedIn ? (
             <>
-              <NavbarMenuItem variant="mobile" href="/perfil" onClick={() => setIsMobileMenuOpen(false)}>
+              <NavbarMenuItem variant="mobile" href="/profile" onClick={() => setIsMobileMenuOpen(false)}>
                 <NavbarIcon className="mr-2" icon={User} />
-                Meu Perfil
+                {t("user_menu.my_profile")}
               </NavbarMenuItem>
 
               <NavbarMenuItem variant="mobile" href="/dashboard" onClick={() => setIsMobileMenuOpen(false)}>
                 <NavbarIcon className="mr-2" icon={LayoutDashboard} />
-                Portal Dev
+                {t("user_menu.dev_portal")}
               </NavbarMenuItem>
 
-              <NavbarMenuItem variant="mobile" href="/configuracoes" onClick={() => setIsMobileMenuOpen(false)}>
+              <NavbarMenuItem variant="mobile" href="/settings" onClick={() => setIsMobileMenuOpen(false)}>
                 <NavbarIcon className="mr-2" icon={Settings} />
-                Configurações
+                {t("user_menu.settings")}
               </NavbarMenuItem>
 
               <Button
@@ -101,7 +103,8 @@ export function Navbar() {
                   setIsMobileMenuOpen(false);
                 }}
               >
-                <LogOut className="hover:text-primary-foreground mr-2 h-4 w-4" aria-hidden="true" /> Sair
+                <LogOut className="hover:text-primary-foreground mr-2 h-4 w-4" aria-hidden="true" />{" "}
+                {t("user_menu.logout")}
               </Button>
             </>
           ) : (

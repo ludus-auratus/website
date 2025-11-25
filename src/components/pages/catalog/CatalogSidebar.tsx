@@ -1,3 +1,4 @@
+import { useTranslations } from "next-intl";
 import { Filter, RefreshCcw } from "lucide-react";
 
 import { Button } from "@/components/ui/button";
@@ -6,6 +7,8 @@ import { Checkbox } from "@/components/ui/checkbox";
 import { Label } from "@/components/ui/label";
 
 export function CatalogSidebar() {
+  const t = useTranslations("Catalog.sidebar");
+
   const genres = [
     "Todos",
     "Ação",
@@ -26,12 +29,12 @@ export function CatalogSidebar() {
       <Card className="bg-card/50 flex flex-row items-center justify-between p-6 backdrop-blur-sm">
         <div className="flex items-center gap-2">
           <Filter className="text-primary h-5 w-5" />
-          <h3 className="font-ludus-pixelify-sans text-lg">Filtros</h3>
+          <h3 className="font-ludus-pixelify-sans text-lg">{t("filters_title")}</h3>
         </div>
 
         <Button variant="ghost" size="sm">
           <RefreshCcw className="mr-1 h-3 w-3" />
-          Limpar tudo
+          {t("clear_all")}
         </Button>
       </Card>
 
@@ -39,7 +42,7 @@ export function CatalogSidebar() {
         <Card className="bg-card/50 border-border min-w-[200px] flex-1 p-6 backdrop-blur-sm">
           <div className="space-y-6">
             <div className="space-y-3">
-              <Label className="font-ludus-pixelify-sans text-md">Tags Populares</Label>
+              <Label className="font-ludus-pixelify-sans text-md">{t("popular_tags")}</Label>
 
               <div className="space-y-2">
                 {popularTags.map((tag) => (
@@ -58,7 +61,7 @@ export function CatalogSidebar() {
         <Card className="bg-card/50 border-border min-w-[200px] flex-1 p-6 backdrop-blur-sm">
           <div className="space-y-6">
             <div className="space-y-3">
-              <Label className="font-ludus-pixelify-sans text-md">Gêneros</Label>
+              <Label className="font-ludus-pixelify-sans text-md">{t("genres")}</Label>
 
               <div className="space-y-2">
                 {genres.map((genre) => (
@@ -77,7 +80,7 @@ export function CatalogSidebar() {
         <Card className="bg-card/50 border-border min-w-[200px] flex-1 p-6 backdrop-blur-sm">
           <div className="space-y-6">
             <div className="space-y-3">
-              <Label className="font-ludus-pixelify-sans text-md">Gêneros</Label>
+              <Label className="font-ludus-pixelify-sans text-md">{t("platforms")}</Label>
 
               <div className="space-y-2">
                 {platforms.map((platform) => (

@@ -247,5 +247,45 @@
         "submit": "Criar Conta"
       }
     }
+  },
+  "Navbar": {
+    "navigation": {
+      "home": "Início",
+      "catalog": "Catálogo",
+      "developers": "Desenvolvedores",
+      "contact": "Contato"
+    },
+    "user_menu": {
+      "my_profile": "Meu Perfil",
+      "dev_portal": "Portal Dev",
+      "settings": "Configurações",
+      "logout": "Sair"
+    },
+    "auth": {
+      "login": "Entrar",
+      "register": "Registre-se"
+    },
+    "avatar_alt": "Avatar de {name}"
+  },
+  "Catalog": {
+    "header": {
+      "search_placeholder": "Buscar jogos...",
+      "clear_search": "Limpar busca",
+      "filters_button": "Filtros",
+      "sort": {
+        "popular": "Mais Popular",
+        "rating": "Melhor Avaliado",
+        "price_low": "Menor Preço",
+        "price_high": "Maior Preço",
+        "name": "Nome (A-Z)"
+      }
+    },
+    "sidebar": {
+      "filters_title": "Filtros",
+      "clear_all": "Limpar tudo",
+      "popular_tags": "Tags Populares",
+      "genres": "Gêneros",
+      "platforms": "Plataformas"
+    }
   }
 }
