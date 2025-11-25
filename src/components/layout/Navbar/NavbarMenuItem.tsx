@@ -5,13 +5,13 @@ import { cva, type VariantProps } from "class-variance-authority";
 import { cn } from "@/lib/utils/shadcn";
 
 const navbarMenuItemVariants = cva(
-  "text-foreground flex cursor-pointer items-center gap-2 rounded-md transition-all duration-300 outline-none focus-visible:ring-2 font-ludus-pixelify-sans",
+  "text-foreground flex cursor-pointer items-center gap-2 rounded-md transition-all duration-300 outline-none focus-visible:ring-2 font-ludus-pixelify-sans ",
   {
     variants: {
       variant: {
-        desktop: "active:text-primary active:bg-primary/10 hover:text-primary focus-visible:ring-ring/85 px-3 py-2 ",
+        desktop: "active:text-accent active:bg-accent/10 hover:text-accent focus-visible:ring-ring/85 px-3 py-2",
         mobile:
-          "hover:bg-primary/10 active:text-primary active:bg-primary/10 hover:text-primary focus-visible:ring-primary  p-2 ",
+          "hover:bg-accent/10 active:text-accent active:bg-accent/10 hover:text-accent focus-visible:ring-accent  p-2 ",
       },
     },
     defaultVariants: {

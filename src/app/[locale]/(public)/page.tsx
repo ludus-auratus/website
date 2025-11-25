@@ -1,7 +1,7 @@
+import { use } from "react";
 import { useTranslations } from "next-intl";
 import { Sparkle, Star } from "lucide-react";
 
-import games from "@/assets/data/games.json";
 import { GameCard } from "@/components/game/GameCard";
 import {
   SectionContent,
@@ -14,9 +14,11 @@ import {
 } from "@/components/layout/Section";
 import GameJamSection from "@/components/pages/home/GameJamSection";
 import { HeroBanner } from "@/components/pages/home/HeroBanner";
+import { getGameDataById } from "@/lib/game";
 
 export default function Home() {
   const t = useTranslations("Home");
+  const game = use(getGameDataById());
 
   return (
     <>
@@ -34,9 +36,11 @@ export default function Home() {
         </SectionHeader>
 
         <SectionContent className="flex flex-wrap justify-center gap-6">
-          {games.slice(0, 4).map((game) => (
-            <GameCard key={game.id} id={game.id} name={game.name} icon={game.icon} price={game.price} />
-          ))}
+          {Array(4)
+            .fill(game)
+            .map((game, index) => (
+              <GameCard key={index} id={game.id} name={game.name} icon={game.icon} price={game.price} />
+            ))}
         </SectionContent>
       </Section>
 
@@ -52,9 +56,11 @@ export default function Home() {
         </SectionHeader>
 
         <SectionContent className="flex flex-wrap justify-center gap-6">
-          {games.map((game) => (
-            <GameCard key={game.id} id={game.id} name={game.name} icon={game.icon} price={game.price} />
-          ))}
+          {Array(8)
+            .fill(game)
+            .map((game, index) => (
+              <GameCard key={index} id={game.id} name={game.name} icon={game.icon} price={game.price} />
+            ))}
         </SectionContent>
       </Section>
 

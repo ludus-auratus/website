@@ -71,23 +71,21 @@ export function NavbarUserAction({ setIsLoggedIn }: NavbarUserActionProps) {
           <DropdownMenuSeparator />
 
           <DropdownMenuItem asChild>
-            <Link href="/perfil" className="flex cursor-pointer items-center">
-              <User className="hover:text-primary-foreground mr-2 h-4 w-4" aria-hidden="true" />{" "}
-              {t("user_menu.my_profile")}
+            <Link href="/profile" className="flex cursor-pointer items-center">
+              <User className="hover:text-accent mr-2 h-4 w-4" aria-hidden="true" /> {t("user_menu.my_profile")}
             </Link>
           </DropdownMenuItem>
 
           <DropdownMenuItem asChild>
             <Link href="/dashboard" className="flex cursor-pointer items-center">
-              <LayoutDashboard className="hover:text-primary-foreground mr-2 h-4 w-4" aria-hidden="true" />{" "}
+              <LayoutDashboard className="hover:text-accent mr-2 h-4 w-4" aria-hidden="true" />{" "}
               {t("user_menu.dev_portal")}
             </Link>
           </DropdownMenuItem>
 
           <DropdownMenuItem asChild>
-            <Link href="/configuracoes" className="flex cursor-pointer items-center">
-              <Settings className="hover:text-primary-foreground mr-2 h-4 w-4" aria-hidden="true" />{" "}
-              {t("user_menu.settings")}
+            <Link href="/settings" className="flex cursor-pointer items-center">
+              <Settings className="hover:text-accent mr-2 h-4 w-4" aria-hidden="true" /> {t("user_menu.settings")}
             </Link>
           </DropdownMenuItem>
 

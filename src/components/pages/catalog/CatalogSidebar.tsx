@@ -19,10 +19,10 @@ export function CatalogSidebar() {
     "Música",
     "Luta",
     "Plataforma",
-    "outros",
+    "Outros",
   ];
   const popularTags = ["Multiplayer", "Singleplayer", "Offline", "Ação", "Aventura", "RPG", "Estratégia", "Casual"];
-  const platforms = ["PC", "PlayStation", "Xbox", "Switch", "Mobile"];
+  const platforms = ["Mac", "Linux", "Windows"];
 
   return (
     <aside className="space-y-6 lg:col-span-1">

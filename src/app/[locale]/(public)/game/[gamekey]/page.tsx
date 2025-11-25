@@ -1,50 +1,38 @@
+import { use } from "react";
 import Image from "next/image";
 
 import { Game } from "@/components/pages/game";
 import { getGameDataById } from "@/lib/game";
 
-// type GameData = {
-//   key: string;
-//   name: string;
-//   info: GameInformation;
-//   sections: {
-//     gallery: GameMedia[];
-//     description: GameDescription;
-//   };
-//   categories: string[];
-//   resources: string[];
-//   languages: string[];
-// };
-
-// props: PageProps<"/[locale]/game/[gamekey]">
-export default async function Page() {
-  const data = await getGameDataById();
+export default function Page() {
+  const data = use(getGameDataById());
 
   return (
-    <div>
-      <div className="bg-ludus-moss-800 z-0 flex w-full">
-        <div className="z-5 mx-4 mt-20 mb-8 flex h-fit w-full flex-col justify-between gap-y-4 md:mx-10 md:flex-row md:gap-x-8 lg:mx-32 lg:gap-x-10">
+    <div className="relative w-full">
+      <div className="absolute inset-0 h-72">
+        <Image
+          src={data.banner}
+          alt={`Banner do jogo ${data.name}`}
+          width={600}
+          height={900}
+          className="h-full w-full object-cover object-center"
+        />
+        <div className="to-ludus-moss-800 absolute inset-0 bg-gradient-to-b from-black/35 from-80%" />
+      </div>
+
+      <div className="relative mx-auto max-w-7xl px-4 pt-20 pb-8 sm:px-6 lg:px-8">
+        <div className="flex w-full flex-col gap-8 md:flex-row">
           <main className="flex w-full flex-col gap-y-4">
             <Game.Header name={data.name} studio={data.studio} icon={data.icon} />
             <Game.Gallery gallery={data.gallery} />
             <Game.Description description={data.description} />
           </main>
+
           <aside className="flex flex-col gap-y-4">
             <Game.Info data={data} />
             <Game.CartActions game={data} />
             <Game.Comments />
           </aside>
-        </div>
-        <div className="absolute z-1 w-full">
-          <div className="to-ludus-moss-800 z-1 h-72 w-full bg-gradient-to-b from-black/35 from-80%">
-            <Image
-              width={1600}
-              height={900}
-              src={data.banner}
-              alt=""
-              className="relative -z-1 h-full w-full object-cover object-top"
-            />
-          </div>
         </div>
       </div>
     </div>

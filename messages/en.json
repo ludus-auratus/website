@@ -286,5 +286,10 @@
       "genres": "Genres",
       "platforms": "Platforms"
     }
+  },
+  "HeroBanner": {
+    "by": "by",
+    "see_more": "See more",
+    "go_to_slide": "Go to slide {number}"
   }
 }

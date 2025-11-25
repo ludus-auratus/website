@@ -8,5 +8,5 @@ interface NavbarIconProps {
 }
 
 export function NavbarIcon({ icon: Icon, className }: NavbarIconProps) {
-  return <Icon aria-hidden="true" className={cn("active:text-primary hover:text-primary h-4 w-4", className)} />;
+  return <Icon aria-hidden="true" className={cn("h-4 w-4", className)} />;
 }

@@ -1,6 +1,7 @@
 "use client";
 
 import { useEffect, useRef, useState } from "react";
+import { useTranslations } from "next-intl";
 import Autoplay from "embla-carousel-autoplay";
 
 import {
@@ -29,6 +30,7 @@ export function HeroBannerCarousel({ items }: HeroBannerCarouselProps) {
   const [api, setApi] = useState<CarouselApi>();
   const [current, setCurrent] = useState(0);
   const [count, setCount] = useState(0);
+  const t = useTranslations("HeroBanner");
 
   const plugin = useRef(Autoplay({ delay: 5000, stopOnInteraction: false }));
 
@@ -66,7 +68,7 @@ export function HeroBannerCarousel({ items }: HeroBannerCarouselProps) {
             key={index}
             onClick={() => api?.scrollTo(index)}
             className={`h-2 w-2 rounded-full transition-colors ${current === index ? "bg-primary" : "bg-white/50"}`}
-            aria-label={`Ir para o slide ${index + 1}`}
+            aria-label={t("go_to_slide", { number: index + 1 })}
           />
         ))}
       </div>

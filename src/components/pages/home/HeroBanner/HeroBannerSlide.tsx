@@ -1,5 +1,6 @@
 import Image from "next/image";
 import Link from "next/link";
+import { useTranslations } from "next-intl";
 
 import { Button } from "@/components/ui/button";
 
@@ -16,6 +17,8 @@ interface HeroBannerSlideProps {
 }
 
 export function HeroBannerSlide({ id, title, studio, rating, description, image, isActive }: HeroBannerSlideProps) {
+  const t = useTranslations("HeroBanner");
+
   return (
     <div className="relative h-[300px] w-full sm:h-[400px] md:h-[500px]" aria-hidden={!isActive}>
       <Image src={image} alt={title} width={1280} height={500} className="h-full w-full rounded-3xl object-cover" />
@@ -24,7 +27,9 @@ export function HeroBannerSlide({ id, title, studio, rating, description, image,
         <div className="mx-auto flex max-w-2xl flex-col gap-3 px-6 py-8 lg:px-8">
           <h1 className="font-ludus-pixelify-sans text-3xl font-bold md:text-4xl lg:text-5xl">{title}</h1>
 
-          <p className="text-muted-foreground text-lg">por {studio}</p>
+          <p className="text-muted-foreground text-lg">
+            {t("by")} {studio}
+          </p>
 
           <HeroBannerStars rating={rating} />
 
@@ -32,7 +37,7 @@ export function HeroBannerSlide({ id, title, studio, rating, description, image,
 
           <Button className="max-w-24 px-4" asChild>
             <Link href={`/game/${id}`} tabIndex={isActive ? 0 : -1}>
-              Ver mais
+              {t("see_more")}
             </Link>
           </Button>
         </div>
