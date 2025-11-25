@@ -12,6 +12,109 @@
     "pt-BR": "Portuguese"
   },
 
+  "Developers": {
+    "Presentation": {
+      "title": "Publish your games on the/Biggest Indie Platform/from Brazil",
+      "description": "Reach thousands of brazilian gamers, get paid with fair rates and use professional tools to help you manage your sales"
+    },
+
+    "Benefits": {
+      "title": "Why Choose Ludus?",
+      "description": "From brazilian developers, to brazilian developers",
+      "wip": "WIP",
+      "items": {
+        "0": {
+          "title": "Engaged Community",
+          "description": "Reach thousands of brasilian player who loves brazilian indie games"
+        },
+        "1": {
+          "title": "Fair Revenue Model",
+          "description": "Keep 67% from the revenue of sales. No hidden fees or surprises"
+        },
+        "2": {
+          "title": "Nacional Visibility",
+          "description": "Highlight on Brazilian games with specialized curation"
+        },
+        "3": {
+          "title": "Dedicated Support",
+          "description": "Brazilian team ready to help developers in Portuguese"
+        },
+        "4": {
+          "title": "Multi-plataform",
+          "description": "Accessible marketplace for mobile devices and computers via the Web"
+        },
+        "5": {
+          "title": "Detailed Analytics",
+          "description": "Track sales, downloads, views, and engagement in real time"
+        }
+      }
+    },
+
+    "HowItWorks": {
+      "title": "How To Publish Your Game",
+      "description": "In 4 simple steps, your game will be available to thousands of players",
+      "steps": {
+        "0": {
+          "title": "Create your Account",
+          "description": "Create an account and fill out your developer profile"
+        },
+        "1": {
+          "title": "Prepare Your Game",
+          "description": "Upload your game's files, images, videos, and descriptions"
+        },
+        "2": {
+          "title": "Quality Control",
+          "description": "Our team will review your game within 48 hours to ensure security"
+        },
+        "3": {
+          "title": "Publish and Sell",
+          "description": "Your game goes live and you start getting paid for every sale"
+        }
+      }
+    },
+
+    "CTA": {
+      "title": "Ready to Start?",
+      "description": "Join hundreds of Brazilian developers who are already publishing and selling their games on Ludus",
+      "footer": "Start selling in 48h • Support in Portuguese",
+      "actions": {
+        "profile_form": "Fill out the Dev Form",
+        "contact_us": "Contact Us"
+      }
+    },
+
+    "FAQ": {
+      "title": "Fequent Asked Questions",
+      "description": "Clear your doubts about how to publish on Ludus",
+      "questions": {
+        "approval_time": {
+          "question": "How long does it take for my game to be approved?",
+          "answer": "Our review process takes an average of 24 to 48 business hours. We check technical aspects, content, and overall quality. You will receive detailed feedback if there is anything to adjust."
+        },
+        "platform_exclusivity": {
+          "question": "Can I publish my game on other platforms as well?",
+          "answer": "Yes! We do not require exclusivity. You are free to publish your game wherever you want. We only recommend that you keep your games updated on all platforms."
+        },
+        "acceptable_games": {
+          "question": "What kind of games are accepted on Ludus?",
+          "answer": "We accept indie games of various genres, according to our terms of publication, as long as they are developed by Brazilians or contain Brazilian cultural elements. We prioritize quality, originality, and gameplay."
+        },
+        "cnpj_requirement": {
+          "question": "Do I need a CNPJ (corporate tax ID) to sell games?",
+          "answer": "Not necessarily. For individual developers, we accept CPF (individual tax ID). However, for higher amounts, we recommend having MEI or CNPJ due to tax issues."
+        },
+        "marketing_help": {
+          "question": "Do you help with marketing and promotion?",
+          "answer": "Yes! All games receive basic promotion on our social media channels. Games of exceptional quality may be featured on the homepage and at special events."
+        },
+        "update_publishing": {
+          "question": "Can I update my game after it's published?",
+          "answer": "Yes! You can make as many updates as you want, at no additional cost. Just upload the new version through the developer panel. We only remind you that every post, even updates, goes through our security team."
+        }
+      }
+    }
+  },
+
   "Test": {
     "default": "Default",
     "secondary": "Secondary",

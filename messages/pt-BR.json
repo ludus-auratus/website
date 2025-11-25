@@ -65,6 +65,7 @@
       "resource_tags": "Recursos"
     }
   },
+
   "Footer": {
     "description": "A principal plataforma para desenvolvedores e jogadores de jogos brasileiros. Conectando talentos, fomentando a criatividade e celebrando a vibrante cultura gamer brasileira.",
     "navigation": {
@@ -92,6 +93,7 @@
       "slogan": "Liberdade - União - Diversidade - Utopia - Sustentabilidade"
     }
   },
+
   "FooterOld": {
     "description": "A principal plataforma brasileira para desenvolvedores e jogadores de jogos indie. Conectando talentos, fomentando a criatividade e celebrando a vibrante cultura gamer brasileira.",
     "copyright": "© 2025 Todos os direitos reservados a LUDUS. 100% Brasil",
@@ -117,6 +119,7 @@
       "cookies": "Cookies"
     }
   },
+
   "GameJamSection": {
     "title": "Game Jam",
     "description": "Participe de competições criativas, desenvolva jogos em tempo limitado e conecte-se com a comunidade indie brasileira.",
@@ -144,6 +147,7 @@
       }
     }
   },
+
   "Home": {
     "featured": {
       "title": "Em Destaque",
@@ -154,6 +158,110 @@
       "description": "Descubra os jogos mais novos da plataforma Ludus"
     }
   },
+
+  "Developers": {
+    "Presentation": {
+      "title": "Publique Seus Jogos na/Maior Plataforma Indie/do Brasil",
+      "description": "Alcance milhares de jogadores brasileiros, receba pagamentos justos e conte com ferramentas profissionais para gerenciar suas vendas"
+    },
+
+    "Benefits": {
+      "title": "Por Que Escolher a Ludus?",
+      "description": "De desenvolvedores brasileiros, para desenvolvedores brasileiros",
+      "wip": "Em Breve",
+      "items": {
+        "0": {
+          "title": "Comunidade Engajada",
+          "description": "Alcance milhares de jogadores brasileiros apaixonados por jogos indies nacionais"
+        },
+        "1": {
+          "title": "Modelo Justo de Receita",
+          "description": "Fique com 67% da receita das vendas. Sem taxas ocultas ou surpresas"
+        },
+        "2": {
+          "title": "Visibilidade Nacional",
+          "description": "Destaque para jogos brasileiros com curadoria especializada"
+        },
+        "3": {
+          "title": "Suporte Dedicado",
+          "description": "Equipe brasileira pronta para ajudar desenvolvedores em português"
+        },
+        "4": {
+          "title": "Multi-plataforma",
+          "description": "Marketplace acessível para dispositivos móveis e computadores via Web"
+        },
+        "5": {
+          "title": "Analytics Detalhado",
+          "description": "Acompanhe vendas, downloads, visualizações e engajamento em tempo real"
+        }
+      }
+    },
+
+    "HowItWorks": {
+      "title": "Como Publicar Seu Jogo",
+      "description": "Em 4 passos simples, seu jogo estará disponível para milhares de jogadores",
+      "steps": {
+        "0": {
+          "title": "Crie sua Conta",
+          "description": "Crie uma conta e preencha seu perfil de desenvolvedor"
+        },
+        "1": {
+          "title": "Prepare seu Jogo",
+          "description": "Faça upload dos arquivos, imagens, vídeos e descrições do seu jogo"
+        },
+        "2": {
+          "title": "Revisão de Qualidade",
+          "description": "Nossa equipe revisará seu jogo em até 48h para garantia de segurança"
+        },
+        "3": {
+          "title": "Publique e Venda",
+          "description": "Seu jogo entra no ar e você começa a receber por cada venda"
+        }
+      }
+    },
+
+    "CTA": {
+      "title": "Pronto Para Começar?",
+      "description": "Junte-se a centenas de desenvolvedores brasileiros que já estão publicando e vendendo seus jogos na Ludus",
+      "footer": "Comece a vender em 48h • Suporte em português",
+      "actions": {
+        "profile_form": "Preencha o Formulário Dev",
+        "contact_us": "Fale Conosco"
+      }
+    },
+
+    "FAQ": {
+      "title": "Perguntas Frequentes",
+      "description": "Tire suas dúvidas sobre como publicar na Ludus",
+      "questions": {
+        "approval_time": {
+          "question": "Quanto tempo leva para meu jogo ser aprovado?",
+          "answer": "Nosso processo de revisão leva em média 24 a 48 horas úteis. Verificamos aspectos técnicos, conteúdo e qualidade geral. Você receberá feedback detalhado caso haja algo a ajustar."
+        },
+        "platform_exclusivity": {
+          "question": "Posso publicar meu jogo em outras plataformas também?",
+          "answer": "Sim! Não exigimos exclusividade. Você é livre para publicar seu jogo onde quiser. Recomendamos apenas que mantenha seus jogos atualizados em todas as plataformas."
+        },
+        "acceptable_games": {
+          "question": "Que tipo de jogos são aceitos na Ludus?",
+          "answer": "Aceitamos jogos indies de diversos gêneros, segundo nossos termos de publicação, desde que sejam desenvolvidos por brasileiros ou contenham elementos culturais brasileiros. Priorizamos qualidade, originalidade e jogabilidade."
+        },
+        "cnpj_requirement": {
+          "question": "Preciso ter um CNPJ para vender jogos?",
+          "answer": "Não necessariamente. Para desenvolvedores individuais, aceitamos CPF. Porém, para valores mais altos, recomendamos ter MEI ou CNPJ devido a questões tributárias."
+        },
+        "marketing_help": {
+          "question": "Vocês ajudam com marketing e divulgação?",
+          "answer": "Sim! Todos os jogos recebem divulgação básica em nossas redes sociais. Jogos de qualidade excepcional podem ser destacados na página inicial e eventos especiais."
+        },
+        "update_publishing": {
+          "question": "Posso fazer atualizações no meu jogo depois de publicado?",
+          "answer": "Sim! Você pode fazer quantas atualizações quiser, sem custo adicional. Basta fazer upload da nova versão através do painel de desenvolvedor. Só lembramos que cada postagem, mesmo atualizações, passam por nossa equipe de segurança."
+        }
+      }
+    }
+  },
+
   "Cart": {
     "empty": {
       "title": "Seu Carrinho Está Vazio",
@@ -177,6 +285,7 @@
       "clear_cart": "Esvaziar Carrinho"
     }
   },
+
   "Contact": {
     "title": "Contato",
     "description": "Entre em contato conosco. Estamos aqui para ajudar!",
@@ -193,6 +302,7 @@
       "submit": "Enviar Mensagem"
     }
   },
+
   "Auth": {
     "back_button": "Voltar ao início",
     "footer_message": "🎮 Celebrando a cultura gamer brasileira",
