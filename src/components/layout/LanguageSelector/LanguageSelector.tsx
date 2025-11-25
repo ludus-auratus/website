@@ -19,7 +19,7 @@ export default function LanguageSelector({ children }: { children: ReactNode }) 
 
   useEffect(() => {
     let aborted = false;
-    fetch("/api/locale")
+    fetch("/api/locale", { next: { revalidate: 3600 } })
       .then((res) => res.json())
       .then((data) => !aborted && setSupportedLanguages(data.supported));
 
