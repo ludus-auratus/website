@@ -1,10 +1,12 @@
-"use client";
 import React, { ForwardRefExoticComponent, useContext } from "react";
 import Link from "next/link";
+import { getTranslations } from "next-intl/server";
 import {
   BarChart3,
   Book,
   Calendar,
+  Hammer,
+  HammerIcon,
   LayoutDashboard,
   LogOut,
   MessageSquare,
@@ -13,6 +15,7 @@ import {
 } from "lucide-react";
 
 import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
+import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
 import {
   DropdownMenu,
@@ -20,24 +23,30 @@ import {
   DropdownMenuItem,
   DropdownMenuTrigger,
 } from "@/components/ui/dropdown-menu";
+import { cn } from "@/lib/utils/shadcn";
 
-const sidebarItems = [
+interface SidebarItem {
+  icon: ForwardRefExoticComponent<React.SVGProps<SVGSVGElement>>;
+  id: string;
+  wip?: boolean;
+}
+
+const sidebarItems: SidebarItem[] = [
   { icon: LayoutDashboard, id: "dashboard" },
-  { icon: BarChart3, id: "analytics" },
+  { icon: BarChart3, id: "analytics", wip: true },
   { icon: Calendar, id: "publications" },
-  { icon: MessageSquare, id: "reviews" },
-  { icon: Book, id: "docs" },
+  { icon: MessageSquare, id: "reviews", wip: true },
   { icon: Settings, id: "settings" },
-];
+].sort((item) => (!item.wip ? -1 : 0));
 
 interface DevSidebarProps {
   current: string;
 }
 
-export default function DevSidebar({ current }: DevSidebarProps) {
+export default async function DevSidebar({ current }: DevSidebarProps) {
+  const t = await getTranslations({ locale: "pt-BR", namespace: "Dev.sections" });
   return (
     <aside className="bg-sidebar border-sidebar-border flex w-64 flex-col border-r">
-      {/* Logo */}
       <div className="border-sidebar-border border-b p-6">
         <div className="flex items-center space-x-3">
           <div className="bg-sidebar-primary flex h-10 w-10 items-center justify-center rounded-xl">
@@ -50,7 +59,6 @@ export default function DevSidebar({ current }: DevSidebarProps) {
         </div>
       </div>
 
-      {/* Navigation */}
       <nav className="flex-1 space-y-2 p-4">
         {sidebarItems.map((item) => {
           const Icon = item.icon;
@@ -59,21 +67,24 @@ export default function DevSidebar({ current }: DevSidebarProps) {
           return (
             <Link
               key={item.id}
-              href={href}
-              className={`flex w-full items-center gap-3 rounded-xl px-4 py-3 transition-all duration-200 ${
+              href={item.wip ? "#" : href}
+              className={cn(
+                "flex w-full items-center gap-3 rounded-xl px-4 py-3 transition-all duration-200",
                 isActive
                   ? "bg-sidebar-accent text-sidebar-accent-foreground shadow-sm"
-                  : "text-sidebar-foreground hover:bg-sidebar-accent/50"
-              }`}
+                  : "text-sidebar-foreground hover:bg-sidebar-accent/50",
+
+                item.wip && "cursor-not-allowed opacity-50",
+              )}
             >
               <Icon className="h-5 w-5" />
-              <span>{item.id}</span>
+              <span>{t(item.id)}</span>
+              {item.wip && <HammerIcon className="ml-auto" />}
             </Link>
           );
         })}
       </nav>
 
-      {/* User Profile */}
       <div className="border-sidebar-border border-t p-4">
         <div className="bg-sidebar-accent flex items-center gap-3 rounded-xl p-3">
           <Avatar className="h-10 w-10">

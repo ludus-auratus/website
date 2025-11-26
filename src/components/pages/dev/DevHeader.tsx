@@ -1,16 +1,19 @@
+import { getTranslations } from "next-intl/server";
 import { Search } from "lucide-react";
 
 import { Input } from "@/components/ui/input";
 
 import { DevSection } from "./DevPageWrapper";
 
-export default function DevHeader({ section }: { section: DevSection }) {
+export default async function DevHeader({ section }: { section: DevSection }) {
+  const t = await getTranslations({ locale: "pt-BR", namespace: "Dev.sections" });
   const { id, message } = section;
+
   return (
     <header className="bg-background border-border sticky top-0 z-10 border-b backdrop-blur-sm">
       <div className="flex items-center justify-between px-8 py-4">
         <div>
-          <h1 className="text-foreground font-ludus-pixelify-sans text-2xl">{id}</h1>
+          <h1 className="text-foreground font-ludus-pixelify-sans text-2xl">{t(id)}</h1>
           {message && <p className="text-muted-foreground text-sm">{message}</p>}
         </div>
 

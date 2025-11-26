@@ -262,6 +262,16 @@
     }
   },
 
+  "Dev": {
+    "sections": {
+      "dashboard": "Dashboard",
+      "analytics": "Estatísticas",
+      "publications": "Publicações",
+      "reviews": "Avaliações",
+      "settings": "Configurações"
+    }
+  },
+
   "DevDashboard": {
     "game_status": {
       "published": "Publicado",
