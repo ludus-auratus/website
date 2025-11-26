@@ -2,20 +2,14 @@ import { ForwardRefExoticComponent } from "react";
 
 import { Badge } from "@/components/ui/badge";
 import { Card } from "@/components/ui/card";
-
-export interface QuickStat {
-  label: string;
-  value: string;
-  trend: "up" | "down";
-  change: string;
-}
+import { DevQuickStat as DashboardQuickStat } from "@/lib/dev/dashboard";
 
 export default function DevQuickStat({
   icon,
   stat,
 }: {
   icon: ForwardRefExoticComponent<React.SVGProps<SVGSVGElement>>;
-  stat: QuickStat;
+  stat: DashboardQuickStat;
 }) {
   const Icon = icon;
   return (

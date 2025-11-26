@@ -1,15 +1,27 @@
 import { ForwardRefExoticComponent } from "react";
-import { BarChart3 } from "lucide-react";
+import { BarChart3, DollarSign, Download, Eye, Star } from "lucide-react";
 
 import { Button } from "@/components/ui/button";
+import { DevQuickStat as DashboardQuickStat } from "@/lib/dev/dashboard";
 
-import DevQuickStat, { QuickStat } from "./DevQuickStat";
+import DevQuickStat from "./DevQuickStat";
 
-export default function DevDashboardStatisticsSection({
-  stats,
-}: {
-  stats: { icon: ForwardRefExoticComponent<React.SVGProps<SVGSVGElement>>; stat: QuickStat }[];
-}) {
+export interface DashboardStats {
+  downloads: DashboardQuickStat;
+  views: DashboardQuickStat;
+  revenue: DashboardQuickStat;
+  rating: DashboardQuickStat;
+}
+
+const statsSequence: (keyof DashboardStats)[] = ["downloads", "views", "revenue", "rating"];
+const statIcons: Record<keyof DashboardStats, ForwardRefExoticComponent<React.SVGProps<SVGSVGElement>>> = {
+  downloads: Download,
+  views: Eye,
+  revenue: DollarSign,
+  rating: Star,
+};
+
+export default function DevDashboardStatisticsSection({ stats }: { stats: DashboardStats }) {
   return (
     <div>
       <div className="mb-6 flex items-center justify-between">
@@ -21,9 +33,9 @@ export default function DevDashboardStatisticsSection({
       </div>
 
       <div className="grid gap-6 md:grid-cols-2 lg:grid-cols-4">
-        {stats.map((stat, index) => {
-          const Icon = stat.icon;
-          return <DevQuickStat key={index} icon={Icon} stat={stat.stat} />;
+        {statsSequence.map((key, index) => {
+          const Icon = statIcons[key];
+          return <DevQuickStat key={index} icon={Icon} stat={stats[key]} />;
         })}
       </div>
     </div>

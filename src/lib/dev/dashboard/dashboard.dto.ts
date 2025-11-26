@@ -11,3 +11,15 @@ export interface GameDashboardDTO {
   rating: number;
   lastUpdate: string;
 }
+
+export interface DevQuickStatisticsDTO {
+  revenue: DevQuickStatDTO;
+  downloads: DevQuickStatDTO;
+  views: DevQuickStatDTO;
+  rating: DevQuickStatDTO;
+}
+
+interface DevQuickStatDTO {
+  value: number;
+  change: number;
+}

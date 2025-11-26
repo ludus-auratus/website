@@ -262,6 +262,15 @@
     }
   },
 
+  "DevDashboard": {
+    "game_status": {
+      "published": "Publicado",
+      "unpublished": "Despublicado",
+      "revision": "Em Revisão",
+      "draft": "Rascunho"
+    }
+  },
+
   "Cart": {
     "empty": {
       "title": "Seu Carrinho Está Vazio",

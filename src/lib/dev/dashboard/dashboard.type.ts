@@ -11,3 +11,19 @@ export interface QuickGameDashboard {
   rating: number;
   lastUpdate: Date;
 }
+
+export interface DevQuickStatistics {
+  revenue: DevQuickStat;
+  downloads: DevQuickStat;
+  views: DevQuickStat;
+  rating: DevQuickStat;
+}
+
+export type DevQuickStatTrend = "up" | "down";
+
+export interface DevQuickStat {
+  label: string;
+  value: string;
+  trend: DevQuickStatTrend;
+  change: string;
+}
