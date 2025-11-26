@@ -86,7 +86,7 @@ export default function GameCartItem({
                 <Button
                   size="sm"
                   variant="ghost"
-                  className="text-destructive hover:text-destructive hover:bg-destructive/10"
+                  className="text-destructive hover:text-destructive hover:bg-destructive/10 focus:bg-destructive/20"
                   onClick={() => removeFromCart(id)}
                   aria-label={t("remove_from_cart", { name })}
                 >

@@ -48,7 +48,11 @@ export function Navbar() {
 
         <NavbarActions>
           <LanguageSelector>
-            <Button variant="ghost" size="icon" className="hover:text-foreground p-2">
+            <Button
+              variant="ghost"
+              size="icon"
+              className="hover:text-foreground hover:bg-accent/20 active:bg-accent/30 p-2"
+            >
               <Globe2Icon className="size-5" />
             </Button>
           </LanguageSelector>
