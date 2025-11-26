@@ -4,12 +4,13 @@ import { Filter, Search, SortAsc, X } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select";
+import { SortBy } from "@/hooks/useCatalogFilters";
 
 interface CatalogHeaderProps {
   searchTerm: string;
   setSearchTerm: (term: string) => void;
-  sortBy: string;
-  setSortBy: (sort: string) => void;
+  sortBy: SortBy;
+  setSortBy: (sort: SortBy) => void;
   showFilters: boolean;
   setShowFilters: (show: boolean) => void;
 }
@@ -50,7 +51,7 @@ export function CatalogHeader({
           )}
         </div>
 
-        <Select value={sortBy} onValueChange={setSortBy}>
+        <Select value={sortBy} onValueChange={(value) => setSortBy(value as SortBy)}>
           <SelectTrigger className="w-full md:w-48">
             <SortAsc className="mr-2 h-4 w-4" />
             <SelectValue />
@@ -58,7 +59,6 @@ export function CatalogHeader({
 
           <SelectContent>
             <SelectItem value="popular">{t("sort.popular")}</SelectItem>
-            <SelectItem value="rating">{t("sort.rating")}</SelectItem>
             <SelectItem value="price-low">{t("sort.price_low")}</SelectItem>
             <SelectItem value="price-high">{t("sort.price_high")}</SelectItem>
             <SelectItem value="name">{t("sort.name")}</SelectItem>

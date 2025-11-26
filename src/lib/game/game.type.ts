@@ -18,6 +18,7 @@ export interface Game {
   description: string;
   releaseDate: Date;
   publishingDate: Date;
+  rating: number;
 }
 
 export type GameTagCategories = Game["tags"];

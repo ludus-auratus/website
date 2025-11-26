@@ -18,6 +18,7 @@ export interface GameDTO {
   description: string;
   releaseDate: Date;
   publishingDate: Date;
+  rating: number;
 }
 
 export interface GameTagDTO {

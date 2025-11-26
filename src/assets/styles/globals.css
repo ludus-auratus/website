@@ -357,3 +357,7 @@
     font-family: inherit;
   }
 }
+
+@utility grid-auto-fill {
+  grid-template-columns: repeat(auto-fill, minmax(224px, 1fr));
+}

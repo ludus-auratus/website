@@ -4,52 +4,56 @@ import { useEffect, useState } from "react";
 
 import { GameCard } from "@/components/game/GameCard";
 import { Catalog } from "@/components/pages/catalog";
-import { getGameDataById } from "@/lib/game/game.api";
+import { useCatalogFilters } from "@/hooks/useCatalogFilters";
+import { getGames } from "@/lib/game/game.api";
 import { Game } from "@/lib/game/game.type";
 
 export default function CatalogPage() {
   const [games, setGames] = useState<Game[]>([]);
-  const [sortBy, setSortBy] = useState("popular");
-  const [searchTerm, setSearchTerm] = useState("");
   const [showFilters, setShowFilters] = useState(false);
 
   useEffect(() => {
-    getGameDataById().then((game) => {
-      setGames(Array(12).fill(game));
+    getGames().then((games) => {
+      setGames(games);
     });
   }, []);
 
-  const filteredGames = games.filter((game) => {
-    return game.name.toLowerCase().includes(searchTerm.toLowerCase());
-  });
-
-  const sortedGames = filteredGames.sort((a, b) => {
-    switch (sortBy) {
-      case "price-low":
-        return a.price - b.price;
-      case "price-high":
-        return b.price - a.price;
-      case "name":
-        return a.name.localeCompare(b.name);
-      default:
-        return 0;
-    }
-  });
+  const filters = useCatalogFilters(games);
 
   return (
     <Catalog.Root>
       <Catalog.Header
-        searchTerm={searchTerm}
-        setSearchTerm={setSearchTerm}
-        sortBy={sortBy}
-        setSortBy={setSortBy}
+        searchTerm={filters.searchTerm}
+        setSearchTerm={filters.setSearchTerm}
+        sortBy={filters.sortBy}
+        setSortBy={filters.setSortBy}
         showFilters={showFilters}
         setShowFilters={setShowFilters}
       />
 
-      <Catalog.Grid showFilters={showFilters}>
-        {sortedGames.map((game, index) => (
-          <GameCard key={`${game.id}-${index}`} id={game.id} name={game.name} icon={game.icon} price={game.price} />
+      <Catalog.Grid
+        showFilters={showFilters}
+        sidebar={
+          <Catalog.Sidebar
+            selectedGenres={filters.selectedGenres}
+            toggleGenre={filters.toggleGenre}
+            selectedTags={filters.selectedTags}
+            toggleTag={filters.toggleTag}
+            selectedPlatforms={filters.selectedPlatforms}
+            togglePlatform={filters.togglePlatform}
+            clearFilters={filters.clearFilters}
+          />
+        }
+      >
+        {filters.games.map((game) => (
+          <GameCard
+            key={game.id}
+            id={game.id}
+            name={game.name}
+            icon={game.icon}
+            price={game.price}
+            rating={game.rating}
+          />
         ))}
       </Catalog.Grid>
     </Catalog.Root>

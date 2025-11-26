@@ -14,11 +14,14 @@ import {
 } from "@/components/layout/Section";
 import GameJamSection from "@/components/pages/home/GameJamSection";
 import { HeroBanner } from "@/components/pages/home/HeroBanner";
-import { getGameDataById } from "@/lib/game";
+import { getGames } from "@/lib/game";
 
 export default function Home() {
   const t = useTranslations("Home");
-  const game = use(getGameDataById());
+  const games = use(getGames());
+
+  const featuredGames = games.slice(0, 4);
+  const releaseGames = games.slice(4, 12);
 
   return (
     <>
@@ -35,12 +38,17 @@ export default function Home() {
           <SectionDescription>{t("featured.description")}</SectionDescription>
         </SectionHeader>
 
-        <SectionContent className="flex flex-wrap justify-center gap-6">
-          {Array(4)
-            .fill(game)
-            .map((game, index) => (
-              <GameCard key={index} id={game.id} name={game.name} icon={game.icon} price={game.price} />
-            ))}
+        <SectionContent className="grid-auto-fill grid justify-center gap-6">
+          {featuredGames.slice(0, 4).map((game) => (
+            <GameCard
+              key={game.id}
+              id={game.id}
+              name={game.name}
+              icon={game.icon}
+              price={game.price}
+              rating={game.rating}
+            />
+          ))}
         </SectionContent>
       </Section>
 
@@ -55,12 +63,17 @@ export default function Home() {
           <SectionDescription>{t("recent_releases.description")}</SectionDescription>
         </SectionHeader>
 
-        <SectionContent className="flex flex-wrap justify-center gap-6">
-          {Array(8)
-            .fill(game)
-            .map((game, index) => (
-              <GameCard key={index} id={game.id} name={game.name} icon={game.icon} price={game.price} />
-            ))}
+        <SectionContent className="grid-auto-fill grid justify-center gap-6">
+          {releaseGames.map((game) => (
+            <GameCard
+              key={game.id}
+              id={game.id}
+              name={game.name}
+              icon={game.icon}
+              price={game.price}
+              rating={game.rating}
+            />
+          ))}
         </SectionContent>
       </Section>
 

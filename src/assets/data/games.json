@@ -1,50 +1,385 @@
 [
   {
     "id": 1,
-    "name": "Hellbrella",
-    "icon": "/images/games/hellbrella.jpg",
-    "price": 20.5
+    "name": "Enigma do Medo",
+    "price": 25,
+    "rating": 4.5,
+    "classification": 12,
+    "description": "Um jogo de mistério e investigação com elementos sobrenaturais.",
+    "tags": [
+      { "name": "Mistério", "category": "gender" },
+      { "name": "Investigação", "category": "gender" },
+      { "name": "Sobrenatural", "category": "gender" },
+      { "name": "Detetive", "category": "gender" },
+      { "name": "Um Jogador", "category": "resources" },
+      { "name": "Controle de Xbox", "category": "resources" }
+    ],
+    "releaseDate": "2025-10-18T00:00:00.000Z",
+    "publishingDate": "2023-10-18T00:00:00.000Z",
+    "studio": { "name": "Icy Mountain Studios" },
+    "publisher": { "name": "GoGo Games Interactive" },
+    "supportedLanguages": [
+      { "name": "Português (Brasil)", "level": 3 },
+      { "name": "Inglês", "level": 3 }
+    ],
+    "icon": "https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/1507580/header_brazilian.jpg?t=1759955245",
+    "banner": "https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/1507580/extras/120ffc31c8b8e810d9cbc09c2bab5117.avif?t=1759955245",
+    "gallery": [
+      {
+        "type": "video",
+        "src": "Hjl6usm5WCo",
+        "title": "Enigma do Medo - Trailer Oficial"
+      },
+      {
+        "type": "image",
+        "src": "https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/1507580/ss_85609218e5a521f8f0ac8ce6a37fdbc67d73034b.116x65.jpg?t=1759955245",
+        "title": "Imagem de Gameplay"
+      },
+      {
+        "type": "image",
+        "src": "https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/1507580/ss_85609218e5a521f8f0ac8ce6a37fdbc67d73034b.116x65.jpg?t=1759955245",
+        "title": "Imagem de Gameplay"
+      },
+      {
+        "type": "image",
+        "src": "https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/1507580/ss_85609218e5a521f8f0ac8ce6a37fdbc67d73034b.116x65.jpg?t=1759955245",
+        "title": "Imagem de Gameplay"
+      },
+      {
+        "type": "image",
+        "src": "https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/1507580/ss_85609218e5a521f8f0ac8ce6a37fdbc67d73034b.116x65.jpg?t=1759955245",
+        "title": "Imagem de Gameplay"
+      },
+      {
+        "type": "image",
+        "src": "https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/1507580/ss_85609218e5a521f8f0ac8ce6a37fdbc67d73034b.116x65.jpg?t=1759955245",
+        "title": "Imagem de Gameplay"
+      },
+      {
+        "type": "image",
+        "src": "https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/1507580/ss_85609218e5a521f8f0ac8ce6a37fdbc67d73034b.116x65.jpg?t=1759955245",
+        "title": "Imagem de Gameplay"
+      },
+      {
+        "type": "image",
+        "src": "https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/1507580/ss_85609218e5a521f8f0ac8ce6a37fdbc67d73034b.116x65.jpg?t=1759955245",
+        "title": "Imagem de Gameplay"
+      }
+    ]
   },
   {
     "id": 2,
-    "name": "Hellbrella",
-    "icon": "/images/games/hellbrella.jpg",
-    "price": 20.5
+    "name": "Fortaleza Carmesim",
+    "price": 60,
+    "rating": 4.1,
+    "classification": 16,
+    "description": "Um RPG de ação onde você lidera cavaleiros místicos em batalhas contra criaturas ancestrais.",
+    "tags": [
+      { "name": "RPG", "category": "gender" },
+      { "name": "Ação", "category": "gender" },
+      { "name": "Fantasia", "category": "gender" },
+      { "name": "Terceira Pessoa", "category": "gender" }
+    ],
+    "releaseDate": "2026-02-14T00:00:00.000Z",
+    "publishingDate": "2024-05-11T00:00:00.000Z",
+    "studio": { "name": "Dragonforge Studios" },
+    "publisher": { "name": "Imperium Global" },
+    "supportedLanguages": [
+      { "name": "Português (Brasil)", "level": 2 },
+      { "name": "Inglês", "level": 3 }
+    ],
+    "icon": "https://picsum.photos/seed/g2/600/300",
+    "banner": "https://picsum.photos/seed/g2b/1200/500",
+    "gallery": [
+      { "type": "image", "src": "https://picsum.photos/400/200?3", "title": "Campo de Batalha" },
+      { "type": "image", "src": "https://picsum.photos/400/200?4", "title": "Cavaleiro Carmesim" },
+      { "type": "video", "src": "dQw4w9WgXcQ", "title": "Trailer de Lançamento" }
+    ]
   },
   {
     "id": 3,
-    "name": "Hellbrella",
-    "icon": "/images/games/hellbrella.jpg",
-    "price": 20.5
+    "name": "Neon Velocity: Ruas do Amanhã",
+    "price": 40,
+    "rating": 4.2,
+    "classification": 10,
+    "description": "Corridas futuristas em pistas iluminadas por neon, com mecânicas de derrapagem e veículos customizáveis.",
+    "tags": [
+      { "name": "Corrida", "category": "gender" },
+      { "name": "Futurista", "category": "gender" },
+      { "name": "Arcade", "category": "gender" },
+      { "name": "Multiplayer", "category": "resources" }
+    ],
+    "releaseDate": "2025-09-01T00:00:00.000Z",
+    "publishingDate": "2024-03-20T00:00:00.000Z",
+    "studio": { "name": "NeonWave Labs" },
+    "publisher": { "name": "TurboPoint Studio" },
+    "supportedLanguages": [
+      { "name": "Português (Brasil)", "level": 3 },
+      { "name": "Inglês", "level": 3 }
+    ],
+    "icon": "https://picsum.photos/seed/g3/600/300",
+    "banner": "https://picsum.photos/seed/g3b/1200/500",
+    "gallery": [
+      { "type": "video", "src": "ffDPq2D3KI0", "title": "Trailer de Gameplay" },
+      { "type": "image", "src": "https://picsum.photos/400/200?5", "title": "Pista Neon" },
+      { "type": "image", "src": "https://picsum.photos/400/200?6", "title": "Carro Customizado" }
+    ]
   },
   {
     "id": 4,
-    "name": "Hellbrella",
-    "icon": "/images/games/hellbrella.jpg",
-    "price": 20.5
+    "name": "Fragmentos do Abismo",
+    "price": 32,
+    "rating": 4.6,
+    "classification": 16,
+    "description": "Um roguelike sombrio onde cada descida revela novos segredos e perigos.",
+    "tags": [
+      { "name": "Roguelike", "category": "gender" },
+      { "name": "Sombrio", "category": "gender" },
+      { "name": "Ação", "category": "gender" }
+    ],
+    "releaseDate": "2025-12-10T00:00:00.000Z",
+    "publishingDate": "2023-12-05T00:00:00.000Z",
+    "studio": { "name": "Void Lantern" },
+    "publisher": { "name": "NightCrow Games" },
+    "supportedLanguages": [
+      { "name": "Português (Brasil)", "level": 2 },
+      { "name": "Inglês", "level": 3 }
+    ],
+    "icon": "https://picsum.photos/seed/g4/600/300",
+    "banner": "https://picsum.photos/seed/g4b/1200/500",
+    "gallery": [
+      { "type": "image", "src": "https://picsum.photos/400/200?7", "title": "Abismo Profundo" },
+      { "type": "image", "src": "https://picsum.photos/400/200?8", "title": "Monstro Ancião" },
+      { "type": "image", "src": "https://picsum.photos/400/200?9", "title": "Sala Secreta" }
+    ]
   },
   {
     "id": 5,
-    "name": "Hellbrella",
-    "icon": "/images/games/hellbrella.jpg",
-    "price": 20.5
+    "name": "Campos de Aço",
+    "price": 70,
+    "rating": 4.0,
+    "classification": 14,
+    "description": "Um jogo de estratégia militar focado em controle territorial e batalhas de grande escala.",
+    "tags": [
+      { "name": "Estratégia", "category": "gender" },
+      { "name": "Militar", "category": "gender" },
+      { "name": "Tático", "category": "gender" }
+    ],
+    "releaseDate": "2025-11-03T00:00:00.000Z",
+    "publishingDate": "2024-01-20T00:00:00.000Z",
+    "studio": { "name": "Ironfield Works" },
+    "publisher": { "name": "Colossal Frontiers" },
+    "supportedLanguages": [
+      { "name": "Português (Brasil)", "level": 1 },
+      { "name": "Inglês", "level": 3 }
+    ],
+    "icon": "https://picsum.photos/seed/g5/600/300",
+    "banner": "https://picsum.photos/seed/g5b/1200/500",
+    "gallery": [
+      { "type": "image", "src": "https://picsum.photos/400/200?10", "title": "Mapa Estratégico" },
+      { "type": "image", "src": "https://picsum.photos/400/200?11", "title": "Forças Blindadas" }
+    ]
   },
   {
     "id": 6,
-    "name": "Hellbrella",
-    "icon": "/images/games/hellbrella.jpg",
-    "price": 20.5
+    "name": "Táticas Nexus Cibernético",
+    "price": 45,
+    "rating": 4.3,
+    "classification": 12,
+    "description": "Jogo tático por turnos em um futuro cyberpunk, onde cada ação altera o destino da cidade.",
+    "tags": [
+      { "name": "Tático", "category": "gender" },
+      { "name": "Cyberpunk", "category": "gender" },
+      { "name": "Estratégia", "category": "gender" },
+      { "name": "Turnos", "category": "gender" }
+    ],
+    "releaseDate": "2026-01-15T00:00:00.000Z",
+    "publishingDate": "2024-08-10T00:00:00.000Z",
+    "studio": { "name": "Neon Circuit Works" },
+    "publisher": { "name": "HyperGrid Publishing" },
+    "supportedLanguages": [
+      { "name": "Português (Brasil)", "level": 3 },
+      { "name": "Inglês", "level": 3 }
+    ],
+    "icon": "https://picsum.photos/seed/g6/600/300",
+    "banner": "https://picsum.photos/seed/g6b/1200/500",
+    "gallery": [
+      { "type": "image", "src": "https://picsum.photos/400/200?12", "title": "Operação Noturna" },
+      { "type": "image", "src": "https://picsum.photos/400/200?13", "title": "Hacker em Ação" },
+      { "type": "video", "src": "a1Y73sPHKxw", "title": "Trailer Tático" }
+    ]
   },
   {
     "id": 7,
-    "name": "Hellbrella",
-    "icon": "/images/games/hellbrella.jpg",
-    "price": 20.5
+    "name": "O Último Guardião das Chamas",
+    "price": 55,
+    "rating": 4.7,
+    "classification": 12,
+    "description": "Uma aventura narrativa ambientada em um reino em ruínas, onde uma chama mística mantém o mundo vivo.",
+    "tags": [
+      { "name": "Aventura", "category": "gender" },
+      { "name": "Narrativo", "category": "gender" },
+      { "name": "Fantasia", "category": "gender" }
+    ],
+    "releaseDate": "2026-05-18T00:00:00.000Z",
+    "publishingDate": "2024-09-22T00:00:00.000Z",
+    "studio": { "name": "Silver Ember" },
+    "publisher": { "name": "DreamMist Studio" },
+    "supportedLanguages": [
+      { "name": "Português (Brasil)", "level": 2 },
+      { "name": "Inglês", "level": 3 }
+    ],
+    "icon": "https://picsum.photos/seed/g7/600/300",
+    "banner": "https://picsum.photos/seed/g7b/1200/500",
+    "gallery": [
+      { "type": "image", "src": "https://picsum.photos/400/200?14", "title": "Ruínas Ardentes" },
+      { "type": "image", "src": "https://picsum.photos/400/200?15", "title": "Guardião Solitário" },
+      { "type": "video", "src": "3fumBcKC6RE", "title": "Cinemática de História" }
+    ]
   },
   {
     "id": 8,
-    "name": "Hellbrella",
-    "icon": "/images/games/hellbrella.jpg",
-    "price": 20.5
+    "name": "Projeto Ômega",
+    "price": 38,
+    "rating": 4.4,
+    "classification": 18,
+    "description": "Um shooter de ficção científica com foco em operações especiais e mutações biotecnológicas.",
+    "tags": [
+      { "name": "FPS", "category": "gender" },
+      { "name": "Sci-Fi", "category": "gender" },
+      { "name": "Ação", "category": "gender" },
+      { "name": "Multiplayer", "category": "resources" }
+    ],
+    "releaseDate": "2026-07-01T00:00:00.000Z",
+    "publishingDate": "2024-10-15T00:00:00.000Z",
+    "studio": { "name": "Black Omega Labs" },
+    "publisher": { "name": "Nova Prime" },
+    "supportedLanguages": [
+      { "name": "Português (Brasil)", "level": 1 },
+      { "name": "Inglês", "level": 3 }
+    ],
+    "icon": "https://picsum.photos/seed/g8/600/300",
+    "banner": "https://picsum.photos/seed/g8b/1200/500",
+    "gallery": [
+      { "type": "image", "src": "https://picsum.photos/400/200?16", "title": "Operação Tática" },
+      { "type": "image", "src": "https://picsum.photos/400/200?17", "title": "Mutação Incontrolável" }
+    ]
+  },
+  {
+    "id": 9,
+    "name": "Eco dos Titãs",
+    "price": 50,
+    "rating": 4.8,
+    "classification": 14,
+    "description": "Um jogo de ação mitológica onde você enfrenta criaturas colossais usando habilidades divinas.",
+    "tags": [
+      { "name": "Ação", "category": "gender" },
+      { "name": "Mitologia", "category": "gender" },
+      { "name": "Hack and Slash", "category": "gender" }
+    ],
+    "releaseDate": "2025-08-30T00:00:00.000Z",
+    "publishingDate": "2023-11-11T00:00:00.000Z",
+    "studio": { "name": "Titanborn Studio" },
+    "publisher": { "name": "Legacy Forge" },
+    "supportedLanguages": [
+      { "name": "Português (Brasil)", "level": 2 },
+      { "name": "Inglês", "level": 3 }
+    ],
+    "icon": "https://picsum.photos/seed/g9/600/300",
+    "banner": "https://picsum.photos/seed/g9b/1200/500",
+    "gallery": [
+      { "type": "video", "src": "PCX5l8vZ4jQ", "title": "Trailer Cinemático" },
+      { "type": "image", "src": "https://picsum.photos/400/200?18", "title": "Batalha com Titã" },
+      { "type": "image", "src": "https://picsum.photos/400/200?19", "title": "Habilidades Divinas" }
+    ]
+  },
+  {
+    "id": 10,
+    "name": "Horizonte Silencioso",
+    "price": 30,
+    "rating": 4.0,
+    "classification": 10,
+    "description": "Um simulador de exploração atmosférica em um planeta abandonado coberto por tempestades eternas.",
+    "tags": [
+      { "name": "Exploração", "category": "gender" },
+      { "name": "Sci-Fi", "category": "gender" },
+      { "name": "Simulador", "category": "gender" }
+    ],
+    "releaseDate": "2026-03-09T00:00:00.000Z",
+    "publishingDate": "2024-04-01T00:00:00.000Z",
+    "studio": { "name": "Blue Horizon Labs" },
+    "publisher": { "name": "Skybound Digital" },
+    "supportedLanguages": [
+      { "name": "Português (Brasil)", "level": 3 },
+      { "name": "Inglês", "level": 3 }
+    ],
+    "icon": "https://picsum.photos/seed/g10/600/300",
+    "banner": "https://picsum.photos/seed/g10b/1200/500",
+    "gallery": [
+      { "type": "image", "src": "https://picsum.photos/400/200?20", "title": "Horizonte Tempestuoso" },
+      { "type": "image", "src": "https://picsum.photos/400/200?21", "title": "Veículo de Exploração" }
+    ]
+  },
+  {
+    "id": 11,
+    "name": "Domínio Starfall",
+    "price": 79.9,
+    "rating": 4.6,
+    "classification": 14,
+    "description": "Construa sua frota, estabeleça colônias e dispute territórios em um vasto universo dinâmico onde cada ação molda o equilíbrio galáctico.",
+    "tags": [
+      { "name": "Estratégia", "category": "gender" },
+      { "name": "Ficção Científica", "category": "gender" },
+      { "name": "Construção", "category": "gender" },
+      { "name": "Multijogador", "category": "resources" }
+    ],
+    "releaseDate": "2027-09-15T00:00:00.000Z",
+    "publishingDate": "2025-11-05T00:00:00.000Z",
+    "studio": { "name": "Nebula Dominion" },
+    "publisher": { "name": "OrionGate Entertainment" },
+    "supportedLanguages": [
+      { "name": "Português (Brasil)", "level": 3 },
+      { "name": "Inglês", "level": 3 },
+      { "name": "Alemão", "level": 2 }
+    ],
+    "icon": "https://picsum.photos/seed/starfalldom/600/300",
+    "banner": "https://picsum.photos/seed/starfalldomb/1200/500",
+    "gallery": [
+      { "type": "video", "src": "X1StarDom", "title": "Trailer Oficial — Domínio Starfall" },
+      { "type": "image", "src": "https://picsum.photos/400/200?sf1", "title": "Frota em Órbita" },
+      { "type": "image", "src": "https://picsum.photos/400/200?sf2", "title": "Batalha por Sistemas" },
+      { "type": "image", "src": "https://picsum.photos/400/200?sf3", "title": "Colônia Planetária" }
+    ]
+  },
+  {
+    "id": 12,
+    "name": "Deriva Néon: Overdrive",
+    "price": 55.0,
+    "rating": 4.1,
+    "classification": 10,
+    "description": "Corra pelas ruas de uma metrópole neon futurista, execute drifts perfeitos e personalize veículos com tecnologia de ponta.",
+    "tags": [
+      { "name": "Corrida", "category": "gender" },
+      { "name": "Arcade", "category": "gender" },
+      { "name": "Cyberpunk", "category": "gender" },
+      { "name": "Multiplayer", "category": "resources" }
+    ],
+    "releaseDate": "2026-04-20T00:00:00.000Z",
+    "publishingDate": "2025-06-10T00:00:00.000Z",
+    "studio": { "name": "NeonWave Labs" },
+    "publisher": { "name": "TurboPoint Studio" },
+    "supportedLanguages": [
+      { "name": "Português (Brasil)", "level": 3 },
+      { "name": "Inglês", "level": 3 },
+      { "name": "Espanhol", "level": 2 }
+    ],
+    "icon": "https://picsum.photos/seed/neondrift/600/300",
+    "banner": "https://picsum.photos/seed/neondriftb/1200/500",
+    "gallery": [
+      { "type": "video", "src": "NDOver123", "title": "Trailer — Deriva Néon: Overdrive" },
+      { "type": "image", "src": "https://picsum.photos/400/200?nd1", "title": "Corrida Noturna" },
+      { "type": "image", "src": "https://picsum.photos/400/200?nd2", "title": "Drift Perfeito" },
+      { "type": "image", "src": "https://picsum.photos/400/200?nd3", "title": "Área de Preparação" }
+    ]
   }
 ]

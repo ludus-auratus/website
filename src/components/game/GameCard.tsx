@@ -1,5 +1,6 @@
 import Image from "next/image";
 import Link from "next/link";
+import { Star } from "lucide-react";
 
 import { formatPrice } from "@/lib/game/game.utils";
 
@@ -8,24 +9,30 @@ interface GameCardProps {
   name: string;
   price: number;
   icon: string;
+  rating: number;
 }
 
-export function GameCard({ name, price, icon, id }: GameCardProps) {
-  const formattedPrice = formatPrice(price);
-
+export function GameCard({ name, price, icon, id, rating }: GameCardProps) {
   return (
-    <article className="bg-card text-card-foreground border-border hover:border-primary/60 h-fit max-w-72 min-w-64 flex-1 rounded-2xl border shadow-lg transition-all duration-300 hover:-translate-y-1 hover:shadow-xl">
+    <article className="bg-card text-card-foreground border-border hover:border-primary/60 relative flex h-fit flex-col overflow-hidden rounded-2xl border shadow-lg transition-all duration-300 hover:-translate-y-1 hover:shadow-xl">
       <Link
         href={`/game/${id}`}
-        className="focus-visible:ring-primary block rounded-2xl outline-none focus-visible:ring-2"
+        className="focus-visible:ring-primary flex h-full flex-col rounded-2xl outline-none focus-visible:ring-2"
       >
-        <figure className="relative h-60 w-full overflow-hidden rounded-2xl">
-          <Image src={icon} alt={`Capa do jogo ${name}`} fill className="object-cover" />
+        <div className="bg-background/90 absolute top-3 right-3 z-10 flex items-center space-x-1 rounded-full px-3 py-1 backdrop-blur-sm">
+          <Star className="text-accent h-4 w-4 fill-current" />
+          <span>{rating}</span>
+        </div>
+
+        <figure className="relative h-60 w-full flex-shrink-0">
+          <Image src={icon} alt={`Capa do jogo ${name}`} fill className="h-full w-full object-cover" />
         </figure>
 
-        <div className="flex flex-col gap-1 p-4">
-          <h3 className="text-ludus-yellow-400 font-ludus-pixelify-sans text-lg font-semibold">{name}</h3>
-          <p className="font-semibold">{formattedPrice}</p>
+        <div className="flex flex-grow flex-col gap-1 p-4">
+          <h3 className="text-ludus-yellow-400 font-ludus-pixelify-sans line-clamp-2 min-h-[56] text-lg font-semibold break-words">
+            {name}
+          </h3>
+          <p className="mt-auto font-semibold">{formatPrice(price)}</p>
         </div>
       </Link>
     </article>

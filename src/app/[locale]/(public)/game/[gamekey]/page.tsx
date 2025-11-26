@@ -4,8 +4,9 @@ import Image from "next/image";
 import { Game } from "@/components/pages/game";
 import { getGameDataById } from "@/lib/game";
 
-export default function Page() {
-  const data = use(getGameDataById());
+export default function Page({ params }: { params: { gamekey: number } }) {
+  const { gamekey } = params;
+  const data = use(getGameDataById(gamekey));
 
   return (
     <div className="relative w-full">

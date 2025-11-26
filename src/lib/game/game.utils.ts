@@ -9,7 +9,7 @@ export const GameClassifications = {
 
 export type GameClassification = (typeof GameClassifications)[keyof typeof GameClassifications];
 
-function classify(value: number) {
+export function classify(value: number) {
   const key = `c${value}`;
   const src = `/images/classification/${key}.png`;
 

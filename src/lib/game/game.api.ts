@@ -1,11 +1,12 @@
 import gameDescription from "@/assets/data/game_description.md";
+import gamesData from "@/assets/data/games.json";
 
-import { GameDTO } from "./game.dto";
-import { Game, GameTagCategories } from "./game.type";
-import { GameClassifications } from "./game.utils";
+import type { GameDTO, GameMediaDTO } from "./game.dto";
+import type { Game, GameTagCategories } from "./game.type";
+import { classify } from "./game.utils";
 
-export async function getGameDataById(): Promise<Game> {
-  const dto = await requestGameDataById();
+export async function getGameDataById(gamekey: number): Promise<Game> {
+  const dto = await requestGameDataById(gamekey);
 
   const tags: GameTagCategories = {
     genders: dto.tags.filter((tag) => tag.category === "gender").map((tag) => tag.name),
@@ -27,76 +28,85 @@ export async function getGameDataById(): Promise<Game> {
     publishingDate: dto.publishingDate,
     releaseDate: dto.releaseDate,
     supportedLanguages: dto.supportedLanguages,
+    rating: dto.rating,
   };
 }
 
-export async function requestGameDataById(): Promise<GameDTO> {
+export async function requestGameDataById(gamekey: number): Promise<GameDTO> {
+  const game = gamesData.find((game) => {
+    return game.id == gamekey;
+  });
+
+  if (!game) {
+    throw new Error("Jogo não encontrado");
+  }
+
   return await {
-    id: 1,
-    name: "Enigma do Medo",
-    price: 25,
-    classification: GameClassifications.C12,
-    description: gameDescription,
-    tags: [
-      { name: "Mistério", category: "gender" },
-      { name: "Investigação", category: "gender" },
-      { name: "Sobrenatural", category: "gender" },
-      { name: "Detetive", category: "gender" },
-      { name: "Um Jogador", category: "resources" },
-      { name: "Controle de Xbox", category: "resources" },
-    ],
-    releaseDate: new Date(2025, 9, 18),
-    publishingDate: new Date(2023, 9, 18),
-    studio: { name: "Icy Mountain Studios" },
-    publisher: { name: "GoGo Games Interactive" },
-    supportedLanguages: [
-      { name: "Português (Brasil)", level: 3 },
-      { name: "Inglês", level: 3 },
-    ],
-    icon: "https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/1507580/header_brazilian.jpg?t=1759955245",
-    banner:
-      "https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/1507580/extras/120ffc31c8b8e810d9cbc09c2bab5117.avif?t=1759955245",
-    gallery: [
-      {
-        type: "video",
-        src: "Hjl6usm5WCo",
-        title: "Enigma do Medo - Trailer Oficial",
-      },
-      {
-        type: "image",
-        src: "https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/1507580/ss_85609218e5a521f8f0ac8ce6a37fdbc67d73034b.116x65.jpg?t=1759955245",
-        title: "Imagem de Gameplay",
-      },
-      {
-        type: "image",
-        src: "https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/1507580/ss_85609218e5a521f8f0ac8ce6a37fdbc67d73034b.116x65.jpg?t=1759955245",
-        title: "Imagem de Gameplay",
-      },
-      {
-        type: "image",
-        src: "https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/1507580/ss_85609218e5a521f8f0ac8ce6a37fdbc67d73034b.116x65.jpg?t=1759955245",
-        title: "Imagem de Gameplay",
-      },
-      {
-        type: "image",
-        src: "https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/1507580/ss_85609218e5a521f8f0ac8ce6a37fdbc67d73034b.116x65.jpg?t=1759955245",
-        title: "Imagem de Gameplay",
-      },
-      {
-        type: "image",
-        src: "https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/1507580/ss_85609218e5a521f8f0ac8ce6a37fdbc67d73034b.116x65.jpg?t=1759955245",
-        title: "Imagem de Gameplay",
-      },
-      {
-        type: "image",
-        src: "https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/1507580/ss_85609218e5a521f8f0ac8ce6a37fdbc67d73034b.116x65.jpg?t=1759955245",
-        title: "Imagem de Gameplay",
-      },
-      {
-        type: "image",
-        src: "https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/1507580/ss_85609218e5a521f8f0ac8ce6a37fdbc67d73034b.116x65.jpg?t=1759955245",
-        title: "Imagem de Gameplay",
-      },
-    ],
+    id: game.id,
+    name: game.name,
+    price: game.price,
+    classification: classify(game.classification),
+    description: game.description,
+    tags: game.tags,
+    releaseDate: new Date(game.releaseDate),
+    publishingDate: new Date(game.publishingDate),
+    studio: game.studio,
+    publisher: game.publisher,
+    supportedLanguages: game.supportedLanguages,
+    icon: game.icon,
+    banner: game.banner,
+    gallery: game.gallery as GameMediaDTO[],
+    rating: game.rating,
   };
+}
+
+export async function getGames(): Promise<Game[]> {
+  const dto = await requestGames();
+
+  return dto.map((game) => {
+    const tags: GameTagCategories = {
+      genders: game.tags.filter((tag) => tag.category === "gender").map((tag) => tag.name),
+      resources: game.tags.filter((tag) => tag.category === "resources").map((tag) => tag.name),
+    };
+
+    return {
+      id: game.id,
+      name: game.name,
+      price: game.price,
+      classification: game.classification,
+      description: game.description,
+      tags,
+      studio: game.studio.name,
+      publisher: game.publisher.name,
+      icon: game.icon,
+      banner: game.banner,
+      gallery: game.gallery,
+      publishingDate: game.publishingDate,
+      releaseDate: game.releaseDate,
+      supportedLanguages: game.supportedLanguages,
+      rating: game.rating,
+    };
+  });
+}
+
+export async function requestGames(): Promise<GameDTO[]> {
+  return gamesData.map((game) => {
+    return {
+      id: game.id,
+      name: game.name,
+      price: game.price,
+      classification: classify(game.classification),
+      description: gameDescription,
+      tags: game.tags,
+      releaseDate: new Date(game.releaseDate),
+      publishingDate: new Date(game.publishingDate),
+      studio: game.studio,
+      publisher: game.publisher,
+      supportedLanguages: game.supportedLanguages,
+      icon: game.icon,
+      banner: game.banner,
+      gallery: game.gallery as GameMediaDTO[],
+      rating: game.rating,
+    };
+  });
 }
