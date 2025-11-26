@@ -50,7 +50,7 @@ export default function BenefitsSection() {
         <SectionDescription>{t("description")}</SectionDescription>
       </SectionHeader>
 
-      <SectionContent className="mx-16 grid gap-6 md:grid-cols-2 lg:grid-cols-3">
+      <SectionContent className="grid-auto-fill-300 grid gap-6">
         {benefits.map((benefit, index) => {
           const Icon = benefit.icon;
           return (

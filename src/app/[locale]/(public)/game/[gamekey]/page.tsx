@@ -1,12 +1,11 @@
-import { use } from "react";
 import Image from "next/image";
 
 import { Game } from "@/components/pages/game";
 import { getGameDataById } from "@/lib/game";
 
-export default function Page({ params }: { params: { gamekey: number } }) {
+export default async function Page({ params }: { params: { gamekey: number } }) {
   const { gamekey } = params;
-  const data = use(getGameDataById(gamekey));
+  const data = await getGameDataById(gamekey);
 
   return (
     <div className="relative w-full">

@@ -359,5 +359,9 @@
 }
 
 @utility grid-auto-fill {
-  grid-template-columns: repeat(auto-fill, minmax(224px, 1fr));
+  grid-template-columns: repeat(auto-fill, minmax(254px, 1fr));
+}
+
+@utility grid-auto-fill-300 {
+  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
 }

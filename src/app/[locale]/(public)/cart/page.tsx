@@ -32,7 +32,7 @@ export default function Cart() {
             <p className="text-muted-foreground mx-auto mb-8 max-w-md">{t("empty.description")}</p>
 
             <Button size="lg" asChild>
-              <Link href="/">{t("empty.explore_button")}</Link>
+              <Link href="/catalog">{t("empty.explore_button")}</Link>
             </Button>
           </CardContent>
         </Card>

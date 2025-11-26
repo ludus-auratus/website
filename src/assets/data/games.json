@@ -92,8 +92,7 @@
     "banner": "https://picsum.photos/seed/g2b/1200/500",
     "gallery": [
       { "type": "image", "src": "https://picsum.photos/400/200?3", "title": "Campo de Batalha" },
-      { "type": "image", "src": "https://picsum.photos/400/200?4", "title": "Cavaleiro Carmesim" },
-      { "type": "video", "src": "dQw4w9WgXcQ", "title": "Trailer de Lançamento" }
+      { "type": "image", "src": "https://picsum.photos/400/200?4", "title": "Cavaleiro Carmesim" }
     ]
   },
   {
@@ -120,7 +119,6 @@
     "icon": "https://picsum.photos/seed/g3/600/300",
     "banner": "https://picsum.photos/seed/g3b/1200/500",
     "gallery": [
-      { "type": "video", "src": "ffDPq2D3KI0", "title": "Trailer de Gameplay" },
       { "type": "image", "src": "https://picsum.photos/400/200?5", "title": "Pista Neon" },
       { "type": "image", "src": "https://picsum.photos/400/200?6", "title": "Carro Customizado" }
     ]
@@ -205,8 +203,7 @@
     "banner": "https://picsum.photos/seed/g6b/1200/500",
     "gallery": [
       { "type": "image", "src": "https://picsum.photos/400/200?12", "title": "Operação Noturna" },
-      { "type": "image", "src": "https://picsum.photos/400/200?13", "title": "Hacker em Ação" },
-      { "type": "video", "src": "a1Y73sPHKxw", "title": "Trailer Tático" }
+      { "type": "image", "src": "https://picsum.photos/400/200?13", "title": "Hacker em Ação" }
     ]
   },
   {
@@ -233,8 +230,7 @@
     "banner": "https://picsum.photos/seed/g7b/1200/500",
     "gallery": [
       { "type": "image", "src": "https://picsum.photos/400/200?14", "title": "Ruínas Ardentes" },
-      { "type": "image", "src": "https://picsum.photos/400/200?15", "title": "Guardião Solitário" },
-      { "type": "video", "src": "3fumBcKC6RE", "title": "Cinemática de História" }
+      { "type": "image", "src": "https://picsum.photos/400/200?15", "title": "Guardião Solitário" }
     ]
   },
   {
@@ -288,7 +284,6 @@
     "icon": "https://picsum.photos/seed/g9/600/300",
     "banner": "https://picsum.photos/seed/g9b/1200/500",
     "gallery": [
-      { "type": "video", "src": "PCX5l8vZ4jQ", "title": "Trailer Cinemático" },
       { "type": "image", "src": "https://picsum.photos/400/200?18", "title": "Batalha com Titã" },
       { "type": "image", "src": "https://picsum.photos/400/200?19", "title": "Habilidades Divinas" }
     ]
@@ -345,7 +340,6 @@
     "icon": "https://picsum.photos/seed/starfalldom/600/300",
     "banner": "https://picsum.photos/seed/starfalldomb/1200/500",
     "gallery": [
-      { "type": "video", "src": "X1StarDom", "title": "Trailer Oficial — Domínio Starfall" },
       { "type": "image", "src": "https://picsum.photos/400/200?sf1", "title": "Frota em Órbita" },
       { "type": "image", "src": "https://picsum.photos/400/200?sf2", "title": "Batalha por Sistemas" },
       { "type": "image", "src": "https://picsum.photos/400/200?sf3", "title": "Colônia Planetária" }
@@ -376,7 +370,6 @@
     "icon": "https://picsum.photos/seed/neondrift/600/300",
     "banner": "https://picsum.photos/seed/neondriftb/1200/500",
     "gallery": [
-      { "type": "video", "src": "NDOver123", "title": "Trailer — Deriva Néon: Overdrive" },
       { "type": "image", "src": "https://picsum.photos/400/200?nd1", "title": "Corrida Noturna" },
       { "type": "image", "src": "https://picsum.photos/400/200?nd2", "title": "Drift Perfeito" },
       { "type": "image", "src": "https://picsum.photos/400/200?nd3", "title": "Área de Preparação" }
