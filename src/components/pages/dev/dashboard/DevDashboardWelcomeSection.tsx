@@ -7,7 +7,7 @@ import { Card } from "@/components/ui/card";
 export default function DevDashboardWelcomeSection() {
   return (
     <div className="grid gap-6 lg:grid-cols-3">
-      <Card className="from-primary/10 to-accent/10 border-primary/20 border-2 bg-gradient-to-br p-6 lg:col-span-2">
+      <Card className="from-primary/10 to-accent/10 border-primary/20 border-2 bg-gradient-to-br p-6 text-center md:text-left lg:col-span-2">
         <div className="flex flex-col justify-between gap-4 md:flex-row md:items-center">
           <div className="space-y-2">
             <h2 className="text-foreground font-ludus-pixelify-sans text-2xl">Bem-vindo ao seu Portal! 🎮</h2>
@@ -16,7 +16,7 @@ export default function DevDashboardWelcomeSection() {
               brasileiros.
             </p>
           </div>
-          <div className="bg-primary/20 flex h-32 w-32 items-center justify-center rounded-2xl">
+          <div className="bg-primary/20 mx-auto flex h-32 w-32 items-center justify-center rounded-2xl md:mx-0">
             <LayoutDashboard className="text-primary h-16 w-16" />
           </div>
         </div>

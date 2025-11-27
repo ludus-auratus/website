@@ -1,5 +1,7 @@
-import DevPageWrapper from "./DevPageWrapper";
+import DevHeader from "./DevHeader";
+import DevSidebar from "./DevSidebar";
 
 export const DevComponents = {
-  Wrapper: DevPageWrapper,
+  Header: DevHeader,
+  Sidebar: DevSidebar,
 };

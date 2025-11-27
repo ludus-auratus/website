@@ -51,10 +51,12 @@ export default function GameTagContainer(props: Props) {
         </button>
       </div>
       <div className={containerVariants({ visible })}>
-        {content.map((tag, index) => {
-          const key = `game-tag-${index}`;
-          return <GameTagUnit key={key} text={tag} />;
-        })}
+        <div className="flex flex-wrap gap-2 py-1">
+          {content.map((tag, index) => {
+            const key = `game-tag-${index}`;
+            return <GameTagUnit key={key} text={tag} />;
+          })}
+        </div>
       </div>
     </div>
   );

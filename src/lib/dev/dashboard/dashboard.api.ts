@@ -19,19 +19,19 @@ export async function getDevDashboardStatistics(userId: number): Promise<DevQuic
       label: "Downloads",
       trend: dto.downloads.change > 0 ? "up" : "down",
       change: `${(dto.downloads.change * 100).toFixed(1)}%`,
-      value: dto.downloads.value.toFixed(0),
+      value: dto.downloads.value.toLocaleString("pt-BR"),
     },
     views: {
       label: "Visualizações",
       trend: dto.views.change > 0 ? "up" : "down",
       change: `${(dto.views.change * 100).toFixed(1)}%`,
-      value: dto.views.value.toFixed(0),
+      value: dto.views.value.toLocaleString("pt-BR"),
     },
     rating: {
       label: "Avaliação",
       trend: dto.rating.change > 0 ? "up" : "down",
       change: `${(dto.rating.change * 100).toFixed(1)}%`,
-      value: dto.rating.value.toFixed(0),
+      value: dto.rating.value.toLocaleString("pt-BR"),
     },
   };
 }
@@ -60,7 +60,11 @@ export async function requestDevDashboardStatistics(userId: number): Promise<Dev
 export async function getDevDashboardGames(userId: number): Promise<QuickGameDashboard[]> {
   const dto = await requestDevDashboardGames(userId);
 
-  return dto.map((game) => ({ ...game, lastUpdate: new Date(game.lastUpdate) }));
+  return dto.map((game) => ({
+    ...game,
+    lastUpdate: new Date(game.lastUpdate),
+    publishedDate: game.publishedDate ? new Date(game.publishedDate) : null,
+  }));
 }
 
 export async function requestDevDashboardGames(userId: number): Promise<GameDashboardDTO[]> {

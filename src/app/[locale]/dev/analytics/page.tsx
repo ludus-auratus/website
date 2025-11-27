@@ -87,7 +87,7 @@ export default function DevAnalyticsPage() {
       <div className="space-y-8">
         {/* Header */}
         <div>
-          <h1 className="text-foreground mb-2 font-['Pixelify_Sans'] text-3xl">Analytics & Métricas</h1>
+          <h1 className="text-foreground font-ludus-pixelify-sans mb-2 text-3xl">Analytics & Métricas</h1>
           <p className="text-muted-foreground">Acompanhe o desempenho dos seus jogos em tempo real</p>
         </div>
 
@@ -142,7 +142,7 @@ export default function DevAnalyticsPage() {
                 </div>
                 <div>
                   <p className="text-muted-foreground mb-1 text-sm">{stat.label}</p>
-                  <p className="text-foreground mb-1 font-['Pixelify_Sans'] text-2xl">{stat.value}</p>
+                  <p className="text-foreground font-ludus-pixelify-sans mb-1 text-2xl">{stat.value}</p>
                   <p className="text-muted-foreground text-xs">{stat.period}</p>
                 </div>
               </Card>
@@ -154,7 +154,7 @@ export default function DevAnalyticsPage() {
         <Card className="border-border border-2 p-6">
           <div className="mb-6 flex items-center justify-between">
             <div>
-              <h3 className="text-foreground mb-1 font-['Pixelify_Sans'] text-xl">Receita & Downloads</h3>
+              <h3 className="text-foreground font-ludus-pixelify-sans mb-1 text-xl">Receita & Downloads</h3>
               <p className="text-muted-foreground text-sm">Evolução nos últimos 6 meses</p>
             </div>
             <Button variant="outline" size="sm">
@@ -207,7 +207,7 @@ export default function DevAnalyticsPage() {
         <div className="grid gap-6 lg:grid-cols-2">
           {/* Game Performance */}
           <Card className="border-border border-2 p-6">
-            <h3 className="text-foreground mb-6 font-['Pixelify_Sans'] text-xl">Performance por Jogo</h3>
+            <h3 className="text-foreground font-ludus-pixelify-sans mb-6 text-xl">Performance por Jogo</h3>
 
             <div className="space-y-4">
               {gamePerformance.map((game, index) => (
@@ -230,7 +230,7 @@ export default function DevAnalyticsPage() {
             <div className="border-border mt-6 border-t pt-6">
               <div className="flex items-center justify-between">
                 <span className="text-foreground font-medium">Total</span>
-                <span className="text-accent font-['Pixelify_Sans'] text-xl">
+                <span className="text-accent font-ludus-pixelify-sans text-xl">
                   R$ {gamePerformance.reduce((sum, game) => sum + game.value, 0).toLocaleString("pt-BR")}
                 </span>
               </div>
@@ -239,7 +239,7 @@ export default function DevAnalyticsPage() {
 
           {/* Traffic Sources */}
           <Card className="border-border border-2 p-6">
-            <h3 className="text-foreground mb-6 font-['Pixelify_Sans'] text-xl">Fontes de Tráfego</h3>
+            <h3 className="text-foreground font-ludus-pixelify-sans mb-6 text-xl">Fontes de Tráfego</h3>
 
             {/* <ResponsiveContainer width="100%" height={200}>
             <PieChart>
@@ -279,7 +279,7 @@ export default function DevAnalyticsPage() {
         <div className="grid gap-6 lg:grid-cols-2">
           {/* Demographics */}
           <Card className="border-border border-2 p-6">
-            <h3 className="text-foreground mb-6 font-['Pixelify_Sans'] text-xl">Demografia de Jogadores</h3>
+            <h3 className="text-foreground font-ludus-pixelify-sans mb-6 text-xl">Demografia de Jogadores</h3>
 
             {/* <ResponsiveContainer width="100%" height={250}>
             <BarChart data={demographicsData}>
@@ -300,7 +300,7 @@ export default function DevAnalyticsPage() {
 
           {/* Top Countries */}
           <Card className="border-border border-2 p-6">
-            <h3 className="text-foreground mb-6 font-['Pixelify_Sans'] text-xl">Principais Países</h3>
+            <h3 className="text-foreground font-ludus-pixelify-sans mb-6 text-xl">Principais Países</h3>
 
             <div className="space-y-4">
               {topCountries.map((item, index) => (
@@ -322,7 +322,7 @@ export default function DevAnalyticsPage() {
             <div className="border-border mt-6 border-t pt-6">
               <div className="flex items-center justify-between">
                 <span className="text-foreground font-medium">Total de Jogadores</span>
-                <span className="text-accent font-['Pixelify_Sans'] text-xl">
+                <span className="text-accent font-ludus-pixelify-sans text-xl">
                   {topCountries.reduce((sum, item) => sum + item.players, 0).toLocaleString("pt-BR")}
                 </span>
               </div>
@@ -332,7 +332,7 @@ export default function DevAnalyticsPage() {
 
         {/* Key Insights */}
         <Card className="border-accent from-accent/5 to-primary/5 border-2 bg-gradient-to-br p-6">
-          <h3 className="text-foreground mb-4 font-['Pixelify_Sans'] text-xl">💡 Principais Insights</h3>
+          <h3 className="text-foreground font-ludus-pixelify-sans mb-4 text-xl">💡 Principais Insights</h3>
           <div className="grid gap-4 md:grid-cols-2">
             <div className="bg-background border-border rounded-xl border p-4">
               <p className="text-foreground mb-2 text-sm">

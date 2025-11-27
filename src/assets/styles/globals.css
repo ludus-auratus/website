@@ -323,7 +323,7 @@
 
   --highlight: var(--color-lime-500);
   --highlight-hover: var(--color-lime-600);
-  --highlight-foreground: #ffffff;
+  --highlight-foreground: var(--background);
 
   --border: rgba(113, 226, 86, 0.2);
   --input: #2a4034;
@@ -335,14 +335,14 @@
   --chart-4: var(--ludus-green-main);
   --chart-5: #ffffff;
 
-  --sidebar: #243a2f;
+  --sidebar: var(--card);
   --sidebar-foreground: #ffffff;
-  --sidebar-primary: var(--ludus-green-lime);
+  --sidebar-primary: var(--border);
   --sidebar-primary-foreground: var(--ludus-green-dark);
-  --sidebar-accent: #2a4034;
+  --sidebar-accent: var(--accent);
   --sidebar-accent-foreground: #ffffff;
-  --sidebar-border: rgba(113, 226, 86, 0.2);
-  --sidebar-ring: var(--ludus-green-lime);
+  --sidebar-border: var(--highlight);
+  --sidebar-ring: var(--highlight);
   /* #endregion */
 }
 
@@ -355,5 +355,14 @@
   }
   span {
     font-family: inherit;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border outline-ring/50;
+  }
+  body {
+    @apply bg-background text-foreground;
   }
 }

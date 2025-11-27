@@ -24,11 +24,13 @@ const statIcons: Record<keyof DashboardStats, ForwardRefExoticComponent<React.SV
 export default function DevDashboardStatisticsSection({ stats }: { stats: DashboardStats }) {
   return (
     <div>
-      <div className="mb-6 flex items-center justify-between">
+      <div className="mb-6 flex justify-between border-b-1">
         <h2 className="text-foreground font-ludus-pixelify-sans text-xl">Estatísticas Rápidas</h2>
-        <Button variant="outline" size="sm">
-          <BarChart3 className="mr-2 h-4 w-4" />
-          <span>Ver Relatório Completo</span>
+        <Button variant="link" size="sm" className="text-foreground" disabled>
+          <BarChart3 className="h-4 w-4" />
+          <span>
+            Ver Relatório <span className="hidden md:inline">Completo</span>
+          </span>
         </Button>
       </div>
 
