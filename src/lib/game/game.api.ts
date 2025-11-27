@@ -60,8 +60,8 @@ export async function requestGameDataById(gamekey: number): Promise<GameDTO> {
   };
 }
 
-export async function getGames(): Promise<Game[]> {
-  const dto = await requestGames();
+export async function getAllGames(): Promise<Game[]> {
+  const dto = await requestAllGames();
 
   return dto.map((game) => {
     const tags: GameTagCategories = {
@@ -89,7 +89,7 @@ export async function getGames(): Promise<Game[]> {
   });
 }
 
-export async function requestGames(): Promise<GameDTO[]> {
+export async function requestAllGames(): Promise<GameDTO[]> {
   return gamesData.map((game) => {
     return {
       id: game.id,

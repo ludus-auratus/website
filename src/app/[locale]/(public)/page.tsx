@@ -14,11 +14,11 @@ import {
 } from "@/components/layout/Section";
 import GameJamSection from "@/components/pages/home/GameJamSection";
 import { HeroBanner } from "@/components/pages/home/HeroBanner";
-import { getGames } from "@/lib/game";
+import { getAllGames } from "@/lib/game";
 
 export default function Home() {
   const t = useTranslations("Home");
-  const games = use(getGames());
+  const games = use(getAllGames());
 
   const featuredGames = games.slice(0, 4);
   const releaseGames = games.slice(4, 12);

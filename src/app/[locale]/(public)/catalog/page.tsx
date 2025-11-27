@@ -5,7 +5,7 @@ import { useEffect, useState } from "react";
 import { GameCard } from "@/components/game/GameCard";
 import { Catalog } from "@/components/pages/catalog";
 import { useCatalogFilters } from "@/hooks/useCatalogFilters";
-import { getGames } from "@/lib/game/game.api";
+import { getAllGames } from "@/lib/game/game.api";
 import { Game } from "@/lib/game/game.type";
 
 export default function CatalogPage() {
@@ -13,7 +13,7 @@ export default function CatalogPage() {
   const [showFilters, setShowFilters] = useState(false);
 
   useEffect(() => {
-    getGames().then((games) => {
+    getAllGames().then((games) => {
       setGames(games);
     });
   }, []);

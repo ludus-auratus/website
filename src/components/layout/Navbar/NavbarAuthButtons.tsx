@@ -12,7 +12,7 @@ export function NavbarAuthButtons({ variant = "desktop" }: NavbarAuthButtonsProp
   const t = useTranslations("Navbar.auth");
 
   return (
-    <div className={isMobile ? "flex flex-col gap-2" : "hidden gap-2 lg:flex"}>
+    <div className={isMobile ? "flex flex-col gap-2" : "ml-2 hidden gap-2 lg:flex"}>
       <Button asChild variant="outline" className={isMobile ? "w-full" : ""}>
         <Link href="/login">{t("login")}</Link>
       </Button>

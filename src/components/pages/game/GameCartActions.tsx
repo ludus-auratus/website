@@ -19,7 +19,7 @@ export default function GameCartActions({ game }: Props) {
   };
 
   return (
-    <Button className="w-full" onClick={handleClick} disabled={alreadyInCart}>
+    <Button className="w-full" variant="accent" onClick={handleClick} disabled={alreadyInCart}>
       {alreadyInCart ? "Já no carrinho" : "Adicionar ao carrinho"}
     </Button>
   );

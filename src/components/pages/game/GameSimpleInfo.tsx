@@ -11,7 +11,7 @@ export default function GameSimpleInfo(props: Props) {
   return (
     <div className="game-info font-ludus-pixelify-sans flex justify-between text-shadow-black/25 text-shadow-sm">
       <h5 className="text-white">{t(title)}</h5>
-      <p className="text-ludus-green-600">{data}</p>
+      <p className="text-highlight/80">{data}</p>
     </div>
   );
 }

@@ -1,18 +1,25 @@
 import Image from "next/image";
 import Link from "next/link";
-import { Star } from "lucide-react";
+import { Download, Star } from "lucide-react";
 
-import { formatPrice } from "@/lib/game/game.utils";
+import { Button } from "../ui/button";
 
-interface GameCardProps {
+interface GameCardLibraryProps {
   id: number;
   name: string;
-  price: number;
   icon: string;
   rating: number;
 }
 
-export function GameCard({ name, price, icon, id, rating }: GameCardProps) {
+export function GameCardLibrary({ name, icon, id, rating }: GameCardLibraryProps) {
+  function handleDownload(e: React.MouseEvent<HTMLButtonElement>) {
+    e.preventDefault();
+    e.stopPropagation();
+
+    // lógica de download / adicionar ao carrinho
+    console.log("Download do jogo:", id);
+  }
+
   return (
     <article className="bg-card text-card-foreground border-border hover:border-primary/60 relative flex h-fit flex-col overflow-hidden rounded-2xl border shadow-lg transition-all duration-300 hover:-translate-y-1 hover:shadow-xl">
       <Link
@@ -31,14 +38,18 @@ export function GameCard({ name, price, icon, id, rating }: GameCardProps) {
         </div>
 
         <figure className="relative h-60 w-full flex-shrink-0">
-          <Image src={icon} alt={`Capa do jogo ${name}`} fill className="h-full w-full object-cover" />
+          <Image src={icon} alt={`Capa do jogo ${name}`} fill className="object-cover" />
         </figure>
 
-        <div className="flex flex-grow flex-col gap-1 p-4">
+        <div className="flex flex-grow flex-col gap-2 p-4">
           <h3 className="text-ludus-yellow-400 font-ludus-pixelify-sans line-clamp-2 min-h-[56] text-lg font-semibold break-words">
             {name}
           </h3>
-          <p className="mt-auto font-semibold">{formatPrice(price)}</p>
+
+          <Button variant="accent" className="z-10 w-full" onClick={handleDownload}>
+            <Download className="mr-2 h-4 w-4" />
+            Download
+          </Button>
         </div>
       </Link>
     </article>

@@ -71,7 +71,7 @@ export function NavbarUserAction({ setIsLoggedIn }: NavbarUserActionProps) {
           <DropdownMenuSeparator />
 
           <DropdownMenuItem asChild>
-            <Link href="/profile" className="flex cursor-pointer items-center">
+            <Link href="/profile/my-library" className="flex cursor-pointer items-center">
               <User className="hover:text-accent mr-2 h-4 w-4" aria-hidden="true" /> {t("user_menu.my_profile")}
             </Link>
           </DropdownMenuItem>

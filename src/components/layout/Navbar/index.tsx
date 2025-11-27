@@ -84,7 +84,7 @@ export function Navbar() {
 
           {isLoggedIn ? (
             <>
-              <NavbarMenuItem variant="mobile" href="/profile" onClick={() => setIsMobileMenuOpen(false)}>
+              <NavbarMenuItem variant="mobile" href="/profile/my-library" onClick={() => setIsMobileMenuOpen(false)}>
                 <NavbarIcon className="mr-2" icon={User} />
                 {t("user_menu.my_profile")}
               </NavbarMenuItem>
