@@ -1,13 +1,15 @@
 "use client";
 
-import { useState } from "react";
-import { redirect } from "next/navigation";
+import { useState, useTransition } from "react";
+import { useRouter } from "next/navigation";
 import { useTranslations } from "next-intl";
-import { Eye, EyeOff } from "lucide-react";
+import { Eye, EyeOff, Loader2 } from "lucide-react";
+import { toast } from "sonner";
 
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
+import { useAuth } from "@/context/AuthContext";
 
 interface LoginFormData {
   email: string;
@@ -16,8 +18,12 @@ interface LoginFormData {
 
 export function LoginForm() {
   const t = useTranslations("Auth.forms.login");
+  const router = useRouter();
+  const { login } = useAuth();
+
   const [formData, setFormData] = useState<LoginFormData>({ email: "", password: "" });
   const [showPassword, setShowPassword] = useState(false);
+  const [isPending, startTransition] = useTransition();
 
   function handleChange(event: React.ChangeEvent<HTMLInputElement>) {
     const { id, value } = event.target;
@@ -28,8 +34,29 @@ export function LoginForm() {
   function handleSubmit(e: React.FormEvent) {
     e.preventDefault();
 
-    console.log("Login enviado:", formData);
-    redirect("/");
+    startTransition(async () => {
+      try {
+        const success = await login(formData.email, formData.password);
+
+        if (success) {
+          toast.success("Login realizado com sucesso!", {
+            description: "Você será redirecionado em instantes.",
+          });
+
+          router.push("/");
+          router.refresh();
+        } else {
+          toast.error("Erro ao fazer login", {
+            description: "Email ou senha incorretos. Tente novamente.",
+          });
+        }
+      } catch (error) {
+        console.error("Erro no login:", error);
+        toast.error("Erro inesperado", {
+          description: "Ocorreu um erro ao processar seu login. Tente novamente.",
+        });
+      }
+    });
   }
 
   return (
@@ -44,6 +71,7 @@ export function LoginForm() {
           value={formData.email}
           onChange={handleChange}
           autoComplete="email"
+          disabled={isPending}
           required
         />
       </div>
@@ -60,6 +88,7 @@ export function LoginForm() {
             onChange={handleChange}
             autoComplete="current-password"
             className="pr-12"
+            disabled={isPending}
             required
           />
 
@@ -70,6 +99,7 @@ export function LoginForm() {
             aria-label={showPassword ? t("hide_password") : t("show_password")}
             className="absolute top-0 right-0 h-12 px-3 hover:bg-transparent"
             onClick={() => setShowPassword((prev) => !prev)}
+            disabled={isPending}
           >
             {showPassword ? (
               <EyeOff className="text-muted-foreground h-4 w-4" />
@@ -81,7 +111,7 @@ export function LoginForm() {
       </div>
 
       <div className="flex items-center justify-between">
-        <Button type="button" variant="link" className="text-primary h-auto p-0 text-sm">
+        <Button type="button" variant="link" className="text-primary h-auto p-0 text-sm" disabled={isPending}>
           {t("forgot_password")}
         </Button>
       </div>
@@ -89,8 +119,16 @@ export function LoginForm() {
       <Button
         type="submit"
         className="h-12 w-full rounded-xl text-lg shadow-lg transition-all duration-200 hover:shadow-xl"
+        disabled={isPending}
       >
-        {t("submit")}
+        {isPending ? (
+          <>
+            <Loader2 className="mr-2 h-5 w-5 animate-spin" />
+            Entrando...
+          </>
+        ) : (
+          t("submit")
+        )}
       </Button>
     </form>
   );

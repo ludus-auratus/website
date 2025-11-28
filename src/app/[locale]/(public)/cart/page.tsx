@@ -1,22 +1,51 @@
 "use client";
 
 import Link from "next/link";
+import { useRouter } from "next/navigation";
 import { useTranslations } from "next-intl";
 import { AlertCircle, CreditCard, ShoppingCart } from "lucide-react";
+import { toast } from "sonner";
 
 import GameCartItem from "@/components/game/GameCartItem";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
+import { useAuth } from "@/context/AuthContext";
 import { useCart } from "@/context/CartContext";
 import { formatPrice } from "@/lib/game";
 
 export default function Cart() {
   const t = useTranslations("Cart");
+  const router = useRouter();
   const { items, clearCart, getCartTotal, getGamesCount } = useCart();
+  const { isAuthenticated } = useAuth();
 
   const subtotal = getCartTotal();
   const total = subtotal;
   const totalItems = getGamesCount();
+
+  function handleCheckout() {
+    if (getGamesCount() === 0) {
+      toast.error("Não há nenhum jogo no carrinho", {
+        description: "Explore nosso catálogo de jogos indies brasileiros e adicione seus favoritos ao carrinho!",
+      });
+
+      router.push("/catalog");
+      router.refresh();
+      return;
+    }
+
+    if (!isAuthenticated) {
+      toast.error("Você precisa estar logado", {
+        description: "Faça login ou cadastre-se para fazer checkout.",
+      });
+
+      router.push("/login");
+      router.refresh();
+      return;
+    }
+
+    router.push("/checkout");
+  }
 
   if (items.length === 0) {
     return (
@@ -77,7 +106,11 @@ export default function Cart() {
                   <span className="text-2xl">{formatPrice(total)}</span>
                 </div>
 
-                <Button size="lg" className="bg-primary hover:bg-primary/90 text-primary-foreground mt-4 w-full">
+                <Button
+                  size="lg"
+                  onClick={handleCheckout}
+                  className="bg-primary hover:bg-primary/90 text-primary-foreground mt-4 w-full"
+                >
                   <CreditCard className="mr-2 h-5 w-5" />
                   {t("summary.checkout_button")}
                 </Button>

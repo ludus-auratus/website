@@ -1,4 +1,4 @@
-import GameCartActions from "./GameCartActions";
+import GameActions from "./GameActions";
 import GameHeader from "./GameHeader";
 import GameSectionComments from "./GameSectionComments";
 import GameSectionDescription from "./GameSectionDescription";
@@ -6,7 +6,7 @@ import GameSectionGallery from "./GameSectionGallery";
 import GameSectionInfo from "./GameSectionInfo";
 
 export const Game = {
-  CartActions: GameCartActions,
+  Actions: GameActions,
   Header: GameHeader,
   Gallery: GameSectionGallery,
   Description: GameSectionDescription,

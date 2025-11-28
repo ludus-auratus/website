@@ -1,6 +1,8 @@
+import { useTransition } from "react";
 import Image from "next/image";
 import Link from "next/link";
-import { Download, Star } from "lucide-react";
+import { Download, Loader2, Star } from "lucide-react";
+import { toast } from "sonner";
 
 import { Button } from "../ui/button";
 
@@ -12,12 +14,19 @@ interface GameCardLibraryProps {
 }
 
 export function GameCardLibrary({ name, icon, id, rating }: GameCardLibraryProps) {
+  const [isPending, startTransition] = useTransition();
+
   function handleDownload(e: React.MouseEvent<HTMLButtonElement>) {
     e.preventDefault();
     e.stopPropagation();
 
-    // lógica de download / adicionar ao carrinho
-    console.log("Download do jogo:", id);
+    startTransition(async () => {
+      await new Promise((resolve) => setTimeout(resolve, 1000));
+
+      toast.success("Download concluído!", {
+        description: "O jogo foi baixado com sucesso!",
+      });
+    });
   }
 
   return (
@@ -45,9 +54,15 @@ export function GameCardLibrary({ name, icon, id, rating }: GameCardLibraryProps
         <div className="flex flex-grow flex-col gap-2 p-4">
           <h3 className="font-ludus-pixelify-sans line-clamp-2 min-h-[56] text-lg font-semibold break-words">{name}</h3>
 
-          <Button variant="accent" className="z-10 w-full" onClick={handleDownload}>
-            <Download className="mr-2 h-4 w-4" />
-            Download
+          <Button variant="accent" className="z-10 w-full" onClick={handleDownload} disabled={isPending}>
+            {isPending ? (
+              <Loader2 className="mr-2 h-5 w-5 animate-spin" />
+            ) : (
+              <>
+                <Download />
+                Download
+              </>
+            )}
           </Button>
         </div>
       </Link>

@@ -14,14 +14,12 @@ import {
   DropdownMenuSeparator,
   DropdownMenuTrigger,
 } from "@/components/ui/dropdown-menu";
+import { useAuth } from "@/context/AuthContext";
 
-interface NavbarUserActionProps {
-  setIsLoggedIn: (isLoggedIn: boolean) => void;
-}
-
-export function NavbarUserAction({ setIsLoggedIn }: NavbarUserActionProps) {
+export function NavbarUserAction() {
   const [isMounted, setIsMounted] = useState(false);
   const t = useTranslations("Navbar");
+  const { user, logout } = useAuth();
 
   useEffect(() => {
     setIsMounted(true);
@@ -35,8 +33,8 @@ export function NavbarUserAction({ setIsLoggedIn }: NavbarUserActionProps) {
           className="ring-primary/20 relative h-9 w-9 cursor-pointer rounded-full transition-all hover:ring-2"
         >
           <Avatar className="h-9 w-9">
-            <AvatarImage src="" alt={t("avatar_alt", { name: "João Silva" })} />
-            <AvatarFallback className="bg-primary text-primary-foreground font-ludus-pixelify-sans">JS</AvatarFallback>
+            <AvatarImage src={user.avatar} alt={t("avatar_alt", { name: user.name })} />
+            <AvatarFallback className="bg-primary text-primary-foreground font-ludus-pixelify-sans">RQ</AvatarFallback>
           </Avatar>
         </Button>
       </div>
@@ -52,7 +50,7 @@ export function NavbarUserAction({ setIsLoggedIn }: NavbarUserActionProps) {
             className="ring-primary/20 relative ml-2 h-9 w-9 cursor-pointer rounded-full transition-all hover:ring-2"
           >
             <Avatar className="h-9 w-9">
-              <AvatarImage src="" alt={t("avatar_alt", { name: "João Silva" })} />
+              <AvatarImage src={user.avatar} alt={t("avatar_alt", { name: user.name })} />
               <AvatarFallback className="bg-primary text-primary-foreground font-ludus-pixelify-sans">
                 JS
               </AvatarFallback>
@@ -63,8 +61,8 @@ export function NavbarUserAction({ setIsLoggedIn }: NavbarUserActionProps) {
         <DropdownMenuContent className="w-56" align="end" forceMount>
           <div className="flex items-center gap-2 p-2">
             <div className="flex flex-col space-y-1 leading-none">
-              <p className="font-ludus-pixelify-sans font-medium">João Silva</p>
-              <p className="text-muted-foreground truncate text-sm">joao.silva@email.com</p>
+              <p className="font-ludus-pixelify-sans font-medium">{user.name}</p>
+              <p className="text-muted-foreground truncate text-sm">{user.email}</p>
             </div>
           </div>
 
@@ -92,7 +90,7 @@ export function NavbarUserAction({ setIsLoggedIn }: NavbarUserActionProps) {
           <DropdownMenuSeparator />
 
           <DropdownMenuItem
-            onClick={() => setIsLoggedIn(false)}
+            onClick={() => logout()}
             className="text-destructive active:bg-destructive/20 active:text-destructive focus:bg-destructive/10 focus:text-destructive flex cursor-pointer items-center"
           >
             <LogOut className="text-destructive mr-2 h-4 w-4" aria-hidden="true" /> {t("user_menu.logout")}

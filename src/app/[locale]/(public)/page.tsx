@@ -51,7 +51,6 @@ export default function Home() {
           ))}
         </SectionContent>
       </Section>
-
       <Section>
         <SectionHeader>
           <SectionTitle>
@@ -76,7 +75,6 @@ export default function Home() {
           ))}
         </SectionContent>
       </Section>
-
       <GameJamSection />
     </>
   );

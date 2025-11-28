@@ -5,6 +5,7 @@ import { useTranslations } from "next-intl";
 import { Code2, Gamepad2, Globe2Icon, Home, LayoutDashboard, LogOut, Mail, Settings, User } from "lucide-react";
 
 import { Button } from "@/components/ui/button";
+import { useAuth } from "@/context/AuthContext";
 
 import LanguageSelector from "../LanguageSelector/LanguageSelector";
 
@@ -21,7 +22,7 @@ import { NavbarUserAction } from "./NavbarUserAction";
 
 export function Navbar() {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
-  const [isLoggedIn, setIsLoggedIn] = useState(false);
+  const { isAuthenticated, logout } = useAuth();
   const t = useTranslations("Navbar");
 
   const navigationLinks = [
@@ -59,7 +60,7 @@ export function Navbar() {
 
           <NavbarCartAction />
 
-          {isLoggedIn ? <NavbarUserAction setIsLoggedIn={setIsLoggedIn} /> : <NavbarAuthButtons variant="desktop" />}
+          {isAuthenticated() ? <NavbarUserAction /> : <NavbarAuthButtons variant="desktop" />}
 
           <NavbarMenuButtonAction isOpen={isMobileMenuOpen} setIsOpen={setIsMobileMenuOpen} />
         </NavbarActions>
@@ -89,7 +90,7 @@ export function Navbar() {
 
               <div className="border-border border-t" />
 
-              {isLoggedIn ? (
+              {isAuthenticated() ? (
                 <>
                   <NavbarMenuItem
                     variant="mobile"
@@ -114,7 +115,7 @@ export function Navbar() {
                     variant={"destructive"}
                     className="flex w-full items-center"
                     onClick={() => {
-                      setIsLoggedIn(false);
+                      logout();
                       setIsMobileMenuOpen(false);
                     }}
                   >
