@@ -1,5 +1,5 @@
 import { useTranslations } from "next-intl";
-import { DollarSign, Globe, Headphones, Shield, TrendingUp, Users } from "lucide-react";
+import { DollarSign, Globe, Headphones, TrendingUp, Users } from "lucide-react";
 
 import {
   SectionContent,

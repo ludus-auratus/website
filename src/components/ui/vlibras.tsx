@@ -26,7 +26,6 @@ export function VLibras() {
     };
 
     document.body.appendChild(script);
-    console.log("foi");
   }, []);
 
   return (

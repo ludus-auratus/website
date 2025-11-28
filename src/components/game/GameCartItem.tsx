@@ -44,7 +44,8 @@ export default function GameCartItem({
     <Card className="bg-card/50 border-border/50 hover:border-primary/40 border p-0 backdrop-blur-sm transition-all duration-300">
       <Link
         href={`/game/${id}`}
-        className="focus-visible:ring-primary flex h-full flex-col rounded-2xl outline-none focus-visible:ring-2"
+        aria-label={`Ver detalhes do jogo ${name}`}
+        className="focus-visible:ring-highlight flex h-full flex-col rounded-2xl transition-all duration-300 outline-none focus-visible:ring-2"
       >
         <CardContent className="p-4">
           <div className="xs:flex-row flex flex-col gap-4">
@@ -96,7 +97,7 @@ export default function GameCartItem({
                   <Button
                     size="sm"
                     variant="ghost"
-                    className="text-destructive hover:text-destructive hover:bg-destructive/10 focus:bg-destructive/20 z-10"
+                    className="text-destructive hover:text-destructive hover:bg-destructive/10 focus:bg-destructive/20 dark:focus-within:ring-destructive z-10"
                     onClick={handleClick}
                     aria-label={t("remove_from_cart", { name })}
                   >

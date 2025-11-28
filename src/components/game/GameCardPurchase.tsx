@@ -34,7 +34,14 @@ export function GameCardPurchase({ name, icon, price }: GameCardPurchaseProps) {
           </div>
 
           <div className="xs:w-auto flex w-full flex-col space-y-2">
-            <Button variant="outline" className="xs:w-auto w-full" size="sm">
+            <Button variant="default" className="xs:w-auto w-full" size="sm">
+              Download
+            </Button>
+            <Button
+              variant="ghost"
+              className="hover:bg-primary hover:text-primary-foreground xs:w-auto w-full"
+              size="sm"
+            >
               Ver Detalhes
             </Button>
           </div>

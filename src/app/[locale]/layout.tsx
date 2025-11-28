@@ -34,12 +34,12 @@ export default async function RootLayout({
   return (
     <html suppressHydrationWarning lang={locale}>
       <body className={cn(fonts, "dark flex h-full min-h-screen flex-col")}>
+        <VLibras />
         <CartProvider>
           <NextIntlClientProvider>{children}</NextIntlClientProvider>
         </CartProvider>
 
         <Script src="https://cdn.jsdelivr.net/npm/sienna-accessibility@latest/dist/sienna-accessibility.umd.js" defer />
-        <VLibras />
       </body>
     </html>
   );

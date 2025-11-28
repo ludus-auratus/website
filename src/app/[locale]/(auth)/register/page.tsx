@@ -25,7 +25,7 @@ export default function Register() {
         </Link>
       </Button>
 
-      <Card className="border-border bg-card/95 gap-3 shadow-2xl backdrop-blur-sm">
+      <Card className="bg-card/95 gap-3 shadow-2xl backdrop-blur-sm">
         <CardHeader className="pb-6 text-center">
           <div className="mb-4 flex justify-center">
             <Image src="/images/ludus/logo-texto.svg" width={132} height={41} alt="Logo da Ludus" priority />

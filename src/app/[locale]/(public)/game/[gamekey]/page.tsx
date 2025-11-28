@@ -3,8 +3,8 @@ import Image from "next/image";
 import { Game } from "@/components/pages/game";
 import { getGameDataById } from "@/lib/game";
 
-export default async function Page({ params }: { params: { gamekey: number } }) {
-  const { gamekey } = params;
+export default async function Page({ params }: { params: Promise<{ gamekey: number }> }) {
+  const { gamekey } = await params;
   const data = await getGameDataById(gamekey);
 
   return (

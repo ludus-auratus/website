@@ -21,7 +21,7 @@ import { NavbarUserAction } from "./NavbarUserAction";
 
 export function Navbar() {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
-  const [isLoggedIn, setIsLoggedIn] = useState(true);
+  const [isLoggedIn, setIsLoggedIn] = useState(false);
   const t = useTranslations("Navbar");
 
   const navigationLinks = [

@@ -14,7 +14,7 @@ export default function ProfileLayout({ children }: { children: React.ReactNode 
         <div className="mx-auto max-w-7xl px-4 py-20 sm:px-6 lg:px-8">
           <ProfileHeader />
 
-          <Tabs defaultValue="library" className="space-y-6">
+          <Tabs defaultValue="my-library" className="space-y-6">
             <TabsList className="grid w-full grid-cols-2">
               <TabsTrigger value="library" asChild>
                 <Link href="/profile/my-library">

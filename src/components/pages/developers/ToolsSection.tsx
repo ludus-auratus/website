@@ -1,4 +1,4 @@
-import { Award, BarChart3, Book, DollarSign, Globe, Heart, Users, Zap } from "lucide-react";
+import { Award, Book, DollarSign, Globe, Heart, Users, Zap } from "lucide-react";
 
 import {
   SectionContent,

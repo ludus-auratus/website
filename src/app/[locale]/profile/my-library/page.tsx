@@ -17,8 +17,10 @@ export default function MyLibraryPage() {
     getAllGames().then((gamesData) => setGames(gamesData.slice(0, 6)));
   }, []);
 
+  const filteredGames = games.filter((game) => game.name.toLowerCase().includes(searchTerm.toLowerCase()));
+
   return (
-    <TabsContent value="library" className="space-y-6">
+    <TabsContent value="my-library" className="space-y-6">
       <div className="flex items-center justify-between">
         <h2 className="text-foreground font-ludus-pixelify-sans xs:block hidden text-2xl font-bold">
           Minha Biblioteca
@@ -49,7 +51,7 @@ export default function MyLibraryPage() {
       </div>
 
       <div className="grid-auto-fill grid gap-6">
-        {games.map((game) => (
+        {filteredGames.map((game) => (
           <GameCardLibrary key={game.id} {...game} />
         ))}
       </div>
