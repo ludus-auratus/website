@@ -1,27 +1,32 @@
+"use client";
+
 import { Calendar, Code2, Edit, Library, MapPin } from "lucide-react";
 
 import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
+import { useAuth } from "@/context/AuthContext";
 
 export function ProfileHeader() {
+  const { user } = useAuth();
+
   return (
     <div className="mb-8">
       <Card>
         <CardContent className="p-6">
           <div className="flex flex-col items-start space-y-4 sm:flex-row sm:items-center sm:space-y-0 sm:space-x-6">
-            <Avatar className="h-20 w-20 self-center sm:self-start">
-              <AvatarImage src="" />
+            <Avatar className="h-20 w-20 self-center">
+              <AvatarImage src={user.avatar} />
               <AvatarFallback className="bg-primary text-primary-foreground font-ludus-pixelify-sans text-2xl">
-                JN
+                RQ
               </AvatarFallback>
             </Avatar>
 
             <div className="w-full flex-1 space-y-2">
               <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between">
                 <div className="mb-6 flex-1">
-                  <h1 className="font-ludus-pixelify-sans text-2xl font-bold">Jogador Número 1</h1>
-                  <p className="text-muted-foreground">jogadornumero1@ludus.com</p>
+                  <h1 className="font-ludus-pixelify-sans text-2xl font-bold">{user.name}</h1>
+                  <p className="text-muted-foreground">{user.email}</p>
 
                   <div className="text-muted-foreground flex flex-wrap gap-4 text-sm">
                     <div className="flex items-center">

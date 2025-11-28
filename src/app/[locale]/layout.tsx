@@ -3,7 +3,9 @@ import { notFound } from "next/navigation";
 import Script from "next/script";
 import { hasLocale, NextIntlClientProvider } from "next-intl";
 
+import { Toaster } from "@/components/ui/sonner";
 import { VLibras } from "@/components/ui/vlibras";
+import { AuthProvider } from "@/context/AuthContext";
 import { CartProvider } from "@/context/CartContext";
 import { routing } from "@/i18n/routing";
 import { fontBorn2bSporty, fontPixelify, fontPoppins } from "@/lib/fonts";
@@ -33,12 +35,15 @@ export default async function RootLayout({
 
   return (
     <html suppressHydrationWarning lang={locale}>
-      <body className={cn(fonts, "dark flex h-full min-h-screen flex-col")}>
-        <VLibras />
-        <CartProvider>
-          <NextIntlClientProvider>{children}</NextIntlClientProvider>
-        </CartProvider>
+      <body className={cn(fonts, "dark flex h-full min-h-screen flex-col scroll-smooth")}>
+        <AuthProvider>
+          <CartProvider>
+            <NextIntlClientProvider>{children}</NextIntlClientProvider>
+          </CartProvider>
+        </AuthProvider>
 
+        <Toaster />
+        <VLibras />
         <Script src="https://cdn.jsdelivr.net/npm/sienna-accessibility@latest/dist/sienna-accessibility.umd.js" defer />
       </body>
     </html>

@@ -8,7 +8,7 @@ type Props = {
   game: Game;
 };
 
-export default function GameCartActions({ game }: Props) {
+export default function GameCartAction({ game }: Props) {
   const { addToCart, isInCart } = useCart();
   const alreadyInCart = isInCart(game.id);
 

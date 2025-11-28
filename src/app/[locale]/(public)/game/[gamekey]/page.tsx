@@ -30,7 +30,7 @@ export default async function Page({ params }: { params: Promise<{ gamekey: numb
 
           <aside className="flex flex-col gap-y-4">
             <Game.Info data={data} />
-            <Game.CartActions game={data} />
+            <Game.Actions game={data} />
             <Game.Comments />
           </aside>
         </div>
