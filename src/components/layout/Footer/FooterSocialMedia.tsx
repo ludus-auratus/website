@@ -3,7 +3,7 @@ import Link from "next/link";
 
 const socialLinks = [
   { name: "LinkedIn", icon: LuLinkedin, href: "https://www.linkedin.com/company/ludus-auratus" },
-  { name: "Instagram", icon: LuInstagram, href: "https://www.instagram.com/ludus_proa/" },
+  { name: "Instagram", icon: LuInstagram, href: "https://www.instagram.com/ludus_plataforma/" },
   { name: "GitHub", icon: LuGithub, href: "https://github.com/ludus-auratus" },
 ];
 

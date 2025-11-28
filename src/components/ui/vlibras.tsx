@@ -22,6 +22,11 @@ export function VLibras() {
     script.onload = () => {
       if (window.VLibras) {
         new window.VLibras.Widget("https://vlibras.gov.br/app");
+
+        if (window.onload) {
+          // @ts-expect-error ass
+          window.onload();
+        }
       }
     };
 

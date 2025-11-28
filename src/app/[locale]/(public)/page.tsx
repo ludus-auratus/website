@@ -15,7 +15,6 @@ import {
 import GameJamSection from "@/components/pages/home/GameJamSection";
 import { HeroBanner } from "@/components/pages/home/HeroBanner";
 import { getAllGames } from "@/lib/game";
-import { cn } from "@/lib/utils/shadcn";
 
 export default function Home() {
   const t = useTranslations("Home");
@@ -28,13 +27,7 @@ export default function Home() {
     <>
       <HeroBanner />
 
-      <Section className="relative overflow-hidden">
-        <div
-          className={cn(
-            "pointer-events-none absolute inset-0 [background-size:40px_40px] select-none",
-            "translate-y-1 [background-image:linear-gradient(to_right,#71e25650,transparent_1px),linear-gradient(to_bottom,#71e25650,transparent_1px)]",
-          )}
-        />
+      <Section>
         <SectionHeader>
           <SectionTitle>
             <SectionIcon icon={Star} />
