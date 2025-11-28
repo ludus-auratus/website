@@ -1,0 +1,25 @@
+{
+  "id": 13,
+  "name": "Pelos Becos",
+  "price": 36,
+  "rating": 4.6,
+  "classification": 0,
+  "description": "Em Pelos Becos, você assume o controle de Lucky, um gato de muita sorte que sempre viveu em um lar aconchegante, cercado de conforto, comida gostosa e o carinho de sua dona.\n\nTudo muda quando sua dona decide se mudar. Lucky, acidentalmente, cai do caminhão de mudança e, no susto da situação, adentra os becos sombrios e desconhecidos, procurando refúgio.\n\nCompletamente perdido e sozinho, Lucky deve enfrentar diversos desafios enquanto tenta subir no ponto mais alto da cidade para encontrar o caminho de volta para sua dona.",
+  "tags": [
+    { "name": "Singleplayer", "category": "resources" },
+    { "name": "2D", "category": "resources" }
+  ],
+  "releaseDate": "2026-02-14T00:00:00.000Z",
+  "publishingDate": "2024-05-11T00:00:00.000Z",
+  "studio": { "name": "Double Catch Studio" },
+  "publisher": { "name": "Imperium Global" },
+  "supportedLanguages": [{ "name": "Português (Brasil)", "level": 2 }],
+  "icon": "/images/games/pelos-becos-icon.png",
+  "banner": "/images/games/pelos-becos-screenshot1.png",
+  "gallery": [
+    { "type": "image", "src": "/images/games/pelos-becos-screenshot1.png", "title": "Campo de Batalha" },
+    { "type": "image", "src": "/images/games/pelos-becos-screenshot2.png", "title": "Campo de Batalha" },
+    { "type": "image", "src": "/images/games/pelos-becos-screenshot3.png", "title": "Campo de Batalha" },
+    { "type": "image", "src": "/images/games/pelos-becos-screenshot4.png", "title": "Campo de Batalha" }
+  ]
+}

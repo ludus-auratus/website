@@ -1,0 +1,28 @@
+{
+  "id": 3,
+  "name": "Neon Velocity: Ruas do Amanhã",
+  "price": 40,
+  "rating": 4.2,
+  "classification": 10,
+  "description": "Corridas futuristas em pistas iluminadas por neon, com mecânicas de derrapagem e veículos customizáveis.",
+  "tags": [
+    { "name": "Corrida", "category": "gender" },
+    { "name": "Futurista", "category": "gender" },
+    { "name": "Arcade", "category": "gender" },
+    { "name": "Multiplayer", "category": "resources" }
+  ],
+  "releaseDate": "2025-09-01T00:00:00.000Z",
+  "publishingDate": "2024-03-20T00:00:00.000Z",
+  "studio": { "name": "NeonWave Labs" },
+  "publisher": { "name": "TurboPoint Studio" },
+  "supportedLanguages": [
+    { "name": "Português (Brasil)", "level": 3 },
+    { "name": "Inglês", "level": 3 }
+  ],
+  "icon": "https://picsum.photos/seed/g3/600/300",
+  "banner": "https://picsum.photos/seed/g3b/1200/500",
+  "gallery": [
+    { "type": "image", "src": "https://picsum.photos/400/200?5", "title": "Pista Neon" },
+    { "type": "image", "src": "https://picsum.photos/400/200?6", "title": "Carro Customizado" }
+  ]
+}

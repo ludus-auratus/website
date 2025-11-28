@@ -1,0 +1,30 @@
+{
+  "id": 11,
+  "name": "Domínio Starfall",
+  "price": 79.9,
+  "rating": 4.6,
+  "classification": 14,
+  "description": "Construa sua frota, estabeleça colônias e dispute territórios em um vasto universo dinâmico onde cada ação molda o equilíbrio galáctico.",
+  "tags": [
+    { "name": "Estratégia", "category": "gender" },
+    { "name": "Ficção Científica", "category": "gender" },
+    { "name": "Construção", "category": "gender" },
+    { "name": "Multijogador", "category": "resources" }
+  ],
+  "releaseDate": "2027-09-15T00:00:00.000Z",
+  "publishingDate": "2025-11-05T00:00:00.000Z",
+  "studio": { "name": "Nebula Dominion" },
+  "publisher": { "name": "OrionGate Entertainment" },
+  "supportedLanguages": [
+    { "name": "Português (Brasil)", "level": 3 },
+    { "name": "Inglês", "level": 3 },
+    { "name": "Alemão", "level": 2 }
+  ],
+  "icon": "https://picsum.photos/seed/starfalldom/600/300",
+  "banner": "https://picsum.photos/seed/starfalldomb/1200/500",
+  "gallery": [
+    { "type": "image", "src": "https://picsum.photos/400/200?sf1", "title": "Frota em Órbita" },
+    { "type": "image", "src": "https://picsum.photos/400/200?sf2", "title": "Batalha por Sistemas" },
+    { "type": "image", "src": "https://picsum.photos/400/200?sf3", "title": "Colônia Planetária" }
+  ]
+}

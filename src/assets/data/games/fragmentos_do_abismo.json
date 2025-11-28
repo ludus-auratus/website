@@ -1,0 +1,28 @@
+{
+  "id": 4,
+  "name": "Fragmentos do Abismo",
+  "price": 32,
+  "rating": 4.6,
+  "classification": 16,
+  "description": "Um roguelike sombrio onde cada descida revela novos segredos e perigos.",
+  "tags": [
+    { "name": "Roguelike", "category": "gender" },
+    { "name": "Sombrio", "category": "gender" },
+    { "name": "Ação", "category": "gender" }
+  ],
+  "releaseDate": "2025-12-10T00:00:00.000Z",
+  "publishingDate": "2023-12-05T00:00:00.000Z",
+  "studio": { "name": "Void Lantern" },
+  "publisher": { "name": "NightCrow Games" },
+  "supportedLanguages": [
+    { "name": "Português (Brasil)", "level": 2 },
+    { "name": "Inglês", "level": 3 }
+  ],
+  "icon": "https://picsum.photos/seed/g4/600/300",
+  "banner": "https://picsum.photos/seed/g4b/1200/500",
+  "gallery": [
+    { "type": "image", "src": "https://picsum.photos/400/200?7", "title": "Abismo Profundo" },
+    { "type": "image", "src": "https://picsum.photos/400/200?8", "title": "Monstro Ancião" },
+    { "type": "image", "src": "https://picsum.photos/400/200?9", "title": "Sala Secreta" }
+  ]
+}

@@ -1,0 +1,27 @@
+{
+  "id": 5,
+  "name": "Campos de Aço",
+  "price": 70,
+  "rating": 4.0,
+  "classification": 14,
+  "description": "Um jogo de estratégia militar focado em controle territorial e batalhas de grande escala.",
+  "tags": [
+    { "name": "Estratégia", "category": "gender" },
+    { "name": "Militar", "category": "gender" },
+    { "name": "Tático", "category": "gender" }
+  ],
+  "releaseDate": "2025-11-03T00:00:00.000Z",
+  "publishingDate": "2024-01-20T00:00:00.000Z",
+  "studio": { "name": "Ironfield Works" },
+  "publisher": { "name": "Colossal Frontiers" },
+  "supportedLanguages": [
+    { "name": "Português (Brasil)", "level": 1 },
+    { "name": "Inglês", "level": 3 }
+  ],
+  "icon": "https://picsum.photos/seed/g5/600/300",
+  "banner": "https://picsum.photos/seed/g5b/1200/500",
+  "gallery": [
+    { "type": "image", "src": "https://picsum.photos/400/200?10", "title": "Mapa Estratégico" },
+    { "type": "image", "src": "https://picsum.photos/400/200?11", "title": "Forças Blindadas" }
+  ]
+}

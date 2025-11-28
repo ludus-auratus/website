@@ -1,0 +1,27 @@
+{
+  "id": 7,
+  "name": "O Último Guardião das Chamas",
+  "price": 55,
+  "rating": 4.7,
+  "classification": 12,
+  "description": "Uma aventura narrativa ambientada em um reino em ruínas, onde uma chama mística mantém o mundo vivo.",
+  "tags": [
+    { "name": "Aventura", "category": "gender" },
+    { "name": "Narrativo", "category": "gender" },
+    { "name": "Fantasia", "category": "gender" }
+  ],
+  "releaseDate": "2026-05-18T00:00:00.000Z",
+  "publishingDate": "2024-09-22T00:00:00.000Z",
+  "studio": { "name": "Silver Ember" },
+  "publisher": { "name": "DreamMist Studio" },
+  "supportedLanguages": [
+    { "name": "Português (Brasil)", "level": 2 },
+    { "name": "Inglês", "level": 3 }
+  ],
+  "icon": "https://picsum.photos/seed/g7/600/300",
+  "banner": "https://picsum.photos/seed/g7b/1200/500",
+  "gallery": [
+    { "type": "image", "src": "https://picsum.photos/400/200?14", "title": "Ruínas Ardentes" },
+    { "type": "image", "src": "https://picsum.photos/400/200?15", "title": "Guardião Solitário" }
+  ]
+}

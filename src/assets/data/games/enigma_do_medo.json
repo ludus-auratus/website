@@ -1,0 +1,68 @@
+{
+  "id": 1,
+  "name": "Enigma do Medo",
+  "price": 25,
+  "rating": 4.5,
+  "classification": 12,
+  "description": "Um jogo de mistério e investigação com elementos sobrenaturais.",
+  "tags": [
+    { "name": "Mistério", "category": "gender" },
+    { "name": "Investigação", "category": "gender" },
+    { "name": "Sobrenatural", "category": "gender" },
+    { "name": "Detetive", "category": "gender" },
+    { "name": "Um Jogador", "category": "resources" },
+    { "name": "Controle de Xbox", "category": "resources" }
+  ],
+  "releaseDate": "2025-10-18T00:00:00.000Z",
+  "publishingDate": "2023-10-18T00:00:00.000Z",
+  "studio": { "name": "Icy Mountain Studios" },
+  "publisher": { "name": "GoGo Games Interactive" },
+  "supportedLanguages": [
+    { "name": "Português (Brasil)", "level": 3 },
+    { "name": "Inglês", "level": 3 }
+  ],
+  "icon": "https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/1507580/header_brazilian.jpg?t=1759955245",
+  "banner": "https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/1507580/extras/120ffc31c8b8e810d9cbc09c2bab5117.avif?t=1759955245",
+  "gallery": [
+    {
+      "type": "video",
+      "src": "Hjl6usm5WCo",
+      "title": "Enigma do Medo - Trailer Oficial"
+    },
+    {
+      "type": "image",
+      "src": "https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/1507580/ss_85609218e5a521f8f0ac8ce6a37fdbc67d73034b.116x65.jpg?t=1759955245",
+      "title": "Imagem de Gameplay"
+    },
+    {
+      "type": "image",
+      "src": "https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/1507580/ss_85609218e5a521f8f0ac8ce6a37fdbc67d73034b.116x65.jpg?t=1759955245",
+      "title": "Imagem de Gameplay"
+    },
+    {
+      "type": "image",
+      "src": "https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/1507580/ss_85609218e5a521f8f0ac8ce6a37fdbc67d73034b.116x65.jpg?t=1759955245",
+      "title": "Imagem de Gameplay"
+    },
+    {
+      "type": "image",
+      "src": "https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/1507580/ss_85609218e5a521f8f0ac8ce6a37fdbc67d73034b.116x65.jpg?t=1759955245",
+      "title": "Imagem de Gameplay"
+    },
+    {
+      "type": "image",
+      "src": "https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/1507580/ss_85609218e5a521f8f0ac8ce6a37fdbc67d73034b.116x65.jpg?t=1759955245",
+      "title": "Imagem de Gameplay"
+    },
+    {
+      "type": "image",
+      "src": "https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/1507580/ss_85609218e5a521f8f0ac8ce6a37fdbc67d73034b.116x65.jpg?t=1759955245",
+      "title": "Imagem de Gameplay"
+    },
+    {
+      "type": "image",
+      "src": "https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/1507580/ss_85609218e5a521f8f0ac8ce6a37fdbc67d73034b.116x65.jpg?t=1759955245",
+      "title": "Imagem de Gameplay"
+    }
+  ]
+}

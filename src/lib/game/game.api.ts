@@ -1,9 +1,14 @@
+"use server";
+
 import gameDescription from "@/assets/data/game_description.md";
-import gamesData from "@/assets/data/games.json";
+
+import { importDirectoryFiles } from "../utils/files.utils";
 
 import type { GameDTO, GameMediaDTO } from "./game.dto";
 import type { Game, GameTagCategories } from "./game.type";
-import { classify } from "./game.utils";
+import { getClassificationByAge } from "./game.utils";
+
+const catalog = importDirectoryFiles<GameDTO>("/src/assets/data/games", (json) => JSON.parse(json));
 
 export async function getGameDataById(gamekey: number): Promise<Game> {
   const dto = await requestGameDataById(gamekey);
@@ -17,7 +22,7 @@ export async function getGameDataById(gamekey: number): Promise<Game> {
     id: dto.id,
     name: dto.name,
     price: dto.price,
-    classification: dto.classification,
+    classification: getClassificationByAge(dto.classification),
     description: dto.description,
     tags,
     studio: dto.studio.name,
@@ -33,7 +38,7 @@ export async function getGameDataById(gamekey: number): Promise<Game> {
 }
 
 export async function requestGameDataById(gamekey: number): Promise<GameDTO> {
-  const game = gamesData.find((game) => {
+  const game = catalog.find((game) => {
     return game.id == gamekey;
   });
 
@@ -45,7 +50,7 @@ export async function requestGameDataById(gamekey: number): Promise<GameDTO> {
     id: game.id,
     name: game.name,
     price: game.price,
-    classification: classify(game.classification),
+    classification: game.classification,
     description: game.description,
     tags: game.tags,
     releaseDate: new Date(game.releaseDate),
@@ -73,7 +78,7 @@ export async function getAllGames(): Promise<Game[]> {
       id: game.id,
       name: game.name,
       price: game.price,
-      classification: game.classification,
+      classification: getClassificationByAge(game.classification),
       description: game.description,
       tags,
       studio: game.studio.name,
@@ -90,23 +95,23 @@ export async function getAllGames(): Promise<Game[]> {
 }
 
 export async function requestAllGames(): Promise<GameDTO[]> {
-  return gamesData.map((game) => {
+  return catalog.map((dto) => {
     return {
-      id: game.id,
-      name: game.name,
-      price: game.price,
-      classification: classify(game.classification),
+      id: dto.id,
+      name: dto.name,
+      price: dto.price,
+      classification: dto.classification,
       description: gameDescription,
-      tags: game.tags,
-      releaseDate: new Date(game.releaseDate),
-      publishingDate: new Date(game.publishingDate),
-      studio: game.studio,
-      publisher: game.publisher,
-      supportedLanguages: game.supportedLanguages,
-      icon: game.icon,
-      banner: game.banner,
-      gallery: game.gallery as GameMediaDTO[],
-      rating: game.rating,
+      tags: dto.tags,
+      releaseDate: new Date(dto.releaseDate),
+      publishingDate: new Date(dto.publishingDate),
+      studio: dto.studio,
+      publisher: dto.publisher,
+      supportedLanguages: dto.supportedLanguages,
+      icon: dto.icon,
+      banner: dto.banner,
+      gallery: dto.gallery as GameMediaDTO[],
+      rating: dto.rating,
     };
   });
 }

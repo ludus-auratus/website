@@ -1,0 +1,28 @@
+{
+  "id": 6,
+  "name": "Táticas Nexus Cibernético",
+  "price": 45,
+  "rating": 4.3,
+  "classification": 12,
+  "description": "Jogo tático por turnos em um futuro cyberpunk, onde cada ação altera o destino da cidade.",
+  "tags": [
+    { "name": "Tático", "category": "gender" },
+    { "name": "Cyberpunk", "category": "gender" },
+    { "name": "Estratégia", "category": "gender" },
+    { "name": "Turnos", "category": "gender" }
+  ],
+  "releaseDate": "2026-01-15T00:00:00.000Z",
+  "publishingDate": "2024-08-10T00:00:00.000Z",
+  "studio": { "name": "Neon Circuit Works" },
+  "publisher": { "name": "HyperGrid Publishing" },
+  "supportedLanguages": [
+    { "name": "Português (Brasil)", "level": 3 },
+    { "name": "Inglês", "level": 3 }
+  ],
+  "icon": "https://picsum.photos/seed/g6/600/300",
+  "banner": "https://picsum.photos/seed/g6b/1200/500",
+  "gallery": [
+    { "type": "image", "src": "https://picsum.photos/400/200?12", "title": "Operação Noturna" },
+    { "type": "image", "src": "https://picsum.photos/400/200?13", "title": "Hacker em Ação" }
+  ]
+}

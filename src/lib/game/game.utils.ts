@@ -5,11 +5,12 @@ export const GameClassifications = {
   C14: classify(14),
   C16: classify(16),
   C18: classify(18),
+  UNDEFINED: classify(256),
 } as const;
 
 export type GameClassification = (typeof GameClassifications)[keyof typeof GameClassifications];
 
-export function classify(value: number) {
+function classify(value: number) {
   const key = `c${value}`;
   const src = `/images/classification/${key}.png`;
 
@@ -24,7 +25,17 @@ export function classify(value: number) {
     alt,
     title,
     description,
-  };
+  } as const;
+}
+
+export function getClassificationByAge(age: number): GameClassification {
+  for (const key in GameClassifications) {
+    const classification = GameClassifications[key as keyof typeof GameClassifications];
+    if (classification.value === age) {
+      return classification;
+    }
+  }
+  return GameClassifications.UNDEFINED;
 }
 
 /**

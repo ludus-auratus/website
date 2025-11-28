@@ -1,0 +1,28 @@
+{
+  "id": 8,
+  "name": "Projeto Ômega",
+  "price": 38,
+  "rating": 4.4,
+  "classification": 18,
+  "description": "Um shooter de ficção científica com foco em operações especiais e mutações biotecnológicas.",
+  "tags": [
+    { "name": "FPS", "category": "gender" },
+    { "name": "Sci-Fi", "category": "gender" },
+    { "name": "Ação", "category": "gender" },
+    { "name": "Multiplayer", "category": "resources" }
+  ],
+  "releaseDate": "2026-07-01T00:00:00.000Z",
+  "publishingDate": "2024-10-15T00:00:00.000Z",
+  "studio": { "name": "Black Omega Labs" },
+  "publisher": { "name": "Nova Prime" },
+  "supportedLanguages": [
+    { "name": "Português (Brasil)", "level": 1 },
+    { "name": "Inglês", "level": 3 }
+  ],
+  "icon": "https://picsum.photos/seed/g8/600/300",
+  "banner": "https://picsum.photos/seed/g8b/1200/500",
+  "gallery": [
+    { "type": "image", "src": "https://picsum.photos/400/200?16", "title": "Operação Tática" },
+    { "type": "image", "src": "https://picsum.photos/400/200?17", "title": "Mutação Incontrolável" }
+  ]
+}

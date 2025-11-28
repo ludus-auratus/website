@@ -1,0 +1,27 @@
+{
+  "id": 9,
+  "name": "Eco dos Titãs",
+  "price": 50,
+  "rating": 4.8,
+  "classification": 14,
+  "description": "Um jogo de ação mitológica onde você enfrenta criaturas colossais usando habilidades divinas.",
+  "tags": [
+    { "name": "Ação", "category": "gender" },
+    { "name": "Mitologia", "category": "gender" },
+    { "name": "Hack and Slash", "category": "gender" }
+  ],
+  "releaseDate": "2025-08-30T00:00:00.000Z",
+  "publishingDate": "2023-11-11T00:00:00.000Z",
+  "studio": { "name": "Titanborn Studio" },
+  "publisher": { "name": "Legacy Forge" },
+  "supportedLanguages": [
+    { "name": "Português (Brasil)", "level": 2 },
+    { "name": "Inglês", "level": 3 }
+  ],
+  "icon": "https://picsum.photos/seed/g9/600/300",
+  "banner": "https://picsum.photos/seed/g9b/1200/500",
+  "gallery": [
+    { "type": "image", "src": "https://picsum.photos/400/200?18", "title": "Batalha com Titã" },
+    { "type": "image", "src": "https://picsum.photos/400/200?19", "title": "Habilidades Divinas" }
+  ]
+}

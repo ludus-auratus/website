@@ -1,0 +1,28 @@
+{
+  "id": 2,
+  "name": "Fortaleza Carmesim",
+  "price": 60,
+  "rating": 0,
+  "classification": 16,
+  "description": "Um RPG de ação onde você lidera cavaleiros místicos em batalhas contra criaturas ancestrais.",
+  "tags": [
+    { "name": "RPG", "category": "gender" },
+    { "name": "Ação", "category": "gender" },
+    { "name": "Fantasia", "category": "gender" },
+    { "name": "Terceira Pessoa", "category": "gender" }
+  ],
+  "releaseDate": "2026-02-14T00:00:00.000Z",
+  "publishingDate": "2024-05-11T00:00:00.000Z",
+  "studio": { "name": "Dragonforge Studios" },
+  "publisher": { "name": "Imperium Global" },
+  "supportedLanguages": [
+    { "name": "Português (Brasil)", "level": 2 },
+    { "name": "Inglês", "level": 3 }
+  ],
+  "icon": "https://picsum.photos/seed/g2/600/300",
+  "banner": "https://picsum.photos/seed/g2b/1200/500",
+  "gallery": [
+    { "type": "image", "src": "https://picsum.photos/400/200?3", "title": "Campo de Batalha" },
+    { "type": "image", "src": "https://picsum.photos/400/200?4", "title": "Cavaleiro Carmesim" }
+  ]
+}

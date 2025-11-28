@@ -1,14 +1,12 @@
 import { PublisherDTO } from "../publisher";
 import { StudioDTO } from "../studio";
 
-import { GameClassification } from "./game.utils";
-
 export interface GameDTO {
   id: number;
   name: string;
   price: number;
   tags: GameTagDTO[];
-  classification: GameClassification;
+  classification: number;
   studio: StudioDTO;
   publisher: PublisherDTO;
   supportedLanguages: GameLanguageDTO[];
