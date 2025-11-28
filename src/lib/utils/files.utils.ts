@@ -1,4 +1,4 @@
-import { readdirSync, readFileSync } from "fs";
+import { readdirSync, readFileSync, writeFileSync } from "fs";
 import path from "path";
 
 type FileSelector = (fileNames: string[]) => string[];
@@ -19,4 +19,14 @@ export function importDirectoryFiles<T>(directory: string, processor: FileProces
       throw new Error(`Failed to read file ${filePath}`);
     }
   });
+}
+
+export function writeFile(filePath: string, content: string) {
+  try {
+    const absolutePath = path.join(process.cwd(), filePath);
+    writeFileSync(absolutePath, content);
+  } catch (e) {
+    console.error(e);
+    throw new Error(`Failed to write file ${filePath}`);
+  }
 }

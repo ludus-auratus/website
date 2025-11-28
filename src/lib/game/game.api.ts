@@ -2,13 +2,12 @@
 
 import gameDescription from "@/assets/data/game_description.md";
 
-import { importDirectoryFiles } from "../utils/files.utils";
-
 import type { GameDTO, GameMediaDTO } from "./game.dto";
+import { exportGameTemplate as exportGameTempData, importGameFiles } from "./game.files";
 import type { Game, GameTagCategories } from "./game.type";
 import { getClassificationByAge } from "./game.utils";
 
-const catalog = importDirectoryFiles<GameDTO>("/src/assets/data/games", (json) => JSON.parse(json));
+const catalog = importGameFiles();
 
 export async function getGameDataById(gamekey: number): Promise<Game> {
   const dto = await requestGameDataById(gamekey);
@@ -114,4 +113,8 @@ export async function requestAllGames(): Promise<GameDTO[]> {
       rating: dto.rating,
     };
   });
+}
+
+export async function uploadGameData(filename: string, dto: GameDTO) {
+  exportGameTempData(filename, dto);
 }
