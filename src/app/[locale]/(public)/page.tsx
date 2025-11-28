@@ -24,7 +24,7 @@ export default function Home() {
     <>
       <HeroBanner />
 
-      <Section className="from-muted/30 to-background bg-gradient-to-b">
+      <SectionContent className="from-muted/30 to-background bg-gradient-to-b">
         <SectionHeader>
           <SectionTitle>
             <SectionIcon icon={Star} />
@@ -42,7 +42,7 @@ export default function Home() {
               <GameCard key={index} id={game.id} name={game.name} icon={game.icon} price={game.price} />
             ))}
         </SectionContent>
-      </Section>
+      </SectionContent>
 
       <Section>
         <SectionHeader>

@@ -60,7 +60,7 @@ export default function DevSidebar() {
           <SidebarGroup className="gap-2">
             {sidebarItems.map((item) => {
               const Icon = item.icon;
-              const isActive = ctx.getSection() === item.id;
+              const isActive = ctx.section === item.id;
               const href = `/dev/${item.id}`;
               return (
                 <SidebarMenuButton key={item.id} asChild>

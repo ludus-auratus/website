@@ -83,87 +83,82 @@ export default function DevAnalyticsPage() {
   ];
 
   return (
-    <DevComponents.Wrapper section={{ id: "analytics" }} childClassName="p-20">
-      <div className="space-y-8">
-        {/* Header */}
-        <div>
-          <h1 className="text-foreground font-ludus-pixelify-sans mb-2 text-3xl">Analytics & Métricas</h1>
-          <p className="text-muted-foreground">Acompanhe o desempenho dos seus jogos em tempo real</p>
-        </div>
+    <div className="space-y-8">
+      {/* Header */}
+      <div>
+        <h1 className="text-foreground font-ludus-pixelify-sans mb-2 text-3xl">Analytics & Métricas</h1>
+        <p className="text-muted-foreground">Acompanhe o desempenho dos seus jogos em tempo real</p>
+      </div>
 
-        {/* Period Selector */}
-        <div className="flex items-center justify-between">
-          <Tabs defaultValue="30d">
-            <TabsList>
-              <TabsTrigger value="7d">7 dias</TabsTrigger>
-              <TabsTrigger value="30d">30 dias</TabsTrigger>
-              <TabsTrigger value="90d">90 dias</TabsTrigger>
-              <TabsTrigger value="1y">1 ano</TabsTrigger>
-            </TabsList>
-          </Tabs>
+      {/* Period Selector */}
+      <div className="flex items-center justify-between">
+        <Tabs defaultValue="30d">
+          <TabsList>
+            <TabsTrigger value="7d">7 dias</TabsTrigger>
+            <TabsTrigger value="30d">30 dias</TabsTrigger>
+            <TabsTrigger value="90d">90 dias</TabsTrigger>
+            <TabsTrigger value="1y">1 ano</TabsTrigger>
+          </TabsList>
+        </Tabs>
 
-          <Select defaultValue="all">
-            <SelectTrigger className="w-[200px]">
-              <SelectValue placeholder="Filtrar por jogo" />
-            </SelectTrigger>
-            <SelectContent>
-              <SelectItem value="all">Todos os Jogos</SelectItem>
-              <SelectItem value="folclore">Folclore: A Lenda do Curupira</SelectItem>
-              <SelectItem value="cangaco">Cangaço Legends</SelectItem>
-            </SelectContent>
-          </Select>
-        </div>
+        <Select defaultValue="all">
+          <SelectTrigger className="w-[200px]">
+            <SelectValue placeholder="Filtrar por jogo" />
+          </SelectTrigger>
+          <SelectContent>
+            <SelectItem value="all">Todos os Jogos</SelectItem>
+            <SelectItem value="folclore">Folclore: A Lenda do Curupira</SelectItem>
+            <SelectItem value="cangaco">Cangaço Legends</SelectItem>
+          </SelectContent>
+        </Select>
+      </div>
 
-        {/* Quick Stats */}
-        <div className="grid gap-6 md:grid-cols-2 lg:grid-cols-4">
-          {stats.map((stat, index) => {
-            const Icon = stat.icon;
-            return (
-              <Card key={index} className="border-border border-2 p-6">
-                <div className="mb-4 flex items-start justify-between">
-                  <div className="bg-accent/10 flex h-12 w-12 items-center justify-center rounded-xl">
-                    <Icon className="text-accent h-6 w-6" />
-                  </div>
-                  <Badge
-                    variant="secondary"
-                    className={`${
-                      stat.trend === "up"
-                        ? "border-green-500/20 bg-green-500/10 text-green-500"
-                        : "border-red-500/20 bg-red-500/10 text-red-500"
-                    }`}
-                  >
-                    {stat.trend === "up" ? (
-                      <ArrowUp className="mr-1 h-3 w-3" />
-                    ) : (
-                      <ArrowDown className="mr-1 h-3 w-3" />
-                    )}
-                    {stat.change}
-                  </Badge>
+      {/* Quick Stats */}
+      <div className="grid gap-6 md:grid-cols-2 lg:grid-cols-4">
+        {stats.map((stat, index) => {
+          const Icon = stat.icon;
+          return (
+            <Card key={index} className="border-border border-2 p-6">
+              <div className="mb-4 flex items-start justify-between">
+                <div className="bg-accent/10 flex h-12 w-12 items-center justify-center rounded-xl">
+                  <Icon className="text-accent h-6 w-6" />
                 </div>
-                <div>
-                  <p className="text-muted-foreground mb-1 text-sm">{stat.label}</p>
-                  <p className="text-foreground font-ludus-pixelify-sans mb-1 text-2xl">{stat.value}</p>
-                  <p className="text-muted-foreground text-xs">{stat.period}</p>
-                </div>
-              </Card>
-            );
-          })}
-        </div>
+                <Badge
+                  variant="secondary"
+                  className={`${
+                    stat.trend === "up"
+                      ? "border-green-500/20 bg-green-500/10 text-green-500"
+                      : "border-red-500/20 bg-red-500/10 text-red-500"
+                  }`}
+                >
+                  {stat.trend === "up" ? <ArrowUp className="mr-1 h-3 w-3" /> : <ArrowDown className="mr-1 h-3 w-3" />}
+                  {stat.change}
+                </Badge>
+              </div>
+              <div>
+                <p className="text-muted-foreground mb-1 text-sm">{stat.label}</p>
+                <p className="text-foreground font-ludus-pixelify-sans mb-1 text-2xl">{stat.value}</p>
+                <p className="text-muted-foreground text-xs">{stat.period}</p>
+              </div>
+            </Card>
+          );
+        })}
+      </div>
 
-        {/* Revenue & Downloads Chart */}
-        <Card className="border-border border-2 p-6">
-          <div className="mb-6 flex items-center justify-between">
-            <div>
-              <h3 className="text-foreground font-ludus-pixelify-sans mb-1 text-xl">Receita & Downloads</h3>
-              <p className="text-muted-foreground text-sm">Evolução nos últimos 6 meses</p>
-            </div>
-            <Button variant="outline" size="sm">
-              <Calendar className="mr-2 h-4 w-4" />
-              Exportar Relatório
-            </Button>
+      {/* Revenue & Downloads Chart */}
+      <Card className="border-border border-2 p-6">
+        <div className="mb-6 flex items-center justify-between">
+          <div>
+            <h3 className="text-foreground font-ludus-pixelify-sans mb-1 text-xl">Receita & Downloads</h3>
+            <p className="text-muted-foreground text-sm">Evolução nos últimos 6 meses</p>
           </div>
+          <Button variant="outline" size="sm">
+            <Calendar className="mr-2 h-4 w-4" />
+            Exportar Relatório
+          </Button>
+        </div>
 
-          {/* <ResponsiveContainer width="100%" height={350}>
+        {/* <ResponsiveContainer width="100%" height={350}>
           <LineChart data={revenueData}>
             <CartesianGrid strokeDasharray="3 3" stroke="rgba(113, 226, 86, 0.1)" />
             <XAxis dataKey="month" stroke="hsl(var(--muted-foreground))" style={{ fontSize: "12px" }} />
@@ -202,46 +197,46 @@ export default function DevAnalyticsPage() {
             />
           </LineChart>
         </ResponsiveContainer> */}
+      </Card>
+
+      <div className="grid gap-6 lg:grid-cols-2">
+        {/* Game Performance */}
+        <Card className="border-border border-2 p-6">
+          <h3 className="text-foreground font-ludus-pixelify-sans mb-6 text-xl">Performance por Jogo</h3>
+
+          <div className="space-y-4">
+            {gamePerformance.map((game, index) => (
+              <div key={index} className="space-y-2">
+                <div className="flex items-center justify-between">
+                  <span className="text-foreground text-sm">{game.name}</span>
+                  <span className="text-accent font-medium">R$ {game.value.toLocaleString("pt-BR")}</span>
+                </div>
+                <div className="bg-muted h-3 w-full overflow-hidden rounded-full">
+                  <div
+                    className="bg-accent h-full rounded-full transition-all duration-500"
+                    style={{ width: `${game.percentage}%` }}
+                  />
+                </div>
+                <p className="text-muted-foreground text-xs">{game.percentage}% do total</p>
+              </div>
+            ))}
+          </div>
+
+          <div className="border-border mt-6 border-t pt-6">
+            <div className="flex items-center justify-between">
+              <span className="text-foreground font-medium">Total</span>
+              <span className="text-accent font-ludus-pixelify-sans text-xl">
+                R$ {gamePerformance.reduce((sum, game) => sum + game.value, 0).toLocaleString("pt-BR")}
+              </span>
+            </div>
+          </div>
         </Card>
 
-        <div className="grid gap-6 lg:grid-cols-2">
-          {/* Game Performance */}
-          <Card className="border-border border-2 p-6">
-            <h3 className="text-foreground font-ludus-pixelify-sans mb-6 text-xl">Performance por Jogo</h3>
+        {/* Traffic Sources */}
+        <Card className="border-border border-2 p-6">
+          <h3 className="text-foreground font-ludus-pixelify-sans mb-6 text-xl">Fontes de Tráfego</h3>
 
-            <div className="space-y-4">
-              {gamePerformance.map((game, index) => (
-                <div key={index} className="space-y-2">
-                  <div className="flex items-center justify-between">
-                    <span className="text-foreground text-sm">{game.name}</span>
-                    <span className="text-accent font-medium">R$ {game.value.toLocaleString("pt-BR")}</span>
-                  </div>
-                  <div className="bg-muted h-3 w-full overflow-hidden rounded-full">
-                    <div
-                      className="bg-accent h-full rounded-full transition-all duration-500"
-                      style={{ width: `${game.percentage}%` }}
-                    />
-                  </div>
-                  <p className="text-muted-foreground text-xs">{game.percentage}% do total</p>
-                </div>
-              ))}
-            </div>
-
-            <div className="border-border mt-6 border-t pt-6">
-              <div className="flex items-center justify-between">
-                <span className="text-foreground font-medium">Total</span>
-                <span className="text-accent font-ludus-pixelify-sans text-xl">
-                  R$ {gamePerformance.reduce((sum, game) => sum + game.value, 0).toLocaleString("pt-BR")}
-                </span>
-              </div>
-            </div>
-          </Card>
-
-          {/* Traffic Sources */}
-          <Card className="border-border border-2 p-6">
-            <h3 className="text-foreground font-ludus-pixelify-sans mb-6 text-xl">Fontes de Tráfego</h3>
-
-            {/* <ResponsiveContainer width="100%" height={200}>
+          {/* <ResponsiveContainer width="100%" height={200}>
             <PieChart>
               <Pie
                 data={trafficSources}
@@ -260,28 +255,28 @@ export default function DevAnalyticsPage() {
             </PieChart>
           </ResponsiveContainer> */}
 
-            <div className="mt-4 space-y-3">
-              {trafficSources.map((source, index) => (
-                <div key={index} className="flex items-center justify-between">
-                  <div className="flex items-center gap-2">
-                    <div className="h-3 w-3 rounded-full" style={{ backgroundColor: source.color }} />
-                    <span className="text-foreground text-sm">{source.source}</span>
-                  </div>
-                  <span className="text-muted-foreground text-sm font-medium">
-                    {source.visits.toLocaleString("pt-BR")}
-                  </span>
+          <div className="mt-4 space-y-3">
+            {trafficSources.map((source, index) => (
+              <div key={index} className="flex items-center justify-between">
+                <div className="flex items-center gap-2">
+                  <div className="h-3 w-3 rounded-full" style={{ backgroundColor: source.color }} />
+                  <span className="text-foreground text-sm">{source.source}</span>
                 </div>
-              ))}
-            </div>
-          </Card>
-        </div>
+                <span className="text-muted-foreground text-sm font-medium">
+                  {source.visits.toLocaleString("pt-BR")}
+                </span>
+              </div>
+            ))}
+          </div>
+        </Card>
+      </div>
 
-        <div className="grid gap-6 lg:grid-cols-2">
-          {/* Demographics */}
-          <Card className="border-border border-2 p-6">
-            <h3 className="text-foreground font-ludus-pixelify-sans mb-6 text-xl">Demografia de Jogadores</h3>
+      <div className="grid gap-6 lg:grid-cols-2">
+        {/* Demographics */}
+        <Card className="border-border border-2 p-6">
+          <h3 className="text-foreground font-ludus-pixelify-sans mb-6 text-xl">Demografia de Jogadores</h3>
 
-            {/* <ResponsiveContainer width="100%" height={250}>
+          {/* <ResponsiveContainer width="100%" height={250}>
             <BarChart data={demographicsData}>
               <CartesianGrid strokeDasharray="3 3" stroke="rgba(113, 226, 86, 0.1)" />
               <XAxis dataKey="age" stroke="hsl(var(--muted-foreground))" style={{ fontSize: "12px" }} />
@@ -296,71 +291,70 @@ export default function DevAnalyticsPage() {
               <Bar dataKey="players" fill="#71E256" radius={[8, 8, 0, 0]} />
             </BarChart>
           </ResponsiveContainer> */}
-          </Card>
+        </Card>
 
-          {/* Top Countries */}
-          <Card className="border-border border-2 p-6">
-            <h3 className="text-foreground font-ludus-pixelify-sans mb-6 text-xl">Principais Países</h3>
+        {/* Top Countries */}
+        <Card className="border-border border-2 p-6">
+          <h3 className="text-foreground font-ludus-pixelify-sans mb-6 text-xl">Principais Países</h3>
 
-            <div className="space-y-4">
-              {topCountries.map((item, index) => (
-                <div key={index} className="space-y-2">
-                  <div className="flex items-center justify-between">
-                    <span className="text-foreground text-sm">{item.country}</span>
-                    <span className="text-accent font-medium">{item.players.toLocaleString("pt-BR")}</span>
-                  </div>
-                  <div className="bg-muted h-2 w-full overflow-hidden rounded-full">
-                    <div
-                      className="bg-accent h-full rounded-full transition-all duration-500"
-                      style={{ width: `${item.percentage}%` }}
-                    />
-                  </div>
+          <div className="space-y-4">
+            {topCountries.map((item, index) => (
+              <div key={index} className="space-y-2">
+                <div className="flex items-center justify-between">
+                  <span className="text-foreground text-sm">{item.country}</span>
+                  <span className="text-accent font-medium">{item.players.toLocaleString("pt-BR")}</span>
                 </div>
-              ))}
-            </div>
-
-            <div className="border-border mt-6 border-t pt-6">
-              <div className="flex items-center justify-between">
-                <span className="text-foreground font-medium">Total de Jogadores</span>
-                <span className="text-accent font-ludus-pixelify-sans text-xl">
-                  {topCountries.reduce((sum, item) => sum + item.players, 0).toLocaleString("pt-BR")}
-                </span>
+                <div className="bg-muted h-2 w-full overflow-hidden rounded-full">
+                  <div
+                    className="bg-accent h-full rounded-full transition-all duration-500"
+                    style={{ width: `${item.percentage}%` }}
+                  />
+                </div>
               </div>
-            </div>
-          </Card>
-        </div>
+            ))}
+          </div>
 
-        {/* Key Insights */}
-        <Card className="border-accent from-accent/5 to-primary/5 border-2 bg-gradient-to-br p-6">
-          <h3 className="text-foreground font-ludus-pixelify-sans mb-4 text-xl">💡 Principais Insights</h3>
-          <div className="grid gap-4 md:grid-cols-2">
-            <div className="bg-background border-border rounded-xl border p-4">
-              <p className="text-foreground mb-2 text-sm">
-                <strong>Melhor dia para lançamento:</strong> Sexta-feira
-              </p>
-              <p className="text-muted-foreground text-xs">65% mais downloads quando lançado às sextas-feiras</p>
-            </div>
-            <div className="bg-background border-border rounded-xl border p-4">
-              <p className="text-foreground mb-2 text-sm">
-                <strong>Horário de pico:</strong> 20h - 23h
-              </p>
-              <p className="text-muted-foreground text-xs">Maior engajamento de jogadores nesse período</p>
-            </div>
-            <div className="bg-background border-border rounded-xl border p-4">
-              <p className="text-foreground mb-2 text-sm">
-                <strong>Taxa de retenção:</strong> 68% (7 dias)
-              </p>
-              <p className="text-muted-foreground text-xs">Acima da média de 45% da plataforma</p>
-            </div>
-            <div className="bg-background border-border rounded-xl border p-4">
-              <p className="text-foreground mb-2 text-sm">
-                <strong>Tempo médio de jogo:</strong> 2h 45min
-              </p>
-              <p className="text-muted-foreground text-xs">Indicador de alto engajamento</p>
+          <div className="border-border mt-6 border-t pt-6">
+            <div className="flex items-center justify-between">
+              <span className="text-foreground font-medium">Total de Jogadores</span>
+              <span className="text-accent font-ludus-pixelify-sans text-xl">
+                {topCountries.reduce((sum, item) => sum + item.players, 0).toLocaleString("pt-BR")}
+              </span>
             </div>
           </div>
         </Card>
       </div>
-    </DevComponents.Wrapper>
+
+      {/* Key Insights */}
+      <Card className="border-accent from-accent/5 to-primary/5 border-2 bg-gradient-to-br p-6">
+        <h3 className="text-foreground font-ludus-pixelify-sans mb-4 text-xl">💡 Principais Insights</h3>
+        <div className="grid gap-4 md:grid-cols-2">
+          <div className="bg-background border-border rounded-xl border p-4">
+            <p className="text-foreground mb-2 text-sm">
+              <strong>Melhor dia para lançamento:</strong> Sexta-feira
+            </p>
+            <p className="text-muted-foreground text-xs">65% mais downloads quando lançado às sextas-feiras</p>
+          </div>
+          <div className="bg-background border-border rounded-xl border p-4">
+            <p className="text-foreground mb-2 text-sm">
+              <strong>Horário de pico:</strong> 20h - 23h
+            </p>
+            <p className="text-muted-foreground text-xs">Maior engajamento de jogadores nesse período</p>
+          </div>
+          <div className="bg-background border-border rounded-xl border p-4">
+            <p className="text-foreground mb-2 text-sm">
+              <strong>Taxa de retenção:</strong> 68% (7 dias)
+            </p>
+            <p className="text-muted-foreground text-xs">Acima da média de 45% da plataforma</p>
+          </div>
+          <div className="bg-background border-border rounded-xl border p-4">
+            <p className="text-foreground mb-2 text-sm">
+              <strong>Tempo médio de jogo:</strong> 2h 45min
+            </p>
+            <p className="text-muted-foreground text-xs">Indicador de alto engajamento</p>
+          </div>
+        </div>
+      </Card>
+    </div>
   );
 }

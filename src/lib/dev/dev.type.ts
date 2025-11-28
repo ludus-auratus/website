@@ -1,4 +1,4 @@
 interface DevContextData {
-  getSection: () => string;
+  section: string;
   setSection: (value: string) => void;
 }

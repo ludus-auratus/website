@@ -1,12 +1,8 @@
 import { getTranslations } from "next-intl/server";
-import { Search } from "lucide-react";
 
-import { Input } from "@/components/ui/input";
 import { SidebarTrigger } from "@/components/ui/sidebar";
 
-import { DevSection } from "./DevPageWrapper";
-
-export default async function DevHeader({ section }: { section: DevSection }) {
+export default async function DevHeader({ section }: { section: { id: string; message?: string } }) {
   const t = await getTranslations({ locale: "pt-BR", namespace: "Dev.sections" });
   const { id, message } = section;
 

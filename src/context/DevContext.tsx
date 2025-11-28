@@ -7,10 +7,8 @@ const DevContext = createContext<DevContextData | undefined>(undefined);
 export function DevProvider({ children }: { children: React.ReactNode }) {
   const [section, setSection] = useState("dashboard");
 
-  const getSection = () => section;
-
   const data: DevContextData = {
-    getSection,
+    section,
     setSection,
   };
 
