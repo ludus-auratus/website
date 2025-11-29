@@ -1,9 +1,9 @@
 {
   "id": 11,
-  "name": "Domínio Starfall",
-  "price": 79.9,
+  "name": "CRONION",
+  "price": 13,
   "rating": 4.6,
-  "classification": 14,
+  "classification": 12,
   "description": "Construa sua frota, estabeleça colônias e dispute territórios em um vasto universo dinâmico onde cada ação molda o equilíbrio galáctico.",
   "tags": [
     { "name": "Estratégia", "category": "gender" },
@@ -20,7 +20,7 @@
     { "name": "Inglês", "level": 3 },
     { "name": "Alemão", "level": 2 }
   ],
-  "icon": "https://picsum.photos/seed/starfalldom/600/300",
+  "icon": "/images/games/cronion-icon.png",
   "banner": "https://picsum.photos/seed/starfalldomb/1200/500",
   "gallery": [
     { "type": "image", "src": "https://picsum.photos/400/200?sf1", "title": "Frota em Órbita" },

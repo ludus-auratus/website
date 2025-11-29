@@ -1,7 +1,7 @@
 {
-  "id": 4,
-  "name": "Fragmentos do Abismo",
-  "price": 32,
+  "id": 16,
+  "name": "Immunition",
+  "price": 14.9,
   "rating": 4.6,
   "classification": 16,
   "description": "Um roguelike sombrio onde cada descida revela novos segredos e perigos.",
@@ -18,7 +18,7 @@
     { "name": "Português (Brasil)", "level": 2 },
     { "name": "Inglês", "level": 3 }
   ],
-  "icon": "https://picsum.photos/seed/g4/600/300",
+  "icon": "/images/games/immunition-icon.png",
   "banner": "https://picsum.photos/seed/g4b/1200/500",
   "gallery": [
     { "type": "image", "src": "https://picsum.photos/400/200?7", "title": "Abismo Profundo" },

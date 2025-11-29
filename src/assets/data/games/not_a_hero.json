@@ -1,9 +1,9 @@
 {
   "id": 9,
-  "name": "Eco dos Titãs",
-  "price": 50,
+  "name": "NOT A HERO",
+  "price": 18.9,
   "rating": 4.8,
-  "classification": 14,
+  "classification": 12,
   "description": "Um jogo de ação mitológica onde você enfrenta criaturas colossais usando habilidades divinas.",
   "tags": [
     { "name": "Ação", "category": "gender" },
@@ -18,7 +18,7 @@
     { "name": "Português (Brasil)", "level": 2 },
     { "name": "Inglês", "level": 3 }
   ],
-  "icon": "https://picsum.photos/seed/g9/600/300",
+  "icon": "/images/games/not-a-hero-icon.png",
   "banner": "https://picsum.photos/seed/g9b/1200/500",
   "gallery": [
     { "type": "image", "src": "https://picsum.photos/400/200?18", "title": "Batalha com Titã" },

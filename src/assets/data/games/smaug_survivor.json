@@ -1,7 +1,7 @@
 {
   "id": 8,
-  "name": "Projeto Ômega",
-  "price": 38,
+  "name": "Smaug Survivor",
+  "price": 15,
   "rating": 4.4,
   "classification": 18,
   "description": "Um shooter de ficção científica com foco em operações especiais e mutações biotecnológicas.",
@@ -19,7 +19,7 @@
     { "name": "Português (Brasil)", "level": 1 },
     { "name": "Inglês", "level": 3 }
   ],
-  "icon": "https://picsum.photos/seed/g8/600/300",
+  "icon": "/images/games/smaug-survivor-icon.png",
   "banner": "https://picsum.photos/seed/g8b/1200/500",
   "gallery": [
     { "type": "image", "src": "https://picsum.photos/400/200?16", "title": "Operação Tática" },

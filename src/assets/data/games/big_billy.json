@@ -1,9 +1,9 @@
 {
   "id": 3,
-  "name": "Neon Velocity: Ruas do Amanhã",
-  "price": 40,
+  "name": "Big Billy",
+  "price": 11.9,
   "rating": 4.2,
-  "classification": 10,
+  "classification": 0,
   "description": "Corridas futuristas em pistas iluminadas por neon, com mecânicas de derrapagem e veículos customizáveis.",
   "tags": [
     { "name": "Corrida", "category": "gender" },
@@ -19,7 +19,7 @@
     { "name": "Português (Brasil)", "level": 3 },
     { "name": "Inglês", "level": 3 }
   ],
-  "icon": "https://picsum.photos/seed/g3/600/300",
+  "icon": "/images/games/big-billy-icon.png",
   "banner": "https://picsum.photos/seed/g3b/1200/500",
   "gallery": [
     { "type": "image", "src": "https://picsum.photos/400/200?5", "title": "Pista Neon" },

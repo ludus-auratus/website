@@ -1,7 +1,7 @@
 {
   "id": 2,
-  "name": "Fortaleza Carmesim",
-  "price": 60,
+  "name": "Mistério Intergaláctico",
+  "price": 21,
   "rating": 0,
   "classification": 16,
   "description": "Um RPG de ação onde você lidera cavaleiros místicos em batalhas contra criaturas ancestrais.",
@@ -19,7 +19,7 @@
     { "name": "Português (Brasil)", "level": 2 },
     { "name": "Inglês", "level": 3 }
   ],
-  "icon": "https://picsum.photos/seed/g2/600/300",
+  "icon": "/images/games/misterio-intergalactico-icon.png",
   "banner": "https://picsum.photos/seed/g2b/1200/500",
   "gallery": [
     { "type": "image", "src": "https://picsum.photos/400/200?3", "title": "Campo de Batalha" },

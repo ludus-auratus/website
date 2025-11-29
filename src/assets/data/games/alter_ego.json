@@ -1,0 +1,37 @@
+{
+  "id": 4,
+  "name": "ALTER: EGO",
+  "price": 16,
+  "rating": 4.3,
+  "classification": 12,
+  "description": "Alter Ego retrata a história de Angela Fedorova, uma detetive de uma agência secreta cujo dono é seu próprio pai. O jogador irá controlar Angela coletando pistas durante uma investigação na Itália onde, de início, parece apenas mais um caso comum, porém conforme mais pistas são coletadas sobre o caso, mais a história se torna complexa.",
+  "tags": [
+    { "name": "Investigação", "category": "gender" },
+    { "name": "Suspense", "category": "gender" }
+  ],
+  "releaseDate": "2025-12-10T00:00:00.000Z",
+  "publishingDate": "2023-12-05T00:00:00.000Z",
+  "studio": { "name": "SiJOGA - Fatec Carapicuíba" },
+  "publisher": { "name": "SiJOGA - Fatec Carapicuíba" },
+  "supportedLanguages": [{ "name": "Português (Brasil)", "level": 2 }],
+  "icon": "/images/games/alter-ego-icon.png",
+  "banner": "https://img.itch.zone/aW1hZ2UvMzY3ODYyMi8yMTg4NzcwMC5qcGc=/original/v402QI.jpg",
+  "gallery": [
+    {
+      "type": "image",
+
+      "src": "https://img.itch.zone/aW1hZ2UvMzY3ODYyMi8yMTg4NzcwMC5qcGc=/original/v402QI.jpg",
+      "title": "tela de menu"
+    },
+    {
+      "type": "image",
+      "src": "https://img.itch.zone/aW1hZ2UvMzY3ODYyMi8yMTg4NzY5MC5qcGc=/original/xSBJgZ.jpg",
+      "title": "personagens no carro"
+    },
+    {
+      "type": "image",
+      "src": "https://img.itch.zone/aW1hZ2UvMzY3ODYyMi8yMTg4NzY5Mi5qcGc=/original/Aso6PB.jpg",
+      "title": "lanterna"
+    }
+  ]
+}

@@ -7,8 +7,6 @@ import { exportGameTemplate as exportGameTempData, importGameFiles } from "./gam
 import type { Game, GameTagCategories } from "./game.type";
 import { getClassificationByAge } from "./game.utils";
 
-const catalog = importGameFiles();
-
 export async function getGameDataById(gamekey: number): Promise<Game> {
   const dto = await requestGameDataById(gamekey);
 
@@ -37,6 +35,8 @@ export async function getGameDataById(gamekey: number): Promise<Game> {
 }
 
 export async function requestGameDataById(gamekey: number): Promise<GameDTO> {
+  const catalog = importGameFiles();
+
   const game = catalog.find((game) => {
     return game.id == gamekey;
   });
@@ -94,6 +94,8 @@ export async function getAllGames(): Promise<Game[]> {
 }
 
 export async function requestAllGames(): Promise<GameDTO[]> {
+  const catalog = importGameFiles();
+
   return catalog.map((dto) => {
     return {
       id: dto.id,

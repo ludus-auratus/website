@@ -1,9 +1,9 @@
 {
   "id": 12,
-  "name": "Deriva Néon: Overdrive",
-  "price": 55.0,
-  "rating": 4.1,
-  "classification": 10,
+  "name": "ROLLING INTO POSTHUMOUS (R.I.P.)",
+  "price": 18.6,
+  "rating": 4.4,
+  "classification": 12,
   "description": "Corra pelas ruas de uma metrópole neon futurista, execute drifts perfeitos e personalize veículos com tecnologia de ponta.",
   "tags": [
     { "name": "Corrida", "category": "gender" },
@@ -20,7 +20,7 @@
     { "name": "Inglês", "level": 3 },
     { "name": "Espanhol", "level": 2 }
   ],
-  "icon": "https://picsum.photos/seed/neondrift/600/300",
+  "icon": "/images/games/rolling-into-posthumous.png",
   "banner": "https://picsum.photos/seed/neondriftb/1200/500",
   "gallery": [
     { "type": "image", "src": "https://picsum.photos/400/200?nd1", "title": "Corrida Noturna" },
