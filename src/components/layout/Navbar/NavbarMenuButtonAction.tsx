@@ -16,7 +16,7 @@ export function NavbarMenuButtonAction({ isOpen, setIsOpen }: NavbarMenuButtonAc
       aria-expanded={isOpen}
       aria-controls="mobile-menu"
       onClick={() => setIsOpen(!isOpen)}
-      className="hover:bg-accent/10 active:bg-accent/20 hover:text-foreground relative border-none p-5 lg:hidden"
+      className="hover:bg-accent/10 active:bg-accent/20 hover:text-foreground relative z-50 border-none p-5 lg:hidden"
     >
       {isOpen ? <X className="size-5" aria-hidden="true" /> : <Menu className="size-5" aria-hidden="true" />}
     </Button>

@@ -66,55 +66,68 @@ export function Navbar() {
       </div>
 
       {isMobileMenuOpen && (
-        <NavbarMenu variant="mobile" open={isMobileMenuOpen} id="mobile-menu">
-          {navigationLinks.map((link) => (
-            <NavbarMenuItem
-              variant="mobile"
-              onClick={() => setIsMobileMenuOpen(false)}
-              key={link.path}
-              href={link.path}
-            >
-              <NavbarIcon className="mr-2" icon={link.icon} />
+        <>
+          <div
+            className="fixed top-0 left-0 z-40 h-screen w-screen bg-black/40"
+            onClick={() => setIsMobileMenuOpen(false)}
+            aria-hidden="true"
+          />
+          <div className="relative z-50">
+            <NavbarMenu variant="mobile" open={isMobileMenuOpen} id="mobile-menu">
+              {navigationLinks.map((link) => (
+                <NavbarMenuItem
+                  variant="mobile"
+                  onClick={() => setIsMobileMenuOpen(false)}
+                  key={link.path}
+                  href={link.path}
+                >
+                  <NavbarIcon className="mr-2" icon={link.icon} />
 
-              {link.label}
-            </NavbarMenuItem>
-          ))}
+                  {link.label}
+                </NavbarMenuItem>
+              ))}
 
-          <div className="border-border border-t" />
+              <div className="border-border border-t" />
 
-          {isLoggedIn ? (
-            <>
-              <NavbarMenuItem variant="mobile" href="/profile/my-library" onClick={() => setIsMobileMenuOpen(false)}>
-                <NavbarIcon className="mr-2" icon={User} />
-                {t("user_menu.my_profile")}
-              </NavbarMenuItem>
+              {isLoggedIn ? (
+                <>
+                  <NavbarMenuItem
+                    variant="mobile"
+                    href="/profile/my-library"
+                    onClick={() => setIsMobileMenuOpen(false)}
+                  >
+                    <NavbarIcon className="mr-2" icon={User} />
+                    {t("user_menu.my_profile")}
+                  </NavbarMenuItem>
 
-              <NavbarMenuItem variant="mobile" href="/dashboard" onClick={() => setIsMobileMenuOpen(false)}>
-                <NavbarIcon className="mr-2" icon={LayoutDashboard} />
-                {t("user_menu.dev_portal")}
-              </NavbarMenuItem>
+                  <NavbarMenuItem variant="mobile" href="/dashboard" onClick={() => setIsMobileMenuOpen(false)}>
+                    <NavbarIcon className="mr-2" icon={LayoutDashboard} />
+                    {t("user_menu.dev_portal")}
+                  </NavbarMenuItem>
 
-              <NavbarMenuItem variant="mobile" href="/settings" onClick={() => setIsMobileMenuOpen(false)}>
-                <NavbarIcon className="mr-2" icon={Settings} />
-                {t("user_menu.settings")}
-              </NavbarMenuItem>
+                  <NavbarMenuItem variant="mobile" href="/settings" onClick={() => setIsMobileMenuOpen(false)}>
+                    <NavbarIcon className="mr-2" icon={Settings} />
+                    {t("user_menu.settings")}
+                  </NavbarMenuItem>
 
-              <Button
-                variant={"destructive"}
-                className="flex w-full items-center"
-                onClick={() => {
-                  setIsLoggedIn(false);
-                  setIsMobileMenuOpen(false);
-                }}
-              >
-                <LogOut className="hover:text-primary-foreground mr-2 h-4 w-4" aria-hidden="true" />{" "}
-                {t("user_menu.logout")}
-              </Button>
-            </>
-          ) : (
-            <NavbarAuthButtons variant="mobile" />
-          )}
-        </NavbarMenu>
+                  <Button
+                    variant={"destructive"}
+                    className="flex w-full items-center"
+                    onClick={() => {
+                      setIsLoggedIn(false);
+                      setIsMobileMenuOpen(false);
+                    }}
+                  >
+                    <LogOut className="hover:text-primary-foreground mr-2 h-4 w-4" aria-hidden="true" />{" "}
+                    {t("user_menu.logout")}
+                  </Button>
+                </>
+              ) : (
+                <NavbarAuthButtons variant="mobile" />
+              )}
+            </NavbarMenu>
+          </div>
+        </>
       )}
     </NavbarRoot>
   );
