@@ -1,6 +1,6 @@
 "use client";
 
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { useTranslations } from "next-intl";
 import { Code2, Gamepad2, Globe2Icon, Home, LayoutDashboard, LogOut, Mail, Settings, User } from "lucide-react";
 
@@ -24,6 +24,18 @@ export function Navbar() {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
   const { isAuthenticated, logout } = useAuth();
   const t = useTranslations("Navbar");
+
+  useEffect(() => {
+    if (isMobileMenuOpen) {
+      document.body.style.overflow = "hidden";
+    } else {
+      document.body.style.overflow = "";
+    }
+
+    return () => {
+      document.body.style.overflow = "";
+    };
+  }, [isMobileMenuOpen]);
 
   const navigationLinks = [
     { label: t("navigation.home"), path: "/", icon: Home },
