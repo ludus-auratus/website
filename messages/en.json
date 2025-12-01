@@ -277,6 +277,16 @@
       "security_message": "Secure payment processed through an encrypted gateway",
       "continue_shopping": "Continue Shopping",
       "clear_cart": "Clear Cart"
+    },
+    "toasts": {
+      "empty_cart": {
+        "title": "Your cart is empty",
+        "description": "Explore our catalog of Brazilian indie games and add your favorites to the cart!"
+      },
+      "login_required": {
+        "title": "You need to be logged in",
+        "description": "Log in or sign up to proceed to checkout."
+      }
     }
   },
   "Contact": {
@@ -388,11 +398,66 @@
       "popular_tags": "Popular Tags",
       "genres": "Genres",
       "platforms": "Platforms"
-    }
+    },
+    "empty": {
+      "title": "No games found",
+      "description": "We couldn't find any games matching the selected filters.",
+      "clear_filters": "Clear filters"
+    },
+    "loading": "Loading..."
   },
   "HeroBanner": {
     "by": "by",
     "see_more": "See more",
     "go_to_slide": "Go to slide {number}"
+  },
+  "Profile": {
+    "tabs": {
+      "library": "Library",
+      "purchases": "Purchases"
+    },
+    "header": {
+      "member_since": "Member since {date}",
+      "games_count": "{count} games",
+      "edit_profile": "Edit Profile",
+      "dev_panel": "Dev Panel"
+    },
+    "library": {
+      "title": "My Library",
+      "search_placeholder": "Search games...",
+      "clear_search": "Clear search",
+      "empty": {
+        "title": "Your library is empty",
+        "description": "You don't own any games yet. Explore our store and find your next adventure!",
+        "button": "Explore Store"
+      },
+      "no_results": {
+        "title": "No games found",
+        "description": "We couldn't find any games matching your search \"{searchTerm}\"."
+      }
+    },
+    "purchases": {
+      "title": "Recent Purchases",
+      "total_spent": "Total spent",
+      "empty": {
+        "title": "No purchases made",
+        "description": "Your purchase history is empty. Visit the store to start your collection.",
+        "button": "Explore Store"
+      }
+    }
+  },
+
+  "PurchaseCard": {
+    "status": {
+      "paid": "Paid",
+      "processing": "Processing",
+      "completed": "Completed"
+    },
+    "order_number": "Order #{id}",
+    "hide_items": "Hide items",
+    "show_items": "View {count} {count, plural, =1 {item} other {items}}",
+    "total": "Total",
+    "download": "Download",
+    "view_details": "View Details"
   }
 }

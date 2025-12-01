@@ -9,6 +9,13 @@ import { toast } from "sonner";
 import GameCartItem from "@/components/game/GameCartItem";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
+import {
+  EmptyState,
+  EmptyStateActions,
+  EmptyStateDescription,
+  EmptyStateIcon,
+  EmptyStateTitle,
+} from "@/components/ui/empty-state";
 import { useAuth } from "@/context/AuthContext";
 import { useCart } from "@/context/CartContext";
 import { formatPrice } from "@/lib/game";
@@ -25,8 +32,8 @@ export default function Cart() {
 
   function handleCheckout() {
     if (getGamesCount() === 0) {
-      toast.error("Não há nenhum jogo no carrinho", {
-        description: "Explore nosso catálogo de jogos indies brasileiros e adicione seus favoritos ao carrinho!",
+      toast.error(t("toasts.empty_cart.title"), {
+        description: t("toasts.empty_cart.description"),
       });
 
       router.push("/catalog");
@@ -35,8 +42,8 @@ export default function Cart() {
     }
 
     if (!isAuthenticated) {
-      toast.error("Você precisa estar logado", {
-        description: "Faça login ou cadastre-se para fazer checkout.",
+      toast.error(t("toasts.login_required.title"), {
+        description: t("toasts.login_required.description"),
       });
 
       router.push("/login");
@@ -50,21 +57,16 @@ export default function Cart() {
   if (items.length === 0) {
     return (
       <div className="mx-auto max-w-7xl px-4 py-8 sm:px-8 md:py-12">
-        <Card className="bg-card/50 border-border/50 border backdrop-blur-sm">
-          <CardContent className="p-12 text-center">
-            <div className="bg-primary/10 mb-6 inline-flex h-24 w-24 items-center justify-center rounded-3xl">
-              <ShoppingCart className="text-primary h-12 w-12" />
-            </div>
-
-            <h2 className="font-ludus-pixelify-sans mb-4 text-2xl md:text-3xl">{t("empty.title")}</h2>
-
-            <p className="text-muted-foreground mx-auto mb-8 max-w-md">{t("empty.description")}</p>
-
+        <EmptyState>
+          <EmptyStateIcon icon={ShoppingCart} />
+          <EmptyStateTitle>{t("empty.title")}</EmptyStateTitle>
+          <EmptyStateDescription>{t("empty.description")}</EmptyStateDescription>
+          <EmptyStateActions>
             <Button size="lg" asChild>
               <Link href="/catalog">{t("empty.explore_button")}</Link>
             </Button>
-          </CardContent>
-        </Card>
+          </EmptyStateActions>
+        </EmptyState>
       </div>
     );
   }

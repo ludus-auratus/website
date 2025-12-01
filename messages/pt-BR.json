@@ -283,6 +283,16 @@
       "security_message": "Pagamento seguro processado através de gateway criptografado",
       "continue_shopping": "Continuar Comprando",
       "clear_cart": "Esvaziar Carrinho"
+    },
+    "toasts": {
+      "empty_cart": {
+        "title": "Não há nenhum jogo no carrinho",
+        "description": "Explore nosso catálogo de jogos indies brasileiros e adicione seus favoritos ao carrinho!"
+      },
+      "login_required": {
+        "title": "Você precisa estar logado",
+        "description": "Faça login ou cadastre-se para fazer checkout."
+      }
     }
   },
 
@@ -396,11 +406,67 @@
       "popular_tags": "Tags Populares",
       "genres": "Gêneros",
       "platforms": "Plataformas"
-    }
+    },
+    "empty": {
+      "title": "Nenhum jogo encontrado",
+      "description": "Não encontramos nenhum jogo correspondente aos filtros selecionados.",
+      "clear_filters": "Limpar filtros"
+    },
+    "loading": "Carregando..."
   },
   "HeroBanner": {
     "by": "por",
     "see_more": "Ver mais",
     "go_to_slide": "Ir para o slide {number}"
+  },
+
+  "Profile": {
+    "tabs": {
+      "library": "Biblioteca",
+      "purchases": "Compras"
+    },
+    "header": {
+      "member_since": "Membro desde {date}",
+      "games_count": "{count} jogos",
+      "edit_profile": "Editar Perfil",
+      "dev_panel": "Painel Dev"
+    },
+    "library": {
+      "title": "Minha Biblioteca",
+      "search_placeholder": "Buscar jogos...",
+      "clear_search": "Limpar busca",
+      "empty": {
+        "title": "Sua biblioteca está vazia",
+        "description": "Você ainda não possui nenhum jogo. Explore nossa loja e encontre sua próxima aventura!",
+        "button": "Explorar Loja"
+      },
+      "no_results": {
+        "title": "Nenhum jogo encontrado",
+        "description": "Não encontramos nenhum jogo correspondente à sua busca \"{searchTerm}\"."
+      }
+    },
+    "purchases": {
+      "title": "Compras Recentes",
+      "total_spent": "Total gasto",
+      "empty": {
+        "title": "Nenhuma compra realizada",
+        "description": "Seu histórico de compras está vazio. Visite a loja para começar sua coleção.",
+        "button": "Explorar Loja"
+      }
+    }
+  },
+
+  "PurchaseCard": {
+    "status": {
+      "paid": "Pago",
+      "processing": "Processando",
+      "completed": "Concluído"
+    },
+    "order_number": "Pedido #{id}",
+    "hide_items": "Esconder itens",
+    "show_items": "Ver {count} {count, plural, =1 {item} other {itens}}",
+    "total": "Total",
+    "download": "Download",
+    "view_details": "Ver Detalhes"
   }
 }

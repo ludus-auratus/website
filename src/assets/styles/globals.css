@@ -365,3 +365,38 @@
 @utility grid-auto-fill-300 {
   grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
 }
+
+/* Chrome, Edge e Safari */
+::-webkit-scrollbar {
+  width: 10px;
+  height: 10px;
+}
+
+::-webkit-scrollbar-track {
+  background: var(--moss-900);
+  border-radius: 999px;
+}
+
+::-webkit-scrollbar-thumb {
+  background-color: var(--green-600);
+  border-radius: 999px;
+  border: 2px solid var(--moss-900);
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background-color: var(--green-600);
+}
+
+::-webkit-scrollbar-corner {
+  background: var(--moss-900);
+}
+
+* {
+  scrollbar-width: auto;
+  scrollbar-color: var(--green-500) var(--moss-900);
+}
+
+/* Firefox */
+html {
+  scroll-behavior: smooth;
+}

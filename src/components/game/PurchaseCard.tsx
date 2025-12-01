@@ -1,5 +1,6 @@
 import { useState } from "react";
 import Image from "next/image";
+import { useFormatter, useTranslations } from "next-intl";
 import { ChevronDown, ChevronUp, Download, Package } from "lucide-react";
 
 import { Badge } from "@/components/ui/badge";
@@ -22,23 +23,26 @@ interface PurchaseCardProps {
   total: number;
 }
 
-const statusConfig = {
-  paid: {
-    label: "Pago",
-    color: "bg-ludus-lime-500/20 text-highlight border border-ludus-lime-500/30",
-  },
-  processing: {
-    label: "Processando",
-    color: "bg-ludus-yellow-500/20 text-ludus-yellow-400 border border-ludus-yellow-500/30",
-  },
-  completed: {
-    label: "Concluído",
-    color: "bg-ludus-green-500/20 text-ludus-green-400 border border-ludus-green-500/30",
-  },
-};
-
 export function PurchaseCard({ orderId, createdAt, status, items, total }: PurchaseCardProps) {
+  const t = useTranslations("PurchaseCard");
+  const format = useFormatter();
   const [isExpanded, setIsExpanded] = useState(false);
+
+  const statusConfig = {
+    paid: {
+      label: t("status.paid"),
+      color: "bg-ludus-lime-500/20 text-highlight border border-ludus-lime-500/30",
+    },
+    processing: {
+      label: t("status.processing"),
+      color: "bg-ludus-yellow-500/20 text-ludus-yellow-400 border border-ludus-yellow-500/30",
+    },
+    completed: {
+      label: t("status.completed"),
+      color: "bg-ludus-green-500/20 text-ludus-green-400 border border-ludus-green-500/30",
+    },
+  };
+
   const statusInfo = statusConfig[status];
 
   return (
@@ -51,10 +55,10 @@ export function PurchaseCard({ orderId, createdAt, status, items, total }: Purch
             </div>
             <div className="min-w-0 flex-1">
               <h3 className="text-foreground truncate text-sm font-semibold sm:text-base">
-                Pedido #{orderId.slice(-8).toUpperCase()}
+                {t("order_number", { id: orderId.slice(-8).toUpperCase() })}
               </h3>
               <p className="text-muted-foreground mt-0.5 text-xs sm:text-sm">
-                {createdAt.toLocaleDateString("pt-BR", {
+                {format.dateTime(createdAt, {
                   day: "2-digit",
                   month: "long",
                   year: "numeric",
@@ -96,12 +100,12 @@ export function PurchaseCard({ orderId, createdAt, status, items, total }: Purch
               {isExpanded ? (
                 <>
                   <ChevronUp className="h-3.5 w-3.5 transition-transform group-hover:-translate-y-0.5 sm:h-4 sm:w-4" />
-                  Esconder itens
+                  {t("hide_items")}
                 </>
               ) : (
                 <>
                   <ChevronDown className="h-3.5 w-3.5 transition-transform group-hover:translate-y-0.5 sm:h-4 sm:w-4" />
-                  Ver {items.length} {items.length === 1 ? "item" : "itens"}
+                  {t("show_items", { count: items.length })}
                 </>
               )}
             </button>
@@ -110,7 +114,7 @@ export function PurchaseCard({ orderId, createdAt, status, items, total }: Purch
 
         <div className="border-ludus-green-500/20 border-t pt-3 sm:pt-4">
           <div className="mb-3 flex items-center justify-between sm:mb-4">
-            <span className="text-muted-foreground text-sm sm:text-base">Total</span>
+            <span className="text-muted-foreground text-sm sm:text-base">{t("total")}</span>
             <span className="text-highlight text-lg font-bold sm:text-xl">{formatPrice(total)}</span>
           </div>
 
@@ -118,11 +122,11 @@ export function PurchaseCard({ orderId, createdAt, status, items, total }: Purch
             {status === "completed" && (
               <Button variant="default" size="sm">
                 <Download className="mr-2 h-4 w-4" />
-                Download
+                {t("download")}
               </Button>
             )}
             <Button variant={status === "completed" ? "outline" : "default"} size="sm">
-              Ver Detalhes
+              {t("view_details")}
             </Button>
           </div>
         </div>

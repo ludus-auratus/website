@@ -1,5 +1,6 @@
 "use client";
 
+import { useFormatter, useTranslations } from "next-intl";
 import { Calendar, Code2, Edit, Library, MapPin } from "lucide-react";
 
 import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
@@ -8,7 +9,9 @@ import { Card, CardContent } from "@/components/ui/card";
 import { useAuth } from "@/context/AuthContext";
 
 export function ProfileHeader() {
-  const { user } = useAuth();
+  const t = useTranslations("Profile");
+  const format = useFormatter();
+  const { user, library } = useAuth();
 
   return (
     <div className="mb-8">
@@ -31,18 +34,24 @@ export function ProfileHeader() {
                   <div className="text-muted-foreground flex flex-wrap gap-4 text-sm">
                     <div className="flex items-center">
                       <Calendar className="mr-1 h-4 w-4" />
-                      Membro desde {new Date("2025-11-26").toLocaleDateString("pt-BR")}
+                      {t("header.member_since", {
+                        date: format.dateTime(new Date("2025-11-26"), {
+                          year: "numeric",
+                          month: "2-digit",
+                          day: "2-digit",
+                        }),
+                      })}
                     </div>
 
                     <div className="flex flex-row gap-4">
                       <div className="flex items-center">
                         <MapPin className="mr-1 h-4 w-4" />
-                        {"Brasil"}
+                        Brasil
                       </div>
 
                       <div className="flex items-center">
                         <Library className="mr-1 h-4 w-4" />
-                        10 jogos
+                        {t("header.games_count", { count: library.length })}
                       </div>
                     </div>
                   </div>
@@ -51,12 +60,12 @@ export function ProfileHeader() {
                 <div className="flex flex-col gap-2">
                   <Button variant="outline" className="mt-2 sm:mt-0">
                     <Edit className="mr-2 h-4 w-4" />
-                    Editar Perfil
+                    {t("header.edit_profile")}
                   </Button>
 
                   <Button variant="outline" className="mt-2 sm:mt-0">
                     <Code2 className="mr-2 h-4 w-4" />
-                    Painel Dev
+                    {t("header.dev_panel")}
                   </Button>
                 </div>
               </div>
