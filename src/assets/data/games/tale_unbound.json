@@ -1,0 +1,34 @@
+{
+  "id": 18,
+  "name": "Tale Unbound",
+  "price": 16,
+  "tags": [
+    { "name": "Aventura", "category": "gender" },
+    { "name": "Ação", "category": "gender" }
+  ],
+  "classification": 0,
+  "studio": {
+    "name": "Fatos Studios"
+  },
+  "publisher": {
+    "name": "Fatos Studios"
+  },
+  "supportedLanguages": [
+    {
+      "name": "Inglês",
+      "level": 3
+    }
+  ],
+  "icon": "/images/games/tale-unbound-icon.png",
+  "banner": "/images/games/tale-unbound-banner.png",
+  "gallery": [
+    { "type": "image", "src": "/images/games/tale-unbound-screenshot-1.png", "title": "Tale Unbound" },
+    { "type": "image", "src": "/images/games/tale-unbound-screenshot-2.png", "title": "Tale Unbound" },
+    { "type": "image", "src": "/images/games/tale-unbound-screenshot-3.png", "title": "Tale Unbound" },
+    { "type": "image", "src": "/images/games/tale-unbound-screenshot-4.png", "title": "Tale Unbound" }
+  ],
+  "description": "Tales Unbound é um emocionante jogo de corrida e ação onde você assume o papel de Alice, uma heroína destemida. Sua missão é correr entre a realidade e o místico País das Maravilhas em uma jornada frenética e cheia de riscos!\nCorra por paisagens em constante mudança, supere obstáculos mágicos e salte entre a fantasia e a realidade para sobreviver a esta aventura emocionante e alucinante. A linha entre o mundo real e a loucura nunca foi tão tênue!\n\n\nMove - A & D\n\nUP -  space\n\nSlide - S\n\nAttack - Z\n\nDash - Ctrl ",
+  "releaseDate": "2025-11-28T00:00:00.000Z",
+  "publishingDate": "2025-11-28T00:00:00.000Z",
+  "rating": 4.7
+}

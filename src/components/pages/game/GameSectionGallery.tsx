@@ -54,6 +54,7 @@ export default function GameSectionGallery(props: Props) {
         >
           {"<"}
         </Button>
+
         <div className="bg-ludus-moss-900/50 md:justify-left flex gap-x-2 overflow-x-auto rounded-sm px-4 py-2">
           {gallery.map((media, index) => {
             const src = media.type === "video" ? `https://img.youtube.com/vi/${media.src}/0.jpg` : media.src;
@@ -70,12 +71,13 @@ export default function GameSectionGallery(props: Props) {
                 key={`gallery-${index}`}
                 image={image}
                 selected={index === mediaIndex}
-                className="inline-block shrink-0 flex-nowrap"
+                className="inline-block w-24 shrink-0 flex-nowrap sm:w-auto"
                 onClick={handleScreenshotClick(index)}
               />
             );
           })}
         </div>
+
         <Button
           disabled={rightArrowDisabled}
           className="font-ludus-pixelify-sans"

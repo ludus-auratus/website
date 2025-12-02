@@ -1,0 +1,29 @@
+{
+  "id": 15,
+  "name": "Ponto de Alerta",
+  "price": 16,
+  "tags": [
+    { "name": "Educacional", "category": "gender" },
+    { "name": "Simulação", "category": "gender" }
+  ],
+  "classification": 12,
+  "studio": {
+    "name": "Fatos Studios"
+  },
+  "publisher": {
+    "name": "Fatos Studios"
+  },
+  "supportedLanguages": [
+    {
+      "name": "Português (Brasil)",
+      "level": 3
+    }
+  ],
+  "icon": "/images/games/ponto-de-alerta-icon.png",
+  "banner": "/images/games/ponto-de-alerta-icon.png",
+  "gallery": [{ "type": "image", "src": "/images/games/ponto-de-alerta-icon.png", "title": "Ponto de Alerta" }],
+  "description": "Ponto de Alerta é um simulador onde você assume o papel de um agente da Defesa Civil, lidando com situações de risco e respondendo a emergências através de minigames rápidos e desafiadores.\nAvalie cenários, oriente cidadãos, acione equipes de resposta, identifique perigos e tome decisões sob pressão — cada ação impacta diretamente na segurança da população. Um jogo dinâmico, educativo e cheio de tensão, inspirado no trabalho real da Defesa Civil.",
+  "releaseDate": "2025-11-28T00:00:00.000Z",
+  "publishingDate": "2025-11-28T00:00:00.000Z",
+  "rating": 4.7
+}
