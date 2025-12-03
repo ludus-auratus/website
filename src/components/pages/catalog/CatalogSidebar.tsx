@@ -33,7 +33,7 @@ export function CatalogSidebar({
   const platforms = ["Mac", "Linux", "Windows"];
 
   return (
-    <aside className="space-y-6 lg:col-span-1">
+    <aside className="space-y-6">
       <Card className="bg-card/50 flex flex-row items-center justify-between p-6 backdrop-blur-sm">
         <div className="flex items-center gap-2">
           <Filter className="text-primary h-5 w-5" />

@@ -14,7 +14,7 @@ interface GameCardProps {
 
 export function GameCard({ name, price, icon, id, rating }: GameCardProps) {
   return (
-    <article className="bg-card text-card-foreground border-border hover:border-primary/60 relative flex h-fit flex-col rounded-2xl border shadow-lg transition-all duration-300 hover:-translate-y-1 hover:shadow-xl">
+    <article className="hover:border-primary/60 hover:shadow-primary/10 bg-card text-card-foreground border-border relative mx-auto flex h-fit w-[264px] flex-col rounded-2xl border shadow-lg backdrop-blur-sm transition-all duration-300 hover:-translate-y-1 hover:shadow-xl sm:w-full">
       <Link
         aria-label={`Ver detalhes do jogo ${name}`}
         href={`/game/${id}`}

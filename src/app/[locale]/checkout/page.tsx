@@ -4,9 +4,9 @@ import { useEffect, useRef, useState, useTransition } from "react";
 import Image from "next/image";
 import Link from "next/link";
 import { useRouter } from "next/navigation";
-// import { useTranslations } from "next-intl";
 import { AlertCircle, ArrowLeft, Check, CheckCircle2, Copy, Loader2, Lock, QrCode } from "lucide-react";
 
+import qrCode from "@/assets/images/qrcode.png";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Label } from "@/components/ui/label";
@@ -78,7 +78,11 @@ export default function Checkout() {
     return (
       <div className="mx-auto max-w-7xl px-4 py-8 sm:px-8 md:py-12">
         <div className="mb-6">
-          <Button variant="ghost" onClick={() => setPixGenerated(false)}>
+          <Button
+            variant="ghost"
+            className="text-muted-foreground hover:text-foreground absolute -top-12 left-0 flex items-center gap-2 hover:bg-transparent"
+            onClick={() => setPixGenerated(false)}
+          >
             <ArrowLeft className="mr-2 h-4 w-4" />
             Voltar
           </Button>
@@ -95,15 +99,8 @@ export default function Checkout() {
 
             <CardContent className="space-y-6">
               <div className="flex justify-center">
-                <div className="border-border/50 rounded-lg border-4 bg-white p-6">
-                  <div className="grid h-64 w-64 grid-cols-12 gap-1">
-                    {[...Array(144)].map((_, i) => (
-                      <div
-                        key={i}
-                        className={`aspect-square rounded-sm ${Math.random() > 0.5 ? "bg-black" : "bg-white"}`}
-                      />
-                    ))}
-                  </div>
+                <div className="border-border/50 relative h-64 w-64 rounded-lg border-4 bg-white p-6">
+                  <Image src={qrCode} fill alt="QR Code" className="absolute" />
                 </div>
               </div>
 
@@ -132,7 +129,7 @@ export default function Checkout() {
 
               <div className="space-y-1 py-4 text-center">
                 <p className="text-muted-foreground text-sm">Valor a pagar</p>
-                <p className="font-ludus-pixelify-sans text-4xl font-bold">{formatPrice(total)}</p>
+                <p className="text-4xl font-bold">{formatPrice(total)}</p>
               </div>
 
               <Separator />
@@ -152,7 +149,7 @@ export default function Checkout() {
 
                 <Button
                   onClick={handleConfirmPayment}
-                  variant="highlight"
+                  variant="accent"
                   disabled={isPending}
                   className="h-12 w-full"
                   size="lg"
@@ -181,7 +178,11 @@ export default function Checkout() {
   return (
     <div className="mx-auto max-w-7xl px-4 py-8 sm:px-8 md:py-12">
       <div className="mb-6">
-        <Button variant="ghost" asChild>
+        <Button
+          variant="ghost"
+          className="text-muted-foreground hover:text-foreground absolute -top-12 left-0 flex items-center gap-2 hover:bg-transparent"
+          asChild
+        >
           <Link href="/cart">
             <ArrowLeft className="mr-2 h-4 w-4" />
             Voltar ao carrinho

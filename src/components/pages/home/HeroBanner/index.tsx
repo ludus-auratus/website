@@ -4,7 +4,7 @@ import { HeroBannerCarousel } from "./HeroBannerCarousel";
 
 export function HeroBanner() {
   return (
-    <section className="mx-auto w-full max-w-7xl px-4 py-20 sm:px-8 lg:px-8">
+    <section className="mx-auto w-full max-w-7xl px-4 py-12 sm:px-8 lg:px-8">
       <HeroBannerCarousel items={bannerData} />
     </section>
   );
