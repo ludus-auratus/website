@@ -2,7 +2,7 @@ import { use } from "react";
 import { useTranslations } from "next-intl";
 import { Sparkle, Star } from "lucide-react";
 
-import { GameCard } from "@/components/game/GameCard";
+import { GameList } from "@/components/game/GameList";
 import {
   SectionContent,
   SectionDescription,
@@ -38,17 +38,8 @@ export default function Home() {
           <SectionDescription>{t("featured.description")}</SectionDescription>
         </SectionHeader>
 
-        <SectionContent className="grid-auto-fill grid justify-center gap-6">
-          {featuredGames.slice(0, 4).map((game) => (
-            <GameCard
-              key={game.id}
-              id={game.id}
-              name={game.name}
-              icon={game.icon}
-              price={game.price}
-              rating={game.rating}
-            />
-          ))}
+        <SectionContent>
+          <GameList games={featuredGames} />
         </SectionContent>
       </Section>
       <Section>
@@ -62,17 +53,8 @@ export default function Home() {
           <SectionDescription>{t("recent_releases.description")}</SectionDescription>
         </SectionHeader>
 
-        <SectionContent className="grid-auto-fill grid justify-center gap-6">
-          {releaseGames.map((game) => (
-            <GameCard
-              key={game.id}
-              id={game.id}
-              name={game.name}
-              icon={game.icon}
-              price={game.price}
-              rating={game.rating}
-            />
-          ))}
+        <SectionContent>
+          <GameList games={releaseGames} />
         </SectionContent>
       </Section>
       <GameJamSection />

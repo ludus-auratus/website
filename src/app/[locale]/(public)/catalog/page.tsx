@@ -86,6 +86,7 @@ export default function CatalogPage() {
                 id={game.id}
                 name={game.name}
                 icon={game.icon}
+                studio={game.studio}
                 price={game.price}
                 rating={game.rating}
               />
