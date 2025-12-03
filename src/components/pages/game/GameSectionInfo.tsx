@@ -2,7 +2,10 @@ import Image from "next/image";
 
 import { Game } from "@/lib/game";
 
+import { GameActions } from "./GameActions";
+import { GameAdditionalInfo } from "./GameAdditionalInfo";
 import GameClassificationDisplay from "./GameClassificationDisplay";
+import { GameLanguageContainer } from "./GameLanguageContainer";
 import GameSection from "./GameSection";
 import GameSimpleInfo from "./GameSimpleInfo";
 import GameTagContainer from "./GameTagContainer";
@@ -32,8 +35,12 @@ export default function GameSectionInfo(props: Props) {
           <GameSimpleInfo title="release_date" data={releaseDate.toLocaleDateString()} />
           <GameSimpleInfo title="developer" data={studio} />
           <GameSimpleInfo title="publisher" data={publisher} />
-          <GameTagContainer title="gender_tags" content={genderTags} />
-          <GameTagContainer title="resource_tags" content={resourceTags} />
+          <GameActions game={data} />
+          <GameTagContainer title="gender_tags" content={genderTags} opened />
+          <GameTagContainer title="resource_tags" content={resourceTags} opened />
+          <GameTagContainer title="acessibility_tags" content={[]} opened />
+          <GameLanguageContainer languages={data.supportedLanguages} />
+          <GameAdditionalInfo game={data} />
         </div>
       </GameSection>
     </div>

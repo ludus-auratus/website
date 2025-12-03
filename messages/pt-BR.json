@@ -62,7 +62,11 @@
       "developer": "Desenvolvedor",
       "publisher": "Publicadora",
       "gender_tags": "Gêneros",
-      "resource_tags": "Recursos"
+      "resource_tags": "Recursos",
+      "acessibility_tags": "Acessibilidade",
+      "price": "Preço",
+      "language": "Idiomas",
+      "additional_info": "Informação Adicional"
     }
   },
 
@@ -259,6 +263,25 @@
           "answer": "Sim! Você pode fazer quantas atualizações quiser, sem custo adicional. Basta fazer upload da nova versão através do painel de desenvolvedor. Só lembramos que cada postagem, mesmo atualizações, passam por nossa equipe de segurança."
         }
       }
+    }
+  },
+
+  "Dev": {
+    "sections": {
+      "dashboard": "Dashboard",
+      "analytics": "Estatísticas",
+      "publications": "Publicações",
+      "reviews": "Avaliações",
+      "settings": "Configurações"
+    }
+  },
+
+  "DevDashboard": {
+    "game_status": {
+      "published": "Publicado",
+      "unpublished": "Despublicado",
+      "revision": "Em Revisão",
+      "draft": "Rascunho"
     }
   },
 

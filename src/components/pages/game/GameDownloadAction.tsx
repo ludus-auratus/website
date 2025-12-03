@@ -6,7 +6,7 @@ import { toast } from "sonner";
 
 import { Button } from "@/components/ui/button";
 
-export default function GameDownloadAction() {
+export function GameDownloadAction() {
   const [isPending, startTransition] = useTransition();
 
   function handleDownload() {

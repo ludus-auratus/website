@@ -30,7 +30,13 @@ export default async function Page({ params }: { params: Promise<{ gamekey: numb
 
           <aside className="flex flex-col gap-y-4">
             <Game.Info data={data} />
-            <Game.Actions game={data} />
+            <Game.Social
+              list={[
+                { id: "instagram", href: "#" },
+                { id: "youtube", href: "#" },
+                { id: "discord", href: "#" },
+              ]}
+            />
             <Game.Comments />
           </aside>
         </div>

@@ -22,7 +22,7 @@ export default function PresentationSection() {
   return (
     <SectionRoot className="text-center" childClassName="pt-10">
       <SectionHeader className="mb-0">
-        <Image src="/images/ludus/ludus-marginless.png" width={256} height={256} alt={""} className="mx-auto" />
+        <Image src="/images/ludus/logo-marginless.png" width={256} height={256} alt={""} className="mx-auto" />
         <SectionTitle>
           <h1 className="text-highlight font-ludus-pixelify-sans text-4xl md:text-5xl lg:text-6xl">
             {titleParts[0]}

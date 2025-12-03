@@ -1,3 +1,5 @@
+import { SocialMediaID } from "@/components/pages/game/GameSocialMedia";
+
 import { GameClassification } from "./game.utils";
 
 export interface Game {
@@ -46,3 +48,15 @@ export type GameImage = GameMedia & {
 export type GameVideo = GameMedia & {
   type: "video";
 };
+
+export interface GameComment {
+  author: {
+    username: string;
+    avatar: string;
+  };
+  content: string;
+  feedback: GameCommentFeedback;
+  publishedAt: Date;
+}
+
+export type GameCommentFeedback = "positive" | "negative";

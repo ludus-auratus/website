@@ -3,14 +3,14 @@
 import { useAuth } from "@/context/AuthContext";
 import { Game } from "@/lib/game";
 
-import GameCartAction from "./GameCartAction";
-import GameDownloadAction from "./GameDownloadAction";
+import { GameCartAction } from "./GameCartAction";
+import { GameDownloadAction } from "./GameDownloadAction";
 
 type Props = {
   game: Game;
 };
 
-export default function GameCartActions({ game }: Props) {
+export function GameActions({ game }: Props) {
   const { isGameInLibrary } = useAuth();
 
   if (isGameInLibrary(game.id)) {
