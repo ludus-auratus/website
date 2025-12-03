@@ -4,6 +4,7 @@ import Link from "next/link";
 import { cn } from "@/lib/utils/shadcn";
 
 import { GradientIcon } from "./GradientIcon";
+import { SocialMediaWrapper } from "./SocialMediaWrapper";
 
 export interface GradientColorDescription {
   type: "gradient";
@@ -28,10 +29,10 @@ export function GradientSocialMedia({
 }) {
   const Icon = icon;
   return (
-    <Link
+    <SocialMediaWrapper
       href={href}
       className={cn(
-        `rounded-[7px] bg-linear-to-b bg-gradient-to-b from-[#405DE6] p-[3px] shadow-md shadow-black/25`,
+        `bg-linear-to-b`,
         `${color.gradient!.stops[0].tailwind}`,
         `${color.gradient!.stops[1].tailwind}`,
         `${color.gradient!.stops[2].tailwind}`,
@@ -42,6 +43,6 @@ export function GradientSocialMedia({
           <Icon className="h-7 w-7 stroke-[inherit]" />
         </GradientIcon>
       </div>
-    </Link>
+    </SocialMediaWrapper>
   );
 }

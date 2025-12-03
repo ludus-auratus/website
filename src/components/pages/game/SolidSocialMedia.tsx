@@ -1,6 +1,8 @@
 import { IconType } from "react-icons/lib";
 import Link from "next/link";
 
+import { SocialMediaWrapper } from "./SocialMediaWrapper";
+
 export interface SolidColorDescription {
   type: "solid";
   bg: string;
@@ -18,10 +20,10 @@ export function SolidSocialMedia({
 }) {
   const Icon = icon;
   return (
-    <Link href={href} className={`${color.bg} rounded-[7px] p-[3px] shadow-md shadow-black/25`}>
+    <SocialMediaWrapper href={href} className={color.bg}>
       <div className="bg-background rounded-[5px] p-[3px]">
         <Icon className={`h-7 w-7 ${color.stroke}`} />
       </div>
-    </Link>
+    </SocialMediaWrapper>
   );
 }
