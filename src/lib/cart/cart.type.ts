@@ -1,12 +1,16 @@
-import { Game } from "../game";
-
-export interface CartItem extends Game {
-  quantity: 1;
+export interface CartItem {
+  id: number;
+  name: string;
+  price: number;
+  icon: string;
+  rating: number;
+  studio: string;
+  quantity: number;
 }
 
 export interface CartContextData {
   items: CartItem[];
-  addToCart: (game: Game) => boolean;
+  addToCart: (game: Omit<CartItem, "quantity">) => boolean;
   removeFromCart: (gameId: number) => void;
   clearCart: () => void;
   getCartTotal: () => number;

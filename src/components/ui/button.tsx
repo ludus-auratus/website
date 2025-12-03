@@ -11,6 +11,7 @@ const buttonVariants = cva(
       variant: {
         default: cn("bg-primary text-primary-foreground", "hover:bg-primary-hover", "focus:bg-primary-hover"),
         destructive: cn(
+          "border-2 border-destructive",
           "bg-destructive text-white",
           "hover:bg-destructive-hover",
           "focus:bg-destructive-hover",
@@ -25,6 +26,7 @@ const buttonVariants = cva(
         highlight: "bg-highlight text-accent-foreground hover:bg-highlight-hover",
         ghost: "hover:bg-accent hover:text-accent-foreground",
         link: "text-primary underline-offset-4 hover:underline",
+        favorite: "border-2 border-destructive bg-transparent text-destructive hover:bg-destructive hover:text-white",
       },
       size: {
         default: "h-9 px-4 py-2 has-[>svg]:px-3",

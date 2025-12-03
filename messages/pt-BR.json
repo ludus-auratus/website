@@ -391,6 +391,7 @@
       }
     }
   },
+
   "Navbar": {
     "navigation": {
       "home": "Início",
@@ -410,6 +411,7 @@
     },
     "avatar_alt": "Avatar de {name}"
   },
+
   "Catalog": {
     "header": {
       "search_placeholder": "Buscar jogos...",
@@ -446,7 +448,8 @@
   "Profile": {
     "tabs": {
       "library": "Biblioteca",
-      "purchases": "Compras"
+      "purchases": "Compras",
+      "wishlist": "Lista de Desejos"
     },
     "header": {
       "member_since": "Membro desde {date}",
@@ -476,6 +479,20 @@
         "description": "Seu histórico de compras está vazio. Visite a loja para começar sua coleção.",
         "button": "Explorar Loja"
       }
+    },
+    "wishlist": {
+      "title": "Minha Lista de Desejos",
+      "search_placeholder": "Buscar na lista de desejos...",
+      "clear_search": "Limpar busca",
+      "empty": {
+        "title": "Sua lista de desejos está vazia",
+        "description": "Você ainda não adicionou nenhum jogo à sua lista de desejos. Explore nossa loja e encontre jogos que você ama!",
+        "button": "Explorar Loja"
+      },
+      "no_results": {
+        "title": "Nenhum jogo encontrado",
+        "description": "Não encontramos nenhum jogo na sua lista de desejos correspondente à sua busca \"{searchTerm}\"."
+      }
     }
   },
 
@@ -491,5 +508,11 @@
     "total": "Total",
     "download": "Download",
     "view_details": "Ver Detalhes"
+  },
+
+  "Games": {
+    "download": "Baixar",
+    "wishlist_remove": "Remover da Lista de Desejos",
+    "wishlist_add": "Adicionar à Lista de Desejos"
   }
 }

@@ -1,7 +1,7 @@
 "use client";
 
 import { GameCard } from "@/components/game/GameCard";
-import { Carousel, CarouselContent, CarouselItem, CarouselNext, CarouselPrevious } from "@/components/ui/carousel";
+import { Carousel, CarouselContent, CarouselNext, CarouselPrevious } from "@/components/ui/carousel";
 import { Game } from "@/lib/game";
 
 interface GameListProps {
@@ -11,7 +11,7 @@ interface GameListProps {
 export function GameList({ games }: GameListProps) {
   return (
     <>
-      <div className="block md:hidden">
+      <div className="block sm:hidden">
         <Carousel
           opts={{
             align: "start",
@@ -19,18 +19,17 @@ export function GameList({ games }: GameListProps) {
           }}
           className="w-full"
         >
-          <CarouselContent className="-ml-4">
+          <CarouselContent className="-ml">
             {games.map((game) => (
-              <CarouselItem key={game.id} className="basis-[85%] pl-4 sm:basis-[60%]">
-                <GameCard
-                  id={game.id}
-                  name={game.name}
-                  icon={game.icon}
-                  price={game.price}
-                  rating={game.rating}
-                  studio={game.studio}
-                />
-              </CarouselItem>
+              <GameCard
+                key={game.id}
+                id={game.id}
+                name={game.name}
+                price={game.price}
+                icon={game.icon}
+                rating={game.rating}
+                studio={game.studio}
+              />
             ))}
           </CarouselContent>
 
@@ -41,14 +40,14 @@ export function GameList({ games }: GameListProps) {
         </Carousel>
       </div>
 
-      <div className="grid-auto-fill hidden justify-center gap-6 md:grid">
+      <div className="grid-auto-fill hidden justify-center gap-6 sm:grid">
         {games.map((game) => (
           <GameCard
             key={game.id}
             id={game.id}
             name={game.name}
-            icon={game.icon}
             price={game.price}
+            icon={game.icon}
             rating={game.rating}
             studio={game.studio}
           />

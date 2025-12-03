@@ -3,7 +3,6 @@
 import { createContext, ReactNode, useContext, useEffect, useState } from "react";
 
 import { CartContextData, CartItem } from "@/lib/cart/cart.type";
-import { Game } from "@/lib/game/game.type";
 
 const CartContext = createContext<CartContextData | undefined>(undefined);
 
@@ -35,7 +34,7 @@ export function CartProvider({ children }: CartProviderProps) {
     }
   }, [items, isLoaded]);
 
-  const addToCart = (game: Game): boolean => {
+  const addToCart = (game: Omit<CartItem, "quantity">): boolean => {
     const existingItem = items.find((item) => item.id === game.id);
 
     if (existingItem) {

@@ -16,7 +16,7 @@ export function GameCartAction({ game }: Props) {
 
   const handleClick = () => {
     if (!alreadyInCart) {
-      addToCart(game);
+      addToCart({ ...game });
     }
   };
 

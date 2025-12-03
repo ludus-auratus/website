@@ -406,15 +406,18 @@
     },
     "loading": "Loading..."
   },
+
   "HeroBanner": {
     "by": "by",
     "see_more": "See more",
     "go_to_slide": "Go to slide {number}"
   },
+
   "Profile": {
     "tabs": {
       "library": "Library",
-      "purchases": "Purchases"
+      "purchases": "Purchases",
+      "wishlist": "Wishlist"
     },
     "header": {
       "member_since": "Member since {date}",
@@ -444,6 +447,20 @@
         "description": "Your purchase history is empty. Visit the store to start your collection.",
         "button": "Explore Store"
       }
+    },
+    "wishlist": {
+      "title": "My Wishlist",
+      "search_placeholder": "Search wishlist...",
+      "clear_search": "Clear search",
+      "empty": {
+        "title": "Your wishlist is empty",
+        "description": "You haven't added any games to your wishlist yet. Explore our store and find games you love!",
+        "button": "Explore Store"
+      },
+      "no_results": {
+        "title": "No games found",
+        "description": "We couldn't find any games in your wishlist matching your search \"{searchTerm}\"."
+      }
     }
   },
 
@@ -459,5 +476,11 @@
     "total": "Total",
     "download": "Download",
     "view_details": "View Details"
+  },
+
+  "Games": {
+    "download": "Download",
+    "wishlist_remove": "Remove from Wishlist",
+    "wishlist_add": "Add to Wishlist"
   }
 }

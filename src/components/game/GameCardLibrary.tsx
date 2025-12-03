@@ -23,7 +23,7 @@ export function GameCardLibrary({ name, icon, id, rating }: GameCardLibraryProps
     startTransition(async () => {
       await new Promise((resolve) => setTimeout(resolve, 1000));
 
-      toast.success("Download concluído!", {
+      toast.success("Download concluÃdo!", {
         description: "O jogo foi baixado com sucesso!",
       });
     });

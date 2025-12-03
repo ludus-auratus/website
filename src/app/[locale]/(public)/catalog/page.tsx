@@ -85,10 +85,10 @@ export default function CatalogPage() {
                 key={game.id}
                 id={game.id}
                 name={game.name}
-                icon={game.icon}
-                studio={game.studio}
                 price={game.price}
+                icon={game.icon}
                 rating={game.rating}
+                studio={game.studio}
               />
             ))
           )}

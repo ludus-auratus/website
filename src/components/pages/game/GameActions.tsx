@@ -5,6 +5,7 @@ import { Game } from "@/lib/game";
 
 import { GameCartAction } from "./GameCartAction";
 import { GameDownloadAction } from "./GameDownloadAction";
+import { GameFavoriteAction } from "./GameFavoriteAction";
 
 type Props = {
   game: Game;
@@ -14,8 +15,18 @@ export function GameActions({ game }: Props) {
   const { isGameInLibrary } = useAuth();
 
   if (isGameInLibrary(game.id)) {
-    return <GameDownloadAction />;
+    return (
+      <>
+        <GameDownloadAction />
+        <GameFavoriteAction game={game} />
+      </>
+    );
   }
 
-  return <GameCartAction game={game} />;
+  return (
+    <>
+      <GameCartAction game={game} />
+      <GameFavoriteAction game={game} />
+    </>
+  );
 }

@@ -35,10 +35,21 @@ interface LibraryGame {
   orderId: string;
 }
 
+interface FavoriteGame {
+  id: number;
+  name: string;
+  icon: string;
+  price: number;
+  rating: number;
+  studio: string;
+  addedAt: Date;
+}
+
 interface AuthContextData {
   user: User;
   purchases: Purchase[];
   library: LibraryGame[];
+  favorites: FavoriteGame[];
   isAuthenticated: () => boolean;
   isLoading: boolean;
   login: (email: string, password: string) => Promise<boolean>;
@@ -53,6 +64,9 @@ interface AuthContextData {
   updatePurchaseStatus: (orderId: string, status: Purchase["status"]) => void;
   isGameInLibrary: (gameId: number) => boolean;
   getLibraryGames: () => LibraryGame[];
+  addFavorite: (game: Omit<FavoriteGame, "addedAt">) => void;
+  removeFavorite: (gameId: number) => void;
+  isFavorite: (gameId: number) => boolean;
 }
 
 export const AuthContext = createContext<AuthContextData | undefined>(undefined);
@@ -65,6 +79,7 @@ export function AuthProvider({ children }: AuthProviderProps) {
   const [user, setUser] = useState<User>({} as User);
   const [purchases, setPurchases] = useState<Purchase[]>([]);
   const [library, setLibrary] = useState<LibraryGame[]>([]);
+  const [favorites, setFavorites] = useState<FavoriteGame[]>([]);
   const [isLoading, setIsLoading] = useState(true);
 
   useEffect(() => {
@@ -72,6 +87,7 @@ export function AuthProvider({ children }: AuthProviderProps) {
     const token = localStorage.getItem("games-auth-token");
     const savedPurchases = localStorage.getItem("games-user-purchases");
     const savedLibrary = localStorage.getItem("games-user-library");
+    const savedFavorites = localStorage.getItem("games-user-favorites");
 
     if (savedUser && token) {
       try {
@@ -94,12 +110,22 @@ export function AuthProvider({ children }: AuthProviderProps) {
           }));
           setLibrary(userLibrary);
         }
+
+        if (savedFavorites) {
+          const allFavorites: Record<number, FavoriteGame[]> = JSON.parse(savedFavorites);
+          const userFavorites = (allFavorites[parsedUser.id] || []).map((game) => ({
+            ...game,
+            addedAt: new Date(game.addedAt),
+          }));
+          setFavorites(userFavorites);
+        }
       } catch (error) {
         console.error("Erro ao carregar dados:", error);
         localStorage.removeItem("games-auth-user");
         localStorage.removeItem("games-auth-token");
         localStorage.removeItem("games-user-purchases");
         localStorage.removeItem("games-user-library");
+        localStorage.removeItem("games-user-favorites");
       }
     }
 
@@ -163,6 +189,20 @@ export function AuthProvider({ children }: AuthProviderProps) {
         }
       }
 
+      const savedFavorites = localStorage.getItem("games-user-favorites");
+      if (savedFavorites) {
+        try {
+          const allFavorites: Record<number, FavoriteGame[]> = JSON.parse(savedFavorites);
+          const userFavorites = (allFavorites[mockUser.id] || []).map((game) => ({
+            ...game,
+            addedAt: new Date(game.addedAt),
+          }));
+          setFavorites(userFavorites);
+        } catch (error) {
+          console.error("Erro ao carregar favoritos:", error);
+        }
+      }
+
       return true;
     } catch (error) {
       console.error("Erro ao fazer login:", error);
@@ -174,6 +214,7 @@ export function AuthProvider({ children }: AuthProviderProps) {
     setUser({} as User);
     setPurchases([]);
     setLibrary([]);
+    setFavorites([]);
     localStorage.removeItem("games-auth-user");
     localStorage.removeItem("games-auth-token");
   };
@@ -281,6 +322,51 @@ export function AuthProvider({ children }: AuthProviderProps) {
     return library;
   };
 
+  const addFavorite = (game: Omit<FavoriteGame, "addedAt">) => {
+    if (!user || !user.id) return;
+
+    if (isFavorite(game.id)) return;
+
+    const newFavorite: FavoriteGame = {
+      ...game,
+      addedAt: new Date(),
+    };
+
+    const updatedFavorites = [...favorites, newFavorite];
+    setFavorites(updatedFavorites);
+
+    try {
+      const savedFavorites = localStorage.getItem("games-user-favorites");
+      const allFavorites: Record<number, FavoriteGame[]> = savedFavorites ? JSON.parse(savedFavorites) : {};
+      allFavorites[user.id] = updatedFavorites;
+      localStorage.setItem("games-user-favorites", JSON.stringify(allFavorites));
+    } catch (error) {
+      console.error("Erro ao salvar favoritos:", error);
+    }
+  };
+
+  const removeFavorite = (gameId: number) => {
+    if (!user || !user.id) return;
+
+    const updatedFavorites = favorites.filter((game) => game.id !== gameId);
+    setFavorites(updatedFavorites);
+
+    try {
+      const savedFavorites = localStorage.getItem("games-user-favorites");
+      if (savedFavorites) {
+        const allFavorites: Record<number, FavoriteGame[]> = JSON.parse(savedFavorites);
+        allFavorites[user.id] = updatedFavorites;
+        localStorage.setItem("games-user-favorites", JSON.stringify(allFavorites));
+      }
+    } catch (error) {
+      console.error("Erro ao remover favorito:", error);
+    }
+  };
+
+  const isFavorite = (gameId: number): boolean => {
+    return favorites.some((game) => game.id === gameId);
+  };
+
   const value: AuthContextData = {
     user,
     purchases,
@@ -295,6 +381,10 @@ export function AuthProvider({ children }: AuthProviderProps) {
     updatePurchaseStatus,
     isGameInLibrary,
     getLibraryGames,
+    favorites,
+    addFavorite,
+    removeFavorite,
+    isFavorite,
   };
 
   return <AuthContext.Provider value={value}>{children}</AuthContext.Provider>;
