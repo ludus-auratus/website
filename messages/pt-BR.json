@@ -62,7 +62,11 @@
       "developer": "Desenvolvedor",
       "publisher": "Publicadora",
       "gender_tags": "Gêneros",
-      "resource_tags": "Recursos"
+      "resource_tags": "Recursos",
+      "acessibility_tags": "Acessibilidade",
+      "price": "Preço",
+      "language": "Idiomas",
+      "additional_info": "Informação Adicional"
     }
   },
 

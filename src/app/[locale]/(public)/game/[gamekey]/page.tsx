@@ -30,7 +30,13 @@ export default function Page() {
 
           <aside className="flex flex-col gap-y-4">
             <Game.Info data={data} />
-            <Game.CartActions game={data} />
+            <Game.Social
+              list={[
+                { id: "instagram", href: "#" },
+                { id: "youtube", href: "#" },
+                { id: "discord", href: "#" },
+              ]}
+            />
             <Game.Comments />
           </aside>
         </div>

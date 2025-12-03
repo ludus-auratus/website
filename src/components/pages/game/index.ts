@@ -4,6 +4,7 @@ import GameSectionComments from "./GameSectionComments";
 import GameSectionDescription from "./GameSectionDescription";
 import GameSectionGallery from "./GameSectionGallery";
 import GameSectionInfo from "./GameSectionInfo";
+import { GameSectionSocial } from "./GameSectionSocial";
 
 export const Game = {
   CartActions: GameCartActions,
@@ -14,4 +15,5 @@ export const Game = {
   //   Suggestions: GameSectionSuggestion,
   Info: GameSectionInfo,
   Comments: GameSectionComments,
+  Social: GameSectionSocial,
 };
