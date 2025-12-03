@@ -8,6 +8,7 @@ import { GameImage, GameMedia, GameVideo } from "@/lib/game";
 import { createPlaceholderImageUrl } from "@/lib/utils/image.utils";
 
 import GameImagePlayer from "./GameImagePlayer";
+import { GameMediaPlayerFrame } from "./GameMediaPlayerFrame";
 import GameMiniImage from "./GameMiniImage";
 import GameSection from "./GameSection";
 import GameVideoPlayer from "./GameVideoPlayer";
@@ -77,11 +78,13 @@ export default function GameSectionGallery(props: Props) {
 
   return (
     <GameSection bordered="onlyX">
-      {media.type === "video" ? (
-        <GameVideoPlayer video={media as GameVideo} />
-      ) : (
-        <GameImagePlayer image={media as GameImage} />
-      )}
+      <GameMediaPlayerFrame title={media.title}>
+        {media.type === "video" ? (
+          <GameVideoPlayer video={media as GameVideo} />
+        ) : (
+          <GameImagePlayer image={media as GameImage} />
+        )}
+      </GameMediaPlayerFrame>
 
       <div className="flex items-center justify-between gap-x-6">
         <Button
