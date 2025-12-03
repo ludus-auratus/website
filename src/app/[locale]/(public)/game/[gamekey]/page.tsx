@@ -37,7 +37,7 @@ export default async function Page({ params }: { params: Promise<{ gamekey: numb
                 { id: "discord", href: "#" },
               ]}
             />
-            <Game.Comments />
+            <Game.Comments gameKey={gamekey} />
           </aside>
         </div>
       </div>

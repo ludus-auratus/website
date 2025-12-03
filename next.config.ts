@@ -39,6 +39,11 @@ const nextConfig: NextConfig = {
         hostname: "images.unsplash.com",
         pathname: "/**",
       },
+      {
+        protocol: "https",
+        hostname: "yt3.googleusercontent.com",
+        pathname: "/**",
+      },
     ],
   },
 };
