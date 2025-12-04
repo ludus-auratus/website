@@ -1,6 +1,8 @@
 "use client";
 
 import { createContext, ReactNode, useContext, useEffect, useState } from "react";
+import { useRouter } from "next/navigation";
+import router from "next/router";
 
 interface User {
   id: number;
@@ -76,6 +78,7 @@ interface AuthProviderProps {
 }
 
 export function AuthProvider({ children }: AuthProviderProps) {
+  const router = useRouter();
   const [user, setUser] = useState<User>({} as User);
   const [purchases, setPurchases] = useState<Purchase[]>([]);
   const [library, setLibrary] = useState<LibraryGame[]>([]);
@@ -217,6 +220,11 @@ export function AuthProvider({ children }: AuthProviderProps) {
     setFavorites([]);
     localStorage.removeItem("games-auth-user");
     localStorage.removeItem("games-auth-token");
+    localStorage.removeItem("games-user-purchases");
+    localStorage.removeItem("games-user-library");
+    localStorage.removeItem("games-user-favorites");
+
+    router.push("/login");
   };
 
   const updateUser = (userData: Partial<User>) => {
