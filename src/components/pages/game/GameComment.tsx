@@ -37,13 +37,13 @@ export default function GameComment({ comment }: { comment: GameCommentData }) {
           </div>
           <div className="relative z-0 w-28">
             <div className="pointer-events-auto absolute z-1 flex items-center gap-x-1.5 opacity-100 transition-all group-hover:pointer-events-auto group-hover:opacity-100 md:pointer-events-none md:opacity-0">
-              <Button variant="default" hoverAnimation="scale-down" className="h-8 w-8">
+              <Button variant="default" disabled hoverAnimation="scale-down" className="h-8 w-8">
                 <ThumbsUp />
               </Button>
-              <Button variant="secondary" size="icon-sm" hoverAnimation="scale-down">
+              <Button variant="secondary" disabled size="icon-sm" hoverAnimation="scale-down">
                 <ThumbsDown />
               </Button>
-              <Button variant="destructive" size="icon-sm" hoverAnimation="scale-down">
+              <Button variant="destructive" disabled size="icon-sm" hoverAnimation="scale-down">
                 <Flag />
               </Button>
             </div>

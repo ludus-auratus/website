@@ -25,6 +25,7 @@ export default function Page() {
     releaseDate: new Date(),
     publishingDate: new Date(),
     rating: 0,
+    additional: [],
   });
 
   return (
