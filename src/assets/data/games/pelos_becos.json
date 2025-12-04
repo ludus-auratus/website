@@ -21,5 +21,6 @@
     { "type": "image", "src": "/images/games/pelos-becos-screenshot2.png", "title": "Campo de Batalha" },
     { "type": "image", "src": "/images/games/pelos-becos-screenshot3.png", "title": "Campo de Batalha" },
     { "type": "image", "src": "/images/games/pelos-becos-screenshot4.png", "title": "Campo de Batalha" }
-  ]
+  ],
+  "additional": []
 }

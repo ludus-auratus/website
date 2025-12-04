@@ -24,5 +24,6 @@
   "gallery": [
     { "type": "image", "src": "https://picsum.photos/400/200?16", "title": "Operação Tática" },
     { "type": "image", "src": "https://picsum.photos/400/200?17", "title": "Mutação Incontrolável" }
-  ]
+  ],
+  "additional": []
 }

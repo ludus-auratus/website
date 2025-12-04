@@ -26,5 +26,6 @@
     { "type": "image", "src": "https://picsum.photos/400/200?nd1", "title": "Corrida Noturna" },
     { "type": "image", "src": "https://picsum.photos/400/200?nd2", "title": "Drift Perfeito" },
     { "type": "image", "src": "https://picsum.photos/400/200?nd3", "title": "Área de Preparação" }
-  ]
+  ],
+  "additional": []
 }

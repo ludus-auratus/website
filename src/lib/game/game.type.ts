@@ -1,5 +1,3 @@
-import { SocialMediaID } from "@/components/pages/game/GameSocialMedia";
-
 import { GameClassification } from "./game.utils";
 
 export interface Game {
@@ -21,6 +19,7 @@ export interface Game {
   releaseDate: Date;
   publishingDate: Date;
   rating: number;
+  additional: { title: string; value: string }[];
 }
 
 export type GameTagCategories = Game["tags"];

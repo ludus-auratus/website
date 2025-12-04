@@ -24,5 +24,6 @@
     { "type": "image", "src": "https://picsum.photos/400/200?7", "title": "Abismo Profundo" },
     { "type": "image", "src": "https://picsum.photos/400/200?8", "title": "Monstro Ancião" },
     { "type": "image", "src": "https://picsum.photos/400/200?9", "title": "Sala Secreta" }
-  ]
+  ],
+  "additional": []
 }

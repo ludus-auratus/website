@@ -11,7 +11,7 @@ export default function ChatBotTrigger() {
   };
 
   return (
-    <Button variant={"link"} className={"h-28 w-28"} onClick={onClick}>
+    <Button variant={"link"} className={"h-22 w-22 md:h-24 md:w-24"} onClick={onClick}>
       <Image
         src="/images/ludus/logo-marginless.png"
         alt="Logo da Ludus para abrir o canal de atendimento do chat bot"

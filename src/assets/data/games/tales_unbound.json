@@ -30,5 +30,6 @@
   "description": "Tales Unbound é um emocionante jogo de corrida e ação onde você assume o papel de Alice, uma heroína destemida. Sua missão é correr entre a realidade e o místico País das Maravilhas em uma jornada frenética e cheia de riscos!\nCorra por paisagens em constante mudança, supere obstáculos mágicos e salte entre a fantasia e a realidade para sobreviver a esta aventura emocionante e alucinante. A linha entre o mundo real e a loucura nunca foi tão tênue!\n\n\nMove - A & D\n\nUP -  space\n\nSlide - S\n\nAttack - Z\n\nDash - Ctrl ",
   "releaseDate": "2025-11-28T00:00:00.000Z",
   "publishingDate": "2025-11-28T00:00:00.000Z",
-  "rating": 4.7
+  "rating": 4.7,
+  "additional": [{ "title": "processor", "value": "Intel Core i5-1035G1" }]
 }

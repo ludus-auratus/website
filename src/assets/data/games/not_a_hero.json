@@ -23,5 +23,6 @@
   "gallery": [
     { "type": "image", "src": "https://picsum.photos/400/200?18", "title": "Batalha com Titã" },
     { "type": "image", "src": "https://picsum.photos/400/200?19", "title": "Habilidades Divinas" }
-  ]
+  ],
+  "additional": []
 }
