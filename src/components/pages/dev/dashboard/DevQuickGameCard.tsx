@@ -4,6 +4,7 @@ import { getTranslations } from "next-intl/server";
 import { VariantProps } from "class-variance-authority";
 import {
   BarChart3,
+  CircleQuestionMark,
   DollarSign,
   Download,
   Edit,
@@ -17,25 +18,36 @@ import {
   Upload,
 } from "lucide-react";
 
+import { QuestionTooltip } from "@/components/layout/Tooltip/QuestionTooltip";
 import { Badge } from "@/components/ui/badge";
 import { Button, buttonVariants } from "@/components/ui/button";
 import { Card } from "@/components/ui/card";
+import {
+  Dialog,
+  DialogClose,
+  DialogContent,
+  DialogDescription,
+  DialogFooter,
+  DialogHeader,
+  DialogTitle,
+  DialogTrigger,
+} from "@/components/ui/dialog";
 import {
   DropdownMenu,
   DropdownMenuContent,
   DropdownMenuItem,
   DropdownMenuTrigger,
 } from "@/components/ui/dropdown-menu";
+import { Input } from "@/components/ui/input";
+import { Label } from "@/components/ui/label";
 import { Progress } from "@/components/ui/progress";
-import { PublishedGameStatus, QuickGameDashboard } from "@/lib/dev/dashboard";
+import { Separator } from "@/components/ui/separator";
+import { TooltipContent, TooltipTrigger } from "@/components/ui/tooltip";
+import { QuickGameDashboard } from "@/lib/dev/dashboard";
 import { cn } from "@/lib/utils/shadcn";
+import { Tooltip } from "@radix-ui/react-tooltip";
 
-const gameStatusMap: Record<PublishedGameStatus, string> = {
-  published: "Published",
-  unpublished: "Unpublished",
-  draft: "Draft",
-  revision: "Revision",
-};
+import { DevModals } from "../modal";
 
 export default async function DevQuickGameCard({
   game,
@@ -113,7 +125,7 @@ export default async function DevQuickGameCard({
               </p>
             </div>
 
-            {!advanced && <OptionsMenu />}
+            {!advanced && <OptionsMenu gameId={game.id} />}
           </div>
 
           {!advanced || game.status === "published" ? (
@@ -160,11 +172,9 @@ export default async function DevQuickGameCard({
           ) : null}
 
           <div className="flex gap-2 pt-2">
+            <DevModals.Details game={game} />
             {!advanced ? (
-              <>
-                <ActionButton icon={TrendingUp} text="Detalhes" />
-                {game.status === "published" && <ActionButton icon={Edit} text="Editar" />}
-              </>
+              <>{game.status === "published" && <ActionButton icon={Edit} text="Editar" />}</>
             ) : game.status === "published" ? (
               <>
                 <ActionButton icon={Upload} text="Atualizar" />
@@ -193,34 +203,41 @@ function ActionButton({
   icon,
   text,
   href,
+  children,
   disabled = false,
   variants = "outline",
 }: {
   icon: LucideIcon;
   text: string;
   href?: string;
+  children?: React.ReactNode;
   disabled?: boolean;
   variants?: "outline" | "ghost" | "link" | "default" | "destructive" | "secondary" | "accent";
 }) {
   const Icon = icon;
   return (
-    <Button size="sm" variant={variants} className="flex-grow md:flex-none" asChild={!!href} disabled={disabled}>
-      {href ? (
-        <Link href="#">
-          <Icon className="h-4 w-4" />
-          <span>{text}</span>
-        </Link>
-      ) : (
-        <>
-          <Icon className="h-4 w-4" />
-          <span>{text}</span>
-        </>
-      )}
-    </Button>
+    <Dialog>
+      <DialogTrigger asChild>
+        <Button size="sm" variant={variants} className="flex-grow md:flex-none" asChild={!!href} disabled={disabled}>
+          {href ? (
+            <Link href="#">
+              <Icon className="h-4 w-4" />
+              <span>{text}</span>
+            </Link>
+          ) : (
+            <>
+              <Icon className="h-4 w-4" />
+              <span>{text}</span>
+            </>
+          )}
+        </Button>
+      </DialogTrigger>
+      <DialogContent>{children}</DialogContent>
+    </Dialog>
   );
 }
 
-function OptionsMenu() {
+function OptionsMenu({ gameId }: { gameId: number }) {
   return (
     <DropdownMenu>
       <DropdownMenuTrigger asChild>
@@ -233,9 +250,11 @@ function OptionsMenu() {
           <Edit className="mr-2 h-4 w-4" />
           Editar
         </DropdownMenuItem>
-        <DropdownMenuItem>
-          <ExternalLink className="mr-2 h-4 w-4" />
-          Ver na Loja
+        <DropdownMenuItem asChild>
+          <Link href={`/game/${gameId}`}>
+            <ExternalLink className="mr-2 h-4 w-4" />
+            Ver na Loja
+          </Link>
         </DropdownMenuItem>
         <DropdownMenuItem disabled>
           <BarChart3 className="mr-2 h-4 w-4" />
