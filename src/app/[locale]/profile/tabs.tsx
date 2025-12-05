@@ -31,22 +31,22 @@ export function ProfileTabs() {
       <TabsList className="w-full justify-start">
         <TabsTrigger value="my-library" asChild>
           <Link href="/profile/my-library">
-            <Library className="mr-2 h-4 w-4" />
-            {t("library")}
+            <Library className="h-4 w-4 sm:mr-2" />
+            <span className="hidden sm:inline">{t("library")}</span>
           </Link>
         </TabsTrigger>
 
         <TabsTrigger value="purchases" asChild>
           <Link href="/profile/purchases">
-            <ShoppingBag className="mr-2 h-4 w-4" />
-            {t("purchases")}
+            <ShoppingBag className="h-4 w-4 sm:mr-2" />
+            <span className="hidden sm:inline">{t("purchases")}</span>
           </Link>
         </TabsTrigger>
 
-        <TabsTrigger value="wishlist" asChild>
-          <Link href="/profile/wishlist">
-            <Heart className="mr-2 h-4 w-4" />
-            {t("wishlist")}
+        <TabsTrigger value="wishlist" className="" asChild>
+          <Link href="/profile/wishlist" className="">
+            <Heart className="h-4 w-4 sm:mr-2" />
+            <span className="hidden sm:inline">{t("wishlist")}</span>
           </Link>
         </TabsTrigger>
       </TabsList>

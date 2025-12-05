@@ -49,14 +49,8 @@ export default function GameCartItem({
       >
         <CardContent className="p-4">
           <div className="xs:flex-row flex flex-col gap-4">
-            <figure className="xs:w-28 relative h-28 w-full flex-shrink-0 self-center overflow-hidden rounded-xl">
-              <Image
-                src={icon}
-                alt={name}
-                width={100}
-                height={100}
-                className="h-full w-full object-cover object-center"
-              />
+            <figure className="xs:w-28 xs:h-28 relative h-60 w-full flex-shrink-0 self-center overflow-hidden rounded-xl">
+              <Image src={icon} alt={name} fill className="h-full w-full object-cover object-center" />
             </figure>
 
             <div className="min-w-0 flex-1">

@@ -9,7 +9,6 @@ import { getClassificationByAge } from "./game.utils";
 
 export async function getGameDataById(gamekey: number): Promise<Game> {
   const dto = await requestGameDataById(gamekey);
-  console.log("getGameDataById");
 
   const tags: GameTagCategories = {
     genders: dto.tags.filter((tag) => tag.category === "gender").map((tag) => tag.name),
@@ -42,12 +41,9 @@ export async function requestGameDataById(gamekey: number): Promise<GameDTO> {
     return game.id == gamekey;
   });
 
-  // console.log(game);
-
   if (!game) {
     throw new Error("Jogo não encontrado");
   }
-  console.log("requestGameDataById");
 
   return await {
     id: game.id,

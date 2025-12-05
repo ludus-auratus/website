@@ -18,7 +18,6 @@ export function GameActions({ game }: Props) {
     return (
       <>
         <GameDownloadAction />
-        <GameFavoriteAction game={game} />
       </>
     );
   }

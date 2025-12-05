@@ -57,13 +57,13 @@ export function ProfileHeader() {
                   </div>
                 </div>
 
-                <div className="flex flex-col gap-2">
-                  <Button variant="outline" className="mt-2 sm:mt-0">
+                <div className="flex flex-row gap-2 sm:flex-col">
+                  <Button variant="outline" className="flex-1 sm:mt-0">
                     <Edit className="mr-2 h-4 w-4" />
                     {t("header.edit_profile")}
                   </Button>
 
-                  <Button variant="outline" className="mt-2 sm:mt-0">
+                  <Button variant="outline" className="flex-1 sm:mt-0">
                     <Code2 className="mr-2 h-4 w-4" />
                     {t("header.dev_panel")}
                   </Button>

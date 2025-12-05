@@ -26,7 +26,7 @@ export function GameFavoriteAction({ game }: Props) {
 
   return (
     <Button className="w-full" variant={isFavorite(game.id) ? "destructive" : "favorite"} onClick={handleClick}>
-      <Heart />
+      <Heart className={`size-4 ${alreadyInFavorite ? "fill-current" : "fill-transparent"}`} />
       {alreadyInFavorite ? t("wishlist_remove") : t("wishlist_add")}
     </Button>
   );

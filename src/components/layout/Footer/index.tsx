@@ -9,19 +9,16 @@ type FooterLink = { name: string; href: string };
 
 const footerLinks: Record<string, FooterLink[]> = {
   about: [
-    { name: "about_us", href: "#" },
-    { name: "mission", href: "#" },
-    { name: "developers", href: "#" },
+    { name: "about_us", href: "/about-us" },
+    { name: "developers", href: "/about-us#developers" },
   ],
   support: [
-    { name: "help_center", href: "#" },
     { name: "contact", href: "#" },
     { name: "faq", href: "#" },
   ],
   legal: [
     { name: "terms_of_use", href: "#" },
     { name: "privacy", href: "#" },
-    { name: "cookies", href: "#" },
   ],
 };
 

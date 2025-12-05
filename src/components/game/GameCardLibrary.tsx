@@ -23,14 +23,14 @@ export function GameCardLibrary({ name, icon, id, rating }: GameCardLibraryProps
     startTransition(async () => {
       await new Promise((resolve) => setTimeout(resolve, 1000));
 
-      toast.success("Download concluÃdo!", {
+      toast.success("Download conclusão!", {
         description: "O jogo foi baixado com sucesso!",
       });
     });
   }
 
   return (
-    <article className="hover:border-accent/60 hover:shadow-accent/10 bg-card text-card-foreground border-accent/20 relative mx-auto flex h-fit w-[264px] flex-col rounded-2xl border shadow-lg backdrop-blur-sm transition-all duration-300 hover:-translate-y-1 hover:shadow-xl sm:w-full">
+    <article className="hover:border-accent/60 hover:shadow-accent/10 bg-card text-card-foreground border-accent/20 relative mx-auto flex h-fit max-w-[264px] min-w-[264px] flex-col rounded-2xl border shadow-lg backdrop-blur-sm transition-all duration-300 hover:-translate-y-1 hover:shadow-xl sm:w-full sm:max-w-full">
       <Link
         aria-label={`Ver detalhes do jogo ${name}`}
         href={`/game/${id}`}

@@ -109,32 +109,6 @@
     }
   },
 
-  "FooterOld": {
-    "description": "A principal plataforma brasileira para desenvolvedores e jogadores de jogos indie. Conectando talentos, fomentando a criatividade e celebrando a vibrante cultura gamer brasileira.",
-    "copyright": "© 2025 Todos os direitos reservados a LUDUS. 100% Brasil",
-    "company_values_1": "Liberdade - União - Diversidade",
-    "company_values_2": "Utopia - Sustentabilidade",
-    "follow_us": "Siga-nos",
-    "ludus": {
-      "_": "Ludus",
-      "about_us": "Sobre Nós",
-      "our_mission": "Nossa Missão",
-      "team": "Equipe"
-    },
-    "help": {
-      "_": "Suporte",
-      "help_center": "Central de Ajuda",
-      "contact": "Contato",
-      "faq": "Perguntas Frequentes"
-    },
-    "legal": {
-      "_": "Legal",
-      "terms_of_use": "Termos de Uso",
-      "privacy": "Privacidade",
-      "cookies": "Cookies"
-    }
-  },
-
   "GameJamSection": {
     "title": "Game Jam",
     "description": "Participe de competições criativas, desenvolva jogos em tempo limitado e conecte-se com a comunidade indie brasileira.",
@@ -533,6 +507,10 @@
   "Games": {
     "download": "Baixar",
     "wishlist_remove": "Remover da Lista de Desejos",
-    "wishlist_add": "Adicionar à Lista de Desejos"
+    "wishlist_add": "Adicionar à Lista de Desejos",
+    "in_cart": "No Carrinho",
+    "add_to_cart": "Adicionar ao carrinho",
+    "already_in_library": "Na biblioteca",
+    "view_game": "Ver jogo"
   }
 }

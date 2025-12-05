@@ -1,14 +1,17 @@
 "use client";
 
 import { GameCard } from "@/components/game/GameCard";
+import { GameCardLibrary } from "@/components/game/GameCardLibrary";
 import { Carousel, CarouselContent, CarouselNext, CarouselPrevious } from "@/components/ui/carousel";
+import { LibraryGame } from "@/context/AuthContext";
 import { Game } from "@/lib/game";
 
 interface GameListProps {
-  games: Game[];
+  games: (Game | LibraryGame)[];
+  variant?: "store" | "library";
 }
 
-export function GameList({ games }: GameListProps) {
+export function GameList({ games, variant = "store" }: GameListProps) {
   return (
     <>
       <div className="block sm:hidden">
@@ -19,18 +22,22 @@ export function GameList({ games }: GameListProps) {
           }}
           className="w-full"
         >
-          <CarouselContent className="-ml">
-            {games.map((game) => (
-              <GameCard
-                key={game.id}
-                id={game.id}
-                name={game.name}
-                price={game.price}
-                icon={game.icon}
-                rating={game.rating}
-                studio={game.studio}
-              />
-            ))}
+          <CarouselContent className={`-ml-0 ${variant === "store" ? "gap-4" : "gap-2"}`}>
+            {games.map((game) =>
+              variant === "store" ? (
+                <GameCard
+                  key={game.id}
+                  id={game.id}
+                  name={game.name}
+                  price={(game as Game).price}
+                  icon={game.icon}
+                  rating={game.rating}
+                  studio={(game as Game).studio}
+                />
+              ) : (
+                <GameCardLibrary key={game.id} id={game.id} name={game.name} icon={game.icon} rating={game.rating} />
+              ),
+            )}
           </CarouselContent>
 
           <div className="hidden sm:block">
@@ -41,17 +48,21 @@ export function GameList({ games }: GameListProps) {
       </div>
 
       <div className="grid-auto-fill hidden justify-center gap-6 sm:grid">
-        {games.map((game) => (
-          <GameCard
-            key={game.id}
-            id={game.id}
-            name={game.name}
-            price={game.price}
-            icon={game.icon}
-            rating={game.rating}
-            studio={game.studio}
-          />
-        ))}
+        {games.map((game) =>
+          variant === "store" ? (
+            <GameCard
+              key={game.id}
+              id={game.id}
+              name={game.name}
+              price={(game as Game).price}
+              icon={game.icon}
+              rating={game.rating}
+              studio={(game as Game).studio}
+            />
+          ) : (
+            <GameCardLibrary key={game.id} id={game.id} name={game.name} icon={game.icon} rating={game.rating} />
+          ),
+        )}
       </div>
     </>
   );

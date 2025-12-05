@@ -28,7 +28,7 @@ interface Purchase {
   total: number;
 }
 
-interface LibraryGame {
+export interface LibraryGame {
   id: number;
   name: string;
   icon: string;
@@ -284,6 +284,21 @@ export function AuthProvider({ children }: AuthProviderProps) {
     const updatedLibrary = [...library, ...newLibraryGames];
     setLibrary(updatedLibrary);
 
+    const purchasedGameIds = purchaseData.items.map((item) => item.id);
+    const updatedFavorites = favorites.filter((fav) => !purchasedGameIds.includes(fav.id));
+
+    if (updatedFavorites.length !== favorites.length) {
+      setFavorites(updatedFavorites);
+      try {
+        const savedFavorites = localStorage.getItem("games-user-favorites");
+        const allFavorites: Record<number, FavoriteGame[]> = savedFavorites ? JSON.parse(savedFavorites) : {};
+        allFavorites[user.id] = updatedFavorites;
+        localStorage.setItem("games-user-favorites", JSON.stringify(allFavorites));
+      } catch (error) {
+        console.error("Erro ao atualizar favoritos após compra:", error);
+      }
+    }
+
     try {
       const savedPurchases = localStorage.getItem("games-user-purchases");
       const allPurchases: Purchase[] = savedPurchases ? JSON.parse(savedPurchases) : [];
@@ -334,6 +349,11 @@ export function AuthProvider({ children }: AuthProviderProps) {
     if (!user || !user.id) return;
 
     if (isFavorite(game.id)) return;
+
+    if (isGameInLibrary(game.id)) {
+      console.warn("Cannot favorite a game already in library");
+      return;
+    }
 
     const newFavorite: FavoriteGame = {
       ...game,

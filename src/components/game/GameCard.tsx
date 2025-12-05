@@ -1,7 +1,9 @@
+import * as React from "react";
 import Image from "next/image";
 import Link from "next/link";
+import { useRouter } from "next/navigation";
 import { useTranslations } from "next-intl";
-import { Heart, ShoppingCart, Star } from "lucide-react";
+import { Eye, Heart, ShoppingCart, Star } from "lucide-react";
 
 import { useAuth } from "@/context/AuthContext";
 import { useCart } from "@/context/CartContext";
@@ -20,13 +22,18 @@ interface GameCardProps {
 }
 
 export function GameCard({ name, price, icon, id, rating, studio }: GameCardProps) {
+  const router = useRouter();
   const t = useTranslations("Games");
-  const { addFavorite, removeFavorite, isFavorite } = useAuth();
+  const { addFavorite, removeFavorite, isFavorite, isGameInLibrary } = useAuth();
   const { addToCart, isInCart } = useCart();
   const alreadyInCart = isInCart(id);
 
   const handleAddToCart = () => {
-    if (!alreadyInCart) {
+    if (alreadyInCart) {
+      router.push("/cart");
+    }
+
+    if (!isGameInLibrary(id)) {
       addToCart({ id, name, icon, rating, price, studio });
     }
   };
@@ -40,7 +47,7 @@ export function GameCard({ name, price, icon, id, rating, studio }: GameCardProp
   }
 
   return (
-    <article className="group hover:border-primary/60 hover:shadow-primary/10 bg-card text-card-foreground border-border relative mx-auto flex h-full w-[264px] flex-col rounded-2xl border shadow-lg backdrop-blur-sm transition-all duration-300 hover:-translate-y-1 hover:shadow-xl sm:w-full">
+    <article className="group hover:border-primary/60 hover:shadow-primary/10 bg-card text-card-foreground border-border relative mx-auto flex h-full max-w-[264px] min-w-[264px] flex-col rounded-2xl border shadow-lg backdrop-blur-sm transition-all duration-300 hover:-translate-y-1 hover:shadow-xl sm:w-full sm:max-w-full">
       <Link
         aria-label={`Ver detalhes do jogo ${name}`}
         href={`/game/${id}`}
@@ -69,37 +76,50 @@ export function GameCard({ name, price, icon, id, rating, studio }: GameCardProp
             <p className="text-muted-foreground/80 line-clamp-1 text-sm font-medium">{studio}</p>
           </div>
 
-          <div className="flex items-center justify-between gap-2" onClick={(e) => e.preventDefault()}>
+          <div
+            className="flex items-center justify-between gap-2"
+            onClick={(e) => !isGameInLibrary(id) && e.preventDefault()}
+          >
             <Button
               onClick={handleAddToCart}
-              disabled={alreadyInCart}
-              className="text-md bg-primary group-hover: text-primary-foreground sm:text-card-foreground sm:group-hover:bg-primary sm:group-hover:text-primary-foreground relative w-full flex-1 justify-center px-0 font-semibold shadow-md transition-all duration-300 focus:bg-transparent sm:justify-start sm:bg-transparent sm:shadow-none sm:group-hover:justify-center sm:group-hover:shadow-md"
+              className="text-md bg-primary group-hover: text-primary-foreground sm:text-card-foreground sm:group-hover:bg-primary sm:group-focus-within:bg-primary sm:group-hover:text-primary-foreground sm:group-focus-within:text-primary-foreground focus:bg-primary relative w-full flex-1 justify-center font-medium shadow-md transition-all duration-300 sm:justify-start sm:bg-transparent sm:shadow-none sm:group-focus-within:justify-center sm:group-focus-within:shadow-md sm:group-hover:justify-center sm:group-hover:shadow-md"
             >
-              <ShoppingCart
-                className={`mr-2 block h-4 w-4 sm:hidden sm:group-hover:block ${alreadyInCart ? "fill-current" : "fill-transparent"}`}
-              />
+              {isGameInLibrary(id) ? (
+                <Eye className="mr-2 block h-4 w-4 self-center sm:hidden sm:group-focus-within:block sm:group-hover:block" />
+              ) : (
+                <ShoppingCart
+                  className={`mr-2 block h-4 w-4 self-center sm:hidden sm:group-focus-within:block sm:group-hover:block ${alreadyInCart ? "fill-current" : "fill-transparent"}`}
+                />
+              )}
+              <span className="flex items-center justify-center text-center transition-all duration-300 sm:hidden sm:group-focus-within:flex sm:group-hover:flex">
+                {isGameInLibrary(id) ? t("view_game") : alreadyInCart ? t("in_cart") : formatPrice(price)}
+              </span>
 
-              <span className="block transition-all duration-300 group-hover:opacity-100">
-                {alreadyInCart ? "No carrinho" : formatPrice(price)}
+              <span className="hidden text-start transition-all duration-300 sm:block sm:group-focus-within:hidden sm:group-hover:hidden">
+                {formatPrice(price)}
               </span>
             </Button>
 
-            <TooltipProvider>
-              <Tooltip>
-                <TooltipTrigger asChild>
-                  <Button
-                    className="sm:opacity-0 sm:group-hover:opacity-100"
-                    variant={isFavorite(id) ? "destructive" : "favorite"}
-                    onClick={() => handleToggleFavorite(id)}
-                  >
-                    <Heart className={isFavorite(id) ? "fill-current" : ""} />
-                  </Button>
-                </TooltipTrigger>
-                <TooltipContent>
-                  <p>{isFavorite(id) ? t("wishlist_remove") : t("wishlist_add")}</p>
-                </TooltipContent>
-              </Tooltip>
-            </TooltipProvider>
+            {!isGameInLibrary(id) && (
+              <TooltipProvider>
+                <Tooltip>
+                  <TooltipTrigger asChild>
+                    <div>
+                      <Button
+                        className="focus-visible:border-destructive focus-visible:ring-destructive disabled:opacity-0 group-focus-within:disabled:opacity-50 group-hover:disabled:opacity-50 sm:opacity-0 sm:group-focus-within:opacity-100 sm:group-hover:opacity-100"
+                        variant={isFavorite(id) ? "destructive" : "favorite"}
+                        onClick={() => handleToggleFavorite(id)}
+                      >
+                        <Heart className={isFavorite(id) ? "fill-current" : ""} />
+                      </Button>
+                    </div>
+                  </TooltipTrigger>
+                  <TooltipContent>
+                    <p>{isFavorite(id) ? t("wishlist_remove") : t("wishlist_add")}</p>
+                  </TooltipContent>
+                </Tooltip>
+              </TooltipProvider>
+            )}
           </div>
         </div>
       </Link>

@@ -24,13 +24,11 @@ export default function PurchasesPage() {
 
   return (
     <div className="space-y-6">
-      <div className="flex items-center justify-between">
-        <h2 className="text-foreground font-ludus-pixelify-sans xs:block hidden text-2xl font-bold">
-          {t("purchases.title")}
-        </h2>
+      <div className="xs:flex-row xs:justify-between flex flex-col items-center justify-center gap-2">
+        <h2 className="text-foreground font-ludus-pixelify-sans xs:block text-2xl font-bold">{t("purchases.title")}</h2>
 
         <div className="text-right">
-          <p className="text-muted-foreground text-sm">{t("purchases.total_spent")}</p>
+          <p className="text-muted-foreground w-fit text-sm">{t("purchases.total_spent")}</p>
           <p className="text-highlight text-xl font-bold">{formatPrice(totalSpent)}</p>
         </div>
       </div>

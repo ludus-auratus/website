@@ -5,7 +5,7 @@ import Link from "next/link";
 import { useTranslations } from "next-intl";
 import { Library, Search, X } from "lucide-react";
 
-import { GameCardLibrary } from "@/components/game/GameCardLibrary";
+import { GameList } from "@/components/game/GameList";
 import { Button } from "@/components/ui/button";
 import {
   EmptyState,
@@ -26,12 +26,10 @@ export default function MyLibraryPage() {
 
   return (
     <div className="space-y-6">
-      <div className="flex items-center justify-between">
-        <h2 className="text-foreground font-ludus-pixelify-sans xs:block hidden text-2xl font-bold">
-          {t("library.title")}
-        </h2>
+      <div className="xs:flex-row xs:justify-between flex flex-col items-center justify-center gap-2">
+        <h2 className="text-foreground font-ludus-pixelify-sans xs:block text-2xl font-bold">{t("library.title")}</h2>
 
-        <div className="xs:flex-none relative ml-auto flex-1">
+        <div className="xs:flex-none xs:ml-auto relative flex-1">
           <Search className="text-muted-foreground absolute top-1/2 left-3 h-4 w-4 -translate-y-1/2 transform" />
 
           <Input
@@ -55,7 +53,7 @@ export default function MyLibraryPage() {
         </div>
       </div>
 
-      <div className="grid-auto-fill grid gap-6">
+      <div className="sm:grid-auto-fill gap-6 sm:grid">
         {library.length === 0 ? (
           <div className="col-span-full">
             <EmptyState>
@@ -81,9 +79,7 @@ export default function MyLibraryPage() {
             </EmptyState>
           </div>
         ) : (
-          filteredGames.map((game) => (
-            <GameCardLibrary key={game.id} id={game.id} name={game.name} icon={game.icon} rating={game.rating} />
-          ))
+          <GameList games={filteredGames} variant="library" />
         )}
       </div>
     </div>

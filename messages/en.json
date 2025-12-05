@@ -176,7 +176,10 @@
       "publisher": "Publisher",
       "accessibility_tags": "Accessibility",
       "gender_tags": "Genders",
-      "resource_tags": "Resources"
+      "resource_tags": "Resources",
+      "price": "Price",
+      "language": "Languages",
+      "additional_info": "Additional Info"
     }
   },
   "Footer": {
@@ -206,29 +209,21 @@
       "slogan": "Freedom - Union - Diversity - Utopia - Sustainability"
     }
   },
-  "FooterOld": {
-    "description": "The leading Brazilian platform for indie game developers and players. Connecting talent, fostering creativity and celebrating the vibrant Brazilian gamer culture.",
-    "copyright": "© 2025 All rights reserved to LUDUS. 100% Brazilian.",
-    "company_values_1": "Freedom - Union - Diversity",
-    "company_values_2": "Utopia - Sustainability",
-    "follow_us": "Follow us",
-    "ludus": {
-      "_": "Ludus",
-      "about_us": "About Us",
-      "our_mission": "Our Mission",
-      "team": "Team"
-    },
-    "help": {
-      "_": "Help",
-      "help_center": "Help Center",
-      "contact": "Contact",
-      "faq": "Frequently Asked Questions"
-    },
-    "legal": {
-      "_": "Legal",
-      "terms_of_use": "Terms of Use",
-      "privacy": "Privacy",
-      "cookies": "Cookies"
+  "Dev": {
+    "sections": {
+      "dashboard": "Dashboard",
+      "analytics": "Analytics",
+      "publications": "Publications",
+      "reviews": "Reviews",
+      "settings": "Settings"
+    }
+  },
+  "DevDashboard": {
+    "game_status": {
+      "published": "Published",
+      "unpublished": "Unpublished",
+      "revision": "In Review",
+      "draft": "Draft"
     }
   },
   "GameJamSection": {
@@ -502,6 +497,10 @@
   "Games": {
     "download": "Download",
     "wishlist_remove": "Remove from Wishlist",
-    "wishlist_add": "Add to Wishlist"
+    "wishlist_add": "Add to Wishlist",
+    "in_cart": "In Cart",
+    "add_to_cart": "Add to Cart",
+    "already_in_library": "In library",
+    "view_game": "View game"
   }
 }

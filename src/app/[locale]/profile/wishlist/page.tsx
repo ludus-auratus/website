@@ -26,12 +26,10 @@ export default function WishlistPage() {
 
   return (
     <div className="space-y-6">
-      <div className="flex items-center justify-between">
-        <h2 className="text-foreground font-ludus-pixelify-sans xs:block hidden text-2xl font-bold">
-          {t("wishlist.title")}
-        </h2>
+      <div className="xs:flex-row xs:justify-between flex flex-col items-center justify-center gap-2">
+        <h2 className="text-foreground font-ludus-pixelify-sans xs:block text-2xl font-bold">{t("wishlist.title")}</h2>
 
-        <div className="xs:flex-none relative ml-auto flex-1">
+        <div className="xs:flex-none xs:ml-auto relative flex-1">
           <Search className="text-muted-foreground absolute top-1/2 left-3 h-4 w-4 -translate-y-1/2 transform" />
 
           <Input
