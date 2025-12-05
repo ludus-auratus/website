@@ -38,7 +38,7 @@ export default function GameSectionInfo(props: Props) {
           <GameActions game={data} />
           <GameTagContainer title="gender_tags" content={genderTags} opened />
           <GameTagContainer title="resource_tags" content={resourceTags} opened />
-          <GameTagContainer title="acessibility_tags" content={[]} opened />
+          <GameTagContainer title="accessibility_tags" content={[]} opened />
           <GameLanguageContainer languages={data.supportedLanguages} />
           <GameAdditionalInfo game={data} />
         </div>

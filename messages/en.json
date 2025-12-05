@@ -12,6 +12,17 @@
     "pt-BR": "Portuguese"
   },
 
+  "Validation": {
+    "required": "This field is required",
+    "email_invalid": "Invalid email address",
+    "min_length": "Must be at least {min} characters",
+    "password_mismatch": "Passwords do not match",
+    "terms_required": "You must agree to the terms",
+    "invalid_year": "Invalid year (1950-2010)",
+    "email_or_password_invalid": "Invalid email or password",
+    "invalid_date": "Invalid date of birth"
+  },
+
   "Developers": {
     "Presentation": {
       "title": "Publish your games on the/Biggest Indie Platform/from Brazil",
@@ -25,7 +36,7 @@
       "items": {
         "0": {
           "title": "Engaged Community",
-          "description": "Reach thousands of brasilian player who loves brazilian indie games"
+          "description": "Reach thousands of brazilian player who loves brazilian indie games"
         },
         "1": {
           "title": "Fair Revenue Model",
@@ -40,7 +51,7 @@
           "description": "Brazilian team ready to help developers in Portuguese"
         },
         "4": {
-          "title": "Multi-plataform",
+          "title": "Multi-platform",
           "description": "Accessible marketplace for mobile devices and computers via the Web"
         },
         "5": {
@@ -84,7 +95,7 @@
     },
 
     "FAQ": {
-      "title": "Fequent Asked Questions",
+      "title": "Frequent Asked Questions",
       "description": "Clear your doubts about how to publish on Ludus",
       "questions": {
         "approval_time": {
@@ -163,6 +174,7 @@
       "release_date": "Launching Date",
       "developer": "Developer",
       "publisher": "Publisher",
+      "accessibility_tags": "Accessibility",
       "gender_tags": "Genders",
       "resource_tags": "Resources"
     }
@@ -330,7 +342,12 @@
         "show_password": "Show password",
         "hide_password": "Hide password",
         "forgot_password": "Forgot your password?",
-        "submit": "Sign In"
+        "submit": "Sign In",
+        "success_title": "Login successful!",
+        "success_description": "You will be redirected shortly.",
+        "error_title": "Login failed",
+        "error_description": "An unexpected error occurred. Please try again.",
+        "error_credentials": "Invalid email or password."
       },
       "register": {
         "aria_label": "Registration form",
@@ -344,8 +361,8 @@
         "email_placeholder": "your@email.com",
         "region": "State",
         "region_placeholder": "Select your state",
-        "birth_year": "Birth Year",
-        "birth_year_placeholder": "1990",
+        "birth_date": "Date of Birth",
+        "birth_date_placeholder": "Select date",
         "password": "Password",
         "password_placeholder": "••••••••",
         "confirm_password": "Confirm Password",
@@ -356,7 +373,11 @@
         "and": "and",
         "privacy_policy": "Privacy Policy",
         "of_ludus": "of Ludus",
-        "submit": "Create Account"
+        "submit": "Create Account",
+        "success_title": "Account created successfully!",
+        "success_description": "Redirecting to your dashboard...",
+        "error_title": "Registration failed",
+        "error_description": "Could not create your account. Please try again."
       }
     }
   },

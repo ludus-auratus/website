@@ -1,29 +1,20 @@
 "use client";
 
 import { useState } from "react";
+import { Controller, Resolver, useForm } from "react-hook-form";
 import Link from "next/link";
-import { redirect } from "next/navigation";
+import { useRouter } from "next/navigation";
 import { useTranslations } from "next-intl";
-import { Eye, EyeOff } from "lucide-react";
+import { Eye, EyeOff, Loader2 } from "lucide-react";
+import { toast } from "sonner";
+import { z } from "zod";
 
 import { Button } from "@/components/ui/button";
 import { Checkbox } from "@/components/ui/checkbox";
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select";
-
-interface RegisterFormData {
-  firstName: string;
-  lastName: string;
-  username: string;
-  email: string;
-  region: string;
-  birthYear: string;
-  password: string;
-  confirmPassword: string;
-  agreeTerms: boolean;
-  agreeNewsletter: boolean;
-}
+import { zodResolver } from "@hookform/resolvers/zod";
 
 const brazilianStates = [
   "Acre",
@@ -57,36 +48,81 @@ const brazilianStates = [
 
 export function RegisterForm() {
   const t = useTranslations("Auth.forms.register");
-  const [formData, setFormData] = useState<RegisterFormData>({
-    firstName: "",
-    lastName: "",
-    username: "",
-    email: "",
-    region: "",
-    birthYear: "",
-    password: "",
-    confirmPassword: "",
-    agreeTerms: false,
-    agreeNewsletter: false,
-  });
+  const tValidation = useTranslations("Validation");
   const [showPassword, setShowPassword] = useState(false);
   const [showConfirmPassword, setShowConfirmPassword] = useState(false);
+  const router = useRouter();
 
-  function handleChange(event: React.ChangeEvent<HTMLInputElement>) {
-    const { id, value } = event.target;
+  const registerSchema = z
+    .object({
+      firstName: z.string().min(1, tValidation("required")),
+      lastName: z.string().min(1, tValidation("required")),
+      username: z.string().min(3, tValidation("min_length", { min: 3 })),
+      email: z
+        .string()
+        .min(1, tValidation("required"))
+        .pipe(z.email(tValidation("email_invalid"))),
+      region: z.string().min(1, tValidation("required")),
+      birthDate: z.coerce
+        .date({
+          message: tValidation("invalid_date"),
+        })
+        .refine((date) => date >= new Date("1900-01-01"), tValidation("invalid_date")),
+      password: z.string().min(6, tValidation("min_length", { min: 6 })),
+      confirmPassword: z.string().min(6, tValidation("min_length", { min: 6 })),
+      agreeTerms: z.boolean().refine((val) => val === true, {
+        message: tValidation("terms_required"),
+      }),
+    })
+    .refine((data) => data.password === data.confirmPassword, {
+      message: tValidation("password_mismatch"),
+      path: ["confirmPassword"],
+    });
 
-    setFormData((prev) => ({ ...prev, [id]: value }));
-  }
+  type RegisterFormData = z.infer<typeof registerSchema>;
 
-  function handleSubmit(e: React.FormEvent) {
-    e.preventDefault();
+  const {
+    register,
+    handleSubmit,
+    control,
+    formState: { errors, isSubmitting },
+    watch,
+  } = useForm<RegisterFormData>({
+    resolver: zodResolver(registerSchema) as Resolver<RegisterFormData>,
+    defaultValues: {
+      firstName: "",
+      lastName: "",
+      username: "",
+      email: "",
+      region: "",
+      birthDate: undefined,
+      password: "",
+      confirmPassword: "",
+      agreeTerms: false,
+    },
+  });
 
-    console.log("Registro enviado:", formData);
-    redirect("/");
+  const agreeTerms = watch("agreeTerms");
+
+  async function onSubmit(data: RegisterFormData) {
+    try {
+      await new Promise((resolve) => setTimeout(resolve, 2000));
+
+      console.log("Registro enviado:", data);
+
+      toast.success(t("success_title"));
+
+      router.push("/");
+    } catch (error) {
+      console.error("Erro no registro:", error);
+      toast.error(t("error_title"), {
+        description: t("error_description"),
+      });
+    }
   }
 
   return (
-    <form onSubmit={handleSubmit} className="space-y-6" aria-label={t("aria_label")}>
+    <form onSubmit={handleSubmit(onSubmit)} className="space-y-6" aria-label={t("aria_label")} noValidate>
       <div className="grid grid-cols-1 gap-4 md:grid-cols-2">
         <div className="space-y-2">
           <Label htmlFor="firstName" className="text-foreground">
@@ -97,10 +133,11 @@ export function RegisterForm() {
             id="firstName"
             type="text"
             placeholder={t("first_name_placeholder")}
-            value={formData.firstName}
-            onChange={handleChange}
-            required
+            {...register("firstName")}
+            aria-invalid={!!errors.firstName}
+            disabled={isSubmitting}
           />
+          {errors.firstName && <p className="text-destructive text-sm">{errors.firstName.message}</p>}
         </div>
 
         <div className="space-y-2">
@@ -112,10 +149,11 @@ export function RegisterForm() {
             id="lastName"
             type="text"
             placeholder={t("last_name_placeholder")}
-            value={formData.lastName}
-            onChange={handleChange}
-            required
+            {...register("lastName")}
+            aria-invalid={!!errors.lastName}
+            disabled={isSubmitting}
           />
+          {errors.lastName && <p className="text-destructive text-sm">{errors.lastName.message}</p>}
         </div>
       </div>
 
@@ -128,13 +166,13 @@ export function RegisterForm() {
           id="username"
           type="text"
           placeholder={t("username_placeholder")}
-          value={formData.username}
-          onChange={handleChange}
-          required
+          {...register("username")}
+          aria-invalid={!!errors.username}
+          disabled={isSubmitting}
         />
+        {errors.username && <p className="text-destructive text-sm">{errors.username.message}</p>}
       </div>
 
-      {/* Email */}
       <div className="space-y-2">
         <Label htmlFor="email" className="text-foreground">
           {t("email")} *
@@ -144,51 +182,58 @@ export function RegisterForm() {
           id="email"
           type="email"
           placeholder={t("email_placeholder")}
-          value={formData.email}
-          onChange={handleChange}
+          {...register("email")}
           autoComplete="email"
-          required
+          aria-invalid={!!errors.email}
+          disabled={isSubmitting}
         />
+        {errors.email && <p className="text-destructive text-sm">{errors.email.message}</p>}
       </div>
 
       <div className="grid grid-cols-1 gap-4 md:grid-cols-2">
         <div className="space-y-2">
           <Label htmlFor="region" className="text-foreground">
-            {t("region")}
+            {t("region")} *
           </Label>
 
-          <Select
-            value={formData.region}
-            onValueChange={(value) => setFormData((prev) => ({ ...prev, region: value }))}
-          >
-            <SelectTrigger size="default" className="bg-input-background w-full">
-              <SelectValue placeholder={t("region_placeholder")} />
-            </SelectTrigger>
+          <Controller
+            control={control}
+            name="region"
+            render={({ field }) => (
+              <Select onValueChange={field.onChange} defaultValue={field.value} disabled={isSubmitting}>
+                <SelectTrigger size="default" aria-invalid={!!errors.region} className="bg-input-background w-full">
+                  <SelectValue placeholder={t("region_placeholder")} />
+                </SelectTrigger>
 
-            <SelectContent>
-              {brazilianStates.map((state) => (
-                <SelectItem key={state} value={state}>
-                  {state}
-                </SelectItem>
-              ))}
-            </SelectContent>
-          </Select>
+                <SelectContent>
+                  {brazilianStates.map((state) => (
+                    <SelectItem key={state} value={state}>
+                      {state}
+                    </SelectItem>
+                  ))}
+                </SelectContent>
+              </Select>
+            )}
+          />
+          {errors.region && <p className="text-destructive text-sm">{errors.region.message}</p>}
         </div>
 
         <div className="space-y-2">
-          <Label htmlFor="birthYear" className="text-foreground">
-            {t("birth_year")}
+          <Label htmlFor="birthDate" className="text-foreground">
+            {t("birth_date")} *
           </Label>
 
           <Input
-            id="birthYear"
-            type="number"
-            placeholder={t("birth_year_placeholder")}
-            min="1950"
-            max="2010"
-            value={formData.birthYear}
-            onChange={handleChange}
+            id="birthDate"
+            type="date"
+            className="input-date"
+            placeholder={t("birth_date_placeholder")}
+            {...register("birthDate")}
+            max={new Date().toISOString().split("T")[0]}
+            aria-invalid={!!errors.birthDate}
+            disabled={isSubmitting}
           />
+          {errors.birthDate && <p className="text-destructive text-sm">{errors.birthDate.message}</p>}
         </div>
       </div>
 
@@ -203,11 +248,11 @@ export function RegisterForm() {
               id="password"
               type={showPassword ? "text" : "password"}
               placeholder={t("password_placeholder")}
-              value={formData.password}
-              onChange={handleChange}
+              {...register("password")}
               autoComplete="new-password"
               className="pr-12"
-              required
+              aria-invalid={!!errors.password}
+              disabled={isSubmitting}
             />
 
             <Button
@@ -217,6 +262,7 @@ export function RegisterForm() {
               aria-label={showPassword ? t("hide_password") : t("show_password")}
               className="absolute top-0 right-0 h-12 px-3 hover:bg-transparent"
               onClick={() => setShowPassword((prev) => !prev)}
+              disabled={isSubmitting}
             >
               {showPassword ? (
                 <EyeOff className="text-muted-foreground h-4 w-4" />
@@ -225,6 +271,7 @@ export function RegisterForm() {
               )}
             </Button>
           </div>
+          {errors.password && <p className="text-destructive text-sm">{errors.password.message}</p>}
         </div>
 
         <div className="space-y-2">
@@ -237,11 +284,11 @@ export function RegisterForm() {
               id="confirmPassword"
               type={showConfirmPassword ? "text" : "password"}
               placeholder={t("password_placeholder")}
-              value={formData.confirmPassword}
-              onChange={handleChange}
+              {...register("confirmPassword")}
               autoComplete="new-password"
               className="pr-12"
-              required
+              aria-invalid={!!errors.confirmPassword}
+              disabled={isSubmitting}
             />
 
             <Button
@@ -251,6 +298,7 @@ export function RegisterForm() {
               aria-label={showConfirmPassword ? t("hide_password") : t("show_password")}
               className="absolute top-0 right-0 h-12 px-3 hover:bg-transparent"
               onClick={() => setShowConfirmPassword((prev) => !prev)}
+              disabled={isSubmitting}
             >
               {showConfirmPassword ? (
                 <EyeOff className="text-muted-foreground h-4 w-4" />
@@ -259,17 +307,24 @@ export function RegisterForm() {
               )}
             </Button>
           </div>
+          {errors.confirmPassword && <p className="text-destructive text-sm">{errors.confirmPassword.message}</p>}
         </div>
       </div>
 
       <div className="space-y-4">
         <div className="flex items-start gap-3">
-          <Checkbox
-            id="agreeTerms"
-            checked={formData.agreeTerms}
-            onCheckedChange={(checked) => setFormData((prev) => ({ ...prev, agreeTerms: checked as boolean }))}
-            className="mt-1"
-            required
+          <Controller
+            control={control}
+            name="agreeTerms"
+            render={({ field }) => (
+              <Checkbox
+                id="agreeTerms"
+                checked={field.value}
+                onCheckedChange={field.onChange}
+                className="mt-1"
+                disabled={isSubmitting}
+              />
+            )}
           />
 
           <Label htmlFor="agreeTerms" className="text-foreground block text-sm leading-relaxed">
@@ -284,14 +339,22 @@ export function RegisterForm() {
             {t("of_ludus")} *
           </Label>
         </div>
+        {errors.agreeTerms && <p className="text-destructive text-sm">{errors.agreeTerms.message}</p>}
       </div>
 
       <Button
         type="submit"
-        disabled={!formData.agreeTerms}
+        disabled={!agreeTerms || isSubmitting}
         className="h-12 w-full rounded-xl text-lg shadow-lg hover:shadow-xl"
       >
-        {t("submit")}
+        {isSubmitting ? (
+          <>
+            <Loader2 className="mr-2 h-5 w-5 animate-spin" />
+            {t("submit")}...
+          </>
+        ) : (
+          t("submit")
+        )}
       </Button>
     </form>
   );

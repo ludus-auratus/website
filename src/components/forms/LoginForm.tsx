@@ -1,66 +1,88 @@
 "use client";
 
-import { useState, useTransition } from "react";
+import { useState } from "react";
+import { useForm } from "react-hook-form";
 import { useRouter } from "next/navigation";
 import { useTranslations } from "next-intl";
 import { Eye, EyeOff, Loader2 } from "lucide-react";
 import { toast } from "sonner";
+import { z } from "zod";
 
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
 import { useAuth } from "@/context/AuthContext";
-
-interface LoginFormData {
-  email: string;
-  password: string;
-}
+import { zodResolver } from "@hookform/resolvers/zod";
 
 export function LoginForm() {
   const t = useTranslations("Auth.forms.login");
+  const tValidation = useTranslations("Validation");
   const router = useRouter();
   const { login } = useAuth();
 
-  const [formData, setFormData] = useState<LoginFormData>({ email: "", password: "" });
   const [showPassword, setShowPassword] = useState(false);
-  const [isPending, startTransition] = useTransition();
 
-  function handleChange(event: React.ChangeEvent<HTMLInputElement>) {
-    const { id, value } = event.target;
+  const loginSchema = z.object({
+    email: z
+      .string()
+      .min(1, tValidation("required"))
+      .pipe(z.email(tValidation("email_invalid"))),
+    password: z.string().min(1, tValidation("required")),
+  });
 
-    setFormData((prev) => ({ ...prev, [id]: value }));
-  }
+  type LoginFormData = z.infer<typeof loginSchema>;
 
-  function handleSubmit(e: React.FormEvent) {
-    e.preventDefault();
+  const {
+    register,
+    handleSubmit,
+    setError,
+    formState: { errors, isSubmitting },
+  } = useForm<LoginFormData>({
+    resolver: zodResolver(loginSchema),
+    defaultValues: {
+      email: "",
+      password: "",
+    },
+  });
 
-    startTransition(async () => {
-      try {
-        const success = await login(formData.email, formData.password);
+  async function onSubmit(data: LoginFormData) {
+    try {
+      const success = await login(data.email, data.password);
 
-        if (success) {
-          toast.success("Login realizado com sucesso!", {
-            description: "Você será redirecionado em instantes.",
-          });
+      if (!success) {
+        const errorMessage = tValidation("email_or_password_invalid");
 
-          router.push("/");
-          router.refresh();
-        } else {
-          toast.error("Erro ao fazer login", {
-            description: "Email ou senha incorretos. Tente novamente.",
-          });
-        }
-      } catch (error) {
-        console.error("Erro no login:", error);
-        toast.error("Erro inesperado", {
-          description: "Ocorreu um erro ao processar seu login. Tente novamente.",
+        setError("email", {
+          type: "manual",
+          message: errorMessage,
         });
+
+        setError("password", {
+          type: "manual",
+          message: errorMessage,
+        });
+
+        toast.error(t("error_title"), {
+          description: t("error_credentials"),
+        });
+
+        return;
       }
-    });
+
+      toast.success(t("success_title"));
+
+      router.push("/");
+      router.refresh();
+    } catch (error) {
+      console.error("Erro no login:", error);
+      toast.error(t("error_title"), {
+        description: t("error_description"),
+      });
+    }
   }
 
   return (
-    <form onSubmit={handleSubmit} className="space-y-6" aria-label={t("aria_label")}>
+    <form onSubmit={handleSubmit(onSubmit)} className="space-y-6" aria-label={t("aria_label")} noValidate>
       <div className="space-y-2">
         <Label htmlFor="email">{t("email")}</Label>
 
@@ -68,12 +90,12 @@ export function LoginForm() {
           id="email"
           type="email"
           placeholder={t("email_placeholder")}
-          value={formData.email}
-          onChange={handleChange}
+          {...register("email")}
           autoComplete="email"
-          disabled={isPending}
-          required
+          disabled={isSubmitting}
+          aria-invalid={!!errors.email}
         />
+        {errors.email && <p className="text-destructive text-sm">{errors.email.message}</p>}
       </div>
 
       <div className="space-y-2">
@@ -84,12 +106,11 @@ export function LoginForm() {
             id="password"
             type={showPassword ? "text" : "password"}
             placeholder={t("password_placeholder")}
-            value={formData.password}
-            onChange={handleChange}
+            {...register("password")}
             autoComplete="current-password"
             className="pr-12"
-            disabled={isPending}
-            required
+            disabled={isSubmitting}
+            aria-invalid={!!errors.password}
           />
 
           <Button
@@ -99,7 +120,7 @@ export function LoginForm() {
             aria-label={showPassword ? t("hide_password") : t("show_password")}
             className="absolute top-0 right-0 h-12 px-3 hover:bg-transparent"
             onClick={() => setShowPassword((prev) => !prev)}
-            disabled={isPending}
+            disabled={isSubmitting}
           >
             {showPassword ? (
               <EyeOff className="text-muted-foreground h-4 w-4" />
@@ -108,10 +129,11 @@ export function LoginForm() {
             )}
           </Button>
         </div>
+        {errors.password && <p className="text-destructive text-sm">{errors.password.message}</p>}
       </div>
 
       <div className="flex items-center justify-between">
-        <Button type="button" variant="link" className="text-primary h-auto p-0 text-sm" disabled={isPending}>
+        <Button type="button" variant="link" className="text-primary h-auto p-0 text-sm" disabled={isSubmitting}>
           {t("forgot_password")}
         </Button>
       </div>
@@ -119,12 +141,12 @@ export function LoginForm() {
       <Button
         type="submit"
         className="h-12 w-full rounded-xl text-lg shadow-lg transition-all duration-200 hover:shadow-xl"
-        disabled={isPending}
+        disabled={isSubmitting}
       >
-        {isPending ? (
+        {isSubmitting ? (
           <>
             <Loader2 className="mr-2 h-5 w-5 animate-spin" />
-            Entrando...
+            {t("submit")}...
           </>
         ) : (
           t("submit")

@@ -400,3 +400,7 @@
 html {
   scroll-behavior: smooth;
 }
+
+.input-date::-webkit-calendar-picker-indicator {
+  @apply text-muted-foreground cursor-pointer opacity-70 invert;
+}

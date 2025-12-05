@@ -128,7 +128,7 @@ export default function DevAnalyticsPage() {
                   className={`${
                     stat.trend === "up"
                       ? "border-green-500/20 bg-green-500/10 text-green-500"
-                      : "border-red-500/20 bg-red-500/10 text-red-500"
+                      : "text-destructive border-red-500/20 bg-red-500/10"
                   }`}
                 >
                   {stat.trend === "up" ? <ArrowUp className="mr-1 h-3 w-3" /> : <ArrowDown className="mr-1 h-3 w-3" />}

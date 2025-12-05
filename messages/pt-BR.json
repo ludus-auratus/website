@@ -12,6 +12,17 @@
     "pt-BR": "Português"
   },
 
+  "Validation": {
+    "required": "Este campo é obrigatório",
+    "email_invalid": "Endereço de e-mail inválido",
+    "min_length": "Deve ter pelo menos {min} caracteres",
+    "password_mismatch": "As senhas não coincidem",
+    "terms_required": "Você deve concordar com os termos",
+    "invalid_year": "Ano inválido (1950-2010)",
+    "email_or_password_invalid": "E-mail ou senha inválidos",
+    "invalid_date": "Data de nascimento inválida"
+  },
+
   "Test": {
     "default": "Padrão",
     "secondary": "Secundário",
@@ -63,7 +74,7 @@
       "publisher": "Publicadora",
       "gender_tags": "Gêneros",
       "resource_tags": "Recursos",
-      "acessibility_tags": "Acessibilidade",
+      "accessibility_tags": "Acessibilidade",
       "price": "Preço",
       "language": "Idiomas",
       "additional_info": "Informação Adicional"
@@ -361,7 +372,12 @@
         "show_password": "Mostrar senha",
         "hide_password": "Ocultar senha",
         "forgot_password": "Esqueceu a senha?",
-        "submit": "Entrar"
+        "submit": "Entrar",
+        "success_title": "Login realizado com sucesso!",
+        "success_description": "Você será redirecionado em instantes.",
+        "error_title": "Falha no login",
+        "error_description": "Ocorreu um erro inesperado. Tente novamente.",
+        "error_credentials": "E-mail ou senha inválidos."
       },
       "register": {
         "aria_label": "Formulário de registro",
@@ -375,8 +391,8 @@
         "email_placeholder": "seu@email.com",
         "region": "Estado",
         "region_placeholder": "Selecione seu estado",
-        "birth_year": "Ano de nascimento",
-        "birth_year_placeholder": "1990",
+        "birth_date": "Data de nascimento",
+        "birth_date_placeholder": "Selecione a data",
         "password": "Senha",
         "password_placeholder": "••••••••",
         "confirm_password": "Confirmar senha",
@@ -387,7 +403,11 @@
         "and": "e",
         "privacy_policy": "Política de Privacidade",
         "of_ludus": "do Ludus",
-        "submit": "Criar Conta"
+        "submit": "Criar Conta",
+        "success_title": "Conta criada com sucesso!",
+        "success_description": "Redirecionando para seu painel...",
+        "error_title": "Falha no registro",
+        "error_description": "Não foi possível criar sua conta. Tente novamente."
       }
     }
   },
