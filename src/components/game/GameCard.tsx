@@ -24,9 +24,10 @@ interface GameCardProps {
 export function GameCard({ name, price, icon, id, rating, studio }: GameCardProps) {
   const router = useRouter();
   const t = useTranslations("Games");
-  const { addFavorite, removeFavorite, isFavorite, isGameInLibrary } = useAuth();
+  const { addFavorite, removeFavorite, isFavorite, isGameInLibrary, isAuthenticated } = useAuth();
   const { addToCart, isInCart } = useCart();
   const alreadyInCart = isInCart(id);
+  const alreadyInFavorite = isFavorite(id);
 
   const handleAddToCart = () => {
     if (alreadyInCart) {
@@ -38,13 +39,19 @@ export function GameCard({ name, price, icon, id, rating, studio }: GameCardProp
     }
   };
 
-  function handleToggleFavorite(id: number) {
-    if (isFavorite(id)) {
-      removeFavorite(id);
-    } else {
-      addFavorite({ id, name, icon, rating, price, studio });
+  const handleToggleFavorite = () => {
+    if (!isAuthenticated()) {
+      router.push("/login");
+      return;
     }
-  }
+
+    if (alreadyInFavorite) {
+      removeFavorite(id);
+      return;
+    }
+
+    addFavorite({ id, name, icon, rating, price, studio });
+  };
 
   return (
     <article className="group hover:border-primary/60 hover:shadow-primary/10 bg-card text-card-foreground border-border relative mx-auto flex h-full max-w-[264px] min-w-[264px] flex-col rounded-2xl border shadow-lg backdrop-blur-sm transition-all duration-300 hover:-translate-y-1 hover:shadow-xl sm:w-full sm:max-w-full">
@@ -108,7 +115,7 @@ export function GameCard({ name, price, icon, id, rating, studio }: GameCardProp
                       <Button
                         className="focus-visible:border-destructive focus-visible:ring-destructive disabled:opacity-0 group-focus-within:disabled:opacity-50 group-hover:disabled:opacity-50 sm:opacity-0 sm:group-focus-within:opacity-100 sm:group-hover:opacity-100"
                         variant={isFavorite(id) ? "destructive" : "favorite"}
-                        onClick={() => handleToggleFavorite(id)}
+                        onClick={handleToggleFavorite}
                       >
                         <Heart className={isFavorite(id) ? "fill-current" : ""} />
                       </Button>

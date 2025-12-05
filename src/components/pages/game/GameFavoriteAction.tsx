@@ -1,5 +1,6 @@
 "use client";
 
+import { useRouter } from "next/navigation";
 import { useTranslations } from "next-intl";
 import { Heart } from "lucide-react";
 
@@ -13,19 +14,26 @@ type Props = {
 
 export function GameFavoriteAction({ game }: Props) {
   const t = useTranslations("Games");
-  const { addFavorite, isFavorite, removeFavorite } = useAuth();
+  const router = useRouter();
+  const { addFavorite, isFavorite, removeFavorite, isAuthenticated } = useAuth();
   const alreadyInFavorite = isFavorite(game.id);
 
-  const handleClick = () => {
+  const handleFavorite = () => {
+    if (!isAuthenticated()) {
+      router.push("/login");
+      return;
+    }
+
     if (alreadyInFavorite) {
       removeFavorite(game.id);
-    } else {
-      addFavorite(game);
+      return;
     }
+
+    addFavorite(game);
   };
 
   return (
-    <Button className="w-full" variant={isFavorite(game.id) ? "destructive" : "favorite"} onClick={handleClick}>
+    <Button className="w-full" variant={isFavorite(game.id) ? "destructive" : "favorite"} onClick={handleFavorite}>
       <Heart className={`size-4 ${alreadyInFavorite ? "fill-current" : "fill-transparent"}`} />
       {alreadyInFavorite ? t("wishlist_remove") : t("wishlist_add")}
     </Button>

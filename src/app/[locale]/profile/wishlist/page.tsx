@@ -6,6 +6,7 @@ import { useTranslations } from "next-intl";
 import { Heart, Search, X } from "lucide-react";
 
 import { GameCard } from "@/components/game/GameCard";
+import { GameList } from "@/components/game/GameList";
 import { Button } from "@/components/ui/button";
 import {
   EmptyState,
@@ -53,45 +54,33 @@ export default function WishlistPage() {
         </div>
       </div>
 
-      <div className="grid-auto-fill grid gap-6">
-        {favorites.length === 0 ? (
-          <div className="col-span-full">
-            <EmptyState>
-              <EmptyStateIcon icon={Heart} />
-              <EmptyStateTitle>{t("wishlist.empty.title")}</EmptyStateTitle>
-              <EmptyStateDescription>{t("wishlist.empty.description")}</EmptyStateDescription>
-              <EmptyStateActions>
-                <Button size="lg" asChild>
-                  <Link href="/catalog">{t("wishlist.empty.button")}</Link>
-                </Button>
-              </EmptyStateActions>
-            </EmptyState>
-          </div>
-        ) : filteredGames.length === 0 ? (
-          <div className="col-span-full">
-            <EmptyState>
-              <EmptyStateIcon icon={Search} />
-              <EmptyStateTitle>{t("wishlist.no_results.title")}</EmptyStateTitle>
-              <EmptyStateDescription>{t("wishlist.no_results.description", { searchTerm })}</EmptyStateDescription>
-              <EmptyStateActions>
-                <Button onClick={() => setSearchTerm("")}>{t("wishlist.clear_search")}</Button>
-              </EmptyStateActions>
-            </EmptyState>
-          </div>
-        ) : (
-          filteredGames.map((game) => (
-            <GameCard
-              key={game.id}
-              id={game.id}
-              name={game.name}
-              price={game.price}
-              icon={game.icon}
-              rating={game.rating}
-              studio={game.studio}
-            />
-          ))
-        )}
-      </div>
+      {favorites.length === 0 ? (
+        <div className="col-span-full">
+          <EmptyState>
+            <EmptyStateIcon icon={Heart} />
+            <EmptyStateTitle>{t("wishlist.empty.title")}</EmptyStateTitle>
+            <EmptyStateDescription>{t("wishlist.empty.description")}</EmptyStateDescription>
+            <EmptyStateActions>
+              <Button size="lg" asChild>
+                <Link href="/catalog">{t("wishlist.empty.button")}</Link>
+              </Button>
+            </EmptyStateActions>
+          </EmptyState>
+        </div>
+      ) : filteredGames.length === 0 ? (
+        <div className="col-span-full">
+          <EmptyState>
+            <EmptyStateIcon icon={Search} />
+            <EmptyStateTitle>{t("wishlist.no_results.title")}</EmptyStateTitle>
+            <EmptyStateDescription>{t("wishlist.no_results.description", { searchTerm })}</EmptyStateDescription>
+            <EmptyStateActions>
+              <Button onClick={() => setSearchTerm("")}>{t("wishlist.clear_search")}</Button>
+            </EmptyStateActions>
+          </EmptyState>
+        </div>
+      ) : (
+        <GameList games={filteredGames} variant="store" />
+      )}
     </div>
   );
 }

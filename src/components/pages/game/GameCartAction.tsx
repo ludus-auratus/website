@@ -1,5 +1,6 @@
 "use client";
 
+import { useRouter } from "next/navigation";
 import { useTranslations } from "next-intl";
 import { ShoppingCart } from "lucide-react";
 
@@ -13,17 +14,21 @@ type Props = {
 
 export function GameCartAction({ game }: Props) {
   const t = useTranslations("Games");
+  const router = useRouter();
   const { addToCart, isInCart } = useCart();
   const alreadyInCart = isInCart(game.id);
 
   const handleAddToCart = () => {
-    if (!alreadyInCart) {
-      addToCart({ ...game });
+    if (alreadyInCart) {
+      router.push("/cart");
+      return;
     }
+
+    addToCart({ ...game });
   };
 
   return (
-    <Button className="text-md w-full" variant="accent" onClick={handleAddToCart} disabled={alreadyInCart}>
+    <Button className="text-md w-full" variant="accent" onClick={handleAddToCart}>
       <ShoppingCart className={`size-4 ${alreadyInCart ? "fill-current" : "fill-transparent"}`} />
       {alreadyInCart
         ? `${t("in_cart")} (${formatPrice(game.price)})`

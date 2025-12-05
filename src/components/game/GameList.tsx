@@ -3,12 +3,12 @@
 import { GameCard } from "@/components/game/GameCard";
 import { GameCardLibrary } from "@/components/game/GameCardLibrary";
 import { Carousel, CarouselContent, CarouselNext, CarouselPrevious } from "@/components/ui/carousel";
-import { LibraryGame } from "@/context/AuthContext";
+import { FavoriteGame, LibraryGame } from "@/context/AuthContext";
 import { Game } from "@/lib/game";
 
 interface GameListProps {
-  games: (Game | LibraryGame)[];
-  variant?: "store" | "library";
+  games: (Game | LibraryGame | FavoriteGame)[];
+  variant?: "store" | "library" | "wishlist";
 }
 
 export function GameList({ games, variant = "store" }: GameListProps) {

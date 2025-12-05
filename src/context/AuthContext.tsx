@@ -37,7 +37,7 @@ export interface LibraryGame {
   orderId: string;
 }
 
-interface FavoriteGame {
+export interface FavoriteGame {
   id: number;
   name: string;
   icon: string;

@@ -53,35 +53,33 @@ export default function MyLibraryPage() {
         </div>
       </div>
 
-      <div className="sm:grid-auto-fill gap-6 sm:grid">
-        {library.length === 0 ? (
-          <div className="col-span-full">
-            <EmptyState>
-              <EmptyStateIcon icon={Library} />
-              <EmptyStateTitle>{t("library.empty.title")}</EmptyStateTitle>
-              <EmptyStateDescription>{t("library.empty.description")}</EmptyStateDescription>
-              <EmptyStateActions>
-                <Button size="lg" asChild>
-                  <Link href="/catalog">{t("library.empty.button")}</Link>
-                </Button>
-              </EmptyStateActions>
-            </EmptyState>
-          </div>
-        ) : filteredGames.length === 0 ? (
-          <div className="col-span-full">
-            <EmptyState>
-              <EmptyStateIcon icon={Search} />
-              <EmptyStateTitle>{t("library.no_results.title")}</EmptyStateTitle>
-              <EmptyStateDescription>{t("library.no_results.description", { searchTerm })}</EmptyStateDescription>
-              <EmptyStateActions>
-                <Button onClick={() => setSearchTerm("")}>{t("library.clear_search")}</Button>
-              </EmptyStateActions>
-            </EmptyState>
-          </div>
-        ) : (
-          <GameList games={filteredGames} variant="library" />
-        )}
-      </div>
+      {library.length === 0 ? (
+        <div className="col-span-full">
+          <EmptyState>
+            <EmptyStateIcon icon={Library} />
+            <EmptyStateTitle>{t("library.empty.title")}</EmptyStateTitle>
+            <EmptyStateDescription>{t("library.empty.description")}</EmptyStateDescription>
+            <EmptyStateActions>
+              <Button size="lg" asChild>
+                <Link href="/catalog">{t("library.empty.button")}</Link>
+              </Button>
+            </EmptyStateActions>
+          </EmptyState>
+        </div>
+      ) : filteredGames.length === 0 ? (
+        <div className="col-span-full">
+          <EmptyState>
+            <EmptyStateIcon icon={Search} />
+            <EmptyStateTitle>{t("library.no_results.title")}</EmptyStateTitle>
+            <EmptyStateDescription>{t("library.no_results.description", { searchTerm })}</EmptyStateDescription>
+            <EmptyStateActions>
+              <Button onClick={() => setSearchTerm("")}>{t("library.clear_search")}</Button>
+            </EmptyStateActions>
+          </EmptyState>
+        </div>
+      ) : (
+        <GameList games={filteredGames} variant="library" />
+      )}
     </div>
   );
 }
