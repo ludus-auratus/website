@@ -5,6 +5,65 @@
     "back_to_home": "Back to Home"
   },
 
+  "Metadata": {
+    "home": {
+      "title": "Ludus",
+      "description": "Discover the best Brazilian indie games independently published by developers from all over Brazil."
+    },
+    "catalog": {
+      "title": "Catalog | Ludus",
+      "description": "Browse our catalog of Brazilian indie games. Filter by genre, price, and rating."
+    },
+    "contact": {
+      "title": "Contact | Ludus",
+      "description": "Get in touch with the Ludus team. We are here to help you."
+    },
+    "developers": {
+      "title": "Developers | Ludus",
+      "description": "Publish your independent game on Ludus and reach thousands of Brazilian players."
+    },
+    "cart": {
+      "title": "Cart | Ludus",
+      "description": "Review your selected games and proceed to checkout."
+    },
+    "login": {
+      "title": "Login | Ludus",
+      "description": "Sign in to your Ludus account to access your library and wishlist."
+    },
+    "register": {
+      "title": "Register | Ludus",
+      "description": "Create a free Ludus account and start playing Brazilian indie games."
+    },
+    "library": {
+      "title": "My Library | Ludus",
+      "description": "Access your collection of purchased games."
+    },
+    "purchases": {
+      "title": "Purchase History | Ludus",
+      "description": "View your purchase history and order details."
+    },
+    "wishlist": {
+      "title": "Wishlist | Ludus",
+      "description": "View and manage games you want to play."
+    },
+    "checkout": {
+      "title": "Checkout | Ludus",
+      "description": "Complete your purchase securely."
+    },
+    "not_found": {
+      "title": "Page Not Found | Ludus",
+      "description": "The page you are looking for does not exist."
+    },
+    "wip": {
+      "title": "Work in Progress | Ludus",
+      "description": "This page is currently under development."
+    },
+    "dashboard": {
+      "title": "Dev Dashboard | Ludus",
+      "description": "Manage your published games and view analytics."
+    }
+  },
+
   "language": {
     "trigger": "Language",
 

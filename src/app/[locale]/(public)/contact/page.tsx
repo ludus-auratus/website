@@ -1,9 +1,20 @@
 import { useTranslations } from "next-intl";
+import { getTranslations } from "next-intl/server";
 
 import { ContactForm } from "@/components/forms/ContactForm";
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
 
-export default function Contact() {
+export async function generateMetadata({ params }: { params: Promise<{ locale: string }> }) {
+  const { locale } = await params;
+  const t = await getTranslations({ locale, namespace: "Metadata.contact" });
+
+  return {
+    title: t("title"),
+    description: t("description"),
+  };
+}
+
+export default function ContactPage() {
   const t = useTranslations("Contact");
 
   return (

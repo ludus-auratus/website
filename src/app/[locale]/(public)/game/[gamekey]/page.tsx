@@ -3,20 +3,24 @@ import Image from "next/image";
 import { Game } from "@/components/pages/game";
 import { getGameDataById } from "@/lib/game";
 
-export default async function Page({ params }: { params: Promise<{ gamekey: number }> }) {
+export async function generateMetadata({ params }: { params: Promise<{ gamekey: number }> }) {
+  const { gamekey } = await params;
+  const data = await getGameDataById(gamekey);
+
+  return {
+    title: `${data.name} | Ludus`,
+    description: data.description.substring(0, 160),
+  };
+}
+
+export default async function GamePage({ params }: { params: Promise<{ gamekey: number }> }) {
   const { gamekey } = await params;
   const data = await getGameDataById(gamekey);
 
   return (
     <div className="relative w-full">
-      <div className="absolute inset-0 h-72">
-        <Image
-          src={data.banner}
-          alt={`Banner do jogo ${data.name}`}
-          width={600}
-          height={900}
-          className="h-full w-full object-cover object-center"
-        />
+      <div className="absolute inset-0 h-[300px] w-full">
+        <Image src={data.banner} alt={`Banner do jogo ${data.name}`} fill className="object-cover object-center" />
         <div className="to-ludus-moss-800 absolute inset-0 bg-gradient-to-b from-black/35 from-80%" />
       </div>
 

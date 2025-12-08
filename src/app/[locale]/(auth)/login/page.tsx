@@ -1,16 +1,24 @@
-"use client";
-
 import Image from "next/image";
 import Link from "next/link";
-import { useTranslations } from "next-intl";
+import { getTranslations } from "next-intl/server";
 import { ArrowLeft } from "lucide-react";
 
 import { LoginForm } from "@/components/forms/LoginForm";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
 
-export default function Login() {
-  const t = useTranslations("Auth");
+export async function generateMetadata({ params }: { params: Promise<{ locale: string }> }) {
+  const { locale } = await params;
+  const t = await getTranslations({ locale, namespace: "Metadata.login" });
+
+  return {
+    title: t("title"),
+    description: t("description"),
+  };
+}
+
+export default async function LoginPage() {
+  const t = await getTranslations("Auth");
 
   return (
     <div className="relative w-full max-w-md">

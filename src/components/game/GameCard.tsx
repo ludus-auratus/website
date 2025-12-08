@@ -89,7 +89,7 @@ export function GameCard({ name, price, icon, id, rating, studio }: GameCardProp
           >
             <Button
               onClick={handleAddToCart}
-              className="text-md bg-primary group-hover: text-primary-foreground sm:text-card-foreground sm:group-hover:bg-primary sm:group-focus-within:bg-primary sm:group-hover:text-primary-foreground sm:group-focus-within:text-primary-foreground focus:bg-primary relative w-full flex-1 justify-center font-medium shadow-md transition-all duration-300 sm:justify-start sm:bg-transparent sm:shadow-none sm:group-focus-within:justify-center sm:group-focus-within:shadow-md sm:group-hover:justify-center sm:group-hover:shadow-md"
+              className="text-md bg-primary group-hover: text-primary-foreground sm:text-card-foreground sm:group-hover:bg-primary sm:group-focus-within:bg-primary sm:group-hover:text-primary-foreground sm:group-focus-within:text-primary-foreground focus:bg-primary relative w-full flex-1 justify-center !p-0 font-medium shadow-md transition-all duration-300 sm:justify-start sm:bg-transparent sm:shadow-none sm:group-focus-within:justify-center sm:group-focus-within:shadow-md sm:group-hover:justify-center sm:group-hover:shadow-md"
             >
               {isGameInLibrary(id) ? (
                 <Eye className="mr-2 block h-4 w-4 self-center sm:hidden sm:group-focus-within:block sm:group-hover:block" />

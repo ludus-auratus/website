@@ -1,7 +1,7 @@
-import type { Metadata } from "next";
 import { notFound } from "next/navigation";
 import Script from "next/script";
 import { hasLocale, NextIntlClientProvider } from "next-intl";
+import { getTranslations } from "next-intl/server";
 
 import { Toaster } from "@/components/ui/sonner";
 import { VLibras } from "@/components/ui/vlibras";
@@ -13,10 +13,15 @@ import { cn } from "@/lib/utils/shadcn";
 
 import "@/assets/styles/globals.css";
 
-export const metadata: Metadata = {
-  title: "Iniciando o projeto",
-  description: "Iniciando o projeto",
-};
+export async function generateMetadata({ params }: { params: Promise<{ locale: string }> }) {
+  const { locale } = await params;
+  const t = await getTranslations({ locale, namespace: "Metadata.home" });
+
+  return {
+    title: t("title"),
+    description: t("description"),
+  };
+}
 
 export default async function RootLayout({
   children,

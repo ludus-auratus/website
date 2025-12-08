@@ -5,6 +5,65 @@
     "back_to_home": "Voltar para o Início"
   },
 
+  "Metadata": {
+    "home": {
+      "title": "Ludus",
+      "description": "Descubra os melhores jogos indies brasileiros publicados de forma independente por desenvolvedores de todo o Brasil."
+    },
+    "catalog": {
+      "title": "Catálogo | Ludus",
+      "description": "Navegue pelo nosso catálogo de jogos indies brasileiros. Filtre por gênero, preço e avaliação."
+    },
+    "contact": {
+      "title": "Contato | Ludus",
+      "description": "Entre em contato com a equipe Ludus. Estamos aqui para ajudar."
+    },
+    "developers": {
+      "title": "Desenvolvedores | Ludus",
+      "description": "Publique seu jogo independente na Ludus e alcance milhares de jogadores brasileiros."
+    },
+    "cart": {
+      "title": "Carrinho | Ludus",
+      "description": "Revise seus jogos selecionados e prossiga para o pagamento."
+    },
+    "login": {
+      "title": "Entrar | Ludus",
+      "description": "Entre na sua conta Ludus para acessar sua biblioteca e lista de desejos."
+    },
+    "register": {
+      "title": "Registrar | Ludus",
+      "description": "Crie uma conta gratuita na Ludus e comece a jogar jogos indies brasileiros."
+    },
+    "library": {
+      "title": "Minha Biblioteca | Ludus",
+      "description": "Acesse sua coleção de jogos comprados."
+    },
+    "purchases": {
+      "title": "Histórico de Compras | Ludus",
+      "description": "Veja seu histórico de compras e detalhes dos pedidos."
+    },
+    "wishlist": {
+      "title": "Lista de Desejos | Ludus",
+      "description": "Veja e gerencie os jogos que você quer jogar."
+    },
+    "checkout": {
+      "title": "Checkout | Ludus",
+      "description": "Conclua sua compra com segurança."
+    },
+    "not_found": {
+      "title": "Página Não Encontrada | Ludus",
+      "description": "A página que você está procurando não existe."
+    },
+    "wip": {
+      "title": "Em Construção | Ludus",
+      "description": "Esta página está atualmente em desenvolvimento."
+    },
+    "dashboard": {
+      "title": "Painel Dev | Ludus",
+      "description": "Gerencie seus jogos publicados e veja estatísticas."
+    }
+  },
+
   "language": {
     "trigger": "Idioma",
 

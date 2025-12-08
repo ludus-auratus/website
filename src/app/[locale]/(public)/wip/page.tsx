@@ -1,11 +1,22 @@
 import Image from "next/image";
 import Link from "next/link";
 import { useTranslations } from "next-intl";
+import { getTranslations } from "next-intl/server";
 
 import iconLudos from "@/assets/images/ludus/icon.png";
 import { Button } from "@/components/ui/button";
 
-export default function WorkInProgress() {
+export async function generateMetadata({ params }: { params: Promise<{ locale: string }> }) {
+  const { locale } = await params;
+  const t = await getTranslations({ locale, namespace: "Metadata.wip" });
+
+  return {
+    title: t("title"),
+    description: t("description"),
+  };
+}
+
+export default function WipPage() {
   const t = useTranslations("Wip");
 
   return (

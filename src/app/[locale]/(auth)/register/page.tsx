@@ -1,16 +1,25 @@
-"use client";
-
 import Image from "next/image";
 import Link from "next/link";
 import { useTranslations } from "next-intl";
+import { getTranslations } from "next-intl/server";
 import { ArrowLeft } from "lucide-react";
 
 import { RegisterForm } from "@/components/forms/RegisterForm";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
 
-export default function Register() {
-  const t = useTranslations("Auth");
+export async function generateMetadata({ params }: { params: Promise<{ locale: string }> }) {
+  const { locale } = await params;
+  const t = await getTranslations({ locale, namespace: "Metadata.register" });
+
+  return {
+    title: t("title"),
+    description: t("description"),
+  };
+}
+
+export default async function RegisterPage() {
+  const t = await getTranslations("Auth");
 
   return (
     <div className="relative h-auto w-full max-w-2xl p-4">
