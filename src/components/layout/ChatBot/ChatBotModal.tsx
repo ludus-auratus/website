@@ -70,12 +70,12 @@ export function ChatBotModal() {
                 {messages.map((message, index) =>
                   message.role === "assistant" ? (
                     message.content.split("\n\n").map((segment, subindex) => (
-                      <ChatBotMessage key={`${index}-${subindex}`} author={message.role}>
+                      <ChatBotMessage key={`${index}-${subindex}`} author={message.role} showAuthor={subindex === 0}>
                         <Markdown>{segment}</Markdown>
                       </ChatBotMessage>
                     ))
                   ) : (
-                    <ChatBotMessage key={index} author={message.role}>
+                    <ChatBotMessage key={index} author={message.role} showAuthor>
                       <Markdown>{message.content}</Markdown>
                     </ChatBotMessage>
                   ),

@@ -1,8 +1,8 @@
 "use client";
 import React, { useContext, useEffect, useState } from "react";
 
-import { generateChatBotInitialMessages } from "@/lib/bot/chat";
-import { ChatBotReplyDTO, ChatBotTextingDTO } from "@/lib/bot/chat/chat-bot.dto";
+import { generateChatBotInitialMessages, sendMessageToChatBot } from "@/lib/bot/chat";
+import { ChatBotReplyDTO } from "@/lib/bot/chat/chat-bot.dto";
 import { ChatBotContextData, ChatBotMessage } from "@/lib/bot/chat/chat-bot.type";
 
 const ChatBotContext = React.createContext<ChatBotContextData | undefined>(undefined);
@@ -18,14 +18,10 @@ export function ChatBotProvider({ children }: { children: React.ReactNode }) {
     const lastMessage = history[history.length - 1];
     if (lastMessage.role !== "user") return;
 
-    const req: ChatBotTextingDTO = {
-      messages: history,
-    };
-
     if (loading) return;
     setLoading(true);
 
-    if (history.filter((m) => m.role === "user").length > 8) {
+    if (history.filter((m) => m.role === "user").length > (process.env.NODE_ENV === "development" ? 2 : 8)) {
       setHistory([
         ...history,
         {
@@ -38,23 +34,18 @@ export function ChatBotProvider({ children }: { children: React.ReactNode }) {
       return;
     }
 
-    fetch("https://ludusiaapp.kindglacier-b288df83.brazilsouth.azurecontainerapps.io/chat/send", {
-      body: JSON.stringify(req),
-      method: "POST",
-      headers: {
-        "Content-Type": "application/json",
-      },
-    })
-      .then((res) =>
-        res.json().then((dto: ChatBotReplyDTO) => {
-          setHistory((current) => [...current, { role: "assistant", content: dto.reply }]);
-          setLoading(false);
-        }),
-      )
-      .catch(() => {
-        setHistory((current) => [...current, { role: "assistant", content: "Desculpe, mas estamos com problemas" }]);
-        setLoading(false);
-      });
+    sendMessageToChatBot(history)
+      .then((res: ChatBotReplyDTO) => setHistory((current) => [...current, { role: "assistant", content: res.reply }]))
+      .catch((e) =>
+        setHistory((current) => [
+          ...current,
+          {
+            role: "assistant",
+            content: "Perdão, mas o Ludus não está sentindo muito bem agora. Tente novamente mais tarde",
+          },
+        ]),
+      );
+    setLoading(false);
   }, [history, loading]);
 
   const sendMessage = (content: string) => setHistory((current) => [...current, { role: "user", content }]);
