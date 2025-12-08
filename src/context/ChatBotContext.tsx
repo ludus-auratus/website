@@ -44,8 +44,8 @@ export function ChatBotProvider({ children }: { children: React.ReactNode }) {
             content: "Perdão, mas o Ludus não está sentindo muito bem agora. Tente novamente mais tarde",
           },
         ]),
-      );
-    setLoading(false);
+      )
+      .finally(() => setLoading(false));
   }, [history, loading]);
 
   const sendMessage = (content: string) => setHistory((current) => [...current, { role: "user", content }]);
