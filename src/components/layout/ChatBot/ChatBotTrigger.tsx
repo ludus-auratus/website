@@ -1,23 +1,20 @@
 import Image from "next/image";
 
 import { Button } from "@/components/ui/button";
-import { useChatBot } from "@/context/ChatBotContext";
+import { DialogTrigger } from "@/components/ui/dialog";
 
 export default function ChatBotTrigger() {
-  const { setOpened } = useChatBot();
-
-  const onClick = () => {
-    setOpened((v) => !v);
-  };
-
   return (
-    <Button variant={"link"} className={"h-22 w-22 md:h-24 md:w-24"} onClick={onClick}>
-      <Image
-        src="/images/ludus/logo-marginless.png"
-        alt="Logo da Ludus para abrir o canal de atendimento do chat bot"
-        width={128}
-        height={128}
-      />
-    </Button>
+    <DialogTrigger asChild>
+      <Button variant={"link"} className={"h-fit w-fit rounded-full p-0"}>
+        <Image
+          src="/images/ludus/logo-marginless.png"
+          alt="Logo da Ludus para abrir o canal de atendimento do chat bot"
+          width={256}
+          height={256}
+          className="h-16 w-16 object-cover md:h-20 md:w-20"
+        />
+      </Button>
+    </DialogTrigger>
   );
 }
