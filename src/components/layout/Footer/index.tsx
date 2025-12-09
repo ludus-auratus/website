@@ -11,7 +11,7 @@ const footerLinks: Record<string, FooterLink[]> = {
   about: [
     { name: "about_us", href: "#" },
     { name: "mission", href: "#" },
-    { name: "developers", href: "#" },
+    { name: "developers", href: "/team" },
   ],
   support: [
     { name: "help_center", href: "#" },
