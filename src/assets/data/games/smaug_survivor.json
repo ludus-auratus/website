@@ -16,8 +16,8 @@
   "studio": { "name": "Black Omega Labs" },
   "publisher": { "name": "Nova Prime" },
   "supportedLanguages": [
-    { "name": "Português (Brasil)", "level": 1 },
-    { "name": "Inglês", "level": 3 }
+    { "name": "Português (Brasil)", "interface": true, "audio": false, "subtitles": false },
+    { "name": "Inglês", "interface": true, "audio": true, "subtitles": true }
   ],
   "icon": "/images/games/smaug-survivor-icon.png",
   "banner": "https://picsum.photos/seed/g8b/1200/500",

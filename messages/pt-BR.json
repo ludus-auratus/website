@@ -180,9 +180,13 @@
       "price": "Preço",
       "language": "Idiomas",
       "additional_info": "Informação Adicional",
-      "additional": {
-        "processor": "Processador"
-      }
+      "language_support": {
+        "language": "Idioma",
+        "interface": "Interface",
+        "audio": "Dublagem",
+        "subtitles": "Legenda"
+      },
+      "comments": "Comentários"
     }
   },
   "Footer": {

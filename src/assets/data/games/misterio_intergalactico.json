@@ -16,8 +16,8 @@
   "studio": { "name": "Dragonforge Studios" },
   "publisher": { "name": "Imperium Global" },
   "supportedLanguages": [
-    { "name": "Português (Brasil)", "level": 2 },
-    { "name": "Inglês", "level": 3 }
+    { "name": "Português (Brasil)", "interface": true, "audio": false, "subtitles": true },
+    { "name": "Inglês", "interface": true, "audio": true, "subtitles": true }
   ],
   "icon": "/images/games/misterio-intergalactico-icon.png",
   "banner": "https://picsum.photos/seed/g2b/1200/500",

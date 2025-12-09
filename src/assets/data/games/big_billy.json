@@ -16,8 +16,8 @@
   "studio": { "name": "NeonWave Labs" },
   "publisher": { "name": "TurboPoint Studio" },
   "supportedLanguages": [
-    { "name": "Português (Brasil)", "level": 3 },
-    { "name": "Inglês", "level": 3 }
+    { "name": "Português (Brasil)", "interface": true, "audio": true, "subtitles": true },
+    { "name": "Inglês", "interface": true, "audio": true, "subtitles": true }
   ],
   "icon": "/images/games/big-billy-icon.png",
   "banner": "https://picsum.photos/seed/g3b/1200/500",

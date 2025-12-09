@@ -21,7 +21,9 @@ export function HeroBannerSlide({ id, title, studio, rating, description, image,
 
   return (
     <div className="relative h-[300px] w-full sm:h-[400px] md:h-[500px]" aria-hidden={!isActive}>
-      <Image src={image} alt={title} width={1280} height={500} className="h-full w-full rounded-3xl object-cover" />
+      <div className="relative h-[300px] w-full sm:h-[400px] md:h-[500px]">
+        <Image src={image} alt={title} fill className="rounded-3xl object-cover" sizes="100vw" priority />
+      </div>
 
       <div className="absolute inset-0 flex items-center justify-center rounded-3xl bg-black/50 p-6">
         <div className="mx-auto flex max-w-2xl flex-col gap-3 px-6 py-8 lg:px-8">

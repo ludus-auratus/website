@@ -6,7 +6,7 @@ export function GameMediaPlayerFrame({ title, children }: { title: string; child
           <h4 className="font-ludus-poppins overflow-clip text-nowrap text-white md:text-xl">{title}</h4>
         </div>
       </header>
-      <div className="*:border-ludus-green-700 *:relative *:aspect-video *:w-full *:overflow-hidden *:rounded-md *:border-1">
+      <div className="border-ludus-green-700 relative aspect-video w-full overflow-hidden rounded-md border">
         {children}
       </div>
     </div>

@@ -4,7 +4,7 @@ import { useEffect, useState } from "react";
 
 import { Button } from "@/components/ui/button";
 import { Carousel, type CarouselApi, CarouselContent, CarouselItem } from "@/components/ui/carousel";
-import { GameImage, GameMedia, GameVideo } from "@/lib/game";
+import { GameImage, GameMedia, GameVideo, getYouTubeId } from "@/lib/game";
 import { createPlaceholderImageUrl } from "@/lib/utils/image.utils";
 
 import GameImagePlayer from "./GameImagePlayer";
@@ -103,7 +103,8 @@ export default function GameSectionGallery(props: Props) {
           <Carousel setApi={setApi} opts={{ align: "start", loop: false }} className="w-full">
             <CarouselContent className="md:justify-left -ml-2 w-full gap-x-2 px-4 py-2">
               {gallery.map((media, index) => {
-                const src = media.type === "video" ? `https://img.youtube.com/vi/${media.src}/0.jpg` : media.src;
+                const videoId = getYouTubeId(media.src);
+                const src = media.type === "video" ? `https://img.youtube.com/vi/${videoId}/0.jpg` : media.src;
 
                 const image: GameMedia = {
                   type: media.type,

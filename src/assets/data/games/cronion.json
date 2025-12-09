@@ -16,9 +16,9 @@
   "studio": { "name": "Nebula Dominion" },
   "publisher": { "name": "OrionGate Entertainment" },
   "supportedLanguages": [
-    { "name": "Português (Brasil)", "level": 3 },
-    { "name": "Inglês", "level": 3 },
-    { "name": "Alemão", "level": 2 }
+    { "name": "Português (Brasil)", "interface": true, "audio": true, "subtitles": true },
+    { "name": "Inglês", "interface": true, "audio": true, "subtitles": true },
+    { "name": "Alemão", "interface": true, "audio": true, "subtitles": true }
   ],
   "icon": "/images/games/cronion-icon.png",
   "banner": "https://picsum.photos/seed/starfalldomb/1200/500",

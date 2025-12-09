@@ -8,6 +8,12 @@ export const GameClassifications = {
   UNDEFINED: classify(256),
 } as const;
 
+export const getYouTubeId = (url: string) => {
+  const regExp = /^.*(youtu.be\/|v\/|u\/\w\/|embed\/|watch\?v=|&v=)([^#&?]*).*/;
+  const match = url.match(regExp);
+  return match && match[2].length === 11 ? match[2] : null;
+};
+
 export type GameClassification = (typeof GameClassifications)[keyof typeof GameClassifications];
 
 function classify(value: number) {

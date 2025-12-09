@@ -71,8 +71,17 @@ export function GameCard({ name, price, icon, id, rating, studio }: GameCardProp
           )}
         </div>
 
-        <figure className="relative h-60 w-full flex-shrink-0 overflow-hidden rounded-t-2xl">
-          <Image src={icon} alt={`Capa do jogo ${name}`} fill className="h-full w-full object-cover" />
+        <figure className="relative aspect-square w-full overflow-hidden rounded-t-2xl">
+          <Image
+            src={icon}
+            alt={`Capa do jogo ${name}`}
+            fill
+            className="object-cover"
+            sizes="(max-width: 640px) 100vw,
+           (max-width: 768px) 50vw,
+           (max-width: 1024px) 33vw,
+           25vw"
+          />
         </figure>
 
         <div className="flex min-h-[108px] flex-grow flex-col gap-1 p-4">

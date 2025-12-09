@@ -15,8 +15,8 @@
   "studio": { "name": "Void Lantern" },
   "publisher": { "name": "NightCrow Games" },
   "supportedLanguages": [
-    { "name": "Português (Brasil)", "level": 2 },
-    { "name": "Inglês", "level": 3 }
+    { "name": "Português (Brasil)", "interface": true, "audio": false, "subtitles": true },
+    { "name": "Inglês", "interface": true, "audio": true, "subtitles": true }
   ],
   "icon": "/images/games/immunition-icon.png",
   "banner": "https://picsum.photos/seed/g4b/1200/500",

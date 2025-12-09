@@ -2,22 +2,31 @@
 import { useState } from "react";
 
 import { JSONEditor } from "@/components/editor/json/JSONEditor";
-import { GameDTO, uploadGameData } from "@/lib/game";
+import { Game } from "@/lib/game";
+import { uploadGameData } from "@/lib/game/game.upload";
 
 export default function Page() {
-  const [dto, setDto] = useState<GameDTO>({
+  const [dto, setDto] = useState<Game>({
     id: 0,
-    title: "",
+    name: "",
     price: 0,
-    tags: [],
-    classification: 0,
-    studio: {
-      name: "",
+    tags: {
+      genders: [],
+      features: [],
+      accessibility: [],
+      platforms: [],
     },
-    publisher: {
-      name: "",
+    classification: {
+      key: "c0",
+      value: 0,
+      src: "",
+      alt: "",
+      title: "",
+      description: "",
     },
-    supportedLanguages: [{ name: "Português (Brasil)", level: 3 }],
+    studio: "",
+    publisher: "",
+    supportedLanguages: [{ name: "Português (Brasil)", interface: true, audio: true, subtitles: true }],
     icon: "",
     banner: "",
     gallery: [],
@@ -25,7 +34,15 @@ export default function Page() {
     releaseDate: new Date(),
     publishingDate: new Date(),
     rating: 0,
-    additional: [],
+    version: "1.0.0",
+    developerId: 0,
+    socialMedia: [],
+    additionalInfo: "",
+    statistics: {
+      revenue: 0,
+      downloads: 0,
+      views: 0,
+    },
   });
 
   return (

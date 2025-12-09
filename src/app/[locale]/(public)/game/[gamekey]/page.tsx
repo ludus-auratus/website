@@ -1,11 +1,11 @@
 import Image from "next/image";
 
 import { Game } from "@/components/pages/game";
-import { getGameDataById } from "@/lib/game";
+import { getGameDataById, incrementGameViews } from "@/lib/game";
 
 export async function generateMetadata({ params }: { params: Promise<{ gamekey: number }> }) {
   const { gamekey } = await params;
-  const data = await getGameDataById(gamekey);
+  const data = await getGameDataById(Number(gamekey));
 
   return {
     title: `${data.name} | Ludus`,
@@ -16,6 +16,13 @@ export async function generateMetadata({ params }: { params: Promise<{ gamekey: 
 export default async function GamePage({ params }: { params: Promise<{ gamekey: number }> }) {
   const { gamekey } = await params;
   const data = await getGameDataById(gamekey);
+  incrementGameViews(gamekey).catch((err) => console.error(err));
+
+  if (data.statistics) {
+    data.statistics.views++;
+  }
+
+  console.log(data.statistics.views);
 
   return (
     <div className="relative w-full">
@@ -34,13 +41,7 @@ export default async function GamePage({ params }: { params: Promise<{ gamekey: 
 
           <aside className="flex flex-col gap-y-4">
             <Game.Info data={data} />
-            <Game.Social
-              list={[
-                { id: "instagram", href: "#" },
-                { id: "youtube", href: "#" },
-                { id: "discord", href: "#" },
-              ]}
-            />
+            <Game.Social list={data.socialMedia} />
             <Game.Comments gameKey={gamekey} />
           </aside>
         </div>

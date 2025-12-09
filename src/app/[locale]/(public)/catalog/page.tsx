@@ -1,5 +1,7 @@
 import { getTranslations } from "next-intl/server";
 
+import { getAllGames } from "@/lib/game";
+
 import CatalogPageContent from "./CatalogClient";
 
 export async function generateMetadata({ params }: { params: Promise<{ locale: string }> }) {
@@ -12,6 +14,8 @@ export async function generateMetadata({ params }: { params: Promise<{ locale: s
   };
 }
 
-export default function CatalogPage() {
-  return <CatalogPageContent />;
+export default async function CatalogPage() {
+  const games = await getAllGames();
+
+  return <CatalogPageContent initialGames={games} />;
 }

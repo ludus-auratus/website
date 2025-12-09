@@ -1,4 +1,4 @@
-import { GameVideo } from "@/lib/game";
+import { GameVideo, getYouTubeId } from "@/lib/game";
 
 type Props = {
   video?: GameVideo;
@@ -13,12 +13,14 @@ const defaultVideo: GameVideo = {
 export default function GameVideoPlayer(props: Props) {
   const { src, title } = props.video ?? defaultVideo;
 
+  const videoId = getYouTubeId(src);
+
   return (
     <div className="group relative rounded-md bg-black shadow-md shadow-black/50">
       <iframe
         id="player"
         itemType="text/html"
-        src={`https://youtube.com/embed/${src}?autoplay=1`}
+        src={`https://youtube.com/embed/${videoId}?autoplay=1`}
         className="border-ludus-green-700 aspect-video w-full rounded-md border-1"
         title={title}
       ></iframe>

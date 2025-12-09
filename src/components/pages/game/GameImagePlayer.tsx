@@ -19,7 +19,7 @@ export default function GameImagePlayer(props: Props) {
 
   return (
     <div>
-      <Image src={src} alt={alt ?? ""} fill className="object-cover" />
+      <Image src={src} alt={alt ?? ""} fill className="object-cover" sizes="100vw" />
     </div>
   );
 }

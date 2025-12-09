@@ -6,14 +6,12 @@ import { DevProvider } from "@/context/DevContext";
 export default function DevLayout({ children }: { children: React.ReactNode }) {
   return (
     <DevProvider>
-      <SidebarProvider>
-        <div className="flex max-h-screen min-h-screen w-full overflow-y-clip">
+      <SidebarProvider className="w-full">
+        <div className="flex min-h-screen w-full">
           <DevSidebar />
-          <div className="flex w-full flex-col">
+          <div className="flex min-w-0 flex-1 flex-col">
             <DevHeader section={{ id: "dashboard" }} />
-            <div className="h-full overflow-y-auto">
-              <main className="space-y-10 p-5 lg:px-20 lg:py-12">{children}</main>
-            </div>
+            <main className="flex-1 space-y-8 p-5 lg:px-20 lg:py-8">{children}</main>
           </div>
         </div>
       </SidebarProvider>

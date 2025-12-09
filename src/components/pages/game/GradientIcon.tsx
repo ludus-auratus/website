@@ -10,7 +10,7 @@ export function GradientIcon({
   children: React.ReactNode;
 }) {
   return (
-    <div style={{ stroke: `url(#${gradientId})` }}>
+    <div style={{ fill: `url(#${gradientId})` }}>
       <SvgGradient
         id={gradientId}
         x1={gradient.x1}

@@ -36,6 +36,7 @@ export function GameInfoAccordion({
   disabled = false,
   containerClassName = "",
   translationNamespace,
+  id,
 }: {
   children: React.ReactNode;
   title: string;
@@ -43,6 +44,7 @@ export function GameInfoAccordion({
   disabled?: boolean;
   containerClassName?: string;
   translationNamespace?: string;
+  id: string;
 }) {
   const [open, setOpen] = useState(opened && !disabled);
   const t = useTranslations(["Game.info", translationNamespace].filter((t) => t).join("."));
@@ -54,9 +56,18 @@ export function GameInfoAccordion({
   return (
     <div>
       <div className="flex justify-between">
-        <h4 className="font-ludus-pixelify-sans text-shadow-black/25 text-shadow-sm">{t(title)}</h4>
-        <button className={buttonVariants({ opened: open })} onClick={onOpenButtonClick} disabled={disabled}>
-          {disabled ? "-" : ">"}
+        <label htmlFor={id} className="w-full py-1">
+          <h4
+            className={cn(
+              "font-ludus-pixelify-sans text-shadow-black/25 text-shadow-sm",
+              disabled && "text-muted-foreground",
+            )}
+          >
+            {t(title)}
+          </h4>
+        </label>
+        <button id={id} className={buttonVariants({ opened: open })} onClick={onOpenButtonClick} disabled={disabled}>
+          {">"}
         </button>
       </div>
       <div className={cn(containerVariants({ visible: open }), containerClassName)}>{children}</div>

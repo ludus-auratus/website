@@ -1,5 +1,3 @@
-import { use } from "react";
-import { useTranslations } from "next-intl";
 import { getTranslations } from "next-intl/server";
 import { Sparkle, Star } from "lucide-react";
 
@@ -17,19 +15,9 @@ import GameJamSection from "@/components/pages/home/GameJamSection";
 import { HeroBanner } from "@/components/pages/home/HeroBanner";
 import { getAllGames } from "@/lib/game";
 
-export async function generateMetadata({ params }: { params: Promise<{ locale: string }> }) {
-  const { locale } = await params;
-  const t = await getTranslations({ locale, namespace: "Metadata.home" });
-
-  return {
-    title: t("title"),
-    description: t("description"),
-  };
-}
-
-export default function HomePage() {
-  const t = useTranslations("Home");
-  const games = use(getAllGames());
+export default async function HomePage() {
+  const t = await getTranslations("Home");
+  const games = await getAllGames();
 
   const featuredGames = games.slice(0, 4);
   const releaseGames = games.slice(4, 12);

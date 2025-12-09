@@ -1,10 +1,10 @@
 import { useMemo, useState } from "react";
 
-import { Game } from "@/lib/game/game.type";
+import { GameListItem } from "@/lib/game/game.type";
 
 export type SortBy = "popular" | "price-low" | "price-high" | "name";
 
-export function useCatalogFilters(games: Game[]) {
+export function useCatalogFilters(games: GameListItem[]) {
   const [searchTerm, setSearchTerm] = useState("");
   const [sortBy, setSortBy] = useState<SortBy>("popular");
 
@@ -45,7 +45,7 @@ export function useCatalogFilters(games: Game[]) {
         const matchGenre =
           selectedGenres.length === 0 || selectedGenres.every((genre) => game.tags.genders.includes(genre));
 
-        const matchTags = selectedTags.length === 0 || selectedTags.every((tag) => game.tags.resources.includes(tag));
+        const matchTags = selectedTags.length === 0 || selectedTags.every((tag) => game.tags.features.includes(tag));
 
         // A filtragem da plataforma está desativada no momento, pois os dados do jogo não contêm informações sobre a plataforma
         // const matchPlatform = selectedPlatforms.length === 0 || ...
