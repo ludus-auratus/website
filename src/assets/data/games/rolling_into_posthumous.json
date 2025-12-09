@@ -16,9 +16,9 @@
   "studio": { "name": "NeonWave Labs" },
   "publisher": { "name": "TurboPoint Studio" },
   "supportedLanguages": [
-    { "name": "Português (Brasil)", "level": 3 },
-    { "name": "Inglês", "level": 3 },
-    { "name": "Espanhol", "level": 2 }
+    { "name": "Português (Brasil)", "interface": true, "audio": true, "subtitles": true },
+    { "name": "Inglês", "interface": true, "audio": true, "subtitles": true },
+    { "name": "Espanhol", "interface": true, "audio": false, "subtitles": true }
   ],
   "icon": "/images/games/rolling-into-posthumous.png",
   "banner": "https://picsum.photos/seed/neondriftb/1200/500",

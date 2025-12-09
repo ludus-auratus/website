@@ -1,15 +1,22 @@
-import { LuDisc, LuInstagram, LuMusic2, LuTwitter, LuYoutube } from "react-icons/lu";
+import { AiOutlineDiscord, AiOutlineFacebook, AiOutlineInstagram, AiOutlineYoutube } from "react-icons/ai";
+import { FaXTwitter } from "react-icons/fa6";
+
+import { GameSocialMedia as GameSocialMediaType } from "@/lib/game";
 
 import { GameSocialMedia, SocialMedia, SocialMediaID } from "./GameSocialMedia";
 
 const socialMedia: SocialMedia[] = [
-  { id: "discord", icon: LuDisc, color: { type: "solid", bg: "bg-[#7289DA]", stroke: "stroke-[#7289DA]" } },
-  { id: "tiktok", icon: LuMusic2, color: { type: "solid", bg: "bg-[#FFFFFF]", stroke: "stroke-[#FFFFFF]" } },
-  { id: "twitter", icon: LuTwitter, color: { type: "solid", bg: "bg-[#1DA1F2]", stroke: "stroke-[#1DA1F2]" } },
-  { id: "youtube", icon: LuYoutube, color: { type: "solid", bg: "bg-[#FF0000]", stroke: "stroke-[#FF0000]" } },
+  { id: "discord", icon: AiOutlineDiscord, color: { type: "solid", bg: "bg-[#7289DA]", stroke: "text-[#7289DA]" } },
+  { id: "facebook", icon: AiOutlineFacebook, color: { type: "solid", bg: "bg-[#1877F2]", stroke: "text-[#1877F2]" } },
+  {
+    id: "x",
+    icon: FaXTwitter,
+    color: { type: "solid", bg: "bg-[#000000]", stroke: "text-[#000000]" },
+  },
+  { id: "youtube", icon: AiOutlineYoutube, color: { type: "solid", bg: "bg-[#FF0000]", stroke: "text-[#FF0000]" } },
   {
     id: "instagram",
-    icon: LuInstagram,
+    icon: AiOutlineInstagram,
 
     color: {
       type: "gradient",
@@ -29,18 +36,41 @@ const socialMedia: SocialMedia[] = [
   },
 ];
 
-interface SocialMediaListItem {
-  id: SocialMediaID;
-  href: string;
-}
+const platformMap: Record<number, SocialMediaID> = {
+  0: "facebook",
+  1: "instagram",
+  2: "x",
+  3: "discord",
+  4: "youtube",
+};
 
-export function GameSectionSocial({ list }: { list: SocialMediaListItem[] }) {
+export function GameSectionSocial({ list }: { list: GameSocialMediaType[] }) {
+  let socialMediaList = list;
+
+  if (list.length === 0) {
+    socialMediaList = [
+      { platform: 0, url: "https://facebook.com" },
+      { platform: 1, url: "https://instagram.com" },
+      { platform: 2, url: "https://x.com" },
+      { platform: 3, url: "https://discord.com" },
+      { platform: 4, url: "https://youtube.com" },
+    ];
+  }
+
   return (
-    <div className="flex justify-center gap-2">
-      {list.map(({ id, href }, index) => {
+    <div className="flex justify-around">
+      {Object.entries(platformMap).map(([key, id]) => {
+        const platformIndex = Number(key);
+        const userSocialMedia = socialMediaList.find((item) => item.platform === platformIndex);
         const sm = socialMedia.find((sm) => sm.id === id);
-        if (sm === undefined) return <p key={index}>a</p>;
-        return <GameSocialMedia key={index} href={href} media={sm} />;
+
+        if (!sm) return null;
+
+        if (userSocialMedia) {
+          return <GameSocialMedia key={id} href={userSocialMedia.url} media={sm} />;
+        }
+
+        return <GameSocialMedia key={id} href="" media={sm} disabled />;
       })}
     </div>
   );

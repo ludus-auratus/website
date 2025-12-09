@@ -1,11 +1,11 @@
 import { importDirectoryFiles, writeFile } from "../utils/files.utils";
 
-import { GameDTO } from "./game.dto";
+import { Game } from "./game.type";
 
 export function importGameFiles() {
-  return importDirectoryFiles<GameDTO>("/src/assets/data/games", (json) => JSON.parse(json));
+  return importDirectoryFiles<Game>("/src/assets/data/games", (json) => JSON.parse(json));
 }
 
-export async function exportGameTemplate(filename: string, dto: GameDTO) {
+export async function exportGameTemplate(filename: string, dto: Game) {
   writeFile(`/src/assets/data/games/${filename}.json`, JSON.stringify(dto, null, 2));
 }

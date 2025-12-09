@@ -16,7 +16,9 @@
   "supportedLanguages": [
     {
       "name": "Inglês",
-      "level": 3
+      "interface": true,
+      "audio": true,
+      "subtitles": true
     }
   ],
   "icon": "/images/games/tale-unbound-icon.png",

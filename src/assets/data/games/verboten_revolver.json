@@ -18,8 +18,8 @@
   "studio": { "name": "Icy Mountain Studios" },
   "publisher": { "name": "GoGo Games Interactive" },
   "supportedLanguages": [
-    { "name": "Português (Brasil)", "level": 3 },
-    { "name": "Inglês", "level": 3 }
+    { "name": "Português (Brasil)", "interface": true, "audio": true, "subtitles": true },
+    { "name": "Inglês", "interface": true, "audio": true, "subtitles": true }
   ],
   "icon": "/images/games/verboten-revolver-icon.png",
   "banner": "https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/1507580/extras/120ffc31c8b8e810d9cbc09c2bab5117.avif?t=1759955245",

@@ -7,7 +7,7 @@ export default async function DevHeader({ section }: { section: { id: string; me
   const { id, message } = section;
 
   return (
-    <header className="bg-background border-highlight sticky top-0 z-10 border-b backdrop-blur-sm">
+    <header className="bg-background border-border sticky top-0 z-10 border-b backdrop-blur-sm">
       <div className="flex items-center justify-between p-5">
         <div className="flex items-center justify-start gap-x-2">
           <SidebarTrigger className="h-8 w-8 md:hidden" />

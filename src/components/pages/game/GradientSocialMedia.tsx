@@ -1,5 +1,4 @@
 import { IconType } from "react-icons/lib";
-import Link from "next/link";
 
 import { cn } from "@/lib/utils/shadcn";
 
@@ -22,26 +21,18 @@ export function GradientSocialMedia({
   icon,
   href,
   color,
+  disabled,
 }: {
   icon: IconType;
   href: string;
   color: GradientColorDescription;
+  disabled?: boolean;
 }) {
   const Icon = icon;
   return (
-    <SocialMediaWrapper
-      href={href}
-      className={cn(
-        `bg-linear-to-b`,
-        `${color.gradient!.stops[0].tailwind}`,
-        `${color.gradient!.stops[1].tailwind}`,
-        `${color.gradient!.stops[2].tailwind}`,
-      )}
-    >
-      <div className="bg-background rounded-[5px] p-[3px]">
-        <GradientIcon gradientId={color.id!} gradient={color.gradient!}>
-          <Icon className="h-7 w-7 stroke-[inherit]" />
-        </GradientIcon>
+    <SocialMediaWrapper href={href} className={color.id === "instagram" ? "bg-gradient-to-tr" : ""} disabled={disabled}>
+      <div className="bg-background/20 rounded-[5px] p-[3px]">
+        <Icon className={cn("h-7 w-7", disabled ? "text-muted-foreground" : "text-white")} />
       </div>
     </SocialMediaWrapper>
   );

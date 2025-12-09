@@ -1,7 +1,6 @@
 import Image from "next/image";
 import Link from "next/link";
 import { getTranslations } from "next-intl/server";
-import { VariantProps } from "class-variance-authority";
 import {
   BarChart3,
   CircleQuestionMark,
@@ -13,14 +12,13 @@ import {
   LucideIcon,
   MoreVertical,
   Star,
-  Trash2,
   TrendingUp,
   Upload,
 } from "lucide-react";
 
 import { QuestionTooltip } from "@/components/layout/Tooltip/QuestionTooltip";
 import { Badge } from "@/components/ui/badge";
-import { Button, buttonVariants } from "@/components/ui/button";
+import { Button } from "@/components/ui/button";
 import { Card } from "@/components/ui/card";
 import {
   Dialog,

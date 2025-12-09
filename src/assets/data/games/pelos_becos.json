@@ -13,7 +13,7 @@
   "publishingDate": "2024-05-11T00:00:00.000Z",
   "studio": { "name": "Double Catch Studio" },
   "publisher": { "name": "Imperium Global" },
-  "supportedLanguages": [{ "name": "Português (Brasil)", "level": 2 }],
+  "supportedLanguages": [{ "name": "Português (Brasil)", "interface": true, "audio": false, "subtitles": true }],
   "icon": "/images/games/pelos-becos-icon.png",
   "banner": "/images/games/pelos-becos-screenshot1.png",
   "gallery": [

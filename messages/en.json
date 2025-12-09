@@ -238,7 +238,14 @@
       "resource_tags": "Resources",
       "price": "Price",
       "language": "Languages",
-      "additional_info": "Additional Info"
+      "additional_info": "Additional Info",
+      "language_support": {
+        "language": "Language",
+        "interface": "Interface",
+        "audio": "Audio",
+        "subtitles": "Subtitles"
+      },
+      "comments": "Comments"
     }
   },
   "Footer": {

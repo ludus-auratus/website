@@ -14,10 +14,8 @@
     "name": "Fatos Studios"
   },
   "supportedLanguages": [
-    {
-      "name": "Português (Brasil)",
-      "level": 3
-    }
+    { "name": "Português (Brasil)", "interface": true, "audio": true, "subtitles": true },
+    { "name": "Inglês", "interface": true, "audio": true, "subtitles": true }
   ],
   "icon": "/images/games/ponto-de-alerta-icon.png",
   "banner": "/images/games/ponto-de-alerta-icon.png",

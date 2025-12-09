@@ -15,8 +15,8 @@
   "studio": { "name": "Ironfield Works" },
   "publisher": { "name": "Colossal Frontiers" },
   "supportedLanguages": [
-    { "name": "Português (Brasil)", "level": 1 },
-    { "name": "Inglês", "level": 3 }
+    { "name": "Português (Brasil)", "interface": true, "audio": false, "subtitles": false },
+    { "name": "Inglês", "interface": true, "audio": true, "subtitles": true }
   ],
   "icon": "/images/games/echoes-within-icon.png",
   "banner": "https://picsum.photos/seed/g5b/1200/500",

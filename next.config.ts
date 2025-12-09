@@ -44,6 +44,18 @@ const nextConfig: NextConfig = {
         hostname: "yt3.googleusercontent.com",
         pathname: "/**",
       },
+      ...(process.env.NEXT_PUBLIC_ASSETS_URL
+        ? [
+            {
+              protocol: new URL(process.env.NEXT_PUBLIC_ASSETS_URL).protocol.replace(":", "") as "http" | "https",
+              hostname: new URL(process.env.NEXT_PUBLIC_ASSETS_URL).hostname,
+              ...(new URL(process.env.NEXT_PUBLIC_ASSETS_URL).port && {
+                port: new URL(process.env.NEXT_PUBLIC_ASSETS_URL).port,
+              }),
+              pathname: "/**",
+            },
+          ]
+        : []),
     ],
   },
 };

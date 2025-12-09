@@ -39,7 +39,7 @@ export default function DevDashboardWelcomeSection() {
             <h3 className="text-foreground font-ludus-pixelify-sans mb-2 text-xl">Publicar Novo Jogo</h3>
             <p className="text-muted-foreground text-sm">Lance seu próximo sucesso indie</p>
           </div>
-          <Button className="bg-accent text-accent-foreground hover:bg-accent/90 w-full" asChild>
+          <Button variant="accent" className="w-full" asChild>
             <Link href="/dev/publish">
               <Plus className="h-4 w-4" />
               Começar

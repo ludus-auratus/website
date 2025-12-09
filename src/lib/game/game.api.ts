@@ -1,126 +1,90 @@
-"use server";
+import { env } from "@/config/env";
 
-import gameDescription from "@/assets/data/game_description.md";
+import { mapBackendGameToFrontend, mapBackendGameToListItem } from "./game.dto";
+import type { ApiResponse, BackendGame, Game, GameListItem } from "./game.type";
 
-import type { GameDTO, GameMediaDTO } from "./game.dto";
-import { exportGameTemplate as exportGameTempData, importGameFiles } from "./game.files";
-import type { Game, GameTagCategories } from "./game.type";
-import { getClassificationByAge } from "./game.utils";
+const API_URL = `${env.API_BASE_URL}/jogo`;
 
-export async function getGameDataById(gamekey: number): Promise<Game> {
-  const dto = await requestGameDataById(gamekey);
-
-  const tags: GameTagCategories = {
-    genders: dto.tags.filter((tag) => tag.category === "gender").map((tag) => tag.name),
-    resources: dto.tags.filter((tag) => tag.category === "resources").map((tag) => tag.name),
-  };
-
-  return {
-    id: dto.id,
-    name: dto.title,
-    price: dto.price,
-    classification: getClassificationByAge(dto.classification),
-    description: dto.description,
-    tags,
-    studio: dto.studio.name,
-    publisher: dto.publisher.name,
-    icon: dto.icon,
-    banner: dto.banner,
-    gallery: dto.gallery,
-    publishingDate: dto.publishingDate,
-    releaseDate: dto.releaseDate,
-    supportedLanguages: dto.supportedLanguages,
-    rating: dto.rating,
-    additional: dto.additional,
-  };
+export async function getGameDataById(id: number): Promise<Game> {
+  const response = await requestGameDataById(id);
+  return mapBackendGameToFrontend(response.dados);
 }
 
-export async function requestGameDataById(gamekey: number): Promise<GameDTO> {
-  const catalog = importGameFiles();
-
-  const game = catalog.find((game) => {
-    return game.id == gamekey;
+export async function requestGameDataById(id: number): Promise<ApiResponse<BackendGame>> {
+  const response = await fetch(`${API_URL}/${id}`, {
+    method: "GET",
+    headers: {
+      "Content-Type": "application/json",
+    },
+    cache: "no-store",
   });
 
-  if (!game) {
-    throw new Error("Jogo não encontrado");
+  if (!response.ok) {
+    throw new Error(`Erro ao buscar jogo: ${response.statusText}`);
   }
 
-  return await {
-    id: game.id,
-    title: game.title,
-    price: game.price,
-    classification: game.classification,
-    description: game.description,
-    tags: game.tags,
-    releaseDate: new Date(game.releaseDate),
-    publishingDate: new Date(game.publishingDate),
-    studio: game.studio,
-    publisher: game.publisher,
-    supportedLanguages: game.supportedLanguages,
-    icon: game.icon,
-    banner: game.banner,
-    gallery: game.gallery as GameMediaDTO[],
-    rating: game.rating,
-    additional: game.additional,
-  };
+  const data = await response.json();
+  return data;
 }
 
-export async function getAllGames(): Promise<Game[]> {
-  const dto = await requestAllGames();
+export async function getAllGames(): Promise<GameListItem[]> {
+  const response = await requestAllGames();
+  return response.dados.map(mapBackendGameToListItem);
+}
 
-  return dto.map((game) => {
-    const tags: GameTagCategories = {
-      genders: game.tags.filter((tag) => tag.category === "gender").map((tag) => tag.name),
-      resources: game.tags.filter((tag) => tag.category === "resources").map((tag) => tag.name),
-    };
-
-    return {
-      id: game.id,
-      name: game.title,
-      price: game.price,
-      classification: getClassificationByAge(game.classification),
-      description: game.description,
-      tags,
-      studio: game.studio.name,
-      publisher: game.publisher.name,
-      icon: game.icon,
-      banner: game.banner,
-      gallery: game.gallery,
-      publishingDate: game.publishingDate,
-      releaseDate: game.releaseDate,
-      supportedLanguages: game.supportedLanguages,
-      rating: game.rating,
-      additional: game.additional,
-    };
+export async function requestAllGames(): Promise<ApiResponse<BackendGame[]>> {
+  const response = await fetch(`${API_URL}`, {
+    next: { revalidate: 60 },
   });
+
+  if (!response.ok) {
+    throw new Error(`Erro ao buscar jogos: ${response.statusText}`);
+  }
+
+  const data = await response.json();
+  return data;
 }
 
-export async function requestAllGames(): Promise<GameDTO[]> {
-  const catalog = importGameFiles();
+export async function publishGame(formData: FormData) {
+  try {
+    const response = await fetch(`${env.API_BASE_URL}/jogo`, {
+      method: "POST",
+      body: formData,
+    });
 
-  return catalog.map((dto) => {
-    return {
-      id: dto.id,
-      title: dto.title,
-      price: dto.price,
-      classification: dto.classification,
-      description: gameDescription,
-      tags: dto.tags,
-      releaseDate: new Date(dto.releaseDate),
-      publishingDate: new Date(dto.publishingDate),
-      studio: dto.studio,
-      publisher: dto.publisher,
-      supportedLanguages: dto.supportedLanguages,
-      icon: dto.icon,
-      banner: dto.banner,
-      gallery: dto.gallery as GameMediaDTO[],
-      rating: dto.rating,
-      additional: dto.additional,
-    };
+    const body = (await response.json()) as ApiResponse<BackendGame>;
+
+    if (!response.ok || !body.sucesso) {
+      throw new Error(body.mensagem || "Erro inesperado ao publicar jogo");
+    }
+
+    return body;
+  } catch (error) {
+    if (error instanceof Error) {
+      throw error;
+    }
+    throw new Error("Ocorreu um erro desconhecido ao tentar publicar o jogo.");
+  }
+}
+
+export async function incrementGameViews(id: number): Promise<void> {
+  const response = await fetch(`${API_URL}/${id}/visualizacao`, {
+    method: "PATCH",
   });
+
+  if (!response.ok) {
+    const errorBody = await response.json().catch(() => ({}));
+    throw new Error(errorBody.mensagem || `Erro ao incrementar visualizações: ${response.statusText}`);
+  }
 }
 
-export async function uploadGameData(filename: string, dto: GameDTO) {
-  exportGameTempData(filename, dto);
+export async function incrementGameDownloads(id: number): Promise<void> {
+  const response = await fetch(`${API_URL}/${id}/download`, {
+    method: "PATCH",
+  });
+
+  if (!response.ok) {
+    const errorBody = await response.json().catch(() => ({}));
+    throw new Error(errorBody.mensagem || `Erro ao incrementar downloads: ${response.statusText}`);
+  }
 }
