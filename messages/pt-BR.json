@@ -136,7 +136,11 @@
       "accessibility_tags": "Acessibilidade",
       "price": "Preço",
       "language": "Idiomas",
-      "additional_info": "Informação Adicional"
+      "additional_info": "Informação Adicional",
+
+      "additional": {
+        "processor": "Processador"
+      }
     }
   },
 

@@ -26,5 +26,6 @@
     { "type": "image", "src": "https://picsum.photos/400/200?sf1", "title": "Frota em Órbita" },
     { "type": "image", "src": "https://picsum.photos/400/200?sf2", "title": "Batalha por Sistemas" },
     { "type": "image", "src": "https://picsum.photos/400/200?sf3", "title": "Colônia Planetária" }
-  ]
+  ],
+  "additional": []
 }

@@ -1,4 +1,5 @@
 import Image from "next/image";
+import { Star } from "lucide-react";
 
 import { Game } from "@/lib/game";
 
@@ -31,7 +32,7 @@ export default function GameSectionInfo(props: Props) {
       <GameSection background="mobileOnly" padding="none">
         <div className="flex flex-col gap-y-2">
           <GameClassificationDisplay classification={classification} />
-          <GameSimpleInfo title="rating" data={data.rating ? data.rating.toString() : "Não avaliado"} />
+          <GameSimpleInfo title="rating" data={data.rating ? data.rating.toString() : "Não avaliado"} icon={Star} />
           <GameSimpleInfo title="release_date" data={releaseDate.toLocaleDateString()} />
           <GameSimpleInfo title="developer" data={studio} />
           <GameSimpleInfo title="publisher" data={publisher} />

@@ -15,10 +15,10 @@ export default function GameClassificationDisplay(props: Props) {
     <div className="game-classification flex items-center gap-x-2">
       <Image src={classification.src} width={120} height={120} alt={classification.alt} className="size-14" />
       <div className="my-auto flex flex-col text-shadow-black/25 text-shadow-sm">
-        <h5 className="text-highlight/80 font-ludus-pixelify-sans text-lg">
+        <h5 className="font-ludus-pixelify-sans text-lg text-white">
           {t("prefix")}: {t(classification.title)}
         </h5>
-        <p className="font-ludus-poppins text-xs text-white">{t(classification.description)}</p>
+        <p className="font-ludus-poppins text-muted-foreground text-xs">{t(classification.description)}</p>
       </div>
     </div>
   );

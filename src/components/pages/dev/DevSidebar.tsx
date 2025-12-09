@@ -66,6 +66,7 @@ export default function DevSidebar() {
                 <SidebarMenuButton key={item.id} asChild>
                   <Link
                     href={item.wip ? "#" : href}
+                    onClick={() => ctx.setSection(item.id)}
                     className={cn(
                       "bg-border/50 flex w-full items-center gap-3 rounded-md px-4 py-5 transition-all duration-200",
                       isActive && "bg-sidebar-accent text-sidebar-accent-foreground",

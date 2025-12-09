@@ -31,6 +31,7 @@ export async function getGameDataById(gamekey: number): Promise<Game> {
     releaseDate: dto.releaseDate,
     supportedLanguages: dto.supportedLanguages,
     rating: dto.rating,
+    additional: dto.additional,
   };
 }
 
@@ -61,6 +62,7 @@ export async function requestGameDataById(gamekey: number): Promise<GameDTO> {
     banner: game.banner,
     gallery: game.gallery as GameMediaDTO[],
     rating: game.rating,
+    additional: game.additional,
   };
 }
 
@@ -89,6 +91,7 @@ export async function getAllGames(): Promise<Game[]> {
       releaseDate: game.releaseDate,
       supportedLanguages: game.supportedLanguages,
       rating: game.rating,
+      additional: game.additional,
     };
   });
 }
@@ -113,6 +116,7 @@ export async function requestAllGames(): Promise<GameDTO[]> {
       banner: dto.banner,
       gallery: dto.gallery as GameMediaDTO[],
       rating: dto.rating,
+      additional: dto.additional,
     };
   });
 }

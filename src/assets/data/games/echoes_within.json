@@ -23,5 +23,6 @@
   "gallery": [
     { "type": "image", "src": "https://picsum.photos/400/200?10", "title": "Mapa Estratégico" },
     { "type": "image", "src": "https://picsum.photos/400/200?11", "title": "Forças Blindadas" }
-  ]
+  ],
+  "additional": []
 }

@@ -56,7 +56,7 @@ export function GameInfoAccordion({
       <div className="flex justify-between">
         <h4 className="font-ludus-pixelify-sans text-shadow-black/25 text-shadow-sm">{t(title)}</h4>
         <button className={buttonVariants({ opened: open })} onClick={onOpenButtonClick} disabled={disabled}>
-          {">"}
+          {disabled ? "-" : ">"}
         </button>
       </div>
       <div className={cn(containerVariants({ visible: open }), containerClassName)}>{children}</div>
