@@ -1,4 +1,22 @@
 {
+  "Team": {
+    "title": "Nossa Equipe",
+    "description": "Aqueles que fazem a Ludus funcionar",
+
+    "roles": {
+      "product_owner": "Dono(a) do Produto",
+      "scrum_master": "Mestre de Scrum",
+      "financial": "Financeiro",
+      "marketing": "Marketing",
+      "ui_ux": "UI-UX",
+      "data_base": "Banco de Dados",
+      "backend": "Back-end",
+      "frontend": "Front-end",
+      "fullstack": "Fullstack",
+      "artificial_intelligence": "Inteligência Artificial"
+    }
+  },
+
   "Wip": {
     "title": "Programadores em Ação",
     "paragraph": "Desculpe por isso, mas essa página ainda está em construção",
