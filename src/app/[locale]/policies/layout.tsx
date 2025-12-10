@@ -3,6 +3,7 @@ import { getTranslations } from "next-intl/server";
 import { ArrowLeft, Book } from "lucide-react";
 
 import { SidebarPolicy } from "@/components/pages/policies/SidebarPolicy";
+import { SidebarPolicyTree } from "@/components/pages/policies/SidebarPolicyTree";
 import { Button } from "@/components/ui/button";
 import { Separator } from "@/components/ui/separator";
 import {
@@ -12,15 +13,15 @@ import {
   SidebarGroup,
   SidebarHeader,
   SidebarMenu,
-  SidebarMenuSubItem,
+  SidebarMenuItem,
   SidebarProvider,
   SidebarTrigger,
 } from "@/components/ui/sidebar";
-import { getPoliciesNaviagationMap } from "@/lib/policies";
+import { getPoliciesNavigationMap } from "@/lib/policies";
 
 export default async function PoliciesLayout({ children }: { children: React.ReactNode }) {
   const t = await getTranslations("Policies");
-  const articleMap = getPoliciesNaviagationMap();
+  const articleMap = await getPoliciesNavigationMap();
 
   return (
     <SidebarProvider>
@@ -42,15 +43,11 @@ export default async function PoliciesLayout({ children }: { children: React.Rea
         <Separator />
 
         <SidebarContent>
-          <SidebarMenu>
-            <SidebarMenuSubItem>
-              <SidebarGroup className="px-4">
-                {articleMap.structure.map((node, index) => (
-                  <SidebarPolicy key={index} policy={node} namespace="Policies.map" />
-                ))}
-              </SidebarGroup>
-            </SidebarMenuSubItem>
-          </SidebarMenu>
+          <SidebarGroup>
+            <SidebarMenu>
+              <SidebarPolicyTree structure={articleMap.structure} />
+            </SidebarMenu>
+          </SidebarGroup>
         </SidebarContent>
         <SidebarFooter>Footer</SidebarFooter>
       </Sidebar>

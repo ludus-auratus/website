@@ -1,19 +1,20 @@
-import { getTranslations } from "next-intl/server";
-import { ChevronDown } from "lucide-react";
+import Link from "next/link";
+import { useTranslations } from "next-intl";
+import { ChevronDown, Search } from "lucide-react";
 
 import { Collapsible, CollapsibleContent, CollapsibleTrigger } from "@/components/ui/collapsible";
 import {
-  SidebarGroup,
-  SidebarGroupLabel,
   SidebarMenu,
+  SidebarMenuAction,
   SidebarMenuButton,
   SidebarMenuItem,
+  SidebarMenuSub,
 } from "@/components/ui/sidebar";
 import { CompanyPolicy } from "@/lib/policies";
 
 import { SidebarPolicy } from "./SidebarPolicy";
 
-export async function SidebarPolicySection({
+export function SidebarPolicySection({
   translationKey,
   translationNamespace: translationPrefix,
   nodes,
@@ -23,7 +24,7 @@ export async function SidebarPolicySection({
   nodes?: CompanyPolicy[];
 }) {
   const translationNamespace = `${translationPrefix}.${translationKey}`;
-  const t = await getTranslations(translationNamespace);
+  const t = useTranslations(translationNamespace);
   return (
     <SidebarMenu>
       <Collapsible disabled={!nodes || nodes.length === 0}>
@@ -31,13 +32,24 @@ export async function SidebarPolicySection({
           <CollapsibleTrigger asChild>
             <SidebarMenuButton>
               {t("__title__")}
+
+              {t.has("__content__") && (
+                <SidebarMenuAction asChild>
+                  <Link href={`/policies/${translationNamespace.split(".").slice(2).join("-")}`}>
+                    <Search /> <span className="sr-only">Add Project</span>
+                  </Link>
+                </SidebarMenuAction>
+              )}
+
               <ChevronDown className="ml-auto transition-transform group-data-[state=open]/collapsible:rotate-180" />
             </SidebarMenuButton>
           </CollapsibleTrigger>
           <CollapsibleContent>
-            {nodes?.map((node, index) => (
-              <SidebarPolicy key={index} policy={node} namespace={translationNamespace} />
-            ))}
+            <SidebarMenuSub className="mr-0 pr-0">
+              {nodes?.map((node, index) => (
+                <SidebarPolicy key={index} policy={node} namespace={translationNamespace} />
+              ))}
+            </SidebarMenuSub>
           </CollapsibleContent>
         </SidebarMenuItem>
       </Collapsible>

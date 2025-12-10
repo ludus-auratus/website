@@ -1,9 +1,12 @@
+"use client";
+
 import Link from "next/link";
+import { useTranslations } from "next-intl";
 import { getTranslations } from "next-intl/server";
 
-import { SidebarMenuButton, SidebarMenuSubItem } from "@/components/ui/sidebar";
+import { SidebarMenuButton } from "@/components/ui/sidebar";
 
-export async function SidebarPolicyArticle({
+export function SidebarPolicyArticle({
   translationKey,
   translationNamespace,
 }: {
@@ -11,12 +14,12 @@ export async function SidebarPolicyArticle({
   translationNamespace: string;
 }) {
   const translation = `${translationNamespace}.${translationKey}`;
-  const t = await getTranslations(translation);
+  const t = useTranslations(translation);
   return (
-    <SidebarMenuSubItem>
+    <>
       <SidebarMenuButton asChild>
-        <Link href={translation.split(".").slice(1).join("-")}>{t("__title__")}</Link>
+        <Link href={translation.split(".").slice(2).join("-")}>{t("__title__")}</Link>
       </SidebarMenuButton>
-    </SidebarMenuSubItem>
+    </>
   );
 }

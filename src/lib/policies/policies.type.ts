@@ -14,3 +14,9 @@ export interface PolicyEditorContextData {
   policyPath: string;
   setPolicyPath: (path: string) => void;
 }
+
+export interface PolicyTranslation {
+  __title__: string;
+  __content__: string;
+  [key: string]: string | PolicyTranslation;
+}

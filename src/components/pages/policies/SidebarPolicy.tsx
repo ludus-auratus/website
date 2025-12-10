@@ -1,3 +1,5 @@
+"use client";
+
 import { CompanyPolicy } from "@/lib/policies";
 
 import { SidebarPolicyArticle } from "./SidebarPolicyArticle";
