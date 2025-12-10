@@ -21,12 +21,27 @@ export function importDirectoryFiles<T>(directory: string, processor: FileProces
   });
 }
 
+export function readFile(filePath: string) {
+  try {
+    const absolutePath = path.join(process.cwd(), filePath);
+    return readFileSync(absolutePath, "utf-8");
+  } catch (e) {
+    console.error(e);
+    throw new Error(`Failed to read file ${filePath}`);
+  }
+}
+
 export function writeFile(filePath: string, content: string) {
   try {
     const absolutePath = path.join(process.cwd(), filePath);
-    writeFileSync(absolutePath, content);
+    writeFileSync(absolutePath, content, { flag: "" });
   } catch (e) {
     console.error(e);
     throw new Error(`Failed to write file ${filePath}`);
   }
+}
+
+export function writeBackupFile(filePath: string, content: string) {
+  const backupPath = path.join("src/assets/backup", filePath);
+  writeFile(backupPath, content);
 }

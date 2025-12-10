@@ -1,11 +1,13 @@
 "use server";
 
-import { importDirectoryFiles, writeFile } from "../utils/files.utils";
+import { importDirectoryFiles, writeBackupFile, writeFile } from "../utils/files.utils";
 
 import { CompanyPolicy, CompanyPolicyType, PolicyNavigationMap, PolicyTranslation } from "./policies.type";
 
-function updatePoliciesTranslation(language: string, upodatedTranslation: object) {
-  writeFile(`/messages/${language}.json`, JSON.stringify(upodatedTranslation, null, 2));
+function updatePoliciesTranslation(language: string, originalTranslation: object, updatedTranslation: object) {
+  const filePath = `/messages/${language}.json`;
+  writeBackupFile(filePath, JSON.stringify(originalTranslation, null, 2));
+  writeFile(filePath, JSON.stringify(updatedTranslation, null, 2));
 }
 
 // eslint-disable-next-line @typescript-eslint/no-explicit-any
@@ -52,7 +54,7 @@ export async function setPolicyToTranslation(language: string, policyPath: strin
   policyNamespace.__title__ = title;
   policyNamespace.__content__ = content;
 
-  updatePoliciesTranslation(language, policies);
+  updatePoliciesTranslation(language, await getPoliciesFromTranslations(language), policies);
 
   return policies;
 }
@@ -67,7 +69,7 @@ export async function addPolicyToTranslation(language: string, policyPath: strin
   const parentNamespace = extractPolicyNamespace(policies, parentPath);
   parentNamespace[lastSegment] = { __title__: !title || title.length === 0 ? "Untitled" : title, __content__: "" };
 
-  updatePoliciesTranslation(language, policies);
+  updatePoliciesTranslation(language, await getPoliciesFromTranslations(language), policies);
   generatePolicyMap(policies["Policies"]["map"]);
   return policies;
 }
@@ -82,7 +84,7 @@ export async function removePolicyFromTranslation(language: string, policyPath: 
   const parentNamespace = extractPolicyNamespace(policies, parentPath);
   delete parentNamespace[lastSegment];
 
-  updatePoliciesTranslation(language, policies);
+  updatePoliciesTranslation(language, await getPoliciesFromTranslations(language), policies);
   generatePolicyMap(policies["Policies"]["map"]);
   return policies;
 }
