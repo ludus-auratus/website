@@ -1,0 +1,565 @@
+{
+  "Wip": {
+    "title": "Programmers in Action",
+    "paragraph": "We're sorry, but this page still in progress",
+    "back_to_home": "Back to Home"
+  },
+
+  "Metadata": {
+    "home": {
+      "title": "Ludus",
+      "description": "Discover the best Brazilian indie games independently published by developers from all over Brazil."
+    },
+    "catalog": {
+      "title": "Catalog | Ludus",
+      "description": "Browse our catalog of Brazilian indie games. Filter by genre, price, and rating."
+    },
+    "contact": {
+      "title": "Contact | Ludus",
+      "description": "Get in touch with the Ludus team. We are here to help you."
+    },
+    "developers": {
+      "title": "Developers | Ludus",
+      "description": "Publish your independent game on Ludus and reach thousands of Brazilian players."
+    },
+    "cart": {
+      "title": "Cart | Ludus",
+      "description": "Review your selected games and proceed to checkout."
+    },
+    "login": {
+      "title": "Login | Ludus",
+      "description": "Sign in to your Ludus account to access your library and wishlist."
+    },
+    "register": {
+      "title": "Register | Ludus",
+      "description": "Create a free Ludus account and start playing Brazilian indie games."
+    },
+    "library": {
+      "title": "My Library | Ludus",
+      "description": "Access your collection of purchased games."
+    },
+    "purchases": {
+      "title": "Purchase History | Ludus",
+      "description": "View your purchase history and order details."
+    },
+    "wishlist": {
+      "title": "Wishlist | Ludus",
+      "description": "View and manage games you want to play."
+    },
+    "checkout": {
+      "title": "Checkout | Ludus",
+      "description": "Complete your purchase securely."
+    },
+    "not_found": {
+      "title": "Page Not Found | Ludus",
+      "description": "The page you are looking for does not exist."
+    },
+    "wip": {
+      "title": "Work in Progress | Ludus",
+      "description": "This page is currently under development."
+    },
+    "dashboard": {
+      "title": "Dev Dashboard | Ludus",
+      "description": "Manage your published games and view analytics."
+    }
+  },
+
+  "language": {
+    "trigger": "Language",
+
+    "en": "English",
+    "pt-BR": "Portuguese"
+  },
+
+  "Validation": {
+    "required": "This field is required",
+    "email_invalid": "Invalid email address",
+    "min_length": "Must be at least {min} characters",
+    "password_mismatch": "Passwords do not match",
+    "terms_required": "You must agree to the terms",
+    "invalid_year": "Invalid year (1950-2010)",
+    "email_or_password_invalid": "Invalid email or password",
+    "invalid_date": "Invalid date of birth"
+  },
+
+  "Developers": {
+    "Presentation": {
+      "title": "Publish your games on the/Biggest Indie Platform/from Brazil",
+      "description": "Reach thousands of brazilian gamers, get paid with fair rates and use professional tools to help you manage your sales"
+    },
+
+    "Benefits": {
+      "title": "Why Choose Ludus?",
+      "description": "From brazilian developers, to brazilian developers",
+      "wip": "WIP",
+      "items": {
+        "0": {
+          "title": "Engaged Community",
+          "description": "Reach thousands of brazilian player who loves brazilian indie games"
+        },
+        "1": {
+          "title": "Fair Revenue Model",
+          "description": "Keep 67% from the revenue of sales. No hidden fees or surprises"
+        },
+        "2": {
+          "title": "Nacional Visibility",
+          "description": "Highlight on Brazilian games with specialized curation"
+        },
+        "3": {
+          "title": "Dedicated Support",
+          "description": "Brazilian team ready to help developers in Portuguese"
+        },
+        "4": {
+          "title": "Multi-platform",
+          "description": "Accessible marketplace for mobile devices and computers via the Web"
+        },
+        "5": {
+          "title": "Detailed Analytics",
+          "description": "Track sales, downloads, views, and engagement in real time"
+        }
+      }
+    },
+
+    "HowItWorks": {
+      "title": "How To Publish Your Game",
+      "description": "In 4 simple steps, your game will be available to thousands of players",
+      "steps": {
+        "0": {
+          "title": "Create your Account",
+          "description": "Create an account and fill out your developer profile"
+        },
+        "1": {
+          "title": "Prepare Your Game",
+          "description": "Upload your game's files, images, videos, and descriptions"
+        },
+        "2": {
+          "title": "Quality Control",
+          "description": "Our team will review your game within 48 hours to ensure security"
+        },
+        "3": {
+          "title": "Publish and Sell",
+          "description": "Your game goes live and you start getting paid for every sale"
+        }
+      }
+    },
+
+    "CTA": {
+      "title": "Ready to Start?",
+      "description": "Join hundreds of Brazilian developers who are already publishing and selling their games on Ludus",
+      "footer": "Start selling in 48h • Support in Portuguese",
+      "actions": {
+        "profile_form": "Fill out the Dev Form",
+        "contact_us": "Contact Us"
+      }
+    },
+
+    "FAQ": {
+      "title": "Frequent Asked Questions",
+      "description": "Clear your doubts about how to publish on Ludus",
+      "questions": {
+        "approval_time": {
+          "question": "How long does it take for my game to be approved?",
+          "answer": "Our review process takes an average of 24 to 48 business hours. We check technical aspects, content, and overall quality. You will receive detailed feedback if there is anything to adjust."
+        },
+        "platform_exclusivity": {
+          "question": "Can I publish my game on other platforms as well?",
+          "answer": "Yes! We do not require exclusivity. You are free to publish your game wherever you want. We only recommend that you keep your games updated on all platforms."
+        },
+        "acceptable_games": {
+          "question": "What kind of games are accepted on Ludus?",
+          "answer": "We accept indie games of various genres, according to our terms of publication, as long as they are developed by Brazilians or contain Brazilian cultural elements. We prioritize quality, originality, and gameplay."
+        },
+        "cnpj_requirement": {
+          "question": "Do I need a CNPJ (corporate tax ID) to sell games?",
+          "answer": "Not necessarily. For individual developers, we accept CPF (individual tax ID). However, for higher amounts, we recommend having MEI or CNPJ due to tax issues."
+        },
+        "marketing_help": {
+          "question": "Do you help with marketing and promotion?",
+          "answer": "Yes! All games receive basic promotion on our social media channels. Games of exceptional quality may be featured on the homepage and at special events."
+        },
+        "update_publishing": {
+          "question": "Can I update my game after it's published?",
+          "answer": "Yes! You can make as many updates as you want, at no additional cost. Just upload the new version through the developer panel. We only remind you that every post, even updates, goes through our security team."
+        }
+      }
+    }
+  },
+
+  "Test": {
+    "default": "Default",
+    "secondary": "Secondary",
+    "destructive": "Destructive",
+    "ghost": "Ghost",
+    "outline": "Outline",
+    "link": "Link"
+  },
+  "Game": {
+    "description_section": "About This Game",
+    "classification": {
+      "prefix": "Age Rating",
+      "c0": {
+        "title": "For All Ages",
+        "description": "Content made for everyone",
+        "alt": ""
+      },
+      "c10": {
+        "title": "10+ years",
+        "description": "Not recommended for children under 10 years old",
+        "alt": ""
+      },
+      "c12": {
+        "title": "12+ years",
+        "description": "Not recommended for children under 12 years old",
+        "alt": ""
+      },
+      "c14": {
+        "title": "14+ years",
+        "description": "Not recommended for children under 14 years old",
+        "alt": ""
+      },
+      "c16": {
+        "title": "16+ years",
+        "description": "Not recommended for children under 16 years old",
+        "alt": ""
+      },
+      "c18": {
+        "title": "18+ years",
+        "description": "Not recommended for children under 18 years old",
+        "alt": ""
+      }
+    },
+    "info": {
+      "rating": "Rating",
+      "release_date": "Launching Date",
+      "developer": "Developer",
+      "publisher": "Publisher",
+      "accessibility_tags": "Accessibility",
+      "gender_tags": "Genders",
+      "resource_tags": "Resources",
+      "price": "Price",
+      "language": "Languages",
+      "additional_info": "Additional Info"
+    }
+  },
+  "Footer": {
+    "description": "The main platform for developers and players of Brazilian games. Connecting talent, fostering creativity, and celebrating the vibrant Brazilian gaming culture.",
+    "navigation": {
+      "about": {
+        "_": "Ludus",
+        "about_us": "About Us",
+        "mission": "Our Mission",
+        "developers": "Developers"
+      },
+      "support": {
+        "_": "Support",
+        "help_center": "Help Center",
+        "contact": "Contact",
+        "faq": "Frequently Asked Questions"
+      },
+      "legal": {
+        "_": "Legal",
+        "terms_of_use": "Terms of Use",
+        "privacy": "Privacy",
+        "cookies": "Cookies"
+      }
+    },
+    "Bottom": {
+      "copyright": "© 2025 Ludus. All rights reserved.",
+      "slogan": "Freedom - Union - Diversity - Utopia - Sustainability"
+    }
+  },
+  "Dev": {
+    "sections": {
+      "dashboard": "Dashboard",
+      "analytics": "Analytics",
+      "publications": "Publications",
+      "reviews": "Reviews",
+      "settings": "Settings"
+    }
+  },
+  "DevDashboard": {
+    "game_status": {
+      "published": "Published",
+      "unpublished": "Unpublished",
+      "revision": "In Review",
+      "draft": "Draft"
+    }
+  },
+  "GameJamSection": {
+    "title": "Game Jam",
+    "description": "Participate in creative competitions, develop games within a limited time, and connect with the Brazilian indie community.",
+    "coming_soon_message": "This feature is under development and will be available soon!",
+    "coming_soon": {
+      "title": "Coming Soon: Your First Game Jam!",
+      "description": "We're creating a complete space to host game jams. You'll be able to create games, vote for your favorites, and compete for amazing prizes!"
+    },
+    "features": {
+      "creative_competitions": {
+        "title": "Creative Competitions",
+        "description": "Participate in themed challenges inspired by Brazilian culture"
+      },
+      "active_community": {
+        "title": "Active Community",
+        "description": "Connect with other Brazilian indie developers"
+      },
+      "regular_events": {
+        "title": "Regular Events",
+        "description": "New game jams launched monthly with exclusive prizes"
+      },
+      "guaranteed_visibility": {
+        "title": "Guaranteed Visibility",
+        "description": "Games created in jams receive special visibility on the platform"
+      }
+    }
+  },
+  "Home": {
+    "featured": {
+      "title": "Featured",
+      "description": "Games carefully selected by the Ludus team and the community"
+    },
+    "recent_releases": {
+      "title": "Recent Releases",
+      "description": "Discover the latest games on the Ludus platform"
+    }
+  },
+  "Cart": {
+    "empty": {
+      "title": "Your Cart is Empty",
+      "description": "Explore our catalog of Brazilian indie games and add your favorites to the cart!",
+      "explore_button": "Explore Catalog"
+    },
+    "title": "My Cart",
+    "item": {
+      "quantity": "Quantity:",
+      "remove_from_cart": "Remove {name} from the cart"
+    },
+    "summary": {
+      "title": "Order Summary",
+      "subtotal": "Subtotal",
+      "total": "Total",
+      "item": "item",
+      "items": "items",
+      "checkout_button": "Checkout",
+      "security_message": "Secure payment processed through an encrypted gateway",
+      "continue_shopping": "Continue Shopping",
+      "clear_cart": "Clear Cart"
+    },
+    "toasts": {
+      "empty_cart": {
+        "title": "Your cart is empty",
+        "description": "Explore our catalog of Brazilian indie games and add your favorites to the cart!"
+      },
+      "login_required": {
+        "title": "You need to be logged in",
+        "description": "Log in or sign up to proceed to checkout."
+      }
+    }
+  },
+  "Contact": {
+    "title": "Contact",
+    "description": "Get in touch with us. We're here to help!",
+    "form": {
+      "aria_label": "Contact form",
+      "name": "Name",
+      "name_placeholder": "Your full name",
+      "email": "Email",
+      "email_placeholder": "your.email@example.com",
+      "subject": "Subject",
+      "subject_placeholder": "What would you like to talk about?",
+      "message": "Message",
+      "message_placeholder": "Write your message here...",
+      "submit": "Send Message"
+    }
+  },
+  "Auth": {
+    "back_button": "Back to home",
+    "footer_message": "🎮 Celebrating Brazilian gaming culture",
+    "login": {
+      "title": "Welcome back!",
+      "description": "Sign in to your Ludus account",
+      "no_account": "Don't have an account?",
+      "register_link": "Sign up for free"
+    },
+    "register": {
+      "title": "Join Ludus!",
+      "description": "Create your account and discover the best Brazilian indie games",
+      "has_account": "Already have an account?",
+      "login_link": "Sign in"
+    },
+    "forms": {
+      "login": {
+        "aria_label": "Login form",
+        "email": "Email",
+        "email_placeholder": "your@email.com",
+        "password": "Password",
+        "password_placeholder": "••••••••",
+        "show_password": "Show password",
+        "hide_password": "Hide password",
+        "forgot_password": "Forgot your password?",
+        "submit": "Sign In",
+        "success_title": "Login successful!",
+        "success_description": "You will be redirected shortly.",
+        "error_title": "Login failed",
+        "error_description": "An unexpected error occurred. Please try again.",
+        "error_credentials": "Invalid email or password."
+      },
+      "register": {
+        "aria_label": "Registration form",
+        "first_name": "First Name",
+        "first_name_placeholder": "John",
+        "last_name": "Last Name",
+        "last_name_placeholder": "Doe",
+        "username": "Username",
+        "username_placeholder": "player_one",
+        "email": "Email",
+        "email_placeholder": "your@email.com",
+        "region": "State",
+        "region_placeholder": "Select your state",
+        "birth_date": "Date of Birth",
+        "birth_date_placeholder": "Select date",
+        "password": "Password",
+        "password_placeholder": "••••••••",
+        "confirm_password": "Confirm Password",
+        "show_password": "Show password",
+        "hide_password": "Hide password",
+        "agree_terms": "I agree to the",
+        "terms_of_use": "Terms of Use",
+        "and": "and",
+        "privacy_policy": "Privacy Policy",
+        "of_ludus": "of Ludus",
+        "submit": "Create Account",
+        "success_title": "Account created successfully!",
+        "success_description": "Redirecting to your dashboard...",
+        "error_title": "Registration failed",
+        "error_description": "Could not create your account. Please try again."
+      }
+    }
+  },
+  "Navbar": {
+    "navigation": {
+      "home": "Home",
+      "catalog": "Catalog",
+      "developers": "Developers",
+      "contact": "Contact"
+    },
+    "user_menu": {
+      "my_profile": "My Profile",
+      "dev_portal": "Dev Portal",
+      "settings": "Settings",
+      "logout": "Logout"
+    },
+    "auth": {
+      "login": "Sign In",
+      "register": "Sign Up"
+    },
+    "avatar_alt": "Avatar of {name}"
+  },
+  "Catalog": {
+    "header": {
+      "search_placeholder": "Search games...",
+      "clear_search": "Clear search",
+      "filters_button": "Filters",
+      "sort": {
+        "popular": "Most Popular",
+        "rating": "Top Rated",
+        "price_low": "Lowest Price",
+        "price_high": "Highest Price",
+        "name": "Name (A-Z)"
+      }
+    },
+    "sidebar": {
+      "filters_title": "Filters",
+      "clear_all": "Clear all",
+      "popular_tags": "Popular Tags",
+      "genres": "Genres",
+      "platforms": "Platforms"
+    },
+    "empty": {
+      "title": "No games found",
+      "description": "We couldn't find any games matching the selected filters.",
+      "clear_filters": "Clear filters"
+    },
+    "loading": "Loading..."
+  },
+
+  "HeroBanner": {
+    "by": "by",
+    "see_more": "See more",
+    "go_to_slide": "Go to slide {number}"
+  },
+
+  "Profile": {
+    "tabs": {
+      "library": "Library",
+      "purchases": "Purchases",
+      "wishlist": "Wishlist"
+    },
+    "header": {
+      "member_since": "Member since {date}",
+      "games_count": "{count} games",
+      "edit_profile": "Edit Profile",
+      "dev_panel": "Dev Panel"
+    },
+    "library": {
+      "title": "My Library",
+      "search_placeholder": "Search games...",
+      "clear_search": "Clear search",
+      "empty": {
+        "title": "Your library is empty",
+        "description": "You don't own any games yet. Explore our store and find your next adventure!",
+        "button": "Explore Store"
+      },
+      "no_results": {
+        "title": "No games found",
+        "description": "We couldn't find any games matching your search \"{searchTerm}\"."
+      }
+    },
+    "purchases": {
+      "title": "Recent Purchases",
+      "total_spent": "Total spent",
+      "empty": {
+        "title": "No purchases made",
+        "description": "Your purchase history is empty. Visit the store to start your collection.",
+        "button": "Explore Store"
+      }
+    },
+    "wishlist": {
+      "title": "My Wishlist",
+      "search_placeholder": "Search wishlist...",
+      "clear_search": "Clear search",
+      "empty": {
+        "title": "Your wishlist is empty",
+        "description": "You haven't added any games to your wishlist yet. Explore our store and find games you love!",
+        "button": "Explore Store"
+      },
+      "no_results": {
+        "title": "No games found",
+        "description": "We couldn't find any games in your wishlist matching your search \"{searchTerm}\"."
+      }
+    }
+  },
+
+  "PurchaseCard": {
+    "status": {
+      "paid": "Paid",
+      "processing": "Processing",
+      "completed": "Completed"
+    },
+    "order_number": "Order #{id}",
+    "hide_items": "Hide items",
+    "show_items": "View {count} {count, plural, =1 {item} other {items}}",
+    "total": "Total",
+    "download": "Download",
+    "view_details": "View Details"
+  },
+
+  "Games": {
+    "download": "Download",
+    "wishlist_remove": "Remove from Wishlist",
+    "wishlist_add": "Add to Wishlist",
+    "in_cart": "In Cart",
+    "add_to_cart": "Add to Cart",
+    "already_in_library": "In library",
+    "view_game": "View game"
+  }
+}

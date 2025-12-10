@@ -1,0 +1,10 @@
+{
+  "structure": [
+    { "type": "article", "key": "welcome" },
+    {
+      "type": "section",
+      "key": "terms_of_use"
+    },
+    { "type": "section", "key": "privacy" }
+  ]
+}
