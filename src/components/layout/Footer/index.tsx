@@ -17,8 +17,8 @@ const footerLinks: Record<string, FooterLink[]> = {
     { name: "faq", href: "#" },
   ],
   legal: [
-    { name: "terms_of_use", href: "#" },
-    { name: "privacy", href: "#" },
+    { name: "terms_of_use", href: "policies/terms_of_use" },
+    { name: "privacy", href: "policies/privacy" },
   ],
 };
 

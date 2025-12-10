@@ -1,7 +1,7 @@
 "use client";
 
 import { SidebarMenuSubItem } from "@/components/ui/sidebar";
-import { CompanyPolicy, PolicyNavigationMap } from "@/lib/policies";
+import { CompanyPolicy } from "@/lib/policies";
 
 import { SidebarPolicy } from "./SidebarPolicy";
 
