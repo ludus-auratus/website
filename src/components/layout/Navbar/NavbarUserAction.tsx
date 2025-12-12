@@ -2,6 +2,7 @@
 
 import { useEffect, useState } from "react";
 import Link from "next/link";
+import { signOut, useSession } from "next-auth/react";
 import { useTranslations } from "next-intl";
 import { LayoutDashboard, LogOut, Settings, User } from "lucide-react";
 
@@ -15,11 +16,15 @@ import {
   DropdownMenuTrigger,
 } from "@/components/ui/dropdown-menu";
 import { useAuth } from "@/context/AuthContext";
+import { getUserAbbreviation } from "@/lib/auth";
 
 export function NavbarUserAction() {
   const [isMounted, setIsMounted] = useState(false);
   const t = useTranslations("Navbar");
-  const { user, logout } = useAuth();
+  const { data } = useSession();
+  const user = data!.user!;
+
+  const userAbbreviation = getUserAbbreviation(user.name!);
 
   useEffect(() => {
     setIsMounted(true);
@@ -33,8 +38,10 @@ export function NavbarUserAction() {
           className="ring-primary/20 relative h-9 w-9 cursor-pointer rounded-full transition-all hover:ring-2"
         >
           <Avatar className="h-9 w-9">
-            <AvatarImage src={user.avatar} alt={t("avatar_alt", { name: user.name })} />
-            <AvatarFallback className="bg-primary text-primary-foreground font-ludus-pixelify-sans">RQ</AvatarFallback>
+            <AvatarImage src={user.image!} alt={t("avatar_alt", { name: user.name! })} />
+            <AvatarFallback className="bg-primary text-primary-foreground font-ludus-pixelify-sans">
+              {userAbbreviation}
+            </AvatarFallback>
           </Avatar>
         </Button>
       </div>
@@ -50,9 +57,9 @@ export function NavbarUserAction() {
             className="ring-primary/20 relative ml-2 h-9 w-9 cursor-pointer rounded-full transition-all hover:ring-2"
           >
             <Avatar className="h-9 w-9">
-              <AvatarImage src={user.avatar} alt={t("avatar_alt", { name: user.name })} />
+              <AvatarImage src={user.image!} alt={t("avatar_alt", { name: user.name! })} />
               <AvatarFallback className="bg-primary text-primary-foreground font-ludus-pixelify-sans">
-                JS
+                {userAbbreviation}
               </AvatarFallback>
             </Avatar>
           </Button>
@@ -90,7 +97,7 @@ export function NavbarUserAction() {
           <DropdownMenuSeparator />
 
           <DropdownMenuItem
-            onClick={() => logout()}
+            onClick={() => signOut()}
             className="text-destructive active:bg-destructive/20 active:text-destructive focus:bg-destructive/10 focus:text-destructive flex cursor-pointer items-center"
           >
             <LogOut className="text-destructive mr-2 h-4 w-4" aria-hidden="true" /> {t("user_menu.logout")}

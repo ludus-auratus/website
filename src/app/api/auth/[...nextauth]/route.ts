@@ -1,7 +1,7 @@
 import NextAuth from "next-auth";
 import Credentials from "next-auth/providers/credentials";
 
-import { DetailedSession } from "@/lib/api";
+import { DetailedSession, DetailedUser, LoginDTO, loginUser } from "@/lib/auth";
 
 const handler = NextAuth({
   providers: [
@@ -11,12 +11,25 @@ const handler = NextAuth({
         password: { label: "Password", type: "password" },
       },
       authorize: async (credentials, req) => {
-        /// @WIP: Lógica de Login
-        return {
-          id: "0",
+        if (!credentials || !credentials?.email || !credentials?.password) {
+          return null;
+        }
+
+        const dto: LoginDTO = {
           email: credentials?.email,
-          password: credentials?.password,
+          senha: credentials?.password,
         };
+
+        /// @WIP: Lógica de Login
+        const user = await loginUser(dto);
+        if (!user) return null;
+
+        return {
+          id: `${user.id}`,
+          email: user.email,
+          name: user.nomeExibicao,
+          image: user.imagem,
+        } as DetailedUser;
       },
     }),
   ],
@@ -30,7 +43,7 @@ const handler = NextAuth({
       const detailed = session as DetailedSession;
       return detailed;
     },
-    signIn(params) {
+    signIn() {
       return true;
     },
   },

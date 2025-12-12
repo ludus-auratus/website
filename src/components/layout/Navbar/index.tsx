@@ -1,11 +1,11 @@
 "use client";
 
 import { useEffect, useState } from "react";
+import { signOut, useSession } from "next-auth/react";
 import { useTranslations } from "next-intl";
 import { Code2, Gamepad2, Globe2Icon, Home, LayoutDashboard, LogOut, Mail, Settings, User } from "lucide-react";
 
 import { Button } from "@/components/ui/button";
-import { useAuth } from "@/context/AuthContext";
 
 import LanguageSelector from "../LanguageSelector/LanguageSelector";
 
@@ -22,7 +22,7 @@ import { NavbarUserAction } from "./NavbarUserAction";
 
 export function Navbar() {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
-  const { isAuthenticated, logout } = useAuth();
+  const { status } = useSession();
   const t = useTranslations("Navbar");
 
   useEffect(() => {
@@ -72,7 +72,7 @@ export function Navbar() {
 
           <NavbarCartAction />
 
-          {isAuthenticated() ? <NavbarUserAction /> : <NavbarAuthButtons variant="desktop" />}
+          {status === "authenticated" ? <NavbarUserAction /> : <NavbarAuthButtons variant="desktop" />}
 
           <NavbarMenuButtonAction isOpen={isMobileMenuOpen} setIsOpen={setIsMobileMenuOpen} />
         </NavbarActions>
@@ -101,8 +101,7 @@ export function Navbar() {
               ))}
 
               <div className="border-border border-t" />
-
-              {isAuthenticated() ? (
+              {status === "authenticated" ? (
                 <>
                   <NavbarMenuItem
                     variant="mobile"
@@ -127,7 +126,7 @@ export function Navbar() {
                     variant={"destructive"}
                     className="flex w-full items-center"
                     onClick={() => {
-                      logout();
+                      signOut();
                       setIsMobileMenuOpen(false);
                     }}
                   >

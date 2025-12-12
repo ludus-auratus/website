@@ -1,5 +1,3 @@
-import { Session } from "next-auth";
-
 export type ApiResponseBody<TData = unknown, TError = string> =
   | {
       success: true;
@@ -11,7 +9,3 @@ export type ApiResponseBody<TData = unknown, TError = string> =
       data?: never;
       error: TError;
     };
-
-export interface DetailedSession extends Session {
-  user: Session["user"] & {};
-}

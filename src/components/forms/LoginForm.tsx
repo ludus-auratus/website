@@ -12,7 +12,6 @@ import { z } from "zod";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
-import { useAuth } from "@/context/AuthContext";
 import { zodResolver } from "@hookform/resolvers/zod";
 
 export function LoginForm() {
@@ -20,7 +19,6 @@ export function LoginForm() {
   const tValidation = useTranslations("Validation");
   const router = useRouter();
   const queryParams = useSearchParams();
-  const { login } = useAuth();
 
   const [showPassword, setShowPassword] = useState(false);
 
@@ -49,9 +47,11 @@ export function LoginForm() {
 
   async function onSubmit(data: LoginFormData) {
     try {
-      const success = await login(data.email, data.password);
-
-      if (!success) {
+      const { email, password } = data;
+      const callback = queryParams.get("callbackUrl") ?? "/";
+      const res = await signIn("credentials", { callbackUrl: callback, email, password, redirect: false });
+      console.log(JSON.stringify(res, null, 2));
+      if (!res?.ok) {
         const errorMessage = tValidation("email_or_password_invalid");
 
         setError("email", {
@@ -72,10 +72,7 @@ export function LoginForm() {
       }
 
       toast.success(t("success_title"));
-
-      const { email, password } = data;
-      const callback = queryParams.get("callbackUrl") ?? "/";
-      signIn("credentials", { callbackUrl: callback, email, password, other: "OPA" });
+      router.replace(callback);
     } catch (error) {
       console.error("Erro no login:", error);
       toast.error(t("error_title"), {
