@@ -3,7 +3,7 @@ import { StudioDTO } from "../studio";
 
 export interface GameDTO {
   id: number;
-  name: string;
+  title: string;
   price: number;
   tags: GameTagDTO[];
   classification: number;

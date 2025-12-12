@@ -17,7 +17,7 @@ export async function getGameDataById(gamekey: number): Promise<Game> {
 
   return {
     id: dto.id,
-    name: dto.name,
+    name: dto.title,
     price: dto.price,
     classification: getClassificationByAge(dto.classification),
     description: dto.description,
@@ -48,7 +48,7 @@ export async function requestGameDataById(gamekey: number): Promise<GameDTO> {
 
   return await {
     id: game.id,
-    name: game.name,
+    title: game.title,
     price: game.price,
     classification: game.classification,
     description: game.description,
@@ -77,7 +77,7 @@ export async function getAllGames(): Promise<Game[]> {
 
     return {
       id: game.id,
-      name: game.name,
+      name: game.title,
       price: game.price,
       classification: getClassificationByAge(game.classification),
       description: game.description,
@@ -102,7 +102,7 @@ export async function requestAllGames(): Promise<GameDTO[]> {
   return catalog.map((dto) => {
     return {
       id: dto.id,
-      name: dto.name,
+      title: dto.title,
       price: dto.price,
       classification: dto.classification,
       description: gameDescription,

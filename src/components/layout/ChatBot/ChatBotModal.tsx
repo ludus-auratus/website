@@ -97,7 +97,7 @@ export function ChatBotModal() {
               disabled={loading}
               className="h-full w-full resize-none wrap-anywhere"
             />
-            <div className="absolute -top-3 right-0 flex -translate-y-full gap-2 xl:left-0 2xl:static 2xl:translate-0 2xl:flex-col">
+            <div className="absolute -top-3 right-0 flex -translate-y-full gap-2 xl:static xl:translate-0 xl:flex-col">
               <Button className="h-10 w-10" type="submit" disabled={loading}>
                 <Send />
               </Button>

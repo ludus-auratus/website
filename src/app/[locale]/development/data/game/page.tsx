@@ -7,7 +7,7 @@ import { GameDTO, uploadGameData } from "@/lib/game";
 export default function Page() {
   const [dto, setDto] = useState<GameDTO>({
     id: 0,
-    name: "",
+    title: "",
     price: 0,
     tags: [],
     classification: 0,
