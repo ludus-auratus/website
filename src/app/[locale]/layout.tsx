@@ -3,6 +3,8 @@ import Script from "next/script";
 import { hasLocale, NextIntlClientProvider } from "next-intl";
 import { getTranslations } from "next-intl/server";
 
+import { ClientProviders } from "@/components/layout/Providers/ClientProviders";
+import { ServerProviders } from "@/components/layout/Providers/ServerProviders";
 import { Toaster } from "@/components/ui/sonner";
 import { VLibras } from "@/components/ui/vlibras";
 import { AuthProvider } from "@/context/AuthContext";
@@ -41,11 +43,9 @@ export default async function RootLayout({
   return (
     <html suppressHydrationWarning lang={locale}>
       <body className={cn(fonts, "dark flex h-full min-h-screen flex-col scroll-smooth")}>
-        <AuthProvider>
-          <CartProvider>
-            <NextIntlClientProvider>{children}</NextIntlClientProvider>
-          </CartProvider>
-        </AuthProvider>
+        <ServerProviders>
+          <ClientProviders>{children}</ClientProviders>
+        </ServerProviders>
 
         <Toaster />
         <VLibras />

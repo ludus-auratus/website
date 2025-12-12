@@ -4,6 +4,7 @@ import { getTranslations } from "next-intl/server";
 import { ArrowLeft } from "lucide-react";
 
 import { LoginForm } from "@/components/forms/LoginForm";
+import { RegisterLink } from "@/components/pages/login/RegisterLink";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
 
@@ -47,14 +48,15 @@ export default async function LoginPage() {
         <CardContent>
           <LoginForm />
 
-          <div className="pt-4 text-center">
+          {/* <div className="pt-4 text-center">
             <p className="text-muted-foreground">
               {t("login.no_account")}{" "}
               <Button asChild variant="link" className="text-primary h-auto p-0 hover:underline">
                 <Link href="/register">{t("login.register_link")}</Link>
               </Button>
             </p>
-          </div>
+          </div> */}
+          <RegisterLink />
         </CardContent>
       </Card>
 

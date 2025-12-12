@@ -3,7 +3,8 @@
 import { useState } from "react";
 import { Controller, Resolver, useForm } from "react-hook-form";
 import Link from "next/link";
-import { useRouter } from "next/navigation";
+import { useRouter, useSearchParams } from "next/navigation";
+import { signIn } from "next-auth/react";
 import { useTranslations } from "next-intl";
 import { Eye, EyeOff, Loader2 } from "lucide-react";
 import { toast } from "sonner";
@@ -14,6 +15,7 @@ import { Checkbox } from "@/components/ui/checkbox";
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select";
+import { ApiResponseBody } from "@/lib/api";
 import { zodResolver } from "@hookform/resolvers/zod";
 
 const brazilianStates = [
@@ -51,6 +53,7 @@ export function RegisterForm() {
   const tValidation = useTranslations("Validation");
   const [showPassword, setShowPassword] = useState(false);
   const [showConfirmPassword, setShowConfirmPassword] = useState(false);
+  const queryParams = useSearchParams();
   const router = useRouter();
 
   const registerSchema = z
@@ -110,9 +113,22 @@ export function RegisterForm() {
 
       console.log("Registro enviado:", data);
 
+      const res = await fetch("/api/auth/register", {
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify(data),
+        method: "POST",
+      });
+
+      const resBody: ApiResponseBody = await res.json();
+      if (!resBody.success) {
+        console.log(resBody.error);
+        throw resBody.error;
+      }
+
       toast.success(t("success_title"));
 
-      router.push("/");
+      const callback = queryParams.get("callbackUrl") ?? "/";
+      signIn("credentials", { callbackUrl: callback, email: data.email, password: data.password });
     } catch (error) {
       console.error("Erro no registro:", error);
       toast.error(t("error_title"), {

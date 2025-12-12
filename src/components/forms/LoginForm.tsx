@@ -2,7 +2,8 @@
 
 import { useState } from "react";
 import { useForm } from "react-hook-form";
-import { useRouter } from "next/navigation";
+import { useRouter, useSearchParams } from "next/navigation";
+import { signIn } from "next-auth/react";
 import { useTranslations } from "next-intl";
 import { Eye, EyeOff, Loader2 } from "lucide-react";
 import { toast } from "sonner";
@@ -18,6 +19,7 @@ export function LoginForm() {
   const t = useTranslations("Auth.forms.login");
   const tValidation = useTranslations("Validation");
   const router = useRouter();
+  const queryParams = useSearchParams();
   const { login } = useAuth();
 
   const [showPassword, setShowPassword] = useState(false);
@@ -71,8 +73,9 @@ export function LoginForm() {
 
       toast.success(t("success_title"));
 
-      router.push("/");
-      router.refresh();
+      const { email, password } = data;
+      const callback = queryParams.get("callbackUrl") ?? "/";
+      signIn("credentials", { callbackUrl: callback, email, password, other: "OPA" });
     } catch (error) {
       console.error("Erro no login:", error);
       toast.error(t("error_title"), {
