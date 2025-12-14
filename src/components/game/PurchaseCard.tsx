@@ -18,7 +18,7 @@ interface PurchaseItem {
 interface PurchaseCardProps {
   orderId: string;
   createdAt: Date;
-  status: "paid" | "processing" | "completed";
+  status: "Pendente" | "Pago" | "Cancelado" | "Concluido";
   items: PurchaseItem[];
   total: number;
 }
@@ -29,17 +29,21 @@ export function PurchaseCard({ orderId, createdAt, status, items, total }: Purch
   const [isExpanded, setIsExpanded] = useState(false);
 
   const statusConfig = {
-    paid: {
+    Pendente: {
+      label: t("status.pending"),
+      color: "bg-ludus-yellow-500/20 text-ludus-yellow-400 border border-ludus-yellow-500/30",
+    },
+    Pago: {
       label: t("status.paid"),
       color: "bg-ludus-lime-500/20 text-highlight border border-ludus-lime-500/30",
     },
-    processing: {
-      label: t("status.processing"),
-      color: "bg-ludus-yellow-500/20 text-ludus-yellow-400 border border-ludus-yellow-500/30",
-    },
-    completed: {
+    Concluido: {
       label: t("status.completed"),
       color: "bg-ludus-green-500/20 text-ludus-green-400 border border-ludus-green-500/30",
+    },
+    Cancelado: {
+      label: t("status.cancelled"),
+      color: "bg-red-500/20 text-red-400 border border-red-500/30",
     },
   };
 
@@ -118,7 +122,7 @@ export function PurchaseCard({ orderId, createdAt, status, items, total }: Purch
             <span className="text-highlight text-lg font-bold sm:text-xl">{formatPrice(total)}</span>
           </div>
 
-          <div className="xs:flex-row xs:w-fit ml-auto flex h-fit flex-col gap-2">
+          {/* <div className="xs:flex-row xs:w-fit ml-auto flex h-fit flex-col gap-2">
             {status === "completed" && (
               <Button variant="default" size="sm">
                 <Download className="mr-2 h-4 w-4" />
@@ -128,7 +132,7 @@ export function PurchaseCard({ orderId, createdAt, status, items, total }: Purch
             <Button variant={status === "completed" ? "outline" : "default"} size="sm">
               {t("view_details")}
             </Button>
-          </div>
+          </div> */}
         </div>
       </CardContent>
     </Card>

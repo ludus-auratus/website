@@ -1,5 +1,7 @@
 import { getTranslations } from "next-intl/server";
 
+import { getUserLibrary } from "@/lib/library/library.api";
+
 import MyLibraryPageContent from "./MyLibraryClient";
 
 export async function generateMetadata({ params }: { params: Promise<{ locale: string }> }) {
@@ -12,6 +14,8 @@ export async function generateMetadata({ params }: { params: Promise<{ locale: s
   };
 }
 
-export default function MyLibraryPage() {
-  return <MyLibraryPageContent />;
+export default async function MyLibraryPage() {
+  const initialGames = await getUserLibrary(1);
+
+  return <MyLibraryPageContent initialGames={initialGames} />;
 }

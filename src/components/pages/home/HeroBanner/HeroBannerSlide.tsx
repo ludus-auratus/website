@@ -4,19 +4,16 @@ import { useTranslations } from "next-intl";
 
 import { Button } from "@/components/ui/button";
 
-import { HeroBannerStars } from "./HeroBannerStars";
-
 interface HeroBannerSlideProps {
   id: number;
   title: string;
   studio: string;
-  rating: number;
   description: string;
   image: string;
   isActive: boolean;
 }
 
-export function HeroBannerSlide({ id, title, studio, rating, description, image, isActive }: HeroBannerSlideProps) {
+export function HeroBannerSlide({ id, title, studio, description, image, isActive }: HeroBannerSlideProps) {
   const t = useTranslations("HeroBanner");
 
   return (
@@ -33,7 +30,7 @@ export function HeroBannerSlide({ id, title, studio, rating, description, image,
             {t("by")} {studio}
           </p>
 
-          <HeroBannerStars rating={rating} />
+          {/* <HeroBannerStars rating={rating} /> */}
 
           <p className="text-foreground hidden max-w-lg text-base leading-relaxed md:inline-flex">{description}</p>
 

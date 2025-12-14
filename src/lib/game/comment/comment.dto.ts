@@ -4,6 +4,6 @@ export interface GameCommentDTO {
     avatar?: string;
   };
   content: string;
-  rating: number;
+  recommended: boolean;
   publishedAt: string;
 }

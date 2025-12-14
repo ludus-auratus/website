@@ -567,6 +567,9 @@
     "in_cart": "In Cart",
     "add_to_cart": "Add to Cart",
     "already_in_library": "In library",
-    "view_game": "View game"
+    "view_game": "View game",
+    "toast_already_in_library": "This game is already in your library.",
+    "added_to_wishlist": "Added to wishlist",
+    "removed_from_wishlist": "Removed from wishlist"
   }
 }

@@ -4,6 +4,6 @@ export interface GameComment {
     avatar?: string;
   };
   content: string;
-  rating: number;
+  recommended: boolean;
   publishedAt: Date;
 }

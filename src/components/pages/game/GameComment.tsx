@@ -1,4 +1,4 @@
-import { Flag, Star, ThumbsDown, ThumbsUp } from "lucide-react";
+import { Flag, ThumbsDown, ThumbsUp } from "lucide-react";
 
 import { Avatar, AvatarImage } from "@/components/ui/avatar";
 import { Button } from "@/components/ui/button";
@@ -48,8 +48,11 @@ export default function GameComment({ comment }: { comment: GameCommentData }) {
               </Button>
             </div>
             <div className="flex justify-end gap-1 opacity-0 transition-all group-hover:pointer-events-none group-hover:opacity-0 md:opacity-100">
-              <Star className="fill-current" />
-              {comment.rating}
+              {comment.recommended ? (
+                <ThumbsUp className="text-primary" />
+              ) : (
+                <ThumbsDown className="text-destructive" />
+              )}
             </div>
           </div>
         </div>

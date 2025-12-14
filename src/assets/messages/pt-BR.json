@@ -371,6 +371,38 @@
     }
   },
 
+  "Checkout": {
+    "back_to_cart": "Voltar ao carrinho",
+    "finish_purchase": "Finalizar Compra",
+    "success_message": "Compra realizada com sucesso!",
+    "error_message": "Erro ao finalizar a compra. Tente novamente.",
+    "order_summary": "Resumo do Pedido",
+    "qty": "Qtd: {count}",
+    "subtotal": "Subtotal ({count} {count, plural, =1 {item} other {itens}})",
+    "total": "Total",
+    "generate_pix": "Gerar Código PIX",
+    "pix_redirect_info": "Ao confirmar, você será redirecionado para a tela de pagamento PIX",
+    "payment_method": "Método de Pagamento",
+    "pix": {
+      "title": "Pagamento via PIX",
+      "subtitle": "Pague com PIX",
+      "description": "Aprovação instantânea e 100% seguro",
+      "secure_transaction": "Transação criptografada",
+      "how_to_pay": "Como pagar:",
+      "step_1": "Abra o app do seu banco",
+      "step_2": "Escolha pagar via PIX",
+      "step_3": "Escaneie o QR Code ou copie o código",
+      "step_4": "Confirme o pagamento",
+      "copy_paste": "Código PIX Copia e Cola:",
+      "amount_to_pay": "Valor a pagar",
+      "waiting": "Aguardando pagamento...",
+      "confirmation_info": "Após o pagamento, seu pedido será confirmado automaticamente em até 1 minuto.",
+      "confirming": "Confirmando...",
+      "simulate": "Simular Pagamento Confirmado",
+      "back": "Voltar"
+    }
+  },
+
   "Cart": {
     "empty": {
       "title": "Seu Carrinho Está Vazio",
@@ -403,6 +435,12 @@
         "description": "Faça login ou cadastre-se para fazer checkout."
       }
     }
+  },
+  "NotFound": {
+    "title": "Página não encontrada!",
+    "description": "Desculpe, a página que você está procurando não existe ou foi removida.",
+    "back_button": "Voltar ao início",
+    "code": "404"
   },
 
   "Contact": {
@@ -593,8 +631,9 @@
 
   "PurchaseCard": {
     "status": {
+      "pending": "Pendente",
       "paid": "Pago",
-      "processing": "Processando",
+      "cancelled": "Cancelado",
       "completed": "Concluído"
     },
     "order_number": "Pedido #{id}",

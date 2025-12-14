@@ -602,6 +602,9 @@
     "in_cart": "No Carrinho",
     "add_to_cart": "Adicionar ao carrinho",
     "already_in_library": "Na biblioteca",
-    "view_game": "Ver jogo"
+    "view_game": "Ver jogo",
+    "toast_already_in_library": "Este jogo já está na sua biblioteca.",
+    "added_to_wishlist": "Adicionado à lista de desejos",
+    "removed_from_wishlist": "Removido da lista de desejos"
   }
 }

@@ -15,14 +15,16 @@ import {
   EmptyStateTitle,
 } from "@/components/ui/empty-state";
 import { Input } from "@/components/ui/input";
-import { useAuth } from "@/context/AuthContext";
+import { GameListItem } from "@/lib/game/game.type";
+interface MyLibraryPageContentProps {
+  initialGames: GameListItem[];
+}
 
-export default function MyLibraryPageContent() {
+export default function MyLibraryPageContent({ initialGames }: MyLibraryPageContentProps) {
   const t = useTranslations("Profile");
   const [searchTerm, setSearchTerm] = useState("");
-  const { library } = useAuth();
 
-  const filteredGames = library.filter((game) => game.name.toLowerCase().includes(searchTerm.toLowerCase()));
+  const filteredGames = initialGames.filter((game) => game.name.toLowerCase().includes(searchTerm.toLowerCase()));
 
   return (
     <div className="space-y-6">
@@ -52,8 +54,7 @@ export default function MyLibraryPageContent() {
           )}
         </div>
       </div>
-
-      {library.length === 0 ? (
+      {initialGames.length === 0 ? (
         <div className="col-span-full">
           <EmptyState>
             <EmptyStateIcon icon={Library} />

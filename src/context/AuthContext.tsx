@@ -22,7 +22,7 @@ interface Purchase {
   orderId: string;
   userId: number;
   createdAt: Date;
-  status: "paid" | "processing" | "completed";
+  status: "Pendente" | "Pago" | "Cancelado" | "Concluido";
   items: PurchaseItem[];
   total: number;
 }

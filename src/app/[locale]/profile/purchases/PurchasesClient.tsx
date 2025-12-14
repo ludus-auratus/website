@@ -13,14 +13,18 @@ import {
   EmptyStateIcon,
   EmptyStateTitle,
 } from "@/components/ui/empty-state";
-import { useAuth } from "@/context/AuthContext";
+import { env } from "@/config/env";
 import { formatPrice } from "@/lib/game";
+import { RetornoPedidoDto } from "@/lib/order/order.dto";
 
-export default function PurchasesPageContent() {
+interface PurchasesPageContentProps {
+  initialPurchases: RetornoPedidoDto[];
+}
+
+export default function PurchasesPageContent({ initialPurchases }: PurchasesPageContentProps) {
   const t = useTranslations("Profile");
-  const { purchases } = useAuth();
 
-  const totalSpent = purchases.reduce((total, purchase) => total + purchase.total, 0);
+  const totalSpent = initialPurchases.reduce((total, purchase) => total + purchase.total, 0);
 
   return (
     <div className="space-y-6">
@@ -34,7 +38,7 @@ export default function PurchasesPageContent() {
       </div>
 
       <div className="grid gap-6">
-        {purchases.length === 0 ? (
+        {initialPurchases.length === 0 ? (
           <EmptyState>
             <EmptyStateIcon icon={ShoppingBag} />
             <EmptyStateTitle>{t("purchases.empty.title")}</EmptyStateTitle>
@@ -46,13 +50,18 @@ export default function PurchasesPageContent() {
             </EmptyStateActions>
           </EmptyState>
         ) : (
-          purchases.map((purchase) => (
+          initialPurchases.map((purchase) => (
             <PurchaseCard
-              key={purchase.orderId}
-              orderId={purchase.orderId}
-              createdAt={purchase.createdAt}
+              key={purchase.id}
+              orderId={purchase.id}
+              createdAt={new Date(purchase.data)}
               status={purchase.status}
-              items={purchase.items}
+              items={purchase.itens.map((item) => ({
+                id: item.jogoId,
+                name: item.jogoNome,
+                icon: `${env.BASE_URL}${item.urlIconeJogo}`,
+                price: item.precoUnitario,
+              }))}
               total={purchase.total}
             />
           ))

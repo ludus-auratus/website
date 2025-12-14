@@ -4,10 +4,6 @@ export function GameCardSkeleton() {
   return (
     <article className="bg-card text-card-foreground border-border relative mx-auto flex h-full max-w-[264px] min-w-[264px] flex-col rounded-2xl border shadow-lg backdrop-blur-sm sm:w-full sm:max-w-full">
       <div className="flex h-full flex-col rounded-2xl">
-        <div className="bg-background/90 absolute top-3 right-3 z-10 flex items-center space-x-1 rounded-full px-3 py-1 backdrop-blur-sm">
-          <Skeleton className="bg-primary/10 h-5 w-5 rounded-full" />
-        </div>
-
         <div className="relative aspect-square w-full overflow-hidden rounded-t-2xl">
           <Skeleton className="bg-primary/10 h-full w-full" />
         </div>

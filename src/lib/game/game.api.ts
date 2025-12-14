@@ -34,7 +34,7 @@ export async function getAllGames(): Promise<GameListItem[]> {
 
 export async function requestAllGames(): Promise<ApiResponse<BackendGame[]>> {
   const response = await fetch(`${API_URL}`, {
-    next: { revalidate: 60 },
+    next: { revalidate: 60, tags: ["jogos"] },
   });
 
   if (!response.ok) {

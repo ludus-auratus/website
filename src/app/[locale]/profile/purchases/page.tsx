@@ -1,5 +1,7 @@
 import { getTranslations } from "next-intl/server";
 
+import { getOrders } from "@/lib/order/order.api";
+
 import PurchasesPageContent from "./PurchasesClient";
 
 export async function generateMetadata({ params }: { params: Promise<{ locale: string }> }) {
@@ -12,6 +14,8 @@ export async function generateMetadata({ params }: { params: Promise<{ locale: s
   };
 }
 
-export default function PurchasesPage() {
-  return <PurchasesPageContent />;
+export default async function PurchasesPage() {
+  const initialPurchases = await getOrders(1);
+
+  return <PurchasesPageContent initialPurchases={initialPurchases.dados || []} />;
 }

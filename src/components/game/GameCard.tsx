@@ -3,11 +3,14 @@ import Image from "next/image";
 import Link from "next/link";
 import { useRouter } from "next/navigation";
 import { useTranslations } from "next-intl";
-import { Eye, Heart, ShoppingCart, Star } from "lucide-react";
+import { Eye, Heart, Loader2, ShoppingCart } from "lucide-react";
+import { toast } from "sonner";
 
 import { useAuth } from "@/context/AuthContext";
 import { useCart } from "@/context/CartContext";
 import { formatPrice } from "@/lib/game/game.utils";
+import { checkGameOwnership } from "@/lib/library/library.api";
+import { toggleWishlistGame } from "@/lib/wishlist/wishlist.api";
 
 import { Button } from "../ui/button";
 import { Tooltip, TooltipContent, TooltipProvider, TooltipTrigger } from "../ui/tooltip";
@@ -24,33 +27,53 @@ interface GameCardProps {
 export function GameCard({ name, price, icon, id, rating, studio }: GameCardProps) {
   const router = useRouter();
   const t = useTranslations("Games");
-  const { addFavorite, removeFavorite, isFavorite, isGameInLibrary, isAuthenticated } = useAuth();
   const { addToCart, isInCart } = useCart();
   const alreadyInCart = isInCart(id);
-  const alreadyInFavorite = isFavorite(id);
+  const [isLoading, setIsLoading] = React.useState(false);
+  const [isFavoriteLoading, setIsFavoriteLoading] = React.useState(false);
 
-  const handleAddToCart = () => {
+  const handleAddToCart = async () => {
     if (alreadyInCart) {
       router.push("/cart");
+      return;
     }
 
-    if (!isGameInLibrary(id)) {
+    try {
+      setIsLoading(true);
+      const isOwned = await checkGameOwnership(1, id);
+
+      if (isOwned) {
+        toast.error("Este jogo já está na sua biblioteca.");
+        router.push("/profile/my-library");
+        return;
+      }
+
       addToCart({ id, name, icon, rating, price, studio });
+    } catch (error) {
+      console.error("Erro ao verificar jogo:", error);
+    } finally {
+      setIsLoading(false);
     }
   };
 
-  const handleToggleFavorite = () => {
-    if (!isAuthenticated()) {
-      router.push("/login");
-      return;
-    }
+  const handleToggleFavorite = async () => {
+    try {
+      setIsFavoriteLoading(true);
+      const action = await toggleWishlistGame(1, id); // User ID hardcoded to 1 for now as per previous context
 
-    if (alreadyInFavorite) {
-      removeFavorite(id);
-      return;
+      if (action === "Adicionado") {
+        toast.success(t("added_to_wishlist"));
+      } else if (action === "Removido") {
+        toast.success(t("removed_from_wishlist"));
+      } else if (action === "JaNaBiblioteca") {
+        toast.error(t("toast_already_in_library"));
+        router.push("/profile/my-library");
+      }
+    } catch (error) {
+      console.error("Erro ao atualizar favoritos:", error);
+    } finally {
+      setIsFavoriteLoading(false);
     }
-
-    addFavorite({ id, name, icon, rating, price, studio });
   };
 
   return (
@@ -60,17 +83,6 @@ export function GameCard({ name, price, icon, id, rating, studio }: GameCardProp
         href={`/game/${id}`}
         className="focus-visible:ring-highlight flex h-full flex-col rounded-2xl transition-all duration-300 outline-none focus-visible:-translate-y-1 focus-visible:ring-2"
       >
-        <div className="bg-background/90 absolute top-3 right-3 z-10 flex items-center space-x-1 rounded-full px-3 py-1 backdrop-blur-sm">
-          {rating > 0 ? (
-            <>
-              <Star className="text-accent h-4 w-4 fill-current" />
-              <span>{rating}</span>
-            </>
-          ) : (
-            <Star className="text-muted-foreground h-5 w-5 fill-current" />
-          )}
-        </div>
-
         <figure className="relative aspect-square w-full overflow-hidden rounded-t-2xl">
           <Image
             src={icon}
@@ -92,23 +104,21 @@ export function GameCard({ name, price, icon, id, rating, studio }: GameCardProp
             <p className="text-muted-foreground/80 line-clamp-1 text-sm font-medium">{studio}</p>
           </div>
 
-          <div
-            className="flex items-center justify-between gap-2"
-            onClick={(e) => !isGameInLibrary(id) && e.preventDefault()}
-          >
+          <div className="flex items-center justify-between gap-2" onClick={(e) => e.preventDefault()}>
             <Button
               onClick={handleAddToCart}
+              disabled={isLoading}
               className="text-md bg-primary group-hover: text-primary-foreground sm:text-card-foreground sm:group-hover:bg-primary sm:group-focus-within:bg-primary sm:group-hover:text-primary-foreground sm:group-focus-within:text-primary-foreground focus:bg-primary relative w-full flex-1 justify-center !p-0 font-medium shadow-md transition-all duration-300 sm:justify-start sm:bg-transparent sm:shadow-none sm:group-focus-within:justify-center sm:group-focus-within:shadow-md sm:group-hover:justify-center sm:group-hover:shadow-md"
             >
-              {isGameInLibrary(id) ? (
-                <Eye className="mr-2 block h-4 w-4 self-center sm:hidden sm:group-focus-within:block sm:group-hover:block" />
+              {isLoading ? (
+                <Loader2 className="mr-2 block h-4 w-4 animate-spin self-center sm:hidden sm:group-focus-within:block sm:group-hover:block" />
               ) : (
                 <ShoppingCart
                   className={`mr-2 block h-4 w-4 self-center sm:hidden sm:group-focus-within:block sm:group-hover:block ${alreadyInCart ? "fill-current" : "fill-transparent"}`}
                 />
               )}
               <span className="flex items-center justify-center text-center transition-all duration-300 sm:hidden sm:group-focus-within:flex sm:group-hover:flex">
-                {isGameInLibrary(id) ? t("view_game") : alreadyInCart ? t("in_cart") : formatPrice(price)}
+                {alreadyInCart ? t("in_cart") : formatPrice(price)}
               </span>
 
               <span className="hidden text-start transition-all duration-300 sm:block sm:group-focus-within:hidden sm:group-hover:hidden">
@@ -116,26 +126,25 @@ export function GameCard({ name, price, icon, id, rating, studio }: GameCardProp
               </span>
             </Button>
 
-            {!isGameInLibrary(id) && (
-              <TooltipProvider>
-                <Tooltip>
-                  <TooltipTrigger asChild>
-                    <div>
-                      <Button
-                        className="focus-visible:border-destructive focus-visible:ring-destructive disabled:opacity-0 group-focus-within:disabled:opacity-50 group-hover:disabled:opacity-50 sm:opacity-0 sm:group-focus-within:opacity-100 sm:group-hover:opacity-100"
-                        variant={isFavorite(id) ? "destructive" : "favorite"}
-                        onClick={handleToggleFavorite}
-                      >
-                        <Heart className={isFavorite(id) ? "fill-current" : ""} />
-                      </Button>
-                    </div>
-                  </TooltipTrigger>
-                  <TooltipContent>
-                    <p>{isFavorite(id) ? t("wishlist_remove") : t("wishlist_add")}</p>
-                  </TooltipContent>
-                </Tooltip>
-              </TooltipProvider>
-            )}
+            <TooltipProvider>
+              <Tooltip>
+                <TooltipTrigger asChild>
+                  <div>
+                    <Button
+                      className="focus-visible:border-destructive focus-visible:ring-destructive disabled:opacity-0 group-focus-within:disabled:opacity-50 group-hover:disabled:opacity-50 sm:opacity-0 sm:group-focus-within:opacity-100 sm:group-hover:opacity-100"
+                      variant={"favorite"}
+                      onClick={handleToggleFavorite}
+                      disabled={isFavoriteLoading}
+                    >
+                      {isFavoriteLoading ? <Loader2 className="h-4 w-4 animate-spin" /> : <Heart className="h-4 w-4" />}
+                    </Button>
+                  </div>
+                </TooltipTrigger>
+                <TooltipContent>
+                  <p>{t("wishlist_add")}</p>
+                </TooltipContent>
+              </Tooltip>
+            </TooltipProvider>
           </div>
         </div>
       </Link>

@@ -45,11 +45,6 @@ export function ProfileHeader() {
 
                     <div className="flex flex-row gap-4">
                       <div className="flex items-center">
-                        <MapPin className="mr-1 h-4 w-4" />
-                        Brasil
-                      </div>
-
-                      <div className="flex items-center">
                         <Library className="mr-1 h-4 w-4" />
                         {t("header.games_count", { count: library.length })}
                       </div>

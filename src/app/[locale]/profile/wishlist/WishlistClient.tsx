@@ -15,14 +15,16 @@ import {
   EmptyStateTitle,
 } from "@/components/ui/empty-state";
 import { Input } from "@/components/ui/input";
-import { useAuth } from "@/context/AuthContext";
+import { GameListItem } from "@/lib/game/game.type";
+interface WishlistPageContentProps {
+  initialGames: GameListItem[];
+}
 
-export default function WishlistPageContent() {
+export default function WishlistPageContent({ initialGames }: WishlistPageContentProps) {
   const t = useTranslations("Profile");
-  const { favorites } = useAuth();
   const [searchTerm, setSearchTerm] = useState("");
 
-  const filteredGames = favorites.filter((game) => game.name.toLowerCase().includes(searchTerm.toLowerCase()));
+  const filteredGames = initialGames.filter((game) => game.name.toLowerCase().includes(searchTerm.toLowerCase()));
 
   return (
     <div className="space-y-6">
@@ -53,7 +55,7 @@ export default function WishlistPageContent() {
         </div>
       </div>
 
-      {favorites.length === 0 ? (
+      {initialGames.length === 0 ? (
         <div className="col-span-full">
           <EmptyState>
             <EmptyStateIcon icon={Heart} />

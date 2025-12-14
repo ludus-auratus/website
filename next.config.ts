@@ -28,6 +28,7 @@ const nextConfig: NextConfig = {
   images: {
     remotePatterns: [
       { protocol: "https", hostname: "placehold.co", pathname: "/**" },
+      { protocol: "https", hostname: "blobstorageludus.blob.core.windows.net", pathname: "/**" },
       { protocol: "https", hostname: "shared.fastly.steamstatic.com", pathname: "/**" },
       { protocol: "https", hostname: "img.youtube.com", pathname: "/**" },
       { protocol: "https", hostname: "picsum.photos", pathname: "/**" },
