@@ -1,3 +1,6 @@
+import { get } from "http";
+import { int, set } from "zod";
+
 export type PublishedGameStatus = "published" | "unpublished" | "draft" | "revision";
 
 export interface QuickGameDashboard {
@@ -29,5 +32,17 @@ export interface DevQuickStat {
   label: string;
   value: string;
   trend: DevQuickStatTrend;
-  change: string;
+  change: string | null;
+}
+
+export interface DevQuickStatisticsBackend {
+  totalVisualizacoes: number;
+  totalDownloads: number;
+  totalAvaliacoes: number;
+  totalJogos: number;
+  totalReceita: number;
+  crescimentoVisualizacoes: number;
+  crescimentoDownloads: number;
+  crescimentoReceita: number;
+  crescimentoAvaliacoes: number;
 }

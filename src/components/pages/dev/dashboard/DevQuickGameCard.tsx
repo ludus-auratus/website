@@ -36,14 +36,9 @@ import {
   DropdownMenuItem,
   DropdownMenuTrigger,
 } from "@/components/ui/dropdown-menu";
-import { Input } from "@/components/ui/input";
-import { Label } from "@/components/ui/label";
 import { Progress } from "@/components/ui/progress";
-import { Separator } from "@/components/ui/separator";
-import { TooltipContent, TooltipTrigger } from "@/components/ui/tooltip";
 import { QuickGameDashboard } from "@/lib/dev/dashboard";
 import { cn } from "@/lib/utils/shadcn";
-import { Tooltip } from "@radix-ui/react-tooltip";
 
 import { DevModals } from "../modal";
 
@@ -101,10 +96,10 @@ export default async function DevQuickGameCard({
                     <span> • </span>
                   </span>
                 )}
-                <span>Última atualização: </span>
+                {/* <span>Última atualização: </span>
                 <span>
                   {game.lastUpdate.toLocaleString("pt-BR", { day: "2-digit", month: "2-digit", year: "numeric" })}
-                </span>
+                </span> */}
                 {advanced && game.status === "published" && game.publishedDate && (
                   <>
                     <span> • </span>

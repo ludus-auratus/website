@@ -15,7 +15,7 @@ export async function generateMetadata({ params }: { params: Promise<{ locale: s
 
 export default async function DashboardPage() {
   const games = await getDevDashboardGames(0);
-  const stats = await getDevDashboardStatistics(0);
+  const stats = await getDevDashboardStatistics(1);
 
   return (
     <>
