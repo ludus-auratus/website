@@ -50,7 +50,10 @@ export default function CheckoutPageContent() {
           jogoIds: itemsPurchase.map((item) => item.id),
         };
 
+        await new Promise((resolve) => setTimeout(resolve, 2000));
+
         await createOrder(dto);
+
         toast.success(t("success_message"));
 
         // Limpa o carrinho

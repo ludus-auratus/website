@@ -88,3 +88,19 @@ export async function incrementGameDownloads(id: number): Promise<void> {
     throw new Error(errorBody.mensagem || `Erro ao incrementar downloads: ${response.statusText}`);
   }
 }
+
+export async function downloadGame(id: number): Promise<string> {
+  const response = await fetch(`${API_URL}/${id}/download`, {
+    method: "GET",
+  });
+
+  const data = (await response.json()) as ApiResponse<string>;
+
+  if (!response.ok) {
+    throw new Error(`Erro ao iniciar download: ${response.statusText}`);
+  }
+
+  const caminho = data.dados.startsWith("/") ? data.dados.slice(1) : data.dados;
+
+  return `${env.BASE_URL}${caminho}`;
+}

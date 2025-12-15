@@ -1,9 +1,5 @@
 import { redirect } from "next/navigation";
 
-import { UserSettingsHeader } from "@/components/pages/profile/settings/UserSettingsHeader";
-import { UserSettingsTabs } from "@/components/pages/profile/settings/UserSettingsTabs";
-import { UserSettingsProvider } from "@/context/UserSettingsContext";
-
 interface SettingsPageProps {
   onBack: () => void;
   isDark: boolean;

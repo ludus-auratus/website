@@ -18,11 +18,12 @@ export async function POST(req: Request) {
   const { data } = bodyValidation;
 
   const dto: RegisterDTO = {
-    nomeCompleto: `${data.firstName} ${data.lastName}`,
+    nomeCompleto: data.fullName,
     nomeExibicao: data.username,
     consentimentoLGPD: data.agreeTerms,
     dataNascimento: data.birthDate,
     email: data.email,
+    telefone: data.phoneNumber,
     senha: hash("sha256", data.password),
   };
 

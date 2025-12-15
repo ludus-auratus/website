@@ -10,10 +10,10 @@ type FooterLink = { name: string; href: string };
 const footerLinks: Record<string, FooterLink[]> = {
   about: [
     { name: "about_us", href: "/about-us" },
-    { name: "developers", href: "/about-us#developers" },
+    { name: "developers", href: "/team" },
   ],
   support: [
-    { name: "contact", href: "#" },
+    { name: "contact", href: "/contact" },
     { name: "faq", href: "#" },
   ],
   legal: [

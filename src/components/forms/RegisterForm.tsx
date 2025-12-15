@@ -3,7 +3,7 @@
 import { useState } from "react";
 import { Controller, Resolver, useForm } from "react-hook-form";
 import Link from "next/link";
-import { useRouter, useSearchParams } from "next/navigation";
+import { useSearchParams } from "next/navigation";
 import { signIn } from "next-auth/react";
 import { useTranslations } from "next-intl";
 import { Eye, EyeOff, Loader2 } from "lucide-react";
@@ -14,39 +14,8 @@ import { Button } from "@/components/ui/button";
 import { Checkbox } from "@/components/ui/checkbox";
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
-import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select";
 import { ApiResponseBody } from "@/lib/api";
 import { zodResolver } from "@hookform/resolvers/zod";
-
-const brazilianStates = [
-  "Acre",
-  "Alagoas",
-  "Amapá",
-  "Amazonas",
-  "Bahia",
-  "Ceará",
-  "Distrito Federal",
-  "Espírito Santo",
-  "Goiás",
-  "Maranhão",
-  "Mato Grosso",
-  "Mato Grosso do Sul",
-  "Minas Gerais",
-  "Pará",
-  "Paraíba",
-  "Paraná",
-  "Pernambuco",
-  "Piauí",
-  "Rio de Janeiro",
-  "Rio Grande do Norte",
-  "Rio Grande do Sul",
-  "Rondônia",
-  "Roraima",
-  "Santa Catarina",
-  "São Paulo",
-  "Sergipe",
-  "Tocantins",
-];
 
 export function RegisterForm() {
   const t = useTranslations("Auth.forms.register");
@@ -54,18 +23,16 @@ export function RegisterForm() {
   const [showPassword, setShowPassword] = useState(false);
   const [showConfirmPassword, setShowConfirmPassword] = useState(false);
   const queryParams = useSearchParams();
-  const router = useRouter();
 
   const registerSchema = z
     .object({
-      firstName: z.string().min(1, tValidation("required")),
-      lastName: z.string().min(1, tValidation("required")),
+      fullName: z.string().min(1, tValidation("required")),
       username: z.string().min(3, tValidation("min_length", { min: 3 })),
       email: z
         .string()
         .min(1, tValidation("required"))
         .pipe(z.email(tValidation("email_invalid"))),
-      region: z.string().min(1, tValidation("required")),
+      phoneNumber: z.string().optional(),
       birthDate: z.coerce
         .date({
           message: tValidation("invalid_date"),
@@ -93,11 +60,10 @@ export function RegisterForm() {
   } = useForm<RegisterFormData>({
     resolver: zodResolver(registerSchema) as Resolver<RegisterFormData>,
     defaultValues: {
-      firstName: "",
-      lastName: "",
+      fullName: "",
       username: "",
       email: "",
-      region: "",
+      phoneNumber: "",
       birthDate: undefined,
       password: "",
       confirmPassword: "",
@@ -139,38 +105,20 @@ export function RegisterForm() {
 
   return (
     <form onSubmit={handleSubmit(onSubmit)} className="space-y-6" aria-label={t("aria_label")} noValidate>
-      <div className="grid grid-cols-1 gap-4 md:grid-cols-2">
-        <div className="space-y-2">
-          <Label htmlFor="firstName" className="text-foreground">
-            {t("first_name")} *
-          </Label>
+      <div className="space-y-2">
+        <Label htmlFor="fullName" className="text-foreground">
+          {t("full_name")} *
+        </Label>
 
-          <Input
-            id="firstName"
-            type="text"
-            placeholder={t("first_name_placeholder")}
-            {...register("firstName")}
-            aria-invalid={!!errors.firstName}
-            disabled={isSubmitting}
-          />
-          {errors.firstName && <p className="text-destructive text-sm">{errors.firstName.message}</p>}
-        </div>
-
-        <div className="space-y-2">
-          <Label htmlFor="lastName" className="text-foreground">
-            {t("last_name")} *
-          </Label>
-
-          <Input
-            id="lastName"
-            type="text"
-            placeholder={t("last_name_placeholder")}
-            {...register("lastName")}
-            aria-invalid={!!errors.lastName}
-            disabled={isSubmitting}
-          />
-          {errors.lastName && <p className="text-destructive text-sm">{errors.lastName.message}</p>}
-        </div>
+        <Input
+          id="fullName"
+          type="text"
+          placeholder={t("full_name_placeholder")}
+          {...register("fullName")}
+          aria-invalid={!!errors.fullName}
+          disabled={isSubmitting}
+        />
+        {errors.fullName && <p className="text-destructive text-sm">{errors.fullName.message}</p>}
       </div>
 
       <div className="space-y-2">
@@ -208,30 +156,19 @@ export function RegisterForm() {
 
       <div className="grid grid-cols-1 gap-4 md:grid-cols-2">
         <div className="space-y-2">
-          <Label htmlFor="region" className="text-foreground">
-            {t("region")} *
+          <Label htmlFor="phoneNumber" className="text-foreground">
+            {t("phone_number")}
           </Label>
 
-          <Controller
-            control={control}
-            name="region"
-            render={({ field }) => (
-              <Select onValueChange={field.onChange} defaultValue={field.value} disabled={isSubmitting}>
-                <SelectTrigger size="default" aria-invalid={!!errors.region} className="bg-input-background w-full">
-                  <SelectValue placeholder={t("region_placeholder")} />
-                </SelectTrigger>
-
-                <SelectContent>
-                  {brazilianStates.map((state) => (
-                    <SelectItem key={state} value={state}>
-                      {state}
-                    </SelectItem>
-                  ))}
-                </SelectContent>
-              </Select>
-            )}
+          <Input
+            id="phoneNumber"
+            type="tel"
+            placeholder={t("phone_description")}
+            {...register("phoneNumber")}
+            aria-invalid={!!errors.phoneNumber}
+            disabled={isSubmitting}
           />
-          {errors.region && <p className="text-destructive text-sm">{errors.region.message}</p>}
+          {errors.phoneNumber && <p className="text-destructive text-sm">{errors.phoneNumber.message}</p>}
         </div>
 
         <div className="space-y-2">

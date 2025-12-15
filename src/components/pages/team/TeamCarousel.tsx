@@ -1,6 +1,6 @@
 "use client";
 
-import { useEffect, useRef } from "react";
+import { Fragment, useEffect, useRef } from "react";
 import Image from "next/image";
 import { useTranslations } from "next-intl";
 
@@ -65,7 +65,7 @@ export function TeamCarousel({ team }: { team: MemberData[] }) {
                         <h3 className="text-lg font-bold">{member.name}</h3>
                         <p className="text-accent text-sm">
                           {member.roles.map((role, index) => (
-                            <>
+                            <Fragment key={index}>
                               {index > 0 && (
                                 <>
                                   <br className="md:hidden" />
@@ -73,8 +73,8 @@ export function TeamCarousel({ team }: { team: MemberData[] }) {
                                   <span className="hidden md:inline"> / </span>
                                 </>
                               )}
-                              <span key={`roles-${index}`}>{t(`roles.${role}`)}</span>
-                            </>
+                              <span>{t(`roles.${role}`)}</span>
+                            </Fragment>
                           ))}
                         </p>
                       </div>

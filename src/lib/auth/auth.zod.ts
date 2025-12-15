@@ -7,14 +7,13 @@ export type RegisterSchema = z.infer<ReturnType<typeof createRegisterSchema>>;
 export function createRegisterSchema(translator: Translator) {
   return z
     .object({
-      firstName: z.string().min(1, translator("required")),
-      lastName: z.string().min(1, translator("required")),
+      fullName: z.string().min(1, translator("required")),
       username: z.string().min(3, translator("min_length", { min: 3 })),
       email: z
         .string()
         .min(1, translator("required"))
         .pipe(z.email(translator("email_invalid"))),
-      region: z.string().min(1, translator("required")),
+      phoneNumber: z.string().optional(),
       birthDate: z.coerce
         .date({
           message: translator("invalid_date"),

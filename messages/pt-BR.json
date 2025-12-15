@@ -109,6 +109,10 @@
     "dashboard": {
       "title": "Painel Dev | Ludus",
       "description": "Gerencie seus jogos publicados e veja estatísticas."
+    },
+    "game_not_found": {
+      "title": "Jogo Não Encontrado | Ludus",
+      "description": "O jogo solicitado não foi encontrado."
     }
   },
   "language": {
@@ -451,16 +455,14 @@
       },
       "register": {
         "aria_label": "Formulário de registro",
-        "first_name": "Nome",
-        "first_name_placeholder": "João",
-        "last_name": "Sobrenome",
-        "last_name_placeholder": "Silva",
+        "full_name": "Nome Completo",
+        "full_name_placeholder": "João Silva",
         "username": "Nome de usuário",
         "username_placeholder": "gamer_brasileiro",
         "email": "Email",
         "email_placeholder": "seu@email.com",
-        "region": "Estado",
-        "region_placeholder": "Selecione seu estado",
+        "phone_number": "Telefone",
+        "phone_description": "Ex: 55 (11) 99999-9999",
         "birth_date": "Data de nascimento",
         "birth_date_placeholder": "Selecione a data",
         "password": "Senha",
@@ -584,8 +586,9 @@
   },
   "PurchaseCard": {
     "status": {
+      "pending": "Pendente",
       "paid": "Pago",
-      "processing": "Processando",
+      "cancelled": "Cancelado",
       "completed": "Concluído"
     },
     "order_number": "Pedido #{id}",
@@ -594,6 +597,43 @@
     "total": "Total",
     "download": "Download",
     "view_details": "Ver Detalhes"
+  },
+  "NotFound": {
+    "title": "Página não encontrada!",
+    "description": "Desculpe, a página que você está procurando não existe ou foi removida.",
+    "back_button": "Voltar ao início",
+    "code": "404"
+  },
+  "Checkout": {
+    "back_to_cart": "Voltar ao carrinho",
+    "finish_purchase": "Finalizar Compra",
+    "success_message": "Compra realizada com sucesso!",
+    "error_message": "Erro ao finalizar a compra. Tente novamente.",
+    "order_summary": "Resumo do Pedido",
+    "qty": "Qtd: {count}",
+    "subtotal": "Subtotal ({count} {count, plural, =1 {item} other {itens}})",
+    "total": "Total",
+    "generate_pix": "Gerar Código PIX",
+    "pix_redirect_info": "Ao confirmar, você será redirecionado para a tela de pagamento PIX",
+    "payment_method": "Método de Pagamento",
+    "pix": {
+      "title": "Pagamento via PIX",
+      "subtitle": "Pague com PIX",
+      "description": "Aprovação instantânea e 100% seguro",
+      "secure_transaction": "Transação criptografada",
+      "how_to_pay": "Como pagar:",
+      "step_1": "Abra o app do seu banco",
+      "step_2": "Escolha pagar via PIX",
+      "step_3": "Escaneie o QR Code ou copie o código",
+      "step_4": "Confirme o pagamento",
+      "copy_paste": "Código PIX Copia e Cola:",
+      "amount_to_pay": "Valor a pagar",
+      "waiting": "Aguardando pagamento...",
+      "confirmation_info": "Após o pagamento, seu pedido será confirmado automaticamente em até 1 minuto.",
+      "confirming": "Confirmando...",
+      "simulate": "Simular Pagamento Confirmado",
+      "back": "Voltar"
+    }
   },
   "Games": {
     "download": "Baixar",
@@ -605,6 +645,16 @@
     "view_game": "Ver jogo",
     "toast_already_in_library": "Este jogo já está na sua biblioteca.",
     "added_to_wishlist": "Adicionado à lista de desejos",
-    "removed_from_wishlist": "Removido da lista de desejos"
+    "removed_from_wishlist": "Removido da lista de desejos",
+    "download_modal": {
+      "title": "Confirmar Download",
+      "description": "Você deseja iniciar o download de {gameName}?",
+      "cancel": "Cancelar",
+      "confirm": "Download",
+      "success_title": "Download iniciado!",
+      "success_description": "O download do jogo começou.",
+      "error_title": "Erro no download",
+      "error_description": "Não foi possível iniciar o download."
+    }
   }
 }

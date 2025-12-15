@@ -20,8 +20,8 @@ interface CatalogSidebarProps {
 export function CatalogSidebar({
   selectedGenres,
   toggleGenre,
-  selectedTags,
-  toggleTag,
+  // selectedTags,
+  // toggleTag,
   selectedPlatforms,
   togglePlatform,
   clearFilters,
@@ -29,7 +29,7 @@ export function CatalogSidebar({
   const t = useTranslations("Catalog.sidebar");
 
   const genres = ["Ação", "Aventura", "RPG", "Estratégia", "Simulação", "Música", "Luta", "Plataforma", "Outros"];
-  const popularTags = ["Multiplayer", "Singleplayer", "Offline", "Online"];
+  // const popularTags = ["Multiplayer", "Singleplayer", "Offline", "Online"];
   const platforms = ["Mac", "Linux", "Windows"];
 
   return (
@@ -58,7 +58,7 @@ export function CatalogSidebar({
       </Card>
 
       <div className="flex flex-row flex-wrap gap-6 lg:flex-col">
-        <Card className="bg-card/50 border-border min-w-[200px] flex-1 p-6 backdrop-blur-sm">
+        {/* <Card className="bg-card/50 border-border min-w-[200px] flex-1 p-6 backdrop-blur-sm">
           <div className="space-y-3">
             <Label className="font-ludus-pixelify-sans text-md">{t("popular_tags")}</Label>
 
@@ -77,7 +77,7 @@ export function CatalogSidebar({
               ))}
             </div>
           </div>
-        </Card>
+        </Card> */}
 
         <Card className="bg-card/50 border-border min-w-[200px] flex-1 p-6 backdrop-blur-sm">
           <div className="space-y-3">

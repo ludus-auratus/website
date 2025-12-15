@@ -1,31 +1,53 @@
 import { useTransition } from "react";
+import { useState } from "react";
 import Image from "next/image";
 import Link from "next/link";
-import { Download, Loader2, Star } from "lucide-react";
+import { useTranslations } from "next-intl";
+import { Download, Loader2 } from "lucide-react";
 import { toast } from "sonner";
 
-import { Button } from "../ui/button";
+import { Button } from "@/components/ui/button";
+import { downloadGame, incrementGameDownloads } from "@/lib/game/game.api";
+
+import { DownloadModal } from "./DownloadModal";
 
 interface GameCardLibraryProps {
   id: number;
   name: string;
   icon: string;
-  rating: number;
 }
 
-export function GameCardLibrary({ name, icon, id, rating }: GameCardLibraryProps) {
+export function GameCardLibrary({ name, icon, id }: GameCardLibraryProps) {
+  const t = useTranslations("Games.download_modal");
   const [isPending, startTransition] = useTransition();
+
+  const [isModalOpen, setIsModalOpen] = useState(false);
 
   function handleDownload(e: React.MouseEvent<HTMLButtonElement>) {
     e.preventDefault();
     e.stopPropagation();
+    setIsModalOpen(true);
+  }
 
+  function handleConfirmDownload() {
     startTransition(async () => {
-      await new Promise((resolve) => setTimeout(resolve, 1000));
+      try {
+        const downloadUrl = await downloadGame(id);
 
-      toast.success("Download conclusão!", {
-        description: "O jogo foi baixado com sucesso!",
-      });
+        incrementGameDownloads(id).catch((err) => console.error(err));
+        window.location.href = downloadUrl;
+
+        toast.success(t("success_title"), {
+          description: t("success_description"),
+        });
+
+        setIsModalOpen(false);
+      } catch (error) {
+        toast.error(t("error_title"), {
+          description: t("error_description"),
+        });
+        console.log(error);
+      }
     });
   }
 
@@ -64,6 +86,14 @@ export function GameCardLibrary({ name, icon, id, rating }: GameCardLibraryProps
           </Button>
         </div>
       </Link>
+
+      <DownloadModal
+        open={isModalOpen}
+        onOpenChange={setIsModalOpen}
+        onConfirm={handleConfirmDownload}
+        gameName={name}
+        isPending={isPending}
+      />
     </article>
   );
 }

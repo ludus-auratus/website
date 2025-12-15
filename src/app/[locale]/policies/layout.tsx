@@ -2,7 +2,6 @@ import Link from "next/link";
 import { getTranslations } from "next-intl/server";
 import { ArrowLeft, Book } from "lucide-react";
 
-import { SidebarPolicy } from "@/components/pages/policies/SidebarPolicy";
 import { SidebarPolicyTree } from "@/components/pages/policies/SidebarPolicyTree";
 import { Button } from "@/components/ui/button";
 import { Separator } from "@/components/ui/separator";
@@ -13,7 +12,6 @@ import {
   SidebarGroup,
   SidebarHeader,
   SidebarMenu,
-  SidebarMenuItem,
   SidebarProvider,
   SidebarTrigger,
 } from "@/components/ui/sidebar";

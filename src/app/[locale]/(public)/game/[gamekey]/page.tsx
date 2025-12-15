@@ -1,28 +1,43 @@
 import Image from "next/image";
+import { notFound } from "next/navigation";
+import { getTranslations } from "next-intl/server";
 
 import { Game } from "@/components/pages/game";
 import { getGameDataById, incrementGameViews } from "@/lib/game";
 
-export async function generateMetadata({ params }: { params: Promise<{ gamekey: number }> }) {
-  const { gamekey } = await params;
-  const data = await getGameDataById(Number(gamekey));
+export async function generateMetadata({ params }: { params: Promise<{ locale: string; gamekey: number }> }) {
+  const { gamekey, locale } = await params;
+  const t = await getTranslations({ locale, namespace: "Metadata.game_not_found" });
 
-  return {
-    title: `${data.name} | Ludus`,
-    description: data.description.substring(0, 160),
-  };
+  try {
+    const data = await getGameDataById(Number(gamekey));
+    return {
+      title: `${data.name} | Ludus`,
+      description: data.description.substring(0, 160),
+    };
+  } catch {
+    return {
+      title: t("title"),
+      description: t("description"),
+    };
+  }
 }
 
 export default async function GamePage({ params }: { params: Promise<{ gamekey: number }> }) {
   const { gamekey } = await params;
-  const data = await getGameDataById(gamekey);
+  let data;
+
+  try {
+    data = await getGameDataById(gamekey);
+  } catch {
+    notFound();
+  }
+
   incrementGameViews(gamekey).catch((err) => console.error(err));
 
   if (data.statistics) {
     data.statistics.views++;
   }
-
-  console.log(data.statistics.views);
 
   return (
     <div className="relative w-full">

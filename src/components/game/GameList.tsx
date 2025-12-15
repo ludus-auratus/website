@@ -56,7 +56,7 @@ export function GameList({ games, variant = "store", isLoading = false }: GameLi
           <CarouselContent className={`-ml-0 ${variant === "store" ? "gap-4" : "gap-2"}`}>
             {games.map((game) =>
               variant === "library" ? (
-                <GameCardLibrary key={game.id} id={game.id} name={game.name} icon={game.icon} rating={game.rating} />
+                <GameCardLibrary key={game.id} id={game.id} name={game.name} icon={game.icon} />
               ) : (
                 <GameCard
                   key={game.id}
@@ -81,7 +81,7 @@ export function GameList({ games, variant = "store", isLoading = false }: GameLi
       <div className="grid-auto-fill hidden justify-center gap-6 sm:grid">
         {games.map((game) =>
           variant === "library" ? (
-            <GameCardLibrary key={game.id} id={game.id} name={game.name} icon={game.icon} rating={game.rating} />
+            <GameCardLibrary key={game.id} id={game.id} name={game.name} icon={game.icon} />
           ) : (
             <GameCard
               key={game.id}

@@ -3,6 +3,7 @@ export interface RegisterDTO {
   nomeExibicao: string;
   dataNascimento: Date;
   email: string;
+  telefone?: string;
   senha: string;
   consentimentoLGPD: boolean;
 }
