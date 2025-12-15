@@ -102,5 +102,9 @@ export async function downloadGame(id: number): Promise<string> {
 
   const caminho = data.dados.startsWith("/") ? data.dados.slice(1) : data.dados;
 
+  if (env.NODE_ENV === "production") {
+    return caminho;
+  }
+
   return `${env.BASE_URL}${caminho}`;
 }

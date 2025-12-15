@@ -44,8 +44,8 @@ const games: QuickGameDashboard[] = [
     views: 15420,
     rating: 4.8,
     reviews: 342,
-    publishedDate: new Date("15/08/2024"),
-    lastUpdate: new Date("15/12/2024"),
+    publishedDate: new Date("2024-08-15"),
+    lastUpdate: new Date("2024-12-15"),
     platforms: ["Windows", "Mac", "Linux"],
   },
   {
@@ -59,8 +59,8 @@ const games: QuickGameDashboard[] = [
     views: 9111,
     rating: 4.6,
     reviews: 187,
-    publishedDate: new Date("20/09/2024"),
-    lastUpdate: new Date("10/12/2024"),
+    publishedDate: new Date("2024-09-20"),
+    lastUpdate: new Date("2024-12-10"),
     platforms: ["Windows", "Web"],
   },
   {
@@ -75,7 +75,7 @@ const games: QuickGameDashboard[] = [
     rating: 0,
     reviews: 0,
     publishedDate: null,
-    lastUpdate: new Date("20/12/2024"),
+    lastUpdate: new Date("2024-12-20"),
     platforms: ["Windows", "Mac"],
   },
   {
@@ -90,7 +90,7 @@ const games: QuickGameDashboard[] = [
     rating: 0,
     reviews: 0,
     publishedDate: null,
-    lastUpdate: new Date("18/12/2024"),
+    lastUpdate: new Date("2024-12-18"),
     platforms: ["Web"],
   },
 ];
