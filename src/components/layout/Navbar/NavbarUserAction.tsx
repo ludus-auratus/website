@@ -75,7 +75,7 @@ export function NavbarUserAction() {
           </DropdownMenuItem>
 
           <DropdownMenuItem asChild>
-            <Link href="/dashboard" className="flex cursor-pointer items-center">
+            <Link href="/dev/dashboard" className="flex cursor-pointer items-center">
               <LayoutDashboard className="hover:text-accent mr-2 h-4 w-4" aria-hidden="true" />{" "}
               {t("user_menu.dev_portal")}
             </Link>

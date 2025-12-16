@@ -17,5 +17,9 @@ export async function generateMetadata({ params }: { params: Promise<{ locale: s
 export default async function PurchasesPage() {
   const initialPurchases = await getOrders(1);
 
-  return <PurchasesPageContent initialPurchases={initialPurchases.dados || []} />;
+  return (
+    <>
+      <PurchasesPageContent initialPurchases={initialPurchases.dados || []} />
+    </>
+  );
 }

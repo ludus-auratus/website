@@ -17,5 +17,9 @@ export async function generateMetadata({ params }: { params: Promise<{ locale: s
 export default async function MyLibraryPage() {
   const initialGames = await getUserLibrary(1);
 
-  return <MyLibraryPageContent initialGames={initialGames} />;
+  return (
+    <>
+      <MyLibraryPageContent initialGames={initialGames} />
+    </>
+  );
 }

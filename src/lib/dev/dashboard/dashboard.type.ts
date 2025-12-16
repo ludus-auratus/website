@@ -1,6 +1,3 @@
-import { get } from "http";
-import { int, set } from "zod";
-
 export type PublishedGameStatus = "published" | "unpublished" | "draft" | "revision";
 
 export interface QuickGameDashboard {
@@ -45,4 +42,35 @@ export interface DevQuickStatisticsBackend {
   crescimentoDownloads: number;
   crescimentoReceita: number;
   crescimentoAvaliacoes: number;
+}
+
+export type JogoStatusTipo = "Rascunho" | "Publicado" | "EmAvaliacao" | "Suspenso";
+export interface QuickGameDashboardBackend {
+  Id: number;
+  Nome: string;
+  Versao: string;
+  UrlIcone: string;
+  Status: JogoStatusTipo;
+  Receita: number;
+  Downloads: number;
+  Visualizacoes: number;
+  Avaliacoes: number;
+  DataPublicacao: Date | null;
+  DataLancamento: Date | null;
+}
+
+export interface DevDashboardGame {
+  id: number;
+  titulo: string;
+  urlIcone: string;
+  versao: string;
+  percentualAprovacao: number;
+  dataLancamento: string;
+  dataPublicacao: string | null;
+  receitaPublicacao: number;
+  estatistica: {
+    receitaPublicacao: number;
+    quantidadeDownload: number;
+    quantidadeVisualizacao: number;
+  };
 }

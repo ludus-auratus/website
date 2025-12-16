@@ -1,12 +1,14 @@
 "use client";
 
 import { useEffect, useState } from "react";
+import Link from "next/link";
 import { useFormatter, useTranslations } from "next-intl";
 import { Calendar, Code2, Edit, Library } from "lucide-react";
 
 import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
+import { useAuth } from "@/context/AuthContext";
 import { getProfile } from "@/lib/profile/profile.api";
 import { Profile } from "@/lib/profile/profile.dto";
 
@@ -14,7 +16,9 @@ export function ProfileHeader() {
   const t = useTranslations("Profile");
   const format = useFormatter();
 
-  const userId = 1;
+  const { user } = useAuth();
+
+  const userId = user?.id;
   const [profile, setProfile] = useState<Profile | null>(null);
 
   useEffect(() => {
@@ -29,7 +33,7 @@ export function ProfileHeader() {
     }
 
     fetchProfile();
-  }, []);
+  }, [userId]);
 
   if (!profile) {
     return (
@@ -55,7 +59,7 @@ export function ProfileHeader() {
         <CardContent className="p-6">
           <div className="flex flex-col items-start space-y-4 sm:flex-row sm:items-center sm:space-y-0 sm:space-x-6">
             <Avatar className="h-20 w-20 self-center">
-              <AvatarImage src={profile.avatar ?? undefined} />
+              <AvatarImage src={user?.avatar} />
               <AvatarFallback className="bg-primary text-primary-foreground font-ludus-pixelify-sans text-2xl">
                 {(profile.name || "")
                   .split(" ")
@@ -97,14 +101,16 @@ export function ProfileHeader() {
                 </div>
 
                 <div className="flex flex-row gap-2 sm:flex-col">
-                  <Button variant="outline" className="flex-1 sm:mt-0">
+                  {/* <Button variant="outline" className="flex-1 sm:mt-0">
                     <Edit className="mr-2 h-4 w-4" />
                     {t("header.edit_profile")}
-                  </Button>
+                  </Button> */}
 
-                  <Button variant="outline" className="flex-1 sm:mt-0">
-                    <Code2 className="mr-2 h-4 w-4" />
-                    {t("header.dev_panel")}
+                  <Button asChild variant="outline" className="flex-1 sm:mt-0">
+                    <Link href="/dev/dashboard">
+                      <Code2 className="mr-2 h-4 w-4" />
+                      {t("header.dev_panel")}
+                    </Link>
                   </Button>
                 </div>
               </div>

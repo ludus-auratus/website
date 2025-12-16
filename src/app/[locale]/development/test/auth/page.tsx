@@ -1,16 +1,15 @@
 "use client";
 
-import { signIn, signOut, useSession } from "next-auth/react";
+import { useSession } from "next-auth/react";
 
-import { Button } from "@/components/ui/button";
+import { NavbarAuthButtons } from "@/components/layout/Navbar/NavbarAuthButtons";
 
 export default function Page() {
   const session = useSession();
   return (
     <div>
       <p>{JSON.stringify(session, null, 2)}</p>
-      <Button onClick={() => signIn()}>Sign In</Button>
-      <Button onClick={() => signOut()}>Sign Out</Button>
+      <NavbarAuthButtons />
     </div>
   );
 }

@@ -17,5 +17,9 @@ export async function generateMetadata({ params }: { params: Promise<{ locale: s
 export default async function WishlistPage() {
   const initialGames = await getUserWishlist(1);
 
-  return <WishlistPageContent initialGames={initialGames} />;
+  return (
+    <>
+      <WishlistPageContent initialGames={initialGames} />
+    </>
+  );
 }

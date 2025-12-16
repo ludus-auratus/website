@@ -26,13 +26,15 @@ export function TeamTabs({ team }: { team: MemberData[] }) {
               className="mx-auto w-64 rounded-lg md:mx-0"
             />
             <div className="flex flex-col">
-              <h2 className="text-center text-2xl font-bold md:text-left">{member.name}</h2>
-              <p className="text-accent w-full text-center md:text-left">
-                {member.roles.map((role) => t(`roles.${role}`)).join(" / ")}
-              </p>
-            </div>
-            <div>
-              <Markdown>{member.description}</Markdown>
+              <div className="flex flex-col">
+                <h2 className="text-center text-2xl font-bold md:text-left">{member.name}</h2>
+                <p className="text-accent w-full text-center md:text-left">
+                  {member.roles.map((role) => t(`roles.${role}`)).join(" / ")}
+                </p>
+              </div>
+              <div>
+                <Markdown>{t(`descriptions.${member.src}`)}</Markdown>
+              </div>
             </div>
           </div>
         </TabsContent>

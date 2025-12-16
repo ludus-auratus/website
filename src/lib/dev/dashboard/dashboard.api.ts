@@ -1,11 +1,8 @@
-import game1 from "@/assets/data/dev/dashboard/game1.json";
-import game2 from "@/assets/data/dev/dashboard/game2.json";
-import game3 from "@/assets/data/dev/dashboard/game3.json";
 import { env } from "@/config/env";
 import { RespostaDto } from "@/lib/common.dto";
 
-import { DevQuickStatisticsDTO, GameDashboardDTO } from "./dashboard.dto";
-import { DevQuickStatistics, DevQuickStatisticsBackend, QuickGameDashboard } from "./dashboard.type";
+import { DevQuickStatisticsDTO } from "./dashboard.dto";
+import { DevDashboardGame, DevQuickStatistics, DevQuickStatisticsBackend } from "./dashboard.type";
 
 const API_URL = `${env.API_BASE_URL}/jogo`;
 
@@ -75,16 +72,27 @@ export async function requestDevDashboardStatistics(developerId: number): Promis
   };
 }
 
-export async function getDevDashboardGames(userId: number): Promise<QuickGameDashboard[]> {
-  const dto = await requestDevDashboardGames(userId);
+export async function getDevDashboardGames(developerId: number): Promise<DevDashboardGame[]> {
+  const games = await requestDevDashboardGames(developerId);
 
-  return dto.map((game) => ({
+  return games.map((game) => ({
     ...game,
-    lastUpdate: new Date(game.lastUpdate),
-    publishedDate: game.publishedDate ? new Date(game.publishedDate) : null,
+    urlIcone: `${env.BASE_URL}${game.urlIcone}`,
   }));
 }
 
-export async function requestDevDashboardGames(userId: number): Promise<GameDashboardDTO[]> {
-  return [game1 as GameDashboardDTO, game2 as GameDashboardDTO, game3 as GameDashboardDTO];
+export async function requestDevDashboardGames(developerId: number): Promise<DevDashboardGame[]> {
+  const response = await fetch(`${API_URL}/desenvolvedor/${developerId}`);
+
+  if (!response.ok) {
+    throw new Error(`Erro ao buscar dashboard: ${response.statusText}`);
+  }
+
+  const data = (await response.json()) as RespostaDto<DevDashboardGame[]>;
+
+  if (!data.sucesso) {
+    throw new Error(data.mensagem || "Erro ao carregar biblioteca.");
+  }
+
+  return data.dados;
 }

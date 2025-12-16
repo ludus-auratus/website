@@ -18,16 +18,21 @@ export async function POST(req: Request) {
   const { data } = bodyValidation;
 
   const dto: RegisterDTO = {
-    nomeCompleto: data.fullName,
-    nomeExibicao: data.username,
-    consentimentoLGPD: data.agreeTerms,
-    dataNascimento: data.birthDate,
-    email: data.email,
-    telefone: data.phoneNumber,
-    senha: hash("sha256", data.password),
+    NomeCompleto: data.fullName,
+    NomeExibicao: data.username,
+    Email: data.email,
+    Senha: data.password,
+    Telefone: data.phoneNumber,
+    DataNascimento: data.birthDate,
+    ConsentimentoLGPD: data.agreeTerms,
   };
 
-  await registerUser(dto);
+  try {
+    await registerUser(dto);
+  } catch (error: unknown) {
+    const errorMessage = error instanceof Error ? error.message : "Erro desconhecido";
+    return createErrorResponse(500, errorMessage);
+  }
 
   return createSucessResponse("ok");
 }

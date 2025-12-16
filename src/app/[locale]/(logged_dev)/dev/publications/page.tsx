@@ -15,6 +15,7 @@ import {
   Upload,
 } from "lucide-react";
 
+import { AuthProtector } from "@/components/layout/AuthProtector/AuthProtector";
 import { DevComponents } from "@/components/pages/dev";
 import DevQuickGameCard from "@/components/pages/dev/dashboard/DevQuickGameCard";
 import { Badge } from "@/components/ui/badge";
@@ -111,54 +112,56 @@ const updates = [
 ];
 export default function DevPublicationsPage() {
   return (
-    <div className="space-y-8">
-      {/* Filters & Search */}
-      <Card className="border-border border-2 p-4">
-        <div className="flex flex-col gap-4 md:flex-row">
-          <div className="relative flex-1">
-            <Search className="text-muted-foreground absolute top-1/2 left-3 h-4 w-4 -translate-y-1/2" />
-            <Input placeholder="Buscar jogos..." className="pl-10" />
-          </div>
-          <Button variant="outline" className="gap-2">
-            <Filter className="h-4 w-4" />
-            Filtros
-          </Button>
-        </div>
-      </Card>
-
-      <ButtonGroup>
-        <Button variant={"outline"}>Publicados</Button>
-        <Button variant={"outline"}>Em Revisão</Button>
-        <Button variant={"outline"}>Rascunhos</Button>
-      </ButtonGroup>
-
-      <div className="space-y-4">
-        {games.map((game) => (
-          <DevQuickGameCard key={game.id} game={game} advanced />
-        ))}
-      </div>
-
-      {/* Recent Updates */}
-      <Card className="border-border border-2 p-6">
-        <h3 className="text-foreground font-ludus-pixelify-sans mb-4 text-xl">Atualizações Recentes</h3>
-        <div className="space-y-4">
-          {updates.map((update, index) => (
-            <div key={index} className="border-border flex items-start gap-4 border-b pb-4 last:border-0 last:pb-0">
-              <div className="bg-accent/10 flex h-10 w-10 flex-shrink-0 items-center justify-center rounded-lg">
-                <Upload className="text-accent h-5 w-5" />
-              </div>
-              <div className="flex-1">
-                <div className="mb-1 flex items-start justify-between gap-4">
-                  <p className="text-foreground font-medium">{update.game}</p>
-                  <Badge variant="outline">{update.version}</Badge>
-                </div>
-                <p className="text-muted-foreground mb-1 text-sm">{update.changes}</p>
-                <p className="text-muted-foreground text-xs">{update.date}</p>
-              </div>
+    <>
+      <div className="space-y-8">
+        {/* Filters & Search */}
+        <Card className="border-border border-2 p-4">
+          <div className="flex flex-col gap-4 md:flex-row">
+            <div className="relative flex-1">
+              <Search className="text-muted-foreground absolute top-1/2 left-3 h-4 w-4 -translate-y-1/2" />
+              <Input placeholder="Buscar jogos..." className="pl-10" />
             </div>
+            <Button variant="outline" className="gap-2">
+              <Filter className="h-4 w-4" />
+              Filtros
+            </Button>
+          </div>
+        </Card>
+
+        <ButtonGroup>
+          <Button variant={"outline"}>Publicados</Button>
+          <Button variant={"outline"}>Em Revisão</Button>
+          <Button variant={"outline"}>Rascunhos</Button>
+        </ButtonGroup>
+
+        <div className="space-y-4">
+          {games.map((game) => (
+            <DevQuickGameCard key={game.id} game={game} advanced />
           ))}
         </div>
-      </Card>
-    </div>
+
+        {/* Recent Updates */}
+        <Card className="border-border border-2 p-6">
+          <h3 className="text-foreground font-ludus-pixelify-sans mb-4 text-xl">Atualizações Recentes</h3>
+          <div className="space-y-4">
+            {updates.map((update, index) => (
+              <div key={index} className="border-border flex items-start gap-4 border-b pb-4 last:border-0 last:pb-0">
+                <div className="bg-accent/10 flex h-10 w-10 flex-shrink-0 items-center justify-center rounded-lg">
+                  <Upload className="text-accent h-5 w-5" />
+                </div>
+                <div className="flex-1">
+                  <div className="mb-1 flex items-start justify-between gap-4">
+                    <p className="text-foreground font-medium">{update.game}</p>
+                    <Badge variant="outline">{update.version}</Badge>
+                  </div>
+                  <p className="text-muted-foreground mb-1 text-sm">{update.changes}</p>
+                  <p className="text-muted-foreground text-xs">{update.date}</p>
+                </div>
+              </div>
+            ))}
+          </div>
+        </Card>
+      </div>
+    </>
   );
 }

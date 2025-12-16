@@ -13,5 +13,9 @@ export async function generateMetadata({ params }: { params: Promise<{ locale: s
 }
 
 export default function CheckoutPage() {
-  return <CheckoutPageContent />;
+  return (
+    <>
+      <CheckoutPageContent />
+    </>
+  );
 }

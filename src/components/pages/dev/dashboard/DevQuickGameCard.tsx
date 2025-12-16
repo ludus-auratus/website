@@ -1,9 +1,7 @@
 import Image from "next/image";
 import Link from "next/link";
-import { getTranslations } from "next-intl/server";
 import {
   BarChart3,
-  CircleQuestionMark,
   DollarSign,
   Download,
   Edit,
@@ -12,24 +10,13 @@ import {
   LucideIcon,
   MoreVertical,
   Star,
-  TrendingUp,
   Upload,
 } from "lucide-react";
 
-import { QuestionTooltip } from "@/components/layout/Tooltip/QuestionTooltip";
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
 import { Card } from "@/components/ui/card";
-import {
-  Dialog,
-  DialogClose,
-  DialogContent,
-  DialogDescription,
-  DialogFooter,
-  DialogHeader,
-  DialogTitle,
-  DialogTrigger,
-} from "@/components/ui/dialog";
+import { Dialog, DialogContent, DialogTrigger } from "@/components/ui/dialog";
 import {
   DropdownMenu,
   DropdownMenuContent,
@@ -37,19 +24,11 @@ import {
   DropdownMenuTrigger,
 } from "@/components/ui/dropdown-menu";
 import { Progress } from "@/components/ui/progress";
-import { QuickGameDashboard } from "@/lib/dev/dashboard";
+import { DevDashboardGame } from "@/lib/dev/dashboard";
 import { cn } from "@/lib/utils/shadcn";
 
-import { DevModals } from "../modal";
-
-export default async function DevQuickGameCard({
-  game,
-  advanced = false,
-}: {
-  game: QuickGameDashboard;
-  advanced?: boolean;
-}) {
-  const t = await getTranslations({ locale: "pt-BR", namespace: "DevDashboard" });
+export default function DevQuickGameCard({ game, advanced = false }: { game: DevDashboardGame; advanced?: boolean }) {
+  const status = game.dataPublicacao ? "published" : "draft";
 
   return (
     <Card
@@ -59,19 +38,16 @@ export default async function DevQuickGameCard({
       <div className="flex flex-col items-start gap-5 md:flex-row">
         <div className="relative mx-auto md:mx-0">
           <div className="bg-muted border-border aspect-square w-32 overflow-hidden rounded-md border-2">
-            <Image src={game.cover} alt={game.title} className="h-full w-full object-cover" width={256} height={256} />
+            <Image
+              src={game.urlIcone}
+              alt={game.titulo}
+              className="h-full w-full object-cover"
+              width={256}
+              height={256}
+            />
           </div>
-          <Badge
-            className={cn(
-              "absolute bottom-0 left-1/2 -translate-x-1/2 translate-y-1/2",
-              game.status === "published"
-                ? "bg-highlight text-highlight-foreground"
-                : game.status === "revision"
-                  ? "bg-accent text-accent-foreground"
-                  : "bg-primary text-background",
-            )}
-          >
-            {t(`game_status.${game.status}`)}
+          <Badge className="bg-highlight text-highlight-foreground absolute bottom-0 left-1/2 -translate-x-1/2 translate-y-1/2">
+            {status === "published" ? "Publicado" : "Rascunho"}
           </Badge>
         </div>
 
@@ -79,34 +55,22 @@ export default async function DevQuickGameCard({
           <div className="flex items-start justify-between">
             <div>
               <div className="flex flex-col items-center gap-2 md:flex-row">
-                <h3 className="text-foreground font-ludus-pixelify-sans text-xl">{game.title}</h3>
-                <div className="mr-auto mb-2 flex gap-2 md:mb-0">
-                  {advanced &&
-                    game.platforms.map((platform) => (
-                      <Badge key={platform} variant={"outline"} className="border-highlight text-highlight">
-                        {platform}
-                      </Badge>
-                    ))}
-                </div>
+                <h3 className="text-foreground font-ludus-pixelify-sans text-xl">{game.titulo}</h3>
               </div>
               <p className="text-muted-foreground text-sm">
                 {advanced && (
                   <span>
-                    Versão {game.version}
+                    Versão {game.versao}
                     <span> • </span>
                   </span>
                 )}
-                {/* <span>Última atualização: </span>
-                <span>
-                  {game.lastUpdate.toLocaleString("pt-BR", { day: "2-digit", month: "2-digit", year: "numeric" })}
-                </span> */}
-                {advanced && game.status === "published" && game.publishedDate && (
+                {advanced && status === "published" && game.dataPublicacao && (
                   <>
                     <span> • </span>
                     <span>
                       <span>Publicado em: </span>
                       <span>
-                        {game.publishedDate.toLocaleString("pt-BR", {
+                        {new Date(game.dataPublicacao).toLocaleString("pt-BR", {
                           day: "2-digit",
                           month: "2-digit",
                           year: "numeric",
@@ -121,18 +85,26 @@ export default async function DevQuickGameCard({
             {!advanced && <OptionsMenu gameId={game.id} />}
           </div>
 
-          {!advanced || game.status === "published" ? (
+          {!advanced || status === "published" ? (
             <div className="grid grid-cols-2 gap-4 md:grid-cols-4">
               <StatisticMiniCard
                 icon={DollarSign}
                 label="Receita"
-                value={`R$ ${game.revenue.toLocaleString("pt-BR")}`}
+                value={`R$ ${game.estatistica.receitaPublicacao.toLocaleString("pt-BR")}`}
               />
-              <StatisticMiniCard icon={Download} label="Downloads" value={game.downloads.toLocaleString("pt-BR")} />
-              <StatisticMiniCard icon={Eye} label="Visualizações" value={game.revenue.toLocaleString("pt-BR")} />
-              <StatisticMiniCard icon={Star} label="Avaliação" value={game.rating.toFixed(1)} />
+              <StatisticMiniCard
+                icon={Download}
+                label="Downloads"
+                value={game.estatistica.quantidadeDownload.toLocaleString("pt-BR")}
+              />
+              <StatisticMiniCard
+                icon={Eye}
+                label="Visualizações"
+                value={game.estatistica.quantidadeVisualizacao.toLocaleString("pt-BR")}
+              />
+              <StatisticMiniCard icon={Star} label="Avaliação" value={game.percentualAprovacao.toFixed(1)} />
             </div>
-          ) : game.status === "revision" ? (
+          ) : status === "revision" ? (
             <div className="flex gap-3 rounded-xl border-2 border-yellow-500/20 bg-yellow-500/10 p-2.5">
               <div className="flex h-12 w-12 flex-shrink-0 items-center justify-center rounded-lg bg-yellow-500/20">
                 <Upload className="h-6 w-6 text-yellow-500" />
@@ -150,7 +122,7 @@ export default async function DevQuickGameCard({
                 <Progress value={65} className="h-1" />
               </div>
             </div>
-          ) : game.status === "draft" ? (
+          ) : status === "draft" ? (
             <div className="border-border/50 bg-background/50 flex gap-3 rounded-xl border-2 p-2.5">
               <div className="bg-border/50 flex h-12 w-12 flex-shrink-0 items-center justify-center rounded-lg">
                 <Edit className="text-muted-foreground h-6 w-6" />
@@ -165,68 +137,25 @@ export default async function DevQuickGameCard({
           ) : null}
 
           <div className="flex gap-2 pt-2">
-            <DevModals.Details game={game} />
             {!advanced ? (
-              <>{game.status === "published" && <ActionButton icon={Edit} text="Editar" />}</>
-            ) : game.status === "published" ? (
+              <></>
+            ) : status === "published" ? (
               <>
                 <ActionButton icon={Upload} text="Atualizar" />
-                <ActionButton icon={Edit} text="Editar" />
                 <ActionButton icon={ExternalLink} text="Ver na Loja" href={`/game/${game.id}`} />
                 <ActionButton icon={BarChart3} text="Análises" disabled />
               </>
-            ) : game.status === "revision" ? (
-              <>
-                <ActionButton icon={Edit} text="Editar" />
-              </>
+            ) : status === "revision" ? (
+              <></>
             ) : (
               <>
                 <ActionButton icon={Upload} text="Solicitar Revisão" variants="accent" />
-                <ActionButton icon={Edit} text="Editar" />
               </>
             )}
           </div>
         </div>
       </div>
     </Card>
-  );
-}
-
-function ActionButton({
-  icon,
-  text,
-  href,
-  children,
-  disabled = false,
-  variants = "outline",
-}: {
-  icon: LucideIcon;
-  text: string;
-  href?: string;
-  children?: React.ReactNode;
-  disabled?: boolean;
-  variants?: "outline" | "ghost" | "link" | "default" | "destructive" | "secondary" | "accent";
-}) {
-  const Icon = icon;
-  return (
-    <Dialog>
-      <DialogTrigger asChild>
-        <Button size="sm" variant={variants} className="flex-grow md:flex-none" asChild={!!href} disabled={disabled}>
-          {href ? (
-            <Link href="#">
-              <Icon className="h-4 w-4" />
-              <span>{text}</span>
-            </Link>
-          ) : (
-            <>
-              <Icon className="h-4 w-4" />
-              <span>{text}</span>
-            </>
-          )}
-        </Button>
-      </DialogTrigger>
-      <DialogContent>{children}</DialogContent>
-    </Dialog>
   );
 }
 

@@ -8,6 +8,8 @@ interface User {
   name: string;
   email: string;
   avatar?: string;
+  isDeveloper: boolean;
+  developerId?: number;
 }
 
 interface PurchaseItem {
@@ -144,8 +146,8 @@ export function AuthProvider({ children }: AuthProviderProps) {
     try {
       await new Promise((resolve) => setTimeout(resolve, 1000));
 
-      const defaultPassword = "-Hk$jR8.f6C@MyR";
-      const defaultEmail = "raquel@gmail.com";
+      const defaultPassword = "123123";
+      const defaultEmail = "kayque@gmail.com";
 
       if (email !== defaultEmail || password !== defaultPassword) {
         return false;
@@ -153,9 +155,11 @@ export function AuthProvider({ children }: AuthProviderProps) {
 
       const mockUser: User = {
         id: 1,
-        name: "Raquel Queiroz",
+        name: "Kayque Silva",
         email: email,
-        avatar: "https://avatars.githubusercontent.com/u/199012844?v=4",
+        avatar: "https://avatars.githubusercontent.com/u/67653975?v=4",
+        isDeveloper: true,
+        developerId: 1,
       };
 
       const mockToken = "mock-jwt-token-" + Date.now();

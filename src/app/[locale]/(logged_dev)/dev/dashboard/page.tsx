@@ -1,10 +1,10 @@
 import { getTranslations } from "next-intl/server";
 
-import CartPageContent from "./CartClient";
+import DashboardPageClient from "./DashboardPageClient";
 
 export async function generateMetadata({ params }: { params: Promise<{ locale: string }> }) {
   const { locale } = await params;
-  const t = await getTranslations({ locale, namespace: "Metadata.cart" });
+  const t = await getTranslations({ locale, namespace: "Metadata.dashboard" });
 
   return {
     title: t("title"),
@@ -12,6 +12,6 @@ export async function generateMetadata({ params }: { params: Promise<{ locale: s
   };
 }
 
-export default function CartPage() {
-  return <CartPageContent />;
+export default function DashboardPage() {
+  return <DashboardPageClient />;
 }

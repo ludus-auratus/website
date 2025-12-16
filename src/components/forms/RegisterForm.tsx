@@ -295,11 +295,7 @@ export function RegisterForm() {
         {errors.agreeTerms && <p className="text-destructive text-sm">{errors.agreeTerms.message}</p>}
       </div>
 
-      <Button
-        type="submit"
-        disabled={!agreeTerms || isSubmitting}
-        className="h-12 w-full rounded-xl text-lg shadow-lg hover:shadow-xl"
-      >
+      <Button type="submit" disabled={true} className="h-12 w-full rounded-xl text-lg shadow-lg hover:shadow-xl">
         {isSubmitting ? (
           <>
             <Loader2 className="mr-2 h-5 w-5 animate-spin" />

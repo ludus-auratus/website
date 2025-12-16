@@ -34,7 +34,7 @@ interface SidebarItem {
 
 const sidebarItems: SidebarItem[] = [
   { icon: LayoutDashboard, id: "dashboard", label: "Dashboard" },
-  { icon: Calendar, id: "publications", label: "Publicações" },
+  { icon: Calendar, id: "publications", label: "Publicações", wip: true },
   { icon: BarChart3, id: "analytics", label: "Análises", wip: true },
   { icon: MessageSquare, id: "reviews", label: "Avaliações", wip: true },
   { icon: Settings, id: "settings", label: "Configurações", wip: true },
@@ -83,7 +83,7 @@ export default function DevSidebar() {
           </SidebarGroup>
         </SidebarContent>
 
-        <SidebarFooter className="border-sidebar-border border-t p-4">
+        {/* <SidebarFooter className="border-sidebar-border border-t p-4">
           <div className="bg-sidebar-primary/50 flex items-center gap-3 rounded-xl p-3">
             <Avatar className="h-10 w-10">
               <AvatarImage src="" alt="Developer" />
@@ -109,7 +109,7 @@ export default function DevSidebar() {
               </DropdownMenuContent>
             </DropdownMenu>
           </div>
-        </SidebarFooter>
+        </SidebarFooter> */}
       </SidebarContent>
     </Sidebar>
   );

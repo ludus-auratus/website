@@ -7,10 +7,12 @@ import { useTranslations } from "next-intl";
 import { ArrowLeft } from "lucide-react";
 import { toast } from "sonner";
 
+import { UserGuard } from "@/components/auth/UserGuard";
 import { OrderSummary } from "@/components/pages/checkout/OrderSummary";
 import { PaymentMethods } from "@/components/pages/checkout/PaymentMethods";
 import { PixPayment } from "@/components/pages/checkout/PixPayment";
 import { Button } from "@/components/ui/button";
+import { useAuth } from "@/context/AuthContext";
 import { useCart } from "@/context/CartContext";
 import { createOrder } from "@/lib/order/order.api";
 
@@ -18,7 +20,7 @@ export default function CheckoutPageContent() {
   const t = useTranslations("Checkout");
   const router = useRouter();
   const { items, getCartTotal, getGamesCount, clearCart } = useCart();
-  // const { isAuthenticated } = useAuth();
+  const { user } = useAuth();
 
   const [pixGenerated, setPixGenerated] = useState(false);
   const [isPending, startTransition] = useTransition();
@@ -46,7 +48,7 @@ export default function CheckoutPageContent() {
     startTransition(async () => {
       try {
         const dto = {
-          usuarioId: 1,
+          usuarioId: user?.id,
           jogoIds: itemsPurchase.map((item) => item.id),
         };
 
@@ -83,42 +85,45 @@ export default function CheckoutPageContent() {
 
   // Tela inicial de checkout
   return (
-    <div className="mx-auto max-w-7xl px-4 py-8 sm:px-8 md:py-12">
-      <div className="mb-10">
-        <Button
-          variant="ghost"
-          className="text-muted-foreground hover:text-foreground flex w-fit items-center justify-start gap-2 hover:bg-transparent"
-          asChild
-        >
-          <Link href="/cart">
-            <ArrowLeft className="mr-2 h-4 w-4" />
-            {t("back_to_cart")}
-          </Link>
-        </Button>
-      </div>
+    <>
+      <UserGuard />
+      <div className="mx-auto max-w-7xl px-4 py-8 sm:px-8 md:py-12">
+        <div className="mb-10">
+          <Button
+            variant="ghost"
+            className="text-muted-foreground hover:text-foreground flex w-fit items-center justify-start gap-2 hover:bg-transparent"
+            asChild
+          >
+            <Link href="/cart">
+              <ArrowLeft className="mr-2 h-4 w-4" />
+              {t("back_to_cart")}
+            </Link>
+          </Button>
+        </div>
 
-      <div className="grid grid-cols-1 gap-10 lg:grid-cols-3 lg:gap-20">
-        {/* Formulário de Checkout */}
-        <div className="lg:col-span-2">
-          <h1 className="font-ludus-pixelify-sans mb-10 text-3xl md:text-4xl">{t("finish_purchase")}</h1>
+        <div className="grid grid-cols-1 gap-10 lg:grid-cols-3 lg:gap-20">
+          {/* Formulário de Checkout */}
+          <div className="lg:col-span-2">
+            <h1 className="font-ludus-pixelify-sans mb-10 text-3xl md:text-4xl">{t("finish_purchase")}</h1>
 
-          <div className="space-y-8">
-            {/* Método de Pagamento */}
-            <PaymentMethods />
+            <div className="space-y-8">
+              {/* Método de Pagamento */}
+              <PaymentMethods />
+            </div>
+          </div>
+
+          {/* Resumo do Pedido */}
+          <div className="lg:col-span-1">
+            <OrderSummary
+              items={itemsPurchase}
+              subtotal={subtotalRef.current}
+              total={total}
+              totalItems={totalItems}
+              onGeneratePix={handleGeneratePix}
+            />
           </div>
         </div>
-
-        {/* Resumo do Pedido */}
-        <div className="lg:col-span-1">
-          <OrderSummary
-            items={itemsPurchase}
-            subtotal={subtotalRef.current}
-            total={total}
-            totalItems={totalItems}
-            onGeneratePix={handleGeneratePix}
-          />
-        </div>
       </div>
-    </div>
+    </>
   );
 }

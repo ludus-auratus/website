@@ -1,3 +1,4 @@
+import { DeveloperGuard } from "@/components/auth/DeveloperGuard";
 import DevHeader from "@/components/pages/dev/DevHeader";
 import DevSidebar from "@/components/pages/dev/DevSidebar";
 import { SidebarProvider } from "@/components/ui/sidebar";
@@ -8,6 +9,7 @@ export default function DevLayout({ children }: { children: React.ReactNode }) {
     <DevProvider>
       <SidebarProvider className="w-full">
         <div className="flex min-h-screen w-full">
+          <DeveloperGuard />
           <DevSidebar />
           <div className="flex min-w-0 flex-1 flex-col">
             <DevHeader section={{ id: "dashboard" }} />

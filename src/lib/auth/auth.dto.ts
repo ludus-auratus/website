@@ -1,9 +1,23 @@
 export interface RegisterDTO {
-  nomeCompleto: string;
+  NomeCompleto: string;
+  NomeExibicao: string;
+  DataNascimento: Date;
+  Email: string;
+  Telefone?: string;
+  Senha: string;
+  ConsentimentoLGPD: boolean;
+}
+
+export interface LoginDTO {
+  Email: string;
+  Senha: string;
+}
+
+export interface UserDTO {
+  id: number;
   nomeExibicao: string;
-  dataNascimento: Date;
   email: string;
-  telefone?: string;
   senha: string;
-  consentimentoLGPD: boolean;
+  imagem?: string;
+  desenvolvedor: boolean;
 }
