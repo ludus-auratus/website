@@ -1,5 +1,7 @@
 import { getTranslations } from "next-intl/server";
 
+import { AuthProtector } from "@/components/layout/AuthProtector/AuthProtector";
+
 import CartPageContent from "./CartClient";
 
 export async function generateMetadata({ params }: { params: Promise<{ locale: string }> }) {
@@ -13,5 +15,10 @@ export async function generateMetadata({ params }: { params: Promise<{ locale: s
 }
 
 export default function CartPage() {
-  return <CartPageContent />;
+  return (
+    <>
+      <AuthProtector />
+      <CartPageContent />;
+    </>
+  );
 }

@@ -46,6 +46,17 @@
       "frontend": "Front-end",
       "fullstack": "Fullstack",
       "artificial_intelligence": "Inteligência Artificial"
+    },
+
+    "descriptions": {
+      "nicole": "Nicole é a Product Owner da equipe e atua como o principal elo entre visão estratégica e execução. Responsável por priorizar demandas, definir requisitos e garantir que o produto atenda às necessidades dos usuários, ela conduz o desenvolvimento com foco em valor, clareza e alinhamento com os objetivos do negócio.",
+      "kayque": "Kayque desempenha o papel de Scrum Master e Desenvolvedor Fullstack, sendo essencial na organização dos processos ágeis e na remoção de impedimentos do time. Além de facilitar a comunicação e a colaboração entre os membros, contribui ativamente no desenvolvimento técnico, unindo boas práticas de gestão ágil e engenharia de software.",
+      "matheus": "Matheus é responsável pela área financeira e também atua como Desenvolvedor Fullstack. Ele cuida do planejamento financeiro, controle de recursos e sustentabilidade do projeto, ao mesmo tempo em que contribui tecnicamente no desenvolvimento da plataforma, garantindo equilíbrio entre viabilidade econômica e qualidade técnica.",
+      "mizael": "Mizael lidera as estratégias de Marketing, sendo responsável pela comunicação, posicionamento da marca e relacionamento com o público. Seu trabalho envolve a criação de campanhas, análise de mercado e fortalecimento da identidade do projeto, aproximando a solução dos usuários e do mercado.",
+      "pedro": "Pedro atua como Desenvolvedor Fullstack, contribuindo em diferentes camadas da aplicação com foco em desempenho, escalabilidade e manutenção. Sua versatilidade permite integrar frontend e backend de forma eficiente, apoiando o time na construção de soluções sólidas e bem estruturadas.",
+      "gustavo": "Gustavo é responsável pelo Backend e Banco de Dados, cuidando da arquitetura, segurança e integridade das informações. Seu trabalho garante que os sistemas sejam robustos, eficientes e preparados para crescer, sustentando toda a operação da plataforma com confiabilidade.",
+      "raquel": "Raquel atua no Frontend e na área de UI/UX, sendo responsável por transformar funcionalidades complexas em experiências intuitivas e agradáveis. Seu foco está na usabilidade, acessibilidade e design centrado no usuário, garantindo que a interface seja clara, moderna e eficiente.",
+      "ludus": "Ludus é a inteligência artificial da plataforma, desenvolvida para tornar a experiência do usuário mais simples, eficiente e personalizada. Sua primeira função é orientar os usuários dentro do site, auxiliando na navegação, explicando funcionalidades e oferecendo suporte contextual de forma clara e acessível. Além disso, Ludus atua como um mecanismo inteligente de descoberta de jogos, sendo capaz de interpretar descrições em linguagem natural e identificar títulos que melhor correspondem às preferências, estilos e expectativas informadas pelo usuário, conectando tecnologia e experiência de forma intuitiva."
     }
   },
   "Wip": {

@@ -1,5 +1,6 @@
 import { getTranslations } from "next-intl/server";
 
+import { AuthProtector } from "@/components/layout/AuthProtector/AuthProtector";
 import { DevDashboard } from "@/components/pages/dev/dashboard";
 import { getDevDashboardGames, getDevDashboardStatistics } from "@/lib/dev/dashboard";
 
@@ -19,6 +20,8 @@ export default async function DashboardPage() {
 
   return (
     <>
+      <AuthProtector devOnly />
+
       <DevDashboard.WelcomeSection />
 
       <DevDashboard.StatisticsSection stats={stats} />

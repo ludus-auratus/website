@@ -20,7 +20,6 @@ const handler = NextAuth({
           senha: credentials?.password,
         };
 
-        /// @WIP: Lógica de Login
         const user = await loginUser(dto);
         if (!user) return null;
 
@@ -29,6 +28,7 @@ const handler = NextAuth({
           email: user.email,
           name: user.nomeExibicao,
           image: user.imagem,
+          isDeveloper: user.desenvolvedor,
         } as DetailedUser;
       },
     }),

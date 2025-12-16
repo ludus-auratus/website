@@ -18,4 +18,5 @@ export interface UserDTO {
   email: string;
   senha: string;
   imagem?: string;
+  desenvolvedor: boolean;
 }

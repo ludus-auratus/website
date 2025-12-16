@@ -1,4 +1,51 @@
 {
+  "Policies": {
+    "title": "Terms and Policies",
+    "back": "Back",
+    "map": {
+      "welcome": {
+        "__title__": "Welcome",
+        "__content__": "# Hello \n**World!** 123 [link](https://youtu.be/dQw4w9WgXcQ?si=FjbkQmvhu54MkIKj)\n\nItem List\n- Item1\n- Item2\n- Item3\n\n1. Item4\n2. Item5\n3. Item6"
+      },
+      "terms_of_use": {
+        "__title__": "Terms of Use",
+        "__content__": "## Terms of Use\n\nThe Company's Terms of Use were updated in October 2025.\n\nWelcome to Ludus. By accessing and using our platform, you agree to the terms and conditions below.\n\n___\n\n### 1. Acceptance of the Terms\nBy creating an account or using the services, the user declares that they have read, understood, and agree to these Terms of Use and the Privacy Policy.\n\n___\n\n### 2. User Registration and Account\n\n-\tThe user must provide true, complete, and up-to-date information.\n-\tSharing access credentials with third parties is prohibited.\n-\tThe user is responsible for maintaining the confidentiality of their password and account activities.\n-\tAccounts may be suspended in cases of fraud, rule violations, or misuse.\n\n___\n\n### 3. Platform Features\n\nLudus offers:\n-\tAccess to digital games;\n-\tParticipation in events and competitions;\n-\tPurchase of products and virtual items;\n-\tSocial interaction between players (chat, rankings, etc.).\n\nSome services may require payment or subscription.\n\n___\n\n### 4. User Conduct\n\nThe user agrees to:\n-\tNot violate laws, regulations, or third-party rights;\n-\tNot use the platform for illegal, abusive, or defamatory purposes;\n-\tRespect other users and the community rules.\n\n___\n\n### 5. Intellectual Property\nAll content, trademarks, logos, games, texts, and graphic elements belong to Ludus or its licensors, and any unauthorized copying or use is prohibited.\n\n___\n\n### 6. Payments and Purchases\n\n-\tAll transactions are processed by certified and secure partners;\n-\tIn cases of fraud or misuse, the account may be suspended;\n-\tRefund policies follow the applicable rules of the Consumer Protection Code.\n\n___\n\n### 7. Limitation of Liability\n\nLUDUS is not responsible for:\n-\tDamages caused by connection failures or third parties;\n-\tContent submitted by users;\n-\tIndirect losses or loss of profits.\n\n___\n\n### 8. Changes to the Terms\n\nWe may update these Terms periodically. The updated version will always be available on the website, and continued use implies acceptance.\n\n___\n\n### 9. Jurisdiction and Governing Law\n\nThese Terms are governed by Brazilian law.\n The courts of the city of São Paulo - SP are elected to resolve any disputes.\n\n___\n\n**LUDUS**\n\nContact: ludus.auratus@gmail.com\n"
+      },
+      "privacy": {
+        "__title__": "Privacy Policy",
+        "__content__": "## Privacy Policy\n\nThe Company's Privacy Policy was updated in October 2025.\n\nLudus values the privacy and protection of its users' personal data. This Privacy Policy aims to protect the fundamental rights of freedom and privacy and the free development of the natural person's personality. The Company has prepared this Privacy Policy in compliance with the provisions of the General Data Protection Law (LGPD) - Law No. 13,709/2018.\n\n___\n\n### 1. Data Collected\n\nWe collect the following types of data:\n\na) Registration data: full name, email, password, CPF, RG, date of birth, phone number, and address.\n\nb) Payment data: credit card information, purchase history, and transactions (securely stored via payment partners).\n\nc) Browsing data: IP address, access date and time, cookies, device identifiers, and platform usage logs.\n\nd) Sensitive data: identity documents (RG, CPF, CNH), when required for identity verification, event security, or compliance with legal obligations.\n\n___\n\n### 2. Purpose of Processing\n\nData is used to:\n-\tCreate and manage user accounts;\n-\tEnable participation in games and events;\n-\tProcess payments and issue receipts;\n- Provide technical support and customer service;\n-\tSend communications about updates, promotions, and events (with consent);\n-\tComply with legal obligations and prevent fraud.\n\n___\n\n### 3. Legal Basis\n\nData processing is carried out based on the following legal grounds under the LGPD:\n- Performance of a contract (art. 7, V);\n-\tCompliance with a legal obligation (art. 7, II);\n-\tData subject consent (art. 7, I);\n-\tLegitimate interest (art. 7, IX).\n\n___\n\n### 4. Data Sharing\n\nWe may share data with:\n-\tPayment partners (e.g., financial intermediaries);\n-\tDigital security companies (for fraud prevention);\n-\tPublic authorities, when required by law;\n-\tService providers that assist in operating the platform (hosting, support, email, etc.).\n\nAll partners follow security and confidentiality standards compatible with the LGPD.\n\n___\n\n### 5. Storage and Security\n\nData is stored on protected servers and accessed only by authorized personnel. We adopt technical and administrative measures to prevent unauthorized access, leaks, or loss.\n\n___\n\n### 6. Data Subject Rights\nThe user may, at any time:\n\n- Confirm the existence of data processing;\n- Access, correct, delete, or request anonymization of data;\n- Revoke previously given consent;\n- Request data portability to another provider.\n\nRequests may be made via email: ludus.auratus@gmail.com\n\n___\n\n### 7. Data Retention\n\nData is retained only for as long as necessary to fulfill the stated purposes and legal obligations (such as tax or contractual requirements).\n\n___\n\n### 8. Data Protection Officer (DPO)\n\nThe person responsible for personal data processing is:\nName: ???\n\n**Email:** ludus.auratus@gmail.com\n\n___\n\n### 9. Changes to this Policy\n\nWe may update this Privacy Policy periodically. Changes will take effect after publication on the website, and users will be notified in case of relevant updates.\n\n___\n\n**LUDUS**\n\n Contact: ludus.auratus@gmail.com\n"
+      }
+    }
+  },
+
+  "Team": {
+    "title": "Our Team",
+    "description": "Those who make Ludus possible",
+
+    "roles": {
+      "product_owner": "Product Owner",
+      "scrum_master": "Scrum Master",
+      "financial": "Financial",
+      "marketing": "Marketing",
+      "ui_ux": "UI & UX",
+      "data_base": "Database",
+      "backend": "Backend",
+      "frontend": "Frontend",
+      "fullstack": "Fullstack",
+      "artificial_intelligence": "Artificial Intelligence"
+    },
+    "descriptions": {
+      "nicole": "Nicole is the Product Owner of the team and acts as the main link between strategic vision and execution. Responsible for prioritizing demands, defining requirements, and ensuring that the product meets users’ needs, she leads development with a focus on value, clarity, and alignment with business objectives.",
+      "kayque": "Kayque serves as the Scrum Master and a Fullstack Developer, playing a key role in organizing agile processes and removing team impediments. In addition to facilitating communication and collaboration among members, he actively contributes to technical development, combining best practices in agile management and software engineering.",
+      "matheus": "Matheus is responsible for the financial area and also works as a Fullstack Developer. He handles financial planning, resource control, and project sustainability, while also contributing technically to the platform’s development, ensuring a balance between economic viability and technical quality.",
+      "mizael": "Mizael leads the Marketing strategies, being responsible for communication, brand positioning, and audience engagement. His work involves campaign creation, market analysis, and strengthening the project’s identity, bringing the solution closer to users and the market.",
+      "pedro": "Pedro works as a Fullstack Developer, contributing across different layers of the application with a focus on performance, scalability, and maintainability. His versatility allows him to efficiently integrate frontend and backend, supporting the team in building solid and well-structured solutions.",
+      "gustavo": "Gustavo is responsible for Backend and Database development, taking care of the architecture, security, and data integrity. His work ensures that systems are robust, efficient, and ready to scale, reliably supporting the entire platform operation.",
+      "raquel": "Raquel works on Frontend development and in the UI/UX area, being responsible for transforming complex functionalities into intuitive and enjoyable experiences. Her focus is on usability, accessibility, and user-centered design, ensuring that the interface is clear, modern, and efficient.",
+      "ludus": "Ludus is the platform’s artificial intelligence, developed to make the user experience simpler, more efficient, and personalized. Its primary function is to guide users through the site, assisting with navigation, explaining features, and providing clear and accessible contextual support. Additionally, Ludus acts as an intelligent game discovery engine, capable of interpreting natural language descriptions and identifying titles that best match the preferences, styles, and expectations provided by the user, seamlessly connecting technology and experience."
+    }
+  },
+
   "Wip": {
     "title": "Programmers in Action",
     "paragraph": "We're sorry, but this page still in progress",
