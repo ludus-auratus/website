@@ -14,7 +14,7 @@ const footerLinks: Record<string, FooterLink[]> = {
   ],
   support: [
     { name: "contact", href: "/contact" },
-    { name: "faq", href: "#" },
+    // { name: "faq", href: "#" },
   ],
   legal: [
     { name: "terms_of_use", href: "policies/terms_of_use" },

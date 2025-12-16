@@ -35,7 +35,7 @@ export function GameCartAction({ game }: Props) {
       const isOwned = await checkGameOwnership(1, game.id);
 
       if (isOwned) {
-        toast.error("Este jogo já está na sua biblioteca.");
+        toast.error(t("toast_already_in_library"));
         return;
       }
 

@@ -239,10 +239,10 @@ function OptionsMenu({ gameId }: { gameId: number }) {
         </Button>
       </DropdownMenuTrigger>
       <DropdownMenuContent align="end">
-        <DropdownMenuItem>
+        {/* <DropdownMenuItem>
           <Edit className="mr-2 h-4 w-4" />
           Editar
-        </DropdownMenuItem>
+        </DropdownMenuItem> */}
         <DropdownMenuItem asChild>
           <Link href={`/game/${gameId}`}>
             <ExternalLink className="mr-2 h-4 w-4" />
