@@ -6,31 +6,44 @@ import { Card } from "@/components/ui/card";
 import { Checkbox } from "@/components/ui/checkbox";
 import { Label } from "@/components/ui/label";
 import { Tooltip, TooltipContent, TooltipTrigger } from "@/components/ui/tooltip";
+import { Tag } from "@/lib/game/game.type";
 
 interface CatalogSidebarProps {
+  tags: Tag[];
+
   selectedGenres: string[];
   toggleGenre: (genre: string) => void;
-  selectedTags: string[];
-  toggleTag: (tag: string) => void;
+
+  selectedFeatures: string[];
+  toggleFeature: (feature: string) => void;
+
+  selectedAccessibility: string[];
+  toggleAccessibility: (item: string) => void;
+
   selectedPlatforms: string[];
   togglePlatform: (platform: string) => void;
+
   clearFilters: () => void;
 }
 
 export function CatalogSidebar({
+  tags,
   selectedGenres,
   toggleGenre,
-  // selectedTags,
-  // toggleTag,
+  selectedFeatures,
+  toggleFeature,
+  selectedAccessibility,
+  toggleAccessibility,
   selectedPlatforms,
   togglePlatform,
   clearFilters,
 }: CatalogSidebarProps) {
   const t = useTranslations("Catalog.sidebar");
 
-  const genres = ["Ação", "Aventura", "RPG", "Estratégia", "Simulação", "Música", "Luta", "Plataforma", "Outros"];
-  // const popularTags = ["Multiplayer", "Singleplayer", "Offline", "Online"];
-  const platforms = ["Mac", "Linux", "Windows"];
+  const genres = tags.filter((tag) => tag.type === "genre");
+  const platforms = tags.filter((tag) => tag.type === "platform");
+  const features = tags.filter((tag) => tag.type === "feature");
+  const accessibility = tags.filter((tag) => tag.type === "accessibility");
 
   return (
     <aside className="space-y-6">
@@ -58,68 +71,97 @@ export function CatalogSidebar({
       </Card>
 
       <div className="flex flex-row flex-wrap gap-6 lg:flex-col">
-        {/* <Card className="bg-card/50 border-border min-w-[200px] flex-1 p-6 backdrop-blur-sm">
-          <div className="space-y-3">
-            <Label className="font-ludus-pixelify-sans text-md">{t("popular_tags")}</Label>
+        {genres.length > 0 && (
+          <Card className="bg-card/50 border-border min-w-[200px] flex-1 p-6 backdrop-blur-sm">
+            <div className="space-y-3">
+              <Label className="font-ludus-pixelify-sans text-md">{t("genres")}</Label>
 
-            <div className="space-y-2">
-              {popularTags.map((tag) => (
-                <div key={tag} className="flex items-center space-x-2">
-                  <Checkbox
-                    id={`tag-${tag}`}
-                    checked={selectedTags.includes(tag)}
-                    onCheckedChange={() => toggleTag(tag)}
-                  />
-                  <Label htmlFor={`tag-${tag}`} className="cursor-pointer text-sm">
-                    {tag}
-                  </Label>
-                </div>
-              ))}
+              <div className="space-y-2">
+                {genres.map((genre) => (
+                  <div key={genre.id} className="flex items-center space-x-2">
+                    <Checkbox
+                      id={`genre-${genre.id}`}
+                      checked={selectedGenres.includes(genre.name)}
+                      onCheckedChange={() => toggleGenre(genre.name)}
+                    />
+                    <Label htmlFor={`genre-${genre.id}`} className="cursor-pointer text-sm">
+                      {genre.name}
+                    </Label>
+                  </div>
+                ))}
+              </div>
             </div>
-          </div>
-        </Card> */}
+          </Card>
+        )}
 
-        <Card className="bg-card/50 border-border min-w-[200px] flex-1 p-6 backdrop-blur-sm">
-          <div className="space-y-3">
-            <Label className="font-ludus-pixelify-sans text-md">{t("genres")}</Label>
+        {platforms.length > 0 && (
+          <Card className="bg-card/50 border-border min-w-[200px] flex-1 p-6 backdrop-blur-sm">
+            <div className="space-y-3">
+              <Label className="font-ludus-pixelify-sans text-md">{t("platforms")}</Label>
 
-            <div className="space-y-2">
-              {genres.map((genre) => (
-                <div key={genre} className="flex items-center space-x-2">
-                  <Checkbox
-                    id={`genre-${genre}`}
-                    checked={selectedGenres.includes(genre)}
-                    onCheckedChange={() => toggleGenre(genre)}
-                  />
-                  <Label htmlFor={`genre-${genre}`} className="cursor-pointer text-sm">
-                    {genre}
-                  </Label>
-                </div>
-              ))}
+              <div className="space-y-2">
+                {platforms.map((platform) => (
+                  <div key={platform.id} className="flex items-center space-x-2">
+                    <Checkbox
+                      id={`platform-${platform.id}`}
+                      checked={selectedPlatforms.includes(platform.name)}
+                      onCheckedChange={() => togglePlatform(platform.name)}
+                    />
+                    <Label htmlFor={`platform-${platform.id}`} className="cursor-pointer text-sm">
+                      {platform.name}
+                    </Label>
+                  </div>
+                ))}
+              </div>
             </div>
-          </div>
-        </Card>
+          </Card>
+        )}
 
-        <Card className="bg-card/50 border-border min-w-[200px] flex-1 p-6 backdrop-blur-sm">
-          <div className="space-y-3">
-            <Label className="font-ludus-pixelify-sans text-md">{t("platforms")}</Label>
+        {features.length > 0 && (
+          <Card className="bg-card/50 border-border min-w-[200px] flex-1 p-6 backdrop-blur-sm">
+            <div className="space-y-3">
+              <Label className="font-ludus-pixelify-sans text-md">{t("features")}</Label>
 
-            <div className="space-y-2">
-              {platforms.map((platform) => (
-                <div key={platform} className="flex items-center space-x-2">
-                  <Checkbox
-                    id={`platform-${platform}`}
-                    checked={selectedPlatforms.includes(platform)}
-                    onCheckedChange={() => togglePlatform(platform)}
-                  />
-                  <Label htmlFor={`platform-${platform}`} className="cursor-pointer text-sm">
-                    {platform}
-                  </Label>
-                </div>
-              ))}
+              <div className="space-y-2">
+                {features.map((tag) => (
+                  <div key={tag.id} className="flex items-center space-x-2">
+                    <Checkbox
+                      id={`tag-${tag.id}`}
+                      checked={selectedFeatures.includes(tag.name)}
+                      onCheckedChange={() => toggleFeature(tag.name)}
+                    />
+                    <Label htmlFor={`tag-${tag.id}`} className="cursor-pointer text-sm">
+                      {tag.name}
+                    </Label>
+                  </div>
+                ))}
+              </div>
             </div>
-          </div>
-        </Card>
+          </Card>
+        )}
+
+        {accessibility.length > 0 && (
+          <Card className="bg-card/50 border-border min-w-[200px] flex-1 p-6 backdrop-blur-sm">
+            <div className="space-y-3">
+              <Label className="font-ludus-pixelify-sans text-md">{t("accessibility")}</Label>
+
+              <div className="space-y-2">
+                {accessibility.map((tag) => (
+                  <div key={tag.id} className="flex items-center space-x-2">
+                    <Checkbox
+                      id={`tag-${tag.id}`}
+                      checked={selectedAccessibility.includes(tag.name)}
+                      onCheckedChange={() => toggleAccessibility(tag.name)}
+                    />
+                    <Label htmlFor={`tag-${tag.id}`} className="cursor-pointer text-sm">
+                      {tag.name}
+                    </Label>
+                  </div>
+                ))}
+              </div>
+            </div>
+          </Card>
+        )}
       </div>
     </aside>
   );

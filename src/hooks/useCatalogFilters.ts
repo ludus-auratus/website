@@ -9,8 +9,8 @@ export function useCatalogFilters(games: GameListItem[]) {
   const [sortBy, setSortBy] = useState<SortBy>("popular");
 
   const [selectedGenres, setSelectedGenres] = useState<string[]>([]);
-  const [selectedTags, setSelectedTags] = useState<string[]>([]);
-
+  const [selectedFeatures, setSelectedFeatures] = useState<string[]>([]);
+  const [selectedAccessibility, setSelectedAccessibility] = useState<string[]>([]);
   const [selectedPlatforms, setSelectedPlatforms] = useState<string[]>([]);
 
   function toggleItem(value: string, list: string[], setList: (v: string[]) => void) {
@@ -21,8 +21,12 @@ export function useCatalogFilters(games: GameListItem[]) {
     toggleItem(genre, selectedGenres, setSelectedGenres);
   }
 
-  function toggleTag(tag: string) {
-    toggleItem(tag, selectedTags, setSelectedTags);
+  function toggleFeature(feature: string) {
+    toggleItem(feature, selectedFeatures, setSelectedFeatures);
+  }
+
+  function toggleAccessibility(item: string) {
+    toggleItem(item, selectedAccessibility, setSelectedAccessibility);
   }
 
   function togglePlatform(platform: string) {
@@ -33,7 +37,8 @@ export function useCatalogFilters(games: GameListItem[]) {
     setSearchTerm("");
     setSortBy("popular");
     setSelectedGenres([]);
-    setSelectedTags([]);
+    setSelectedFeatures([]);
+    setSelectedAccessibility([]);
     setSelectedPlatforms([]);
   }
 
@@ -45,12 +50,18 @@ export function useCatalogFilters(games: GameListItem[]) {
         const matchGenre =
           selectedGenres.length === 0 || selectedGenres.every((genre) => game.tags.genders.includes(genre));
 
-        const matchTags = selectedTags.length === 0 || selectedTags.every((tag) => game.tags.features.includes(tag));
+        const matchFeatures =
+          selectedFeatures.length === 0 || selectedFeatures.every((feature) => game.tags.features.includes(feature));
 
-        // A filtragem da plataforma está desativada no momento, pois os dados do jogo não contêm informações sobre a plataforma
-        // const matchPlatform = selectedPlatforms.length === 0 || ...
+        const matchAccessibility =
+          selectedAccessibility.length === 0 ||
+          selectedAccessibility.every((item) => game.tags.accessibility.includes(item));
 
-        return matchSearch && matchGenre && matchTags;
+        const matchPlatform =
+          selectedPlatforms.length === 0 ||
+          selectedPlatforms.every((platform) => game.tags.platforms.includes(platform));
+
+        return matchSearch && matchGenre && matchFeatures && matchAccessibility && matchPlatform;
       })
       .sort((a, b) => {
         switch (sortBy) {
@@ -66,7 +77,7 @@ export function useCatalogFilters(games: GameListItem[]) {
             return 0;
         }
       });
-  }, [games, searchTerm, sortBy, selectedGenres, selectedTags]);
+  }, [games, searchTerm, sortBy, selectedGenres, selectedFeatures, selectedAccessibility, selectedPlatforms]);
 
   return {
     games: filteredAndSortedGames,
@@ -80,8 +91,11 @@ export function useCatalogFilters(games: GameListItem[]) {
     selectedGenres,
     toggleGenre,
 
-    selectedTags,
-    toggleTag,
+    selectedFeatures,
+    toggleFeature,
+
+    selectedAccessibility,
+    toggleAccessibility,
 
     selectedPlatforms,
     togglePlatform,

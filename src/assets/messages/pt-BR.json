@@ -561,9 +561,10 @@
     "sidebar": {
       "filters_title": "Filtros",
       "clear_all": "Limpar tudo",
-      "popular_tags": "Tags Populares",
       "genres": "Gêneros",
-      "platforms": "Plataformas"
+      "platforms": "Plataformas",
+      "features": "Recursos ",
+      "accessibility": "Acessibilidade"
     },
     "empty": {
       "title": "Nenhum jogo encontrado",

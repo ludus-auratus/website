@@ -35,3 +35,29 @@ export async function fetchTags(): Promise<Tag[]> {
 
   return mappedTags;
 }
+
+export async function fetchTagsWithGames(): Promise<Tag[]> {
+  const resposta = await fetch(`${env.API_BASE_URL}/tag/com-jogos`, {
+    next: { revalidate: 60 },
+  });
+  const body = (await resposta.json()) as ApiResponse<ApiTag[]>;
+
+  if (!resposta.ok || !body.sucesso) {
+    throw new Error(body.mensagem || "Erro ao buscar tags com jogos");
+  }
+
+  const typeMap: Record<number, Tag["type"]> = {
+    0: "genre",
+    2: "platform",
+    1: "feature",
+    3: "accessibility",
+  };
+
+  const mappedTags: Tag[] = body.dados.map((tag: ApiTag) => ({
+    id: tag.idTag.toString(),
+    type: typeMap[tag.tipo] || "genre",
+    name: tag.nome,
+  }));
+
+  return mappedTags;
+}

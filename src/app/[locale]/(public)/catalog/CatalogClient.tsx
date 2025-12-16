@@ -16,13 +16,14 @@ import {
   EmptyStateTitle,
 } from "@/components/ui/empty-state";
 import { useCatalogFilters } from "@/hooks/useCatalogFilters";
-import { GameListItem } from "@/lib/game/game.type";
+import { GameListItem, Tag } from "@/lib/game/game.type";
 
 interface CatalogPageContentProps {
   initialGames: GameListItem[];
+  initialTags: Tag[];
 }
 
-export default function CatalogPageContent({ initialGames }: CatalogPageContentProps) {
+export default function CatalogPageContent({ initialGames, initialTags }: CatalogPageContentProps) {
   const t = useTranslations("Catalog");
   const [games] = useState<GameListItem[]>(initialGames);
   const [isLoading] = useState(false);
@@ -45,10 +46,13 @@ export default function CatalogPageContent({ initialGames }: CatalogPageContentP
         showFilters={showFilters}
         sidebar={
           <Catalog.Sidebar
+            tags={initialTags}
             selectedGenres={filters.selectedGenres}
             toggleGenre={filters.toggleGenre}
-            selectedTags={filters.selectedTags}
-            toggleTag={filters.toggleTag}
+            selectedFeatures={filters.selectedFeatures}
+            toggleFeature={filters.toggleFeature}
+            selectedAccessibility={filters.selectedAccessibility}
+            toggleAccessibility={filters.toggleAccessibility}
             selectedPlatforms={filters.selectedPlatforms}
             togglePlatform={filters.togglePlatform}
             clearFilters={filters.clearFilters}

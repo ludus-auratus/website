@@ -3,10 +3,9 @@ import Image from "next/image";
 import Link from "next/link";
 import { useRouter } from "next/navigation";
 import { useTranslations } from "next-intl";
-import { Eye, Heart, Loader2, ShoppingCart } from "lucide-react";
+import { Heart, Loader2, ShoppingCart } from "lucide-react";
 import { toast } from "sonner";
 
-import { useAuth } from "@/context/AuthContext";
 import { useCart } from "@/context/CartContext";
 import { formatPrice } from "@/lib/game/game.utils";
 import { checkGameOwnership } from "@/lib/library/library.api";
@@ -43,7 +42,7 @@ export function GameCard({ name, price, icon, id, rating, studio }: GameCardProp
       const isOwned = await checkGameOwnership(1, id);
 
       if (isOwned) {
-        toast.error("Este jogo já está na sua biblioteca.");
+        toast.error(t("toast_already_in_library"));
         router.push("/profile/my-library");
         return;
       }

@@ -479,9 +479,10 @@
     "sidebar": {
       "filters_title": "Filters",
       "clear_all": "Clear all",
-      "popular_tags": "Popular Tags",
       "genres": "Genres",
-      "platforms": "Platforms"
+      "platforms": "Platforms",
+      "features": "Features",
+      "accessibility": "Accessibility"
     },
     "empty": {
       "title": "No games found",
