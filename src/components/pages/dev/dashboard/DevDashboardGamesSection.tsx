@@ -1,8 +1,8 @@
-import { QuickGameDashboard } from "@/lib/dev/dashboard";
+import { DevDashboardGame } from "@/lib/dev/dashboard";
 
 import DevQuickGameCard from "./DevQuickGameCard";
 
-export default function DevDashboardGamesSection({ games }: { games: QuickGameDashboard[] }) {
+export default function DevDashboardGamesSection({ games }: { games: DevDashboardGame[] }) {
   return (
     <div>
       <div className="mb-6 flex items-baseline justify-between border-b-1">

@@ -16,8 +16,8 @@ const handler = NextAuth({
         }
 
         const dto: LoginDTO = {
-          email: credentials?.email,
-          senha: credentials?.password,
+          Email: credentials?.email,
+          Senha: credentials?.password,
         };
 
         const user = await loginUser(dto);

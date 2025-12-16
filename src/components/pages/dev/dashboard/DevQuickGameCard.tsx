@@ -104,55 +104,7 @@ export default function DevQuickGameCard({ game, advanced = false }: { game: Dev
               />
               <StatisticMiniCard icon={Star} label="Avaliação" value={game.percentualAprovacao.toFixed(1)} />
             </div>
-          ) : status === "revision" ? (
-            <div className="flex gap-3 rounded-xl border-2 border-yellow-500/20 bg-yellow-500/10 p-2.5">
-              <div className="flex h-12 w-12 flex-shrink-0 items-center justify-center rounded-lg bg-yellow-500/20">
-                <Upload className="h-6 w-6 text-yellow-500" />
-              </div>
-              <div className="flex-1">
-                <div className="items-baseline gap-2">
-                  <p className="text-foreground text-sm font-medium text-nowrap">
-                    Jogo em processo de revisão
-                    <span className="text-muted-foreground top-0 mt-2 text-xs text-nowrap"> (Progresso: 65%)</span>
-                  </p>
-                </div>
-                <p className="text-muted-foreground mb-1 text-xs">
-                  Nossa equipe está analisando seu jogo. Você receberá uma resposta em até 48 horas.
-                </p>
-                <Progress value={65} className="h-1" />
-              </div>
-            </div>
-          ) : status === "draft" ? (
-            <div className="border-border/50 bg-background/50 flex gap-3 rounded-xl border-2 p-2.5">
-              <div className="bg-border/50 flex h-12 w-12 flex-shrink-0 items-center justify-center rounded-lg">
-                <Edit className="text-muted-foreground h-6 w-6" />
-              </div>
-              <div className="flex flex-1 flex-col justify-center">
-                <p className="text-foreground text-sm font-medium text-nowrap">Rascunho não publicado</p>
-                <p className="text-muted-foreground mb-1 text-xs">
-                  Complete as informações e envie para revisão quando estiver pronto.
-                </p>
-              </div>
-            </div>
           ) : null}
-
-          <div className="flex gap-2 pt-2">
-            {!advanced ? (
-              <></>
-            ) : status === "published" ? (
-              <>
-                <ActionButton icon={Upload} text="Atualizar" />
-                <ActionButton icon={ExternalLink} text="Ver na Loja" href={`/game/${game.id}`} />
-                <ActionButton icon={BarChart3} text="Análises" disabled />
-              </>
-            ) : status === "revision" ? (
-              <></>
-            ) : (
-              <>
-                <ActionButton icon={Upload} text="Solicitar Revisão" variants="accent" />
-              </>
-            )}
-          </div>
         </div>
       </div>
     </Card>
